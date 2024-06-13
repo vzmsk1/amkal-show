@@ -1,0 +1,44 @@
+// ---- variables
+
+// colors
+$green: #caff34;
+$white: #ffffff;
+$black: #000000;
+
+// ----- fonts
+
+// local fonts
+@import "./base/fonts";
+
+// ----- base styles
+
+// base scss file
+@import "./base/set";
+
+// html, body
+html.lock {
+  overflow: hidden;
+  touch-action: none;
+}
+
+// main
+main {
+  position: relative;
+
+  flex: 1 1 auto;
+}
+
+// wrapper
+.wrapper {
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  max-width: 1920px;
+  height: 100%;
+
+  user-select: none;
+}
+
+// ----- imports
