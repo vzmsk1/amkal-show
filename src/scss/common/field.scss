@@ -1,0 +1,44 @@
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.field {
+  &__label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+  }
+
+  &__input {
+    padding-bottom: 8px;
+
+    width: 100%;
+
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.6);
+
+    font-size: 11px;
+    text-transform: uppercase;
+
+    transition: border-bottom 0.3s ease;
+
+    &._has-error {
+      border-bottom: 0.5px solid $red;
+    }
+  }
+}

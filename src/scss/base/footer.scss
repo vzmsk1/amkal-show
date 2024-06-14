@@ -1,0 +1,34 @@
+.footer {
+  &__container {
+    padding-bottom: 12px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 29px;
+
+    &_sublist {
+      padding-left: 63px;
+
+      row-gap: normal;
+
+      @media (max-width: 64.05em) {
+        padding-left: 84px;
+      }
+    }
+
+    @media (max-width: 48em) {
+      display: none;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+}

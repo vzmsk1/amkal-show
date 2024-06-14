@@ -5,6 +5,7 @@ $green: #caff34;
 $white: #ffffff;
 $black: #000000;
 $bg: #171717;
+$red: #ff7373;
 
 // ----- fonts
 
@@ -68,4 +69,5 @@ main {
 // ----- imports
 
 @import "./base/header";
+@import "./base/footer";
 @import "./base/sections";

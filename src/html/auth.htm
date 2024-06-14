@@ -1,0 +1,37 @@
+<section class="auth">
+  <div class="auth__container container">
+    <h1 class="auth__title title">ACCOUNT</h1>
+    <form action="#" data-validate class="auth__form form-auth">
+      <div class="form-auth__fields">
+        <div class="form-auth__field field">
+          <label class="field__label">
+            <span class="field__label-txt txt-uc">FIRST NAME</span>
+            <input
+              data-required
+              class="field__input"
+              type="text"
+              name="form[]"
+            />
+          </label>
+        </div>
+        <div class="form-auth__field field">
+          <label class="field__label">
+            <span class="field__label-txt txt-uc">E-MAIL ADDRESS</span>
+            <input
+              data-required
+              class="field__input"
+              type="email"
+              name="form[]"
+            />
+          </label>
+        </div>
+      </div>
+      <button type="submit" class="form-auth__btn btn btn_centered">
+        <span class="btn__txt">SIGN IN</span>
+      </button>
+    </form>
+    <p class="auth__text">
+      Don't have an account? <a href="#" class="auth__text-link">Sign up</a>
+    </p>
+  </div>
+</section>
