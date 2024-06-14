@@ -4,6 +4,7 @@
 $green: #caff34;
 $white: #ffffff;
 $black: #000000;
+$bg: #171717;
 
 // ----- fonts
 
@@ -17,9 +18,18 @@ $black: #000000;
 @import "./base/common";
 
 // html, body
+html,
+body {
+  height: 100%;
+}
 html.lock {
   overflow: hidden;
   touch-action: none;
+}
+body._light-theme {
+  color: $black;
+
+  background-color: $white;
 }
 
 // main
@@ -38,6 +48,7 @@ main {
 
   max-width: 1920px;
   height: 100%;
+  overflow-x: hidden;
 
   user-select: none;
 }
@@ -57,3 +68,4 @@ main {
 // ----- imports
 
 @import "./base/header";
+@import "./base/sections";

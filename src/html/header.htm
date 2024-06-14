@@ -29,7 +29,11 @@
       </div>
     </div>
     <a href="/" class="header__logo">
-      <img class="header__logo-image" src="@img/logo.svg" alt="" />
+      <img
+        class="header__logo-image header__logo-image_white"
+        src="@img/logo.svg"
+        alt=""
+      />
       <img
         class="header__logo-image header__logo-image_black"
         src="@img/logo-black.svg"
@@ -43,11 +47,12 @@
             ><span class="actions-header__txt-content txt-uc">ACCOUNT</span></a
           >
         </li>
-        <li class="actions-header__item">
-          <a href="#" class="actions-header__txt"
+        <li class="actions-header__item actions-header__item_cart">
+          <span class="actions-header__txt"
             ><span class="actions-header__txt-content txt-uc">CART</span
-            ><span class="actions-header__count">0</span></a
+            ><span class="actions-header__count">0</span></span
           >
+          @@include('./cart-widget.htm',{})
         </li>
       </ul>
     </div>

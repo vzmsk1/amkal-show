@@ -1,0 +1,28 @@
+.btn {
+  padding: 2px 8px;
+
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px;
+
+  background-color: $green;
+
+  &_white {
+    background-color: $white;
+  }
+
+  &_centered {
+    justify-content: center;
+
+    text-align: center;
+  }
+
+  &__txt {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.1em;
+    color: #000000;
+  }
+}

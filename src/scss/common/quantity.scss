@@ -1,0 +1,16 @@
+.quantity {
+  display: flex;
+  align-items: center;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  &__input {
+    width: 25px;
+
+    text-align: center;
+  }
+}

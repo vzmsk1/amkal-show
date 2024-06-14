@@ -4,3 +4,14 @@
   line-height: 14px;
   letter-spacing: 0.1em;
 }
+
+.title {
+  font-family: "Druk Text Wide Cyr";
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 59px;
+
+  @media (max-width: 48em) {
+    line-height: 39px;
+  }
+}

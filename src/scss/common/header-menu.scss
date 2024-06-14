@@ -11,11 +11,18 @@
 
   background-color: $green;
 
+  opacity: 0;
+  visibility: hidden;
   transform: translateY(-110vh);
 
-  transition: transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
 
   ._show-header-menu & {
+    opacity: 1;
+    visibility: visible;
     transform: none;
   }
 
