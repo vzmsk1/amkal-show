@@ -107,6 +107,12 @@
     line-height: 16px;
   }
 
+  &__title {
+    @media (min-width: 64.05em) {
+      max-width: 357px;
+    }
+  }
+
   &__group {
     display: flex;
     align-items: center;
