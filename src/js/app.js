@@ -2,6 +2,7 @@ import "../scss/style.scss";
 
 import "../js/lib/dd";
 import "../js/lib/swiper";
+import "../js/lib/lightgallery";
 
 import * as utils from "../js/utils/utils";
 utils.setCurrentYear();

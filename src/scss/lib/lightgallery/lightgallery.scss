@@ -1,0 +1,71 @@
+@import "lg-variables";
+@import "lg-mixins";
+@import "lg-fonts";
+@import "lg-theme-default";
+
+// Core
+@import "lightgallery-core";
+
+.lg-container {
+  .lg-download {
+    display: none;
+  }
+
+  .lg-toolbar .lg-icon {
+    font-size: 20px;
+    color: #ffffff;
+  }
+
+  .lg-counter {
+    position: absolute;
+    top: auto;
+    bottom: 10px;
+    right: 16px;
+
+    font-family: "Suisse Int'l";
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+  }
+
+  .lg-prev:after,
+  .lg-next:before {
+    content: "";
+
+    display: inline-block;
+    width: 25px;
+    height: 8px;
+
+    background: url("@img/icons/arr.svg") center / contain no-repeat;
+  }
+
+  .lg-next:before {
+    transform: rotate(180deg);
+  }
+
+  .lg-object.lg-image {
+    width: 618px;
+    height: 812px;
+
+    object-fit: cover;
+  }
+
+  .media {
+    &__text,
+    &__description {
+      position: absolute;
+      z-index: 2000;
+    }
+    &__text {
+      top: 11px;
+      left: 16px;
+    }
+    &__description {
+      left: 15px;
+      top: auto;
+      bottom: 10px;
+    }
+  }
+}
