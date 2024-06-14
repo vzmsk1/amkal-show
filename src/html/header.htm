@@ -1,0 +1,56 @@
+<header class="header">
+  <div class="header__container container">
+    <div class="header__inner">
+      <button type="button" class="header__hamburger"></button>
+      <nav data-da=".header-menu__content,1024,last" class="header__nav txt-uc">
+        <a href="#" class="header__nav-link">TEAM</a>
+        <a href="#" class="header__nav-link">MANIFESTO</a>
+        <a href="#" class="header__nav-link">PARTNERS</a>
+        <a href="#" class="header__nav-link">MERCH</a>
+        <a href="#" class="header__nav-link">MEDIA</a>
+        <a href="#" class="header__nav-link">MATCH</a>
+        <a href="#" class="header__nav-link">CONTACT</a>
+        <a href="#" class="header__nav-link">FEED</a>
+      </nav>
+      <div class="header__lang lang-header">
+        <div class="lang-header__item _desktop-only">
+          <input
+            class="lang-header__input"
+            type="radio"
+            checked
+            name="headerLang"
+          />
+          <span class="lang-header__text txt-uc">RU</span>
+        </div>
+        <div class="lang-header__item">
+          <input class="lang-header__input" type="radio" name="headerLang" />
+          <span class="lang-header__text txt-uc">EN</span>
+        </div>
+      </div>
+    </div>
+    <a href="/" class="header__logo">
+      <img class="header__logo-image" src="@img/logo.svg" alt="" />
+      <img
+        class="header__logo-image header__logo-image_black"
+        src="@img/logo-black.svg"
+        alt=""
+      />
+    </a>
+    <div class="header__inner">
+      <ul class="header__actions actions-header">
+        <li class="actions-header__item _desktop-only">
+          <a href="#" class="actions-header__txt"
+            ><span class="actions-header__txt-content txt-uc">ACCOUNT</span></a
+          >
+        </li>
+        <li class="actions-header__item">
+          <a href="#" class="actions-header__txt"
+            ><span class="actions-header__txt-content txt-uc">CART</span
+            ><span class="actions-header__count">0</span></a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+  @@include('./header-menu.htm',{})
+</header>
