@@ -1,0 +1,122 @@
+.feed {
+  margin-bottom: 143px;
+
+  @media (max-width: 64.05em) and (min-width: 48em) {
+    margin-bottom: 137px;
+  }
+
+  @media (max-width: 48em) {
+    margin-bottom: 92px;
+  }
+
+  &__container {
+    padding-top: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      padding-top: 146px;
+    }
+
+    @media (max-width: 48em) {
+      padding-top: 115px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 62px;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      margin-bottom: 159px;
+    }
+
+    @media (max-width: 48em) {
+      margin-bottom: 216px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 203px;
+    row-gap: 128px;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 184px;
+      row-gap: 137px;
+    }
+
+    @media (max-width: 48em) {
+      grid-template-columns: 1fr;
+      row-gap: 47px;
+    }
+  }
+}
+
+.feed-card {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+  }
+
+  &__image-wrap {
+    height: 193px;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      height: 273px;
+    }
+
+    @media (max-width: 48em) {
+      height: 231px;
+    }
+  }
+
+  &__image {
+    height: 100%;
+
+    object-fit: cover;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+
+    @media (max-width: 64.05em) {
+      row-gap: 20px;
+    }
+  }
+
+  &__title,
+  &__date {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  &__group {
+    display: flex;
+    align-items: center;
+    column-gap: 75px;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      column-gap: 200px;
+    }
+
+    @media (max-width: 48em) {
+      column-gap: 90px;
+    }
+  }
+
+  &__btn {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.3);
+  }
+}
