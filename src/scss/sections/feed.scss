@@ -24,8 +24,12 @@
     }
   }
 
-  &__title {
+  &__head {
     margin-bottom: 62px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     @media (max-width: 64.05em) and (min-width: 48em) {
       margin-bottom: 159px;
@@ -33,6 +37,12 @@
 
     @media (max-width: 48em) {
       margin-bottom: 216px;
+    }
+  }
+
+  &__watch-all-btn {
+    @media (max-width: 64.05em) {
+      display: none;
     }
   }
 

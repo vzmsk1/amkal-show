@@ -54,6 +54,10 @@
   row-gap: 32px;
   width: 358px;
 
+  @media (max-width: 48em) {
+    width: 100%;
+  }
+
   &__fields {
     display: flex;
     flex-direction: column;

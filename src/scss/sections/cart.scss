@@ -43,19 +43,15 @@
   }
 
   &__checkout-btn {
-    margin-bottom: 29.6rem;
+    margin-bottom: 50px;
 
     align-self: flex-end;
     min-width: 356px;
 
     @media (max-width: 64.05em) and (min-width: 48em) {
-      margin-bottom: 626px;
-
       min-width: 317px;
     }
     @media (max-width: 48em) {
-      margin-bottom: 324px;
-
       min-width: 279px;
     }
   }

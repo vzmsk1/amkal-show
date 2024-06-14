@@ -1,45 +1,43 @@
-const initQuantityInput = () => {
+function initQuantity() {
   if (document.querySelectorAll(".quantity").length) {
-    document.querySelectorAll(".quantity").forEach((quantity) => {
-      const input = quantity.querySelector(".quantity__input");
-      const qtyMin = Number(input.min);
-      const qtyMax = Number(input.max);
-      const minusBtn = quantity.querySelector(".quantity__count_minus");
-      const addBtn = quantity.querySelector(".quantity__count_add");
+    document.querySelectorAll(".quantity").forEach((el) => {
+      const input = el.querySelector(".quantity__input");
+      const minusBtn = el.querySelector(".quantity__count_minus");
+      const addBtn = el.querySelector(".quantity__count_add");
+      const qtyMin = parseInt(input.min);
+      const qtyMax = parseInt(input.max);
 
-      const onInputChangeHandler = () => {
-        const qty = Number(input.value);
+      input.addEventListener("change", function () {
+        const qty = parseInt(input.value);
 
-        if (qty) {
-          if (qty <= qtyMin) {
-            input.value = qtyMin;
-            minusBtn.setAttribute("disabled", "");
+        if (isNaN(qty) || qty <= qtyMin) {
+          input.value = qtyMin;
+          minusBtn.removeAttribute("disabled");
+          addBtn.removeAttribute("disabled");
+        } else {
+          minusBtn.removeAttribute("disabled");
+
+          if (qty >= qtyMax) {
+            input.value = qtyMax;
+            addBtn.setAttribute("disabled", "");
           } else {
-            minusBtn.removeAttribute("disabled");
-
-            if (qty >= qtyMax) {
-              input.value = qtyMax;
-              addBtn.setAttribute("disabled", "");
-            } else {
-              input.value = qty;
-              addBtn.removeAttribute("disabled");
-            }
+            input.value = qty;
+            addBtn.removeAttribute("disabled");
           }
         }
-      };
+      });
 
-      const onQuantityClickHandler = (e) => {
-        const { target } = e;
-
-        if (target.closest(".quantity__count")) {
-          const countBtn = target.closest(".quantity__count");
-          const operator = countBtn.dataset.action;
-          let qty = Number(input.value);
+      el.addEventListener("click", function (e) {
+        if (e.target.closest(".quantity__count")) {
+          const target = e.target.closest(".quantity__count");
+          const operator = target.dataset.action;
+          let qty = parseInt(input.value);
 
           if (operator === "add") {
             qty += 1;
+
             if (qty >= qtyMin + 1) {
-              minusBtn.removeAttribute("disabled");
+              addBtn.removeAttribute("disabled");
             }
 
             if (qty >= qtyMax) {
@@ -53,17 +51,14 @@ const initQuantityInput = () => {
             }
 
             if (qty < qtyMax) {
-              addBtn.removeAttribute("disabled");
+              minusBtn.removeAttribute("disabled");
             }
           }
 
           input.value = qty;
         }
-      };
-
-      input.addEventListener("change", onInputChangeHandler);
-      quantity.addEventListener("click", onQuantityClickHandler);
+      });
     });
   }
-};
-initQuantityInput();
+}
+initQuantity();
