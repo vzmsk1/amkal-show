@@ -1,0 +1,41 @@
+.contacts {
+  padding-top: 30px;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    column-gap: 40px;
+  }
+
+  &__form {
+    width: 606px;
+  }
+}
+
+.form-contacts {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+
+  &__fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 16px;
+    row-gap: 32px;
+  }
+
+  &__field {
+    &_fw {
+      grid-column: span 2;
+    }
+  }
+
+  &__textarea {
+    grid-column: span 2;
+  }
+
+  &__btn {
+    width: 100%;
+  }
+}

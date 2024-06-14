@@ -1,0 +1,51 @@
+.textarea {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+
+  &__group {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 20px;
+  }
+
+  &__counter {
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 14px;
+    text-align: right;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  textarea,
+  textarea::placeholder {
+    font-family: "Suisse Int'l";
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 14px;
+    letter-spacing: 0.1em;
+  }
+
+  &__field {
+    padding: 16px 22px;
+
+    height: 124px;
+    border: 0.5px solid rgba(255, 255, 255, 0.6);
+    border-radius: 6px;
+
+    resize: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &::placeholder {
+      text-transform: uppercase;
+
+      color: rgba(255, 255, 255, 0.4);
+    }
+  }
+}

@@ -16,6 +16,20 @@ const onFormSubmitHandler = (form, e) => {
   !form.querySelector("input._has-error") && form.submit();
 };
 
+const initTextAreaCounter = () => {
+  if (document.querySelectorAll(".textarea__counter").length) {
+    document.querySelectorAll(".textarea").forEach((textarea) => {
+      const field = textarea.querySelector("textarea");
+      const current = textarea.querySelector(".textarea__counter-current");
+
+      field.addEventListener("input", function () {
+        current.innerHTML = field.value.trim().length;
+      });
+    });
+  }
+};
+initTextAreaCounter();
+
 const initFormFields = () => {
   if (document.querySelectorAll("form[data-validate]").length) {
     document.querySelectorAll("form[data-validate]").forEach((form) => {

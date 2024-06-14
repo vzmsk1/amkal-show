@@ -18,6 +18,11 @@ input:focus {
 }
 
 .field {
+  &_to-left {
+    .field__label {
+      align-items: flex-start;
+    }
+  }
   &__label {
     display: flex;
     flex-direction: column;
