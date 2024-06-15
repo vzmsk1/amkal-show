@@ -94,9 +94,17 @@
     @media (min-width: 64.05em) {
       margin-right: 175px;
     }
+
+    @media (min-width: 48em) {
+      margin-top: -2px;
+
+      row-gap: 0.2px;
+    }
   }
 
   &__nav-link {
+    line-height: 13.8px;
+
     @media (max-width: 64.05em) {
       font-family: "Druk Text Wide Cyr";
       font-style: italic;
@@ -115,7 +123,7 @@
 
   &__logo {
     justify-self: center;
-    width: 46px;
+    width: 48px;
   }
 
   &__logo-image {
@@ -151,6 +159,8 @@
 }
 
 .lang-header {
+  margin-top: -1px;
+
   display: flex;
   column-gap: 21px;
 
@@ -187,12 +197,22 @@
 }
 
 .actions-header {
+  margin-top: -6px;
+
   display: flex;
   align-items: center;
   column-gap: 50px;
 
   @media (max-width: 64.05em) {
     column-gap: 35px;
+  }
+
+  @media (max-width: 64.05em) and (min-width: 48em) {
+    transform: translateX(7px);
+  }
+
+  @media (max-width: 48em) {
+    transform: none;
   }
 
   &__item {

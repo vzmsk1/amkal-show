@@ -10,37 +10,39 @@
   }
 
   &__container {
-    padding-top: 30px;
+    padding-top: 19px;
 
     display: flex;
     flex-direction: column;
 
     @media (max-width: 64.05em) and (min-width: 48em) {
-      padding-top: 146px;
+      padding-top: 135px;
     }
 
     @media (max-width: 48em) {
-      padding-top: 115px;
+      padding-top: 118px;
     }
   }
 
   &__head {
-    margin-bottom: 62px;
+    margin-bottom: 46px;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     @media (max-width: 64.05em) and (min-width: 48em) {
-      margin-bottom: 159px;
+      margin-bottom: 143px;
     }
 
     @media (max-width: 48em) {
-      margin-bottom: 216px;
+      margin-bottom: 211px;
     }
   }
 
   &__watch-all-btn {
+    transform: translateY(-15px);
+
     @media (max-width: 64.05em) {
       display: none;
     }
@@ -50,17 +52,28 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 203px;
-    row-gap: 128px;
+    row-gap: 123px;
+
+    @media (min-width: 64.05em) {
+      .feed-card {
+        &:nth-child(4n),
+        &:first-child {
+          .feed-card__group {
+            column-gap: 70px;
+          }
+        }
+      }
+    }
 
     @media (max-width: 64.05em) and (min-width: 48em) {
       grid-template-columns: repeat(2, 1fr);
       column-gap: 184px;
-      row-gap: 137px;
+      row-gap: 134px;
     }
 
     @media (max-width: 48em) {
       grid-template-columns: 1fr;
-      row-gap: 47px;
+      row-gap: 54px;
     }
   }
 }
@@ -70,6 +83,11 @@
     display: flex;
     flex-direction: column;
     row-gap: 15px;
+    min-height: 100%;
+
+    @media (max-width: 64.05em) {
+      row-gap: 11px;
+    }
   }
 
   &__image-wrap {
@@ -94,10 +112,8 @@
     display: flex;
     flex-direction: column;
     row-gap: 16px;
-
-    @media (max-width: 64.05em) {
-      row-gap: 20px;
-    }
+    height: 100%;
+    flex: 1 1 auto;
   }
 
   &__title,
@@ -107,7 +123,15 @@
     line-height: 16px;
   }
 
+  &__date {
+    @media (min-width: 64.05em) {
+      letter-spacing: 1px;
+    }
+  }
+
   &__title {
+    flex: 1 1 auto;
+
     @media (min-width: 64.05em) {
       max-width: 357px;
     }
@@ -116,10 +140,10 @@
   &__group {
     display: flex;
     align-items: center;
-    column-gap: 75px;
+    column-gap: 132px;
 
     @media (max-width: 64.05em) and (min-width: 48em) {
-      column-gap: 200px;
+      column-gap: 206px;
     }
 
     @media (max-width: 48em) {

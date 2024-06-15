@@ -22,6 +22,7 @@ $red: #ff7373;
 html,
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 html.lock {
   overflow: hidden;
@@ -49,7 +50,6 @@ main {
 
   max-width: 1920px;
   height: 100%;
-  overflow-x: hidden;
 
   user-select: none;
 }

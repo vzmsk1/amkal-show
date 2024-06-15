@@ -30,6 +30,10 @@
     display: none;
   }
 
+  @media (max-width: 64.05em) {
+    padding-top: 100px;
+  }
+
   &__container {
     display: flex;
     height: 100%;
