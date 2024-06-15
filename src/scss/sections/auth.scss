@@ -9,24 +9,32 @@
     text-align: center;
 
     @media (max-width: 64.05em) and (min-width: 48em) {
-      padding-top: 338px;
+      padding-top: 328px;
     }
 
     @media (max-width: 48em) {
-      padding-top: 134px;
+      padding-top: 119px;
     }
   }
 
   &__title {
-    margin-bottom: 104px;
+    margin-bottom: 88px;
+
+    &.title {
+      letter-spacing: -4px;
+    }
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      margin-bottom: 85px;
+    }
 
     @media (max-width: 48em) {
-      margin-bottom: 134px;
+      margin-bottom: 125px;
     }
   }
 
   &__form {
-    margin-bottom: 32px;
+    margin-bottom: 29px;
   }
 
   &__text {
@@ -51,7 +59,7 @@
 .form-auth {
   display: flex;
   flex-direction: column;
-  row-gap: 32px;
+  row-gap: 29px;
   width: 358px;
 
   @media (max-width: 48em) {
@@ -61,7 +69,7 @@
   &__fields {
     display: flex;
     flex-direction: column;
-    row-gap: 32px;
+    row-gap: 30px;
   }
 
   &__btn {
