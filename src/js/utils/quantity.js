@@ -6,6 +6,13 @@ function initQuantity() {
       const addBtn = el.querySelector(".quantity__count_add");
       const qtyMin = parseInt(input.min);
       const qtyMax = parseInt(input.max);
+      const regex = new RegExp(
+        /(^\d*$)|(Backspace|Tab|Delete|ArrowLeft|ArrowRight)/,
+      );
+
+      input.addEventListener("keypress", function (e) {
+        !e.key.match(regex) && e.preventDefault();
+      });
 
       input.addEventListener("change", function () {
         const qty = parseInt(input.value);

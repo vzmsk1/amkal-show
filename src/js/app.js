@@ -10,3 +10,5 @@ utils.setCurrentYear();
 import "../js/utils/forms";
 import "../js/utils/quantity";
 import "../js/utils/script";
+
+import "../js/components/total-price";

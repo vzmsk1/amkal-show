@@ -150,11 +150,15 @@
 								</a>
 								<div class="item-cart__quantity quantity">
 									<button class="quantity__count quantity__count_minus" data-action="minus" type="button">
-										-
+										<svg>
+											<use href="#minus-svg"></use>
+										</svg>
 									</button>
-									<input class="quantity__input" type="number" name="product-qty" min="1" max="99" value="1" />
+									<input pattern="[1-9]" class="quantity__input" type="number" name="product-qty" min="1" max="99" value="1" />
 									<button class="quantity__count quantity__count_add" data-action="add" type="button">
-										+
+										<svg>
+											<use href="#plus-svg"></use>
+										</svg>
 									</button>
 								</div>
 							</div>
@@ -179,11 +183,15 @@
 								</a>
 								<div class="item-cart__quantity quantity">
 									<button class="quantity__count quantity__count_minus" data-action="minus" type="button">
-										-
+										<svg>
+											<use href="#minus-svg"></use>
+										</svg>
 									</button>
-									<input class="quantity__input" type="number" name="product-qty" min="1" max="99" value="1" />
+									<input pattern="[1-9]" class="quantity__input" type="number" name="product-qty" min="1" max="99" value="1" />
 									<button class="quantity__count quantity__count_add" data-action="add" type="button">
-										+
+										<svg>
+											<use href="#plus-svg"></use>
+										</svg>
 									</button>
 								</div>
 							</div>
@@ -199,19 +207,30 @@
 					</ul>
 					<a href="#" class="cart__checkout-btn btn">
 						<span class="btn__txt">CHECKOUT</span>
-						<span class="btn__txt">$<span>925</span></span>
+						<span class="btn__txt">$<span id="totalPrice"></span></span>
 					</a>
-					<p class="cart__copyrights txt-uc">
-						©<span id="currentYear"></span>, AMKAL ESPORTS
-					</p>
 				</div>
 			</section>
 		</main>
+		<footer class="footer">
+			<div class="footer__container container">
+				<p class="footer__copyrights txt-uc">
+					©<span id="currentYear"></span>, AMKAL ESPORTS
+				</p>
+			</div>
+		</footer>
 	</div>
 	<svg style="display: none">
 		<symbol id="cross-svg" viewBox="0 0 13 13">
 			<path d="M10.5151 3.91211L4.15118 10.2761L2.73696 8.86186L9.10092 2.4979L10.5151 3.91211Z" fill="currentColor" />
 			<path d="M4.15112 2.49805L10.5151 8.86201L9.10087 10.2762L2.73691 3.91226L4.15112 2.49805Z" fill="currentColor" />
+		</symbol>
+		<symbol id="minus-svg" viewBox="0 0 10 3">
+			<path d="M0.702148 0.873047H9.70215V2.87305H0.702148V0.873047Z" fill="black" />
+		</symbol>
+		<symbol id="plus-svg" viewBox="0 0 10 10">
+			<path d="M6.20215 0.373047L6.20215 9.37305L4.20215 9.37305L4.20215 0.373047L6.20215 0.373047Z" fill="black" />
+			<path d="M0.702148 3.87305H9.70215V5.87305H0.702148V3.87305Z" fill="black" />
 		</symbol>
 	</svg>
 	<script src="js/app.js"></script>

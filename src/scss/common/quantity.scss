@@ -13,4 +13,11 @@
 
     text-align: center;
   }
+
+  &__count {
+    svg {
+      width: 9px;
+      height: 9px;
+    }
+  }
 }
