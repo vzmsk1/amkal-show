@@ -1,14 +1,16 @@
-@import "lg-variables";
-@import "lg-mixins";
-@import "lg-fonts";
-@import "lg-theme-default";
-
-// Core
-@import "lightgallery-core";
-
 .lg-container {
   .lg-download {
     display: none;
+  }
+
+  .lg-toolbar .lg-close:after {
+    content: "";
+
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+
+    background: url("@img/icons/cross.svg") center / contain no-repeat;
   }
 
   .lg-toolbar .lg-icon {
@@ -19,13 +21,13 @@
   .lg-counter {
     position: absolute;
     top: auto;
-    bottom: 10px;
+    bottom: -10px;
     right: 16px;
 
     font-family: "Suisse Int'l";
     font-weight: 500;
     font-size: 16px;
-    line-height: 21px;
+    line-height: 1;
     letter-spacing: 0.03em;
     color: #ffffff;
   }

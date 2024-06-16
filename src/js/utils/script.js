@@ -76,3 +76,7 @@ const onMatchMediaChangeHandler = () => {
 
 document.addEventListener("click", onClickHandler);
 tm.addEventListener("change", onMatchMediaChangeHandler);
+
+window.addEventListener("load", function () {
+  document.documentElement.classList.add("_page-loaded");
+});

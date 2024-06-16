@@ -24,9 +24,13 @@ body {
   height: 100%;
   overflow-x: hidden;
 }
-html.lock {
+html.lock,
+html.lg-on {
   overflow: hidden;
   touch-action: none;
+}
+._page-loaded header {
+  display: block;
 }
 body._light-theme {
   color: $black;

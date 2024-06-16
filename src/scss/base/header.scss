@@ -2,6 +2,12 @@
   position: relative;
   z-index: 50;
 
+  display: none;
+
+  @media (max-width: 64.05em) {
+    height: 65px;
+  }
+
   ._light-theme & {
     .header__logo-image_white {
       display: none;
@@ -39,9 +45,11 @@
         color: $black;
       }
       &__count {
-        color: $black;
+        ._show-header-menu & {
+          color: $black;
 
-        background-color: $white;
+          background-color: $white;
+        }
 
         &:not(._show-header-menu &) {
           ._light-theme & {

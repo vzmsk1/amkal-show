@@ -8,14 +8,20 @@
   }
 
   &__list {
+    margin-right: 2px;
+
     display: flex;
     flex-direction: column;
     row-gap: 29px;
 
+    @media (max-width: 64.05em) {
+      margin-right: 23px;
+    }
+
     &_sublist {
       padding-left: 63px;
 
-      row-gap: normal;
+      row-gap: 4px;
 
       @media (max-width: 64.05em) {
         padding-left: 84px;
@@ -30,5 +36,6 @@
   &__item {
     display: flex;
     flex-direction: column;
+    row-gap: 3px;
   }
 }
