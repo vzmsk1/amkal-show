@@ -1,6 +1,6 @@
 .feed-chapter {
-  margin-bottom: 140px;
-  padding-top: 30px;
+  margin-bottom: 114px;
+  padding-top: 24px;
 
   &__container {
     display: flex;
@@ -8,11 +8,20 @@
   }
 
   &__head {
-    margin-bottom: 119px;
+    margin-bottom: 104px;
 
     .feed-chapter__container {
-      row-gap: 35px;
+      row-gap: 23px;
     }
+  }
+
+  &__title {
+    line-height: 43px;
+    letter-spacing: -6px;
+  }
+
+  &__date {
+    letter-spacing: -6px;
   }
 
   &__body {
@@ -45,7 +54,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 140px;
+    row-gap: 128px;
 
     .feed-chapter__image-container .feed-chapter__image-wrap {
       width: 357px;
@@ -53,10 +62,14 @@
     }
 
     &:not(:last-child) {
-      margin-bottom: 140px;
+      margin-bottom: 136px;
 
       &.feed-chapter__group_has-images {
         margin-bottom: 70px;
+
+        .feed-chapter__group {
+          row-gap: 75px;
+        }
       }
     }
   }
@@ -71,12 +84,18 @@
   &__text-container {
     .feed-chapter__subtitle {
       grid-column: 2/3;
+
+      letter-spacing: -0.2px;
+
+      transform: translateX(-6px);
     }
   }
 
   &__grid {
     .feed-chapter__text-group {
       grid-column: 2/3;
+
+      transform: translateX(-6px);
     }
 
     .feed-chapter__text_small {
@@ -129,7 +148,7 @@
   &__image-container {
     display: flex;
     flex-direction: column;
-    row-gap: 8px;
+    row-gap: 7px;
 
     .feed-chapter {
       &__text {

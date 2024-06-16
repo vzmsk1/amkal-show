@@ -22,11 +22,19 @@
   &__title {
     margin-bottom: 90px;
 
+    &.title {
+      letter-spacing: 3px;
+    }
+
     @media (max-width: 64.05em) and (min-width: 48em) {
       margin-bottom: 145px;
     }
     @media (max-width: 48em) {
       margin-bottom: 48px;
+
+      &.title {
+        letter-spacing: -3px;
+      }
     }
   }
 

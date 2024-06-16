@@ -1,5 +1,11 @@
 .contacts {
-  padding-top: 30px;
+  padding-top: 20px;
+
+  &__title {
+    &.title {
+      letter-spacing: 3px;
+    }
+  }
 
   &__container {
     display: flex;
@@ -9,6 +15,8 @@
   }
 
   &__form {
+    padding-top: 74px;
+
     width: 606px;
   }
 }
@@ -22,7 +30,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 16px;
-    row-gap: 32px;
+    row-gap: 29px;
   }
 
   &__field {

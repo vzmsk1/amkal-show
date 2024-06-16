@@ -5,7 +5,7 @@ const onInputFocusInHandler = (e) => {
 const onFormSubmitHandler = (form, e) => {
   e.preventDefault();
 
-  form.querySelectorAll("input").forEach((input) => {
+  form.querySelectorAll("input, textarea").forEach((input) => {
     if (!input.value.length) {
       input.classList.add("_has-error");
     }
