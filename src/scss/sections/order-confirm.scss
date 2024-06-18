@@ -1,0 +1,54 @@
+.order-confirm {
+  margin-bottom: 124px;
+  padding-top: 239px;
+
+  &_err {
+    .order-confirm {
+      &__text {
+        margin-bottom: 52px;
+
+        max-width: 350px;
+      }
+      &__btn {
+        min-width: 119px;
+      }
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: 58px;
+
+    max-width: 556px;
+
+    &.title {
+      line-height: 39px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 65px;
+
+    max-width: 434px;
+
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  &__text-link {
+    color: $green;
+  }
+
+  &__btn {
+    min-width: 275px;
+
+    background-color: transparent;
+  }
+}
