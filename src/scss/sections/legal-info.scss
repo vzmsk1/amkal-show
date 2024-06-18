@@ -1,0 +1,158 @@
+.legal-info {
+  margin-bottom: 143px;
+  padding-top: 21px;
+
+  @media (max-width: 64.05em) and (min-width: 48em) {
+    margin-bottom: 75px;
+    padding-top: 83px;
+  }
+
+  @media (max-width: 48em) {
+    padding-top: 17px;
+    margin-bottom: 53px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__head {
+    margin-bottom: 44px;
+
+    @media (max-width: 48em) {
+      margin-bottom: 47px;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -4.6px;
+
+    span:last-child {
+      transform: translateY(-9px);
+    }
+
+    @media (min-width: 48em) {
+      max-width: 548px;
+    }
+
+    @media (max-width: 48em) {
+      &.title {
+        line-height: 1;
+        letter-spacing: -4.5px;
+      }
+    }
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+
+    @media (max-width: 48em) {
+      justify-content: stretch;
+      flex-direction: column;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    max-width: 358px;
+    width: 100%;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      max-width: 368px;
+    }
+
+    @media (max-width: 48em) {
+      max-width: none;
+    }
+  }
+
+  &__nav-link {
+    padding: 16px 0;
+
+    width: 100%;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.4);
+
+    line-height: 7px;
+
+    &:not(&._is-active) {
+      opacity: 0.4;
+    }
+
+    &:first-child {
+      border-bottom: 0.5px solid rgba(255, 255, 255, 0.4);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    max-width: 732px;
+    width: 100%;
+
+    font-size: 18px;
+    line-height: 24px;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      max-width: 488px;
+    }
+
+    @media (max-width: 48em) {
+      max-width: none;
+    }
+  }
+
+  &__text-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__list {
+    padding-left: 10px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5px;
+  }
+
+  &__list-item {
+    position: relative;
+
+    padding-left: 17px;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      top: 8px;
+      left: 0;
+
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+
+      background-color: $white;
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-child) {
+      margin-bottom: 23px;
+    }
+  }
+
+  &__subtitle {
+    text-transform: uppercase;
+  }
+}

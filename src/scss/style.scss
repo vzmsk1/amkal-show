@@ -58,6 +58,10 @@ main {
   &.mainpage {
     height: 100vh;
   }
+
+  @media (max-width: 48em) {
+    padding-top: 65px;
+  }
 }
 
 // wrapper

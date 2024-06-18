@@ -1,17 +1,17 @@
-._show-header-menu ._light-theme:not(._light-theme_green) {
+._show-header-menu {
+  .actions-header {
+    &__count {
+      color: $black;
+
+      background-color: $white;
+    }
+  }
   .header {
     &__logo-image {
       display: none;
       &_black {
         display: inline-block;
       }
-    }
-  }
-  .actions-header {
-    &__count {
-      color: $black;
-
-      background-color: $white;
     }
   }
 }
@@ -273,15 +273,16 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
-    letter-spacing: 0.1em;
     color: #000000;
 
-    background-color: $green;
+    &:not(._show-header-menu &) {
+      background-color: $green;
 
-    ._light-theme_green & {
-      color: $white;
+      ._light-theme_green & {
+        color: $white;
 
-      background-color: $black;
+        background-color: $black;
+      }
     }
 
     @media (max-width: 48em) {

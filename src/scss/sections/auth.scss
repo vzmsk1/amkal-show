@@ -13,7 +13,7 @@
     }
 
     @media (max-width: 48em) {
-      padding-top: 119px;
+      padding-top: 53px;
     }
   }
 
@@ -69,7 +69,18 @@
   &__fields {
     display: flex;
     flex-direction: column;
-    row-gap: 30px;
+    row-gap: 29px;
+
+    @media (min-width: 64.05em) {
+      .field:first-child .field__label-txt {
+        letter-spacing: 0.9px;
+        transform: translateX(1px);
+      }
+      .field:last-child .field__label-txt {
+        letter-spacing: 0.4px;
+        transform: translateX(2px);
+      }
+    }
   }
 
   &__btn {

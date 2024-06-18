@@ -3,10 +3,14 @@
   flex-direction: column;
   row-gap: 29px;
 
+  @media (max-width: 48em) {
+    row-gap: 24px;
+  }
+
   &_light-theme {
     .textarea {
       &__field:not(._has-error) {
-        border: 0.5px solid $black;
+        border: 0.5px solid rgba(0, 0, 0, 0.6);
 
         &::placeholder {
           color: #00000066;
@@ -54,10 +58,6 @@
     scrollbar-width: none;
 
     transition: border 0.3s ease;
-
-    &._has-error {
-      border: 0.5px solid $red;
-    }
 
     &::-webkit-scrollbar {
       display: none;

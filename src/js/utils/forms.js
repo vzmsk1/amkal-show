@@ -1,5 +1,6 @@
 const onInputFocusInHandler = (e) => {
   e.target.classList.remove("_has-error");
+  e.target.removeAttribute("style");
 };
 
 const onFormSubmitHandler = (form, e) => {
@@ -8,6 +9,12 @@ const onFormSubmitHandler = (form, e) => {
   form.querySelectorAll("input, textarea").forEach((input) => {
     if (!input.value.length) {
       input.classList.add("_has-error");
+
+      if (input.tagName === "INPUT") {
+        input.style.borderBottom = "0.5px solid #ff7373";
+      } else if (input.tagName === "TEXTAREA") {
+        input.style.border = "0.5px solid #ff7373";
+      }
     }
 
     input.addEventListener("focusin", onInputFocusInHandler);
