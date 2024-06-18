@@ -1,36 +1,129 @@
 .contacts {
-  padding-top: 20px;
+  padding-top: 16px;
+
+  @media (max-width: 64.05em) and (min-width: 48em) {
+    padding-top: 78px;
+  }
+
+  @media (max-width: 48em) {
+    margin-bottom: 90px;
+    padding-top: 88px;
+  }
+
+  &__head {
+    margin-bottom: 35px;
+
+    @media (max-width: 48em) {
+      margin-bottom: 50px;
+    }
+
+    @media (max-width: 48em) {
+      margin-bottom: 45px;
+    }
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 265px;
+
+    @media (max-width: 64.05em) {
+      column-gap: 95px;
+    }
+
+    @media (max-width: 48em) {
+      flex-direction: column;
+      justify-content: stretch;
+    }
+  }
 
   &__title {
     &.title {
-      letter-spacing: 3px;
+      font-family: "Druk Wide";
+      letter-spacing: 0;
     }
   }
 
   &__container {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    column-gap: 40px;
+    flex-direction: column;
   }
 
   &__form {
-    padding-top: 74px;
+    width: 100%;
 
-    width: 606px;
+    @media (max-width: 48em) {
+      margin-bottom: 98px;
+    }
+  }
+
+  &__presskit {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      max-width: 408px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 18px;
+  }
+
+  &__text {
+    margin-bottom: 28px;
+
+    font-size: 12px;
+    line-height: 16px;
+
+    @media (max-width: 64.05em) {
+      margin-bottom: 27px;
+    }
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      max-width: 352px;
+    }
+
+    @media (max-width: 48em) {
+      max-width: 352px;
+    }
   }
 }
 
 .form-contacts {
   display: flex;
   flex-direction: column;
-  row-gap: 32px;
+
+  .field__label-txt.txt-uc {
+    letter-spacing: 1px;
+  }
+  .field__input {
+    padding-bottom: 7px;
+  }
+  .textarea__field {
+    padding: 13px 22px;
+  }
+
+  &__title {
+    margin-bottom: 34px;
+
+    @media (max-width: 48em) {
+      margin-bottom: 32px;
+    }
+  }
 
   &__fields {
+    margin-bottom: 32px;
+
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 16px;
     row-gap: 29px;
+
+    @media (max-width: 48em) {
+      column-gap: 20px;
+    }
   }
 
   &__field {
@@ -45,5 +138,11 @@
 
   &__btn {
     width: 100%;
+
+    background-color: $black;
+
+    .btn__txt {
+      color: $green;
+    }
   }
 }

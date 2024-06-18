@@ -14,7 +14,7 @@
     flex-direction: column;
     row-gap: 29px;
 
-    @media (max-width: 64.05em) {
+    @media (max-width: 64.05em) and (min-width: 48em) {
       margin-right: 23px;
     }
 
@@ -23,13 +23,20 @@
 
       row-gap: 4px;
 
-      @media (max-width: 64.05em) {
+      @media (max-width: 64.05em) and (min-width: 48em) {
         padding-left: 84px;
+      }
+
+      @media (max-width: 48em) {
+        padding-left: 68px;
       }
     }
 
     @media (max-width: 48em) {
-      display: none;
+      margin-right: 6px;
+      &._desktop-only {
+        display: none;
+      }
     }
   }
 

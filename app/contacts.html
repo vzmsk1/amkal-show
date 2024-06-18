@@ -12,13 +12,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 </head>
 
-<body>
+<body class="_light-theme _light-theme_green">
 	<div class="wrapper">
-		<header class="header">
+		<header class="header _dark-theme">
 			<div class="header__container container">
 				<div class="header__inner">
 					<button type="button" class="header__hamburger"></button>
-					<nav data-header-anim data-da=".header-menu__content,1024,last" class="header__nav txt-uc">
+					<nav data-da=".header-menu__content,1024,last" class="header__nav txt-uc">
 						<a href="#" class="header__nav-link">TEAM</a>
 						<a href="#" class="header__nav-link">MANIFESTO</a>
 						<a href="#" class="header__nav-link">PARTNERS</a>
@@ -28,7 +28,7 @@
 						<a href="#" class="header__nav-link">CONTACT</a>
 						<a href="#" class="header__nav-link">FEED</a>
 					</nav>
-					<div data-header-anim class="header__lang lang-header">
+					<div class="header__lang lang-header">
 						<div class="lang-header__item _desktop-only">
 							<input class="lang-header__input" type="radio" checked name="headerLang" />
 							<span class="lang-header__text txt-uc">RU</span>
@@ -39,19 +39,19 @@
 						</div>
 					</div>
 				</div>
-				<a data-header-anim href="/" class="header__logo">
+				<a href="/" class="header__logo">
 					<img class="header__logo-image header__logo-image_white" src="img/logo.svg" alt="" />
 					<img class="header__logo-image header__logo-image_black" src="img/logo-black.svg" alt="" />
 				</a>
-				<div data-header-anim class="header__inner">
+				<div class="header__inner">
 					<ul class="header__actions actions-header">
 						<li class="actions-header__item _desktop-only">
 							<a href="#" class="actions-header__txt"><span class="actions-header__txt-content txt-uc">ACCOUNT</span></a>
 						</li>
+
 						<li class="actions-header__item actions-header__item_cart">
 							<span class="actions-header__txt"><span class="actions-header__txt-content txt-uc">CART</span><span class="actions-header__count">0</span></span>
 							<div class="cart-widget">
-								<span class="cart-widget__title title">CART</span>
 								<ul class="cart-widget__items">
 									<li class="cart__item item-cart">
 										<a href="#" class="item-cart__image-wrap">
@@ -113,18 +113,15 @@
 									</li>
 								</ul>
 								<div class="cart-widget__buttons">
+									<a href="#" class="cart-widget__btn btn btn_white btn_centered">
+										<span class="btn__txt">GO TO CART</span>
+									</a>
 									<a href="#" class="cart-widget__btn btn">
 										<span class="btn__txt">CHECKOUT</span>
 										<span class="btn__txt">$<span>925</span></span>
 									</a>
 								</div>
-								<button type="button" class="cart-widget__close-btn">
-									<svg class="cart-widget__close-btn-icon">
-										<use href="#cross-svg"></use>
-									</svg>
-								</button>
 							</div>
-
 						</li>
 					</ul>
 				</div>
@@ -136,51 +133,68 @@
 			</div>
 
 		</header>
-
 		<main class="main">
 			<section class="contacts">
 				<div class="contacts__container container">
-					<h1 class="contacts__title title">CONTACT</h1>
-					<form action="#" data-validate class="contacts__form form-contacts">
-						<div class="form-contacts__fields">
-							<div class="form-contacts__field field field_to-left">
-								<label class="field__label">
-									<span class="field__label-txt txt-uc">FIRST NAME</span>
-									<input class="field__input" type="text" name="form[]" />
-								</label>
-							</div>
-							<div class="form-contacts__field field field_to-left">
-								<label class="field__label">
-									<span class="field__label-txt txt-uc">LAST NAME</span>
-									<input class="field__input" type="text" name="form[]" />
-								</label>
-							</div>
-							<div class="form-contacts__field form-contacts__field_fw field field_to-left">
-								<label class="field__label">
-									<span class="field__label-txt txt-uc">E-MAIL ADRESS</span>
-									<input class="field__input" type="email" name="form[]" />
-								</label>
-							</div>
-							<div class="form-contacts__field form-contacts__field_fw field field_to-left">
-								<label class="field__label">
-									<span class="field__label-txt txt-uc">SUBJECT</span>
-									<input class="field__input" type="text" name="form[]" />
-								</label>
-							</div>
-							<div class="form-contacts__textarea textarea">
-								<div class="textarea__group">
-									<span class="textarea__label txt-uc">YOUR MESSAGE</span>
-									<div class="textarea__counter">
-										<span class="textarea__counter-current">0</span>/<span class="textarea__counter-total">500</span>
-									</div>
+					<div class="contacts__head">
+						<h1 class="contacts__title title">CONTACT</h1>
+					</div>
+
+					<div class="contacts__body">
+						<form action="#" data-validate class="contacts__form form-contacts">
+							<h2 class="form-contacts__title subtitle">Write us</h2>
+							<div class="form-contacts__fields">
+								<div class="form-contacts__field field field_light-theme field_to-left">
+									<label class="field__label">
+										<span class="field__label-txt txt-uc">FIRST NAME</span>
+										<input class="field__input" type="text" name="form[]" />
+									</label>
 								</div>
-								<textarea maxlength="500" class="textarea__field" placeholder="TEXT..."></textarea>
+								<div class="form-contacts__field field field_light-theme field_to-left">
+									<label class="field__label">
+										<span class="field__label-txt txt-uc">LAST NAME</span>
+										<input class="field__input" type="text" name="form[]" />
+									</label>
+								</div>
+								<div class="form-contacts__field form-contacts__field_fw field field_light-theme field_to-left">
+									<label class="field__label">
+										<span class="field__label-txt txt-uc">E-MAIL ADRESS</span>
+										<input class="field__input" type="email" name="form[]" />
+									</label>
+								</div>
+								<div class="form-contacts__field form-contacts__field_fw field field_light-theme field_to-left">
+									<label class="field__label">
+										<span class="field__label-txt txt-uc">SUBJECT</span>
+										<input class="field__input" type="text" name="form[]" />
+									</label>
+								</div>
+								<div class="form-contacts__textarea textarea textarea_light-theme">
+									<div class="textarea__group">
+										<span class="textarea__label txt-uc">YOUR MESSAGE</span>
+										<div class="textarea__counter">
+											<span class="textarea__counter-current">0</span>/<span class="textarea__counter-total">500</span>
+										</div>
+									</div>
+									<textarea maxlength="500" class="textarea__field" placeholder="TEXT..."></textarea>
+								</div>
 							</div>
+							<button type="submit" class="form-contacts__btn btn btn_centered">
+								<span class="btn__txt">SUBMIT</span>
+							</button>
+						</form>
+						<div class="contacts__presskit">
+							<h2 class="contacts__subtitle subtitle">Presskit</h2>
+							<p class="contacts__text">
+								Here you'll find everything you need to write about us, including
+								high-resolution logos, guideline, team photos, press releases, and
+								team information. Download our media kit to access comprehensive
+								resources designed to assist you in sharing our story.
+							</p>
+							<button type="button" class="contacts__btn btn btn_centered btn_ol">
+								<span class="btn__txt">DOWNLOAD MEDIA KIT</span>
+							</button>
 						</div>
-						<button type="submit" class="form-contacts__btn btn btn_centered">
-							<span class="btn__txt">SUBMIT</span>
-						</button>
-					</form>
+					</div>
 				</div>
 			</section>
 		</main>

@@ -1,3 +1,21 @@
+._show-header-menu ._light-theme:not(._light-theme_green) {
+  .header {
+    &__logo-image {
+      display: none;
+      &_black {
+        display: inline-block;
+      }
+    }
+  }
+  .actions-header {
+    &__count {
+      color: $black;
+
+      background-color: $white;
+    }
+  }
+}
+
 .header {
   position: relative;
   z-index: 50;
@@ -28,14 +46,6 @@
   ._light-theme &,
   &._dark-theme {
     .header {
-      &__logo-image {
-        ._show-header-menu & {
-          display: none;
-          &_black {
-            display: inline-block;
-          }
-        }
-      }
       &__hamburger {
         &::before,
         &::after {
@@ -53,13 +63,7 @@
         color: $black;
       }
       &__count {
-        ._show-header-menu & {
-          color: $black;
-
-          background-color: $white;
-        }
-
-        &:not(._show-header-menu &) {
+        &:not(._show-header-menu &, ._light-theme_green &) {
           ._light-theme & {
             background-color: $green;
           }
@@ -273,6 +277,12 @@
     color: #000000;
 
     background-color: $green;
+
+    ._light-theme_green & {
+      color: $white;
+
+      background-color: $black;
+    }
 
     @media (max-width: 48em) {
       flex: 0 0 24px;

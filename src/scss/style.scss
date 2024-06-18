@@ -43,6 +43,10 @@ body._light-theme {
   color: $black;
 
   background-color: $white;
+
+  &_green {
+    background-color: $green;
+  }
 }
 
 // main

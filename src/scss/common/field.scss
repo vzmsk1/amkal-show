@@ -12,17 +12,22 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
   -webkit-appearance: none;
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+input,
+textarea {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+}
 textarea:focus,
 input:focus {
   outline: none;
 }
 
 .field {
-  &_to-left {
-    .field__label {
-      align-items: flex-start;
-    }
-  }
   &__label {
     display: flex;
     flex-direction: column;
@@ -42,12 +47,23 @@ input:focus {
     border-bottom: 0.5px solid rgba(255, 255, 255, 0.6);
 
     font-size: 11px;
-    text-transform: uppercase;
 
     transition: border-bottom 0.3s ease;
 
     &._has-error {
       border-bottom: 0.5px solid $red;
+    }
+  }
+
+  &_to-left {
+    .field__label {
+      align-items: flex-start;
+    }
+  }
+
+  &_light-theme {
+    .field__input:not(._has-error) {
+      border-bottom: 0.5px solid $black;
     }
   }
 }
