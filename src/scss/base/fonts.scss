@@ -11,8 +11,14 @@
   src: url(@fonts/Druk-Text-Wide-Bold-Italic.woff2);
 }
 @font-face {
-  font-family: "Druk Text Wide Cyr Heavy Italic";
+  font-family: "Druk Text Wide Cyr";
+  font-style: normal;
+  font-weight: 500;
+  src: url(@fonts/druktextwidecyr-mediumitalic.woff2);
+}
+@font-face {
+  font-family: "Druk Wide";
   font-style: normal;
   font-weight: 700;
-  src: url(@fonts/druktextwidecyr-heavyitalic.woff2);
+  src: url(@fonts/DrukWide-BoldItalic.woff2);
 }

@@ -2,9 +2,13 @@
 <html lang="en">
   @@include('html/head.htm',{ "title":"MAIN" })
   <body>
-    <div class="wrapper">
+    <div class="wrapper _fw">
       @@include('html/header.htm',{})
-      <main class="main"></main>
+      <main class="main mainpage">
+        @@include('html/hero.htm',{}) @@include('html/about.htm',{})
+        <!--         @@include('html/victory.htm',{}) -->
+      </main>
+      @@include('html/loader.htm',{})
     </div>
     @@include('html/svg.htm',{}) @@include('html/js.htm',{})
   </body>

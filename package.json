@@ -41,7 +41,10 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "gsap": "^3.12.5",
     "lightgallery": "^2.7.2",
-    "swiper": "^11.1.4"
+    "splitting": "^1.1.0",
+    "swiper": "^11.1.4",
+    "three": "^0.165.0"
   }
 }

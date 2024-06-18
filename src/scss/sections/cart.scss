@@ -2,7 +2,7 @@
   height: 100%;
 
   &__container {
-    padding-top: 19px;
+    padding-top: 17px;
     padding-bottom: 13px;
 
     display: flex;
@@ -14,25 +14,27 @@
       padding-bottom: 12px;
     }
     @media (max-width: 48em) {
-      padding-top: 114px;
+      padding-top: 118px;
       padding-bottom: 13px;
     }
   }
 
   &__title {
-    margin-bottom: 90px;
+    margin-bottom: 93px;
 
     &.title {
-      letter-spacing: 3px;
+      font-family: "Druk Wide";
+      letter-spacing: 0;
     }
 
     @media (max-width: 64.05em) and (min-width: 48em) {
-      margin-bottom: 145px;
+      margin-bottom: 148px;
     }
     @media (max-width: 48em) {
-      margin-bottom: 48px;
+      margin-bottom: 46px;
 
       &.title {
+        font-family: "Druk Text Wide Cyr";
         letter-spacing: -3px;
       }
     }
@@ -47,6 +49,8 @@
 
     @media (max-width: 64.05em) {
       margin-bottom: 80px;
+
+      row-gap: 7px;
     }
   }
 

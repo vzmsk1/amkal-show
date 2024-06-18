@@ -1,4 +1,6 @@
+import * as transitions from "../anim/transitions";
 import { bodyLock, bodyLockToggle, bodyUnlock } from "@js/utils/utils";
+import { initMainpageScroll } from "../anim/mainpage-scroll";
 
 const tm = window.matchMedia("(max-width: 64.05em)");
 const mm = window.matchMedia("(max-width: 48em)");
@@ -79,4 +81,18 @@ tm.addEventListener("change", onMatchMediaChangeHandler);
 
 window.addEventListener("load", function () {
   document.documentElement.classList.add("_page-loaded");
+
+  if (document.querySelector(".loader")) {
+    document.documentElement.classList.add("_is-locked");
+
+    initMainpageScroll();
+
+    transitions.setDefaults();
+    transitions.animateHeader();
+    transitions.animateHero();
+
+    setTimeout(() => {
+      document.querySelector(".loader").remove();
+    }, 1000);
+  }
 });

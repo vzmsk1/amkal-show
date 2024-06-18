@@ -1,0 +1,61 @@
+.about {
+  color: $black;
+
+  background-color: $green;
+
+  &__container {
+    padding-top: 260px;
+    padding-bottom: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100vh;
+  }
+
+  &__text {
+    margin-bottom: 10px;
+
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  &__image-wrap {
+    margin-bottom: 9px;
+    margin-left: 413px;
+
+    width: 279px;
+    height: 185px;
+  }
+
+  &__image {
+    height: 100%;
+
+    object-fit: cover;
+  }
+
+  &__title {
+    margin-left: 622px;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title-txt {
+    font-family: "Druk Text Wide Cyr";
+    font-size: 90px;
+    line-height: 85%;
+    letter-spacing: -0.06em;
+
+    &_large {
+      margin-left: 321px;
+
+      font-size: 200px;
+      line-height: 88.7%;
+    }
+
+    &_to-right {
+      margin-left: auto;
+    }
+  }
+}

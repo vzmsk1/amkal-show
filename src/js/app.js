@@ -11,4 +11,6 @@ import "../js/utils/forms";
 import "../js/utils/quantity";
 import "../js/utils/script";
 
+import "./anim/victory";
+
 import "../js/components/total-price";
