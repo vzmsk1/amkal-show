@@ -1,0 +1,179 @@
+.team {
+  padding-top: 19px;
+  padding-bottom: 4px;
+
+  height: 100%;
+
+  @media (max-width: 64.05em) and (min-width: 48em) {
+    padding-top: 78px;
+  }
+
+  @media (max-width: 48em) {
+    padding-top: 25px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 30px;
+    height: 100%;
+  }
+
+  &__title {
+    transform: translateX(-2px);
+
+    &.title {
+      letter-spacing: -5.2px;
+    }
+  }
+
+  &__head {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__body {
+    flex: 1 1 auto;
+  }
+
+  &__carousel {
+    position: relative;
+  }
+
+  &__nav-btn {
+    position: absolute;
+    z-index: 3;
+    top: 247px;
+
+    cursor: pointer;
+
+    &_prev {
+      left: 0;
+    }
+
+    &_next {
+      right: 0;
+
+      transform: rotate(180deg);
+    }
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      top: 442px;
+    }
+
+    @media (max-width: 48em) {
+      top: 274px;
+    }
+  }
+
+  &__nav-btn-icon {
+    width: 25px;
+    height: 20px;
+  }
+
+  &__footer {
+    position: relative;
+    z-index: 2;
+
+    padding-bottom: 5px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    column-gap: 30px;
+
+    @media (max-width: 48em) {
+      padding-bottom: 65px;
+    }
+  }
+
+  &__name {
+    margin-bottom: auto;
+
+    min-width: 220px;
+
+    font-size: 36.4111px;
+    line-height: 1;
+  }
+
+  &__swiper {
+    &.swiper {
+      overflow: visible;
+    }
+  }
+
+  &__info {
+    margin-left: 85px;
+
+    display: flex;
+    column-gap: 153px;
+
+    @media (max-width: 48em) {
+      display: none;
+    }
+  }
+
+  &__fraction {
+    min-width: 35px;
+
+    font-size: 16px;
+    line-height: 21px;
+    letter-spacing: 4px;
+
+    transform: translate(1px, -1px);
+  }
+}
+
+.slide-team {
+  &.swiper-slide {
+    display: flex;
+  }
+
+  &__inner {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 637px;
+  }
+
+  &__inner-content {
+    position: absolute;
+    top: -217px;
+
+    left: 50%;
+
+    width: 131%;
+    height: 149%;
+
+    object-fit: cover;
+
+    transform: translate(-50%, 0);
+
+    pointer-events: none;
+
+    @media (max-width: 64.05em) {
+      left: 0;
+
+      transform: none;
+    }
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      top: -198px;
+
+      width: 100vw;
+      height: 206%;
+    }
+
+    @media (max-width: 48em) {
+      top: -113px;
+
+      width: 94vw;
+      height: 126%;
+    }
+  }
+}
