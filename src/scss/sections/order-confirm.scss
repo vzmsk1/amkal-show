@@ -31,6 +31,12 @@
     &.title {
       line-height: 39px;
     }
+
+    @media (max-width: 48em) {
+      &:not(._page-loaded &) {
+        height: 328px;
+      }
+    }
   }
 
   &__text {

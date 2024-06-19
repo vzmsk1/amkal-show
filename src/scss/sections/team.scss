@@ -4,12 +4,15 @@
 
   height: 100%;
 
-  @media (max-width: 64.05em) and (min-width: 48em) {
+  overflow: hidden;
+
+  @media (max-width: 64.05em) and (min-width: 49em) {
     padding-top: 78px;
   }
 
-  @media (max-width: 48em) {
-    padding-top: 25px;
+  @media (max-width: 49em) {
+    padding-top: 88px;
+    padding-bottom: 0;
   }
 
   &__container {
@@ -34,17 +37,31 @@
   }
 
   &__body {
+    display: flex;
     flex: 1 1 auto;
+
+    @media (min-width: 64.05em) {
+      align-items: center;
+    }
   }
 
   &__carousel {
     position: relative;
+
+    width: 100%;
+    height: 637px;
+
+    @media (max-width: 64.05em) {
+      margin-bottom: 140px;
+
+      height: 480px;
+    }
   }
 
   &__nav-btn {
     position: absolute;
     z-index: 3;
-    top: 247px;
+    top: 228px;
 
     cursor: pointer;
 
@@ -58,11 +75,11 @@
       transform: rotate(180deg);
     }
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
+    @media (max-width: 64.05em) and (min-width: 49em) {
       top: 442px;
     }
 
-    @media (max-width: 48em) {
+    @media (max-width: 49em) {
       top: 274px;
     }
   }
@@ -83,8 +100,8 @@
     justify-content: space-between;
     column-gap: 30px;
 
-    @media (max-width: 48em) {
-      padding-bottom: 65px;
+    @media (max-width: 49em) {
+      padding-bottom: 8px;
     }
   }
 
@@ -99,6 +116,8 @@
 
   &__swiper {
     &.swiper {
+      height: 100%;
+
       overflow: visible;
     }
   }
@@ -109,7 +128,7 @@
     display: flex;
     column-gap: 153px;
 
-    @media (max-width: 48em) {
+    @media (max-width: 49em) {
       display: none;
     }
   }
@@ -122,6 +141,10 @@
     letter-spacing: 4px;
 
     transform: translate(1px, -1px);
+
+    @media (max-width: 49em) {
+      transform: translate(7px, -1px);
+    }
   }
 }
 
@@ -138,12 +161,12 @@
     align-items: center;
 
     width: 100%;
-    height: 637px;
+    height: 100%;
   }
 
   &__inner-content {
     position: absolute;
-    top: -217px;
+    top: -234px;
 
     left: 50%;
 
@@ -152,28 +175,25 @@
 
     object-fit: cover;
 
-    transform: translate(-50%, 0);
-
     pointer-events: none;
 
-    @media (max-width: 64.05em) {
-      left: 0;
-
-      transform: none;
+    @media (min-width: 49em) {
+      transform: translate(-50%, 0);
     }
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
-      top: -198px;
+    @media (max-width: 64.05em) and (min-width: 49em) {
+      top: -229px;
+
+      width: 131%;
+      height: 284%;
+    }
+
+    @media (max-width: 49em) {
+      top: -113px;
+      left: -13px;
 
       width: 100vw;
-      height: 206%;
-    }
-
-    @media (max-width: 48em) {
-      top: -113px;
-
-      width: 94vw;
-      height: 126%;
+      height: 795px;
     }
   }
 }

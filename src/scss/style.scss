@@ -60,7 +60,10 @@ main {
   }
 
   @media (max-width: 48em) {
-    padding-top: 65px;
+    &:not(.wrapper._fw &, ._page-loaded &),
+    .wrapper._fw & {
+      padding-top: 65px;
+    }
   }
 }
 
