@@ -32,20 +32,19 @@ html._is-locked body {
   overflow: hidden;
   touch-action: none;
 }
-._page-loaded header {
-  display: block;
-}
 html,
 body {
   height: 100%;
 }
 body._light-theme {
-  color: $black;
+  &:not(.mainpage &) {
+    color: $black;
 
-  background-color: $white;
+    background-color: $white;
 
-  &_green {
-    background-color: $green;
+    &._light-theme_green {
+      background-color: $green;
+    }
   }
 }
 
@@ -54,17 +53,6 @@ main {
   position: relative;
 
   flex: 1 1 auto;
-
-  &.mainpage {
-    height: 100vh;
-  }
-
-  @media (max-width: 48em) {
-    &:not(.wrapper._fw &, ._page-loaded &),
-    .wrapper._fw & {
-      padding-top: 65px;
-    }
-  }
 }
 
 // wrapper
@@ -80,6 +68,10 @@ main {
   user-select: none;
 }
 
+.mainpage {
+  height: 100vh;
+}
+
 [data-screen] {
   position: absolute;
   z-index: 1;
@@ -90,8 +82,8 @@ main {
   height: 100%;
 
   transition:
-    opacity 0.5s ease,
-    visibility 0.5s ease;
+    opacity 0.4s ease,
+    visibility 0.4s ease;
 
   &:not([data-screen="active"]) {
     opacity: 0;

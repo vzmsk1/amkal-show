@@ -20,13 +20,11 @@
   position: relative;
   z-index: 50;
 
-  display: none;
-
   @media (max-width: 64.05em) {
     height: 65px;
   }
 
-  .wrapper._fw & {
+  .mainpage & {
     position: absolute;
     top: 0;
     left: 0;
@@ -44,13 +42,16 @@
   }
 
   ._light-theme &,
-  &._dark-theme {
+  ._light-theme_green &._dark-theme {
     .header {
       &__hamburger {
         &::before,
         &::after {
           background-color: $black;
         }
+      }
+      &__nav-link {
+        color: $black;
       }
     }
     .lang-header {
@@ -148,6 +149,10 @@
   &__logo-image {
     &_black {
       display: none;
+    }
+
+    @media (max-width: 48em) {
+      height: 48px;
     }
   }
 
@@ -278,7 +283,8 @@
     &:not(._show-header-menu &) {
       background-color: $green;
 
-      ._light-theme_green & {
+      ._light-theme_green &,
+      .mainpage ._light-theme & {
         color: $white;
 
         background-color: $black;

@@ -51,3 +51,38 @@
     background-color: $green;
   }
 }
+
+[data-splitting] {
+  .char {
+    opacity: 0;
+  }
+}
+
+.letter {
+  display: inline-block;
+  height: 177px;
+
+  overflow: hidden;
+
+  .glitch {
+    position: relative;
+
+    padding-left: 10px;
+
+    height: 17px;
+    width: 100%;
+
+    font-size: 200px;
+
+    overflow: hidden;
+
+    span {
+      position: relative;
+
+      left: -17px;
+
+      line-height: 177px;
+      font-family: "Druk Text Wide Cyr";
+    }
+  }
+}

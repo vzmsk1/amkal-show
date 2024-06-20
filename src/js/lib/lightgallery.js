@@ -1,5 +1,6 @@
 import lightGallery from "lightgallery";
-import "lightgallery/css/lightgallery-bundle.min.css";
+document.querySelectorAll("[data-lightgallery]").length &&
+  import("lightgallery/css/lightgallery-bundle.min.css");
 
 const initLightGallery = () => {
   if (document.querySelectorAll("[data-lightgallery]").length) {

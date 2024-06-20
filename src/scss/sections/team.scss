@@ -24,10 +24,18 @@
   }
 
   &__title {
-    transform: translateX(-2px);
-
     &.title {
       letter-spacing: -5.2px;
+    }
+
+    ._page-loaded & {
+      transform: translateX(-2px);
+    }
+
+    @media (max-width: 48em) {
+      &:not(._page-loaded &) {
+        height: 39px;
+      }
     }
   }
 

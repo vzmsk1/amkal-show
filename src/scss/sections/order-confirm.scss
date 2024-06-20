@@ -33,8 +33,10 @@
     }
 
     @media (max-width: 48em) {
+      font-size: 38px;
+
       &:not(._page-loaded &) {
-        height: 328px;
+        height: 156px;
       }
     }
   }

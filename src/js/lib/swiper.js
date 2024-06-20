@@ -1,5 +1,5 @@
 import Swiper from "swiper";
-import "swiper/css";
+document.querySelector(".swiper") && import("swiper/css");
 import { Navigation, Pagination } from "swiper/modules";
 
 const setSlideContent = (slide) => {

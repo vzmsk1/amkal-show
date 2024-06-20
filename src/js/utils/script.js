@@ -6,6 +6,41 @@ const tm = window.matchMedia("(max-width: 64.05em)");
 const mm = window.matchMedia("(max-width: 48em)");
 const header = document.querySelector(".header");
 
+const splitGlitchText = () => {
+  if (document.querySelectorAll(".glitch-text").length) {
+    const items = document.querySelectorAll(".glitch-text");
+
+    const split = (t) => {
+      let repeat = (t) => {
+        let string = `<div class="letter">`;
+        for (let i = 1; i <= 10; i++) {
+          string += `<div class="glitch"><span style="top: -${i * 17}px;">${t}</span></div>`;
+        }
+        string += `</div>`;
+        return string;
+      };
+      return t
+        .split("")
+        .map((t) => repeat(t))
+        .join("");
+    };
+
+    items.forEach((item) => {
+      const text = item.querySelector(".glitch-text-content");
+
+      text.innerHTML = split(text.innerHTML);
+
+      const letters = item.querySelectorAll(".letter");
+
+      for (let i = 1; i < letters.length; i++) {
+        const letter = letters[i];
+
+        letter.style.transform = `translateX(-${i * 13}px)`;
+      }
+    });
+  }
+};
+
 const closeCartWidget = () => {
   document.documentElement.classList.remove("_show-cart-widget");
   bodyUnlock();
@@ -82,10 +117,14 @@ tm.addEventListener("change", onMatchMediaChangeHandler);
 window.addEventListener("load", function () {
   document.documentElement.classList.add("_page-loaded");
 
+  if (document.querySelector(".hero"))
+    document.documentElement.classList.add("mainpage");
+
   if (document.querySelector(".loader")) {
     document.documentElement.classList.add("_is-locked");
 
     initMainpageScroll();
+    splitGlitchText();
 
     transitions.setDefaults();
     transitions.animateHeader();
