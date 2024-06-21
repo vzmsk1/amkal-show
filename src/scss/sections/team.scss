@@ -1,24 +1,22 @@
 .team {
-  padding-top: 19px;
-  padding-bottom: 4px;
+  padding-top: 154px;
 
   height: 100%;
 
   overflow: hidden;
 
-  @media (max-width: 64.05em) and (min-width: 49em) {
-    padding-top: 78px;
+  @media (min-width: 64.05em) {
+    height: 100vh;
   }
 
-  @media (max-width: 49em) {
-    padding-top: 88px;
-    padding-bottom: 0;
+  @media (min-width: 48em) {
+    padding-top: 144px;
+    padding-bottom: 4px;
   }
 
   &__container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     row-gap: 30px;
     height: 100%;
   }
@@ -50,6 +48,7 @@
 
     @media (min-width: 64.05em) {
       align-items: center;
+      height: 55vh;
     }
   }
 
@@ -173,12 +172,12 @@
 
     video {
       position: absolute;
-      top: -234px;
+      top: -386px;
 
       left: 50%;
 
-      width: 131%;
-      height: 149%;
+      width: 90vw;
+      height: 194%;
 
       object-fit: cover;
 
@@ -189,18 +188,18 @@
       }
 
       @media (max-width: 64.05em) and (min-width: 49em) {
-        top: -229px;
+        top: -181px;
 
         width: 131%;
-        height: 284%;
+        height: 260%;
       }
 
       @media (max-width: 49em) {
-        top: -113px;
+        top: -100px;
         left: -13px;
 
         width: 100vw;
-        height: 795px;
+        height: 787px;
       }
     }
   }

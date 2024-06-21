@@ -13,7 +13,6 @@
 
   background-color: $bg;
 
-  transform: translateX(110%);
   opacity: 0;
   visibility: hidden;
 
@@ -26,6 +25,10 @@
     opacity: 1;
     visibility: visible;
     transform: none;
+  }
+
+  @media (min-width: 64.05em) {
+    transform: translateX(110%);
   }
 
   @media (max-width: 64.05em) and (min-width: 48em) {

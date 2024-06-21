@@ -1,4 +1,6 @@
-import * as transitions from "../anim/transitions";
+import { setDefaults } from "@js/anim/transitions";
+import { animateHeader } from "@js/anim/transitions/header";
+import { animateHero } from "@js/anim/transitions/hero";
 import { bodyLock, bodyLockToggle, bodyUnlock } from "@js/utils/utils";
 import { initMainpageScroll } from "../anim/mainpage-scroll";
 
@@ -102,8 +104,15 @@ const onClickHandler = (e) => {
 };
 
 const onMatchMediaChangeHandler = () => {
-  if (!tm.matches && document.querySelector("._show-header-menu")) {
-    closeHeaderMenu();
+  if (!tm.matches) {
+    document.querySelector("section._fw") &&
+      document.documentElement.classList.add("_is-locked");
+
+    if (document.querySelector("._show-header-menu")) {
+      closeHeaderMenu();
+    }
+  } else {
+    document.documentElement.classList.remove("_is-locked");
   }
 
   if (!mm.matches && document.querySelector("._show-cart-widget")) {
@@ -114,24 +123,29 @@ const onMatchMediaChangeHandler = () => {
 document.addEventListener("click", onClickHandler);
 tm.addEventListener("change", onMatchMediaChangeHandler);
 
-window.addEventListener("load", function () {
-  document.documentElement.classList.add("_page-loaded");
+document.addEventListener("DOMContentLoaded", function () {
+  if (document.querySelector("section._fw")) {
+    !tm.matches && document.documentElement.classList.add("_is-locked");
+    document.querySelector("header").classList.add("absolute");
+  }
 
   if (document.querySelector(".hero"))
     document.documentElement.classList.add("mainpage");
 
   if (document.querySelector(".loader")) {
-    document.documentElement.classList.add("_is-locked");
-
     initMainpageScroll();
     splitGlitchText();
 
-    transitions.setDefaults();
-    transitions.animateHeader();
-    transitions.animateHero();
+    setDefaults();
+    animateHeader();
+    animateHero();
 
     setTimeout(() => {
       document.querySelector(".loader").remove();
     }, 1000);
   }
+
+  window.addEventListener("load", function () {
+    document.documentElement.classList.add("_page-loaded");
+  });
 });

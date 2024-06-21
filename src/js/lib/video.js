@@ -5,9 +5,9 @@ function initVideoJS() {
     const videos = document.querySelectorAll("[data-videojs]");
     videos.forEach((video) => {
       const player = videojs(video, {
-        autoplay: true,
-        muted: true,
+        autoplay: "muted",
         loop: true,
+        playsinline: true,
         normalizeAutoplay: true,
         noUITitleAttributes: true,
         disablePictureInPicture: true,
@@ -29,4 +29,4 @@ function initVideoJS() {
   }
 }
 
-window.addEventListener("load", initVideoJS);
+initVideoJS();

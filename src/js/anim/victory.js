@@ -6,7 +6,7 @@ if (document.querySelector(".three")) {
   const gui = new dat.GUI();
   const options = {
     time: 0,
-    amplitude: 0.25,
+    amplitude: 0.1,
     waveLength: 5.7,
   };
 
@@ -21,7 +21,6 @@ if (document.querySelector(".three")) {
       vertexShader: require("./shaders/vertex.glsl"),
       fragmentShader: require("./shaders/fragment.glsl"),
       uniforms,
-      wireframe: true,
     }),
   );
   const texture = new THREE.TextureLoader().load(
@@ -32,19 +31,41 @@ if (document.querySelector(".three")) {
     },
   );
   uniforms.uTexture = { value: texture };
+  uniforms.uDataTexture = {
+    value: texture,
+  };
 
   const boilerplate = () => {
     const scene = new THREE.Scene();
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     const camera = new THREE.PerspectiveCamera(
-      70,
+      45,
       window.innerWidth / window.innerHeight,
-      0.001,
-      1000,
+      0.1,
+      60,
     );
-    camera.position.set(0, 0, 2);
+    camera.position.set(0, 0, 0.5);
 
     scene.add(mesh);
+
+    function getXFOV() {
+      // Convert angle to radiant
+      const FOV = camera.fov;
+      let yFovRadiant = (FOV * Math.PI) / 180;
+      // Calculate X-FOV Radiant
+      let xFovRadiant =
+        2 *
+        Math.atan(
+          Math.tan(yFovRadiant / 2) * (window.innerWidth / window.innerHeight),
+        );
+      // Convert back to angle
+      let xFovAngle = (xFovRadiant * 180) / Math.PI;
+      return xFovAngle;
+    }
+
+    const closeZ = 0.5 / Math.tan((getXFOV() * Math.PI) / 180.0);
+
+    uniforms.uZMax = new THREE.Uniform(camera.position.z - closeZ);
 
     gui.add(options, "amplitude").onChange((e) => {
       mesh.material.uniforms.uAmplitude.value = e;

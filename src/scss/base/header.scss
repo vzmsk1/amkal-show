@@ -24,7 +24,8 @@
     height: 65px;
   }
 
-  .mainpage & {
+  ._is-locked &,
+  &.absolute {
     position: absolute;
     top: 0;
     left: 0;
@@ -42,7 +43,7 @@
   }
 
   ._light-theme &,
-  ._light-theme_green &._dark-theme {
+  &._dark-theme {
     .header {
       &__hamburger {
         &::before,

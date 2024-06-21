@@ -27,23 +27,20 @@ html.lock,
 html.lg-on,
 html._is-locked,
 html.lock body,
-html.lg-on body,
-html._is-locked body {
+html.lg-on body {
   overflow: hidden;
   touch-action: none;
 }
-html,
 body {
-  height: 100%;
-}
-body._light-theme {
-  &:not(.mainpage &) {
-    color: $black;
+  &._light-theme {
+    &:not(.mainpage &) {
+      color: $black;
 
-    background-color: $white;
+      background-color: $white;
 
-    &._light-theme_green {
-      background-color: $green;
+      &._light-theme_green {
+        background-color: $green;
+      }
     }
   }
 }
@@ -66,10 +63,6 @@ main {
   height: 100%;
 
   user-select: none;
-}
-
-.mainpage {
-  height: 100vh;
 }
 
 [data-screen] {

@@ -35,14 +35,16 @@ export const bodyLockToggle = (delay = 500) => {
  * @param {number} delay
  */
 export const bodyUnlock = (delay = 500) => {
-  if (bodyLockStatus) {
-    setTimeout(() => {
-      document.documentElement.classList.remove("lock");
-    }, delay);
-    bodyLockStatus = false;
-    setTimeout(function () {
-      bodyLockStatus = true;
-    }, delay);
+  if (!document.querySelector("._is-locked")) {
+    if (bodyLockStatus) {
+      setTimeout(() => {
+        document.documentElement.classList.remove("lock");
+      }, delay);
+      bodyLockStatus = false;
+      setTimeout(function () {
+        bodyLockStatus = true;
+      }, delay);
+    }
   }
 };
 /**
@@ -50,13 +52,15 @@ export const bodyUnlock = (delay = 500) => {
  * @param {number} delay
  */
 export const bodyLock = (delay = 500) => {
-  if (bodyLockStatus) {
-    document.documentElement.classList.add("lock");
+  if (!document.querySelector("._is-locked")) {
+    if (bodyLockStatus) {
+      document.documentElement.classList.add("lock");
 
-    bodyLockStatus = false;
-    setTimeout(function () {
-      bodyLockStatus = true;
-    }, delay);
+      bodyLockStatus = false;
+      setTimeout(function () {
+        bodyLockStatus = true;
+      }, delay);
+    }
   }
 };
 

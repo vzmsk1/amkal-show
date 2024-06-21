@@ -1,7 +1,6 @@
 uniform float uAmplitude;
 uniform float uWaveLength;
 uniform float uTime;
-
 varying vec2 vUv;
 
 void main() {
@@ -13,3 +12,4 @@ void main() {
 	newPosition.z += wave;
 	gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
 }
+
