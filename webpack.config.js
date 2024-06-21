@@ -1,34 +1,34 @@
 // export plugins
-const CopyPlugin = require('copy-webpack-plugin');
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const FileIncludeWebpackPlugin = require('file-include-webpack-plugin-replace');
-const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const path = require('path');
+const CopyPlugin = require("copy-webpack-plugin");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const FileIncludeWebpackPlugin = require("file-include-webpack-plugin-replace");
+const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const path = require("path");
 
 // variables
-const isProd = process.env.NODE_ENV === 'production';
-const mode = isProd ? 'production' : 'development';
-const target = isProd ? 'browserslist' : 'web';
+const isProd = process.env.NODE_ENV === "production";
+const mode = isProd ? "production" : "development";
+const target = isProd ? "browserslist" : "web";
 const pages = [
   new FileIncludeWebpackPlugin({
-    source: 'src',
+    source: "src",
     htmlBeautifyOptions: {
-      'indent-with-tabs': true,
+      "indent-with-tabs": true,
       indent_size: 3,
     },
     replace: isProd
       ? [
-          { regex: '../img', to: 'img' },
-          { regex: '@img', to: 'img' },
-          { regex: '@js', to: '' },
-          { regex: 'NEW_PROJECT_NAME', to: path.basename(path.resolve()) },
+          { regex: "../img", to: "img" },
+          { regex: "@img", to: "img" },
+          { regex: "@js", to: "" },
+          { regex: "NEW_PROJECT_NAME", to: path.basename(path.resolve()) },
         ]
       : [
-          { regex: '<link rel="stylesheet" href="css/style.css">', to: '' },
-          { regex: '@img', to: '../img' },
-          { regex: 'NEW_PROJECT_NAME', to: path.basename(path.resolve()) },
+          { regex: '<link rel="stylesheet" href="css/style.css">', to: "" },
+          { regex: "@img", to: "../img" },
+          { regex: "NEW_PROJECT_NAME", to: path.basename(path.resolve()) },
         ],
   }),
 ];
@@ -38,12 +38,12 @@ module.exports = {
   target,
 
   // entry point
-  entry: path.resolve(__dirname, 'src/js/app.js'),
+  entry: path.resolve(__dirname, "src/js/app.js"),
 
   // where the bundled file will resolve
   output: {
-    path: path.resolve(__dirname, 'app'),
-    filename: 'js/app.js',
+    path: path.resolve(__dirname, "app"),
+    filename: "js/app.js",
     clean: true,
   },
 
@@ -52,14 +52,14 @@ module.exports = {
     historyApiFallback: true,
     open: true,
     hot: true,
-    port: 'auto',
-    host: 'local-ip',
-    static: path.resolve(__dirname, 'app'),
-    watchFiles: path.join(__dirname, 'src'),
+    port: "auto",
+    host: "local-ip",
+    static: path.resolve(__dirname, "app"),
+    watchFiles: path.join(__dirname, "src"),
   },
 
   // source map
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
 
   // plugins
   plugins: [
@@ -68,40 +68,45 @@ module.exports = {
       patterns: [
         // copy images
         {
-          from: 'src/img',
-          to: 'img',
+          from: "src/img",
+          to: "img",
           noErrorOnMissing: true,
         },
         // copy fonts
         {
-          from: 'src/fonts',
-          to: 'fonts',
+          from: "src/fonts",
+          to: "fonts",
           noErrorOnMissing: true,
         },
         // copy additional assets
         {
-          from: 'src/files',
-          to: 'files',
+          from: "src/files",
+          to: "files",
           noErrorOnMissing: true,
         },
       ],
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/style.css',
+      filename: "css/style.css",
     }),
   ],
 
   // modules
   module: {
     rules: [
+      // glsl
+      {
+        test: /\.glsl$/,
+        loader: "webpack-glsl-loader",
+      },
       // js
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: [['@babel/preset-env', { targets: 'defaults' }]],
+            presets: [["@babel/preset-env", { targets: "defaults" }]],
           },
         },
       },
@@ -111,30 +116,30 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: 'string-replace-loader',
+            loader: "string-replace-loader",
             options: {
               multiple: [
-                { search: '@img', replace: '../img', flags: 'g' },
-                { search: '@fonts', replace: '../fonts', flags: 'g' },
+                { search: "@img", replace: "../img", flags: "g" },
+                { search: "@fonts", replace: "../fonts", flags: "g" },
               ],
             },
           },
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               url: false,
             },
           },
           {
-            loader: 'postcss-loader',
+            loader: "postcss-loader",
             options: {
               postcssOptions: {
-                plugins: ['postcss-preset-env'],
+                plugins: ["postcss-preset-env"],
               },
             },
           },
-          'group-css-media-queries-loader',
-          'sass-loader',
+          "group-css-media-queries-loader",
+          "sass-loader",
         ],
       },
     ],
@@ -153,15 +158,15 @@ module.exports = {
         loader: true,
         generator: [
           {
-            type: 'asset',
+            type: "asset",
             implementation: ImageMinimizerPlugin.imageminGenerate,
-            filename: '[path][name][ext]',
+            filename: "[path][name][ext]",
             options: {
               plugins: [
-                'imagemin-gifsicle',
-                'imagemin-mozjpeg',
-                'imagemin-pngquant',
-                'imagemin-svgo',
+                "imagemin-gifsicle",
+                "imagemin-mozjpeg",
+                "imagemin-pngquant",
+                "imagemin-svgo",
               ],
             },
           },
@@ -187,9 +192,9 @@ module.exports = {
   // resolve
   resolve: {
     alias: {
-      '@scss': `${path.resolve(__dirname, 'src')}/scss`,
-      '@js': `${path.resolve(__dirname, 'src')}/js`,
-      '@img': `${path.resolve(__dirname, 'src')}/img`,
+      "@scss": `${path.resolve(__dirname, "src")}/scss`,
+      "@js": `${path.resolve(__dirname, "src")}/js`,
+      "@img": `${path.resolve(__dirname, "src")}/img`,
     },
   },
 };
