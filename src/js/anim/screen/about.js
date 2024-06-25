@@ -15,6 +15,7 @@ export const enterAboutScreen = () => {
       gsap.to(el.querySelectorAll(".glitch"), {
         translateX: 0,
         translateY: 0,
+        opacity: 1,
         skewX: "0deg",
         stagger: 0.03,
         delay: 0.5,

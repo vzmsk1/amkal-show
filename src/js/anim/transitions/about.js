@@ -29,14 +29,14 @@ export const leaveAboutTl = gsap
     0.2,
   )
   .to(
-    '[data-animate-text="1"]',
+    '.about__title [data-animate-text="1"]',
     {
       translateX: "100vw",
     },
     0.3,
   )
   .to(
-    '[data-animate-text="2"], .about__title .glitch-text',
+    '.about__title [data-animate-text="2"], .about__title .glitch-text',
     {
       translateX: "100vw",
       onStart: () => {
@@ -56,14 +56,14 @@ export const leaveAboutTl = gsap
     0.4,
   )
   .to(
-    '[data-animate-text="3"]',
+    '.about__title [data-animate-text="3"]',
     {
       translateX: "100vw",
     },
     0.5,
   )
   .to(
-    '[data-animate-text="4"]',
+    '.about__title [data-animate-text="4"]',
     {
       translateX: "100vw",
     },

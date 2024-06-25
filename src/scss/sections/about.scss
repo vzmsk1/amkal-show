@@ -38,6 +38,10 @@
     display: flex;
     flex-direction: column;
 
+    .letter {
+      overflow: hidden;
+    }
+
     .glitch-text-content {
       transform: translateY(4px);
     }

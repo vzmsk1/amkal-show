@@ -61,7 +61,6 @@
 .letter {
   display: inline-block;
   height: 177px;
-
   overflow: hidden;
 
   .glitch {
@@ -70,9 +69,10 @@
     padding-left: 10px;
 
     height: 17px;
-    width: 100%;
+    width: 135%;
 
     font-size: 200px;
+    text-transform: uppercase;
 
     overflow: hidden;
 

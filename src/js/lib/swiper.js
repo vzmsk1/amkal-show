@@ -33,6 +33,25 @@ const initSliders = () => {
       },
     });
   }
+  if (document.querySelector(".feed-screen__swiper")) {
+    new Swiper(".feed-screen__swiper", {
+      modules: [Navigation],
+      loop: true,
+      spaceBetween: 203,
+      slidesPerView: 3,
+      navigation: {
+        prevEl: ".feed-screen__nav-btn_prev",
+        nextEl: ".feed-screen__nav-btn_next",
+      },
+      on: {
+        afterInit: (swiper) => {
+          swiper.slides.forEach((slide) =>
+            slide.style.removeProperty("opacity"),
+          );
+        },
+      },
+    });
+  }
 };
 
 window.addEventListener("load", initSliders);

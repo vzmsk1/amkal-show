@@ -12,11 +12,13 @@ const splitGlitchText = () => {
   if (document.querySelectorAll(".glitch-text").length) {
     const items = document.querySelectorAll(".glitch-text");
 
-    const split = (t) => {
+    const split = (t, item) => {
       let repeat = (t) => {
         let string = `<div class="letter">`;
         for (let i = 1; i <= 10; i++) {
-          string += `<div class="glitch"><span style="top: -${i * 17}px;">${t}</span></div>`;
+          const size = item.dataset.glitchSize ? +item.dataset.glitchSize : 170;
+
+          string += `<div class="glitch"><span style="top: -${i * (size / 10)}px;">${t}</span></div>`;
         }
         string += `</div>`;
         return string;
@@ -30,14 +32,20 @@ const splitGlitchText = () => {
     items.forEach((item) => {
       const text = item.querySelector(".glitch-text-content");
 
-      text.innerHTML = split(text.innerHTML);
+      text.innerHTML = split(text.innerHTML, item);
 
       const letters = item.querySelectorAll(".letter");
 
       for (let i = 1; i < letters.length; i++) {
         const letter = letters[i];
 
-        letter.style.transform = `translateX(-${i * 13}px)`;
+        if (item.closest(".victory")) {
+          letter.style.transform = `translateX(-${i * 31}px)`;
+        } else if (item.closest(".lang")) {
+          letter.style.transform = `translateX(-${i * 22}px)`;
+        } else {
+          letter.style.transform = `translateX(-${i * 13}px)`;
+        }
       }
     });
   }
@@ -127,6 +135,10 @@ document.addEventListener("DOMContentLoaded", function () {
   if (document.querySelector("section._fw")) {
     !tm.matches && document.documentElement.classList.add("_is-locked");
     document.querySelector("header").classList.add("absolute");
+  }
+
+  if (document.querySelector("body._light-theme")) {
+    document.querySelector("header").classList.add("_dark-theme");
   }
 
   if (document.querySelector(".hero"))

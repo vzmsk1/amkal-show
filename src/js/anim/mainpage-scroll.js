@@ -1,6 +1,12 @@
 import { enterAboutScreen, leaveAboutScreen } from "@js/anim/screen/about";
+import { leaveFeedScreen } from "@js/anim/screen/feed";
 import { leaveHeroScreen } from "@js/anim/screen/hero";
-import { enterVictoryScreen } from "@js/anim/screen/victory";
+import { leaveLangScreen } from "@js/anim/screen/lang";
+import {
+  enterVictoryScreen,
+  leaveVictoryScreen,
+} from "@js/anim/screen/victory";
+import { langLeaveTl } from "@js/anim/transitions/lang";
 import gsap from "gsap";
 import { Observer } from "gsap/Observer";
 
@@ -40,6 +46,15 @@ export const initMainpageScroll = () => {
             break;
           case 1:
             leaveAboutScreen();
+            break;
+          case 2:
+            leaveVictoryScreen();
+            break;
+          case 3:
+            leaveLangScreen();
+            break;
+          case 4:
+            leaveFeedScreen();
         }
       }
 
