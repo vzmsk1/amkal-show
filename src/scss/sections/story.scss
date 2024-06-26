@@ -1,0 +1,156 @@
+.story {
+  padding-top: 18px;
+
+  &__head {
+    margin-bottom: 56px;
+  }
+
+  &__title {
+    &.title {
+      letter-spacing: -4px;
+    }
+  }
+
+  &__text {
+    font-size: 36px;
+    line-height: 36px;
+
+    &_sm {
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    &_to-right {
+      margin-left: 63px;
+    }
+  }
+
+  &__text-link {
+    text-decoration: underline;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__bg-wrap {
+    margin-bottom: 16px;
+
+    height: 1003px;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      margin-bottom: 8px;
+
+      height: 682px;
+    }
+  }
+
+  &__text-wrap {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    row-gap: 1px;
+
+    max-width: 858px;
+
+    .story__text_sm {
+      margin-top: 115px;
+
+      max-width: 130px;
+
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      max-width: 656px;
+    }
+  }
+
+  &__images {
+    margin-bottom: 30px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 12fr);
+    align-items: start;
+
+    &_nm {
+      margin-bottom: 0;
+    }
+
+    &_reversed {
+      .story__image-wrap {
+        &:first-child {
+          height: 900px;
+        }
+        &:last-child {
+          height: 529px;
+        }
+      }
+    }
+
+    &:not(&_reversed) {
+      .story__image-wrap {
+        &:first-child {
+          height: 748px;
+
+          @media (max-width: 64.05em) {
+            height: 507px;
+          }
+        }
+        &:last-child {
+          height: 1207px;
+
+          @media (max-width: 64.05em) {
+            height: 818px;
+          }
+        }
+      }
+    }
+  }
+
+  &__group-wrap {
+    margin-bottom: 17px;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+    }
+    .story {
+      &__image-wrap {
+        align-self: center;
+        width: 857px;
+        height: 510px;
+
+        @media (max-width: 64.05em) {
+          width: 656px;
+          height: 389px;
+        }
+      }
+      &__text_sm {
+        max-width: 284px;
+
+        transform: translateY(3px);
+      }
+    }
+  }
+
+  &__group {
+    display: grid;
+    grid-template-columns: 5fr 14fr 5fr;
+    column-gap: 8px;
+
+    .story__text-wrap {
+      grid-column: 2/3;
+    }
+  }
+
+  &__bg,
+  &__image {
+    height: 100%;
+
+    object-fit: cover;
+  }
+}
