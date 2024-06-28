@@ -90,6 +90,12 @@ main {
   }
 }
 
+._desktop-t-only {
+  @media (max-width: 64.05em) {
+    display: none;
+  }
+}
+
 ._mobile-only {
   @media (min-width: 48em) {
     display: none;

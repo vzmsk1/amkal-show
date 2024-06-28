@@ -28,6 +28,8 @@ input:focus {
 }
 
 .field {
+  opacity: 0.4;
+
   &__label {
     display: flex;
     flex-direction: column;

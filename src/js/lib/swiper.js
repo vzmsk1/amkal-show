@@ -1,6 +1,6 @@
 import Swiper from "swiper";
 document.querySelector(".swiper") && import("swiper/css");
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, Thumbs } from "swiper/modules";
 
 const setSlideContent = (slide) => {
   document.querySelector(".team__name").innerHTML = slide.dataset.name;
@@ -50,6 +50,26 @@ const initSliders = () => {
           );
         },
       },
+    });
+  }
+  if (document.querySelector(".item-card__swiper")) {
+    const thumbsSwiper = document.querySelector(".item-card__thumbs-swiper");
+
+    const thumbs = thumbsSwiper
+      ? new Swiper(thumbsSwiper, {
+          loop: true,
+          slidesPerView: "auto",
+          spaceBetween: 8,
+        })
+      : null;
+    new Swiper(".item-card__swiper", {
+      modules: [Thumbs],
+      loop: true,
+      thumbs: thumbsSwiper
+        ? {
+            swiper: thumbs,
+          }
+        : null,
     });
   }
 };

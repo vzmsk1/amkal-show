@@ -7,6 +7,7 @@ import "../js/lib/video";
 
 import * as utils from "../js/utils/utils";
 utils.setCurrentYear();
+utils.toggleClass();
 
 import "../js/utils/forms";
 import "../js/utils/quantity";

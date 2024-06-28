@@ -68,18 +68,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 203px;
-    row-gap: 123px;
-
-    @media (min-width: 64.05em) {
-      .feed-card {
-        &:nth-child(4n),
-        &:first-child {
-          .feed-card__group {
-            column-gap: 70px;
-          }
-        }
-      }
-    }
+    row-gap: 116px;
 
     @media (max-width: 64.05em) and (min-width: 48em) {
       grid-template-columns: repeat(2, 1fr);
@@ -156,7 +145,7 @@
   &__group {
     display: flex;
     align-items: center;
-    column-gap: 132px;
+    column-gap: 121px;
 
     @media (max-width: 64.05em) and (min-width: 48em) {
       column-gap: 206px;
