@@ -143,8 +143,16 @@
   }
 
   &__logo {
+    position: relative;
+
     justify-self: center;
     width: 48px;
+
+    @media (max-width: 48em) {
+      &:not(._light-theme &) {
+        z-index: 2;
+      }
+    }
   }
 
   &__logo-image {

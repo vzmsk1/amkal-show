@@ -39,13 +39,13 @@
 
   &__cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 204px;
+    grid-template-columns: repeat(3, 356px);
+    justify-content: space-between;
+    column-gap: 30px;
     row-gap: 156px;
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
-      grid-template-columns: repeat(2, 1fr);
-      column-gap: 352px;
+    @media (max-width: 80em) and (min-width: 48em) {
+      grid-template-columns: repeat(2, 320px);
       row-gap: 238px;
     }
 
