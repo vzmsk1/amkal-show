@@ -25,12 +25,11 @@
   &__swiper-wrapper {
     &.swiper-wrapper {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      column-gap: 203px;
+      grid-template-columns: repeat(3, 357px);
+      justify-content: space-between;
 
-      @media (max-width: 64.05em) and (min-width: 48em) {
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 184px;
+      @media (max-width: 80em) and (min-width: 48em) {
+        grid-template-columns: repeat(2, 403px);
       }
 
       @media (max-width: 48em) {

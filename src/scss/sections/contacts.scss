@@ -1,21 +1,17 @@
 .contacts {
-  padding-top: 16px;
+  padding-top: 142px;
 
   @media (max-width: 64.05em) and (min-width: 48em) {
-    padding-top: 78px;
+    padding-top: 141px;
   }
 
   @media (max-width: 48em) {
     margin-bottom: 90px;
-    padding-top: 87px;
+    padding-top: 153px;
   }
 
   &__head {
     margin-bottom: 35px;
-
-    @media (max-width: 48em) {
-      margin-bottom: 50px;
-    }
 
     @media (max-width: 48em) {
       margin-bottom: 45px;
@@ -79,7 +75,7 @@
     line-height: 16px;
 
     @media (max-width: 64.05em) {
-      margin-bottom: 27px;
+      margin-bottom: 31px;
     }
 
     @media (max-width: 64.05em) and (min-width: 48em) {
@@ -97,10 +93,14 @@
   flex-direction: column;
 
   .field__label-txt.txt-uc {
-    letter-spacing: 1px;
+    letter-spacing: 1.3px;
+
+    @media (max-width: 64.05em) {
+      letter-spacing: 0.6px;
+    }
   }
   .field__input {
-    padding-bottom: 7px;
+    padding-bottom: 5px;
   }
   .textarea__field {
     padding: 13px 22px;
@@ -110,17 +110,17 @@
     margin-bottom: 34px;
 
     @media (max-width: 48em) {
-      margin-bottom: 32px;
+      margin-bottom: 33px;
     }
   }
 
   &__fields {
-    margin-bottom: 32px;
+    margin-bottom: 35px;
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 16px;
-    row-gap: 29px;
+    row-gap: 30px;
 
     @media (max-width: 48em) {
       column-gap: 20px;

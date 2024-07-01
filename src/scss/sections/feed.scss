@@ -1,27 +1,20 @@
 .feed {
   margin-bottom: 143px;
+  padding-top: 143px;
 
   @media (max-width: 64.05em) and (min-width: 48em) {
     margin-bottom: 129px;
+    padding-top: 105px;
   }
 
   @media (max-width: 48em) {
     margin-bottom: 92px;
+    padding-top: 182px;
   }
 
   &__container {
-    padding-top: 16px;
-
     display: flex;
     flex-direction: column;
-
-    @media (max-width: 64.05em) and (min-width: 48em) {
-      padding-top: 132px;
-    }
-
-    @media (max-width: 48em) {
-      padding-top: 121px;
-    }
   }
 
   &__head {
@@ -66,17 +59,16 @@
 
   &__list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 203px;
+    grid-template-columns: repeat(3, 357px);
+    justify-content: space-between;
     row-gap: 116px;
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
-      grid-template-columns: repeat(2, 1fr);
-      column-gap: 184px;
+    @media (max-width: 80em) and (min-width: 55em) {
+      grid-template-columns: repeat(2, 403px);
       row-gap: 134px;
     }
 
-    @media (max-width: 48em) {
+    @media (max-width: 55em) {
       grid-template-columns: 1fr;
       row-gap: 54px;
     }
@@ -135,6 +127,11 @@
   }
 
   &__title {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     flex: 1 1 auto;
 
     @media (min-width: 64.05em) {
@@ -163,5 +160,18 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: rgba(255, 255, 255, 0.3);
+
+    .btn__txt {
+      white-space: nowrap;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        .btn__txt {
+          color: $black;
+        }
+      }
+    }
   }
 }

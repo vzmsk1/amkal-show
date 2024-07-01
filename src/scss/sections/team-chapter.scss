@@ -1,16 +1,13 @@
 .team-chapter {
   margin-bottom: 112px;
-  padding-top: 18px;
+  padding-top: 144px;
 
   @media (max-width: 64.05em) and (min-width: 48em) {
     margin-bottom: 225px;
   }
 
-  @media (max-width: 64.05em) {
-    padding-top: 81px;
-  }
-
   @media (max-width: 48em) {
+    padding-top: 153px;
     margin-bottom: 89px;
   }
 

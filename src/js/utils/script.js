@@ -1,6 +1,7 @@
 import { setDefaults } from "@js/anim/transitions";
 import { animateHeader } from "@js/anim/transitions/header";
 import { animateHero } from "@js/anim/transitions/hero";
+import { locoScroll } from "@js/lib/locomotive-scroll";
 import { bodyLock, bodyLockToggle, bodyUnlock } from "@js/utils/utils";
 import { initMainpageScroll } from "../anim/mainpage-scroll";
 
@@ -93,17 +94,17 @@ const initCartWidget = () => {
 const onClickHandler = (e) => {
   const { target } = e;
 
-  if (target.closest(".header__hamburger")) {
+  if (target.closest(".nav-row__hamburger")) {
     initHamburgerMenu();
   }
 
   if (tm.matches) {
-    if (target.closest(".actions-header__item_cart .actions-header__txt")) {
+    if (target.closest(".actions-nav-row__item_cart .actions-nav-row__txt")) {
       initCartWidget();
     }
     if (
       document.querySelector("._show-cart-widget") &&
-      (!target.closest(".actions-header__item_cart") ||
+      (!target.closest(".actions-nav-row__item_cart") ||
         target.closest(".cart-widget__close-btn"))
     ) {
       closeCartWidget();
@@ -132,6 +133,18 @@ document.addEventListener("click", onClickHandler);
 tm.addEventListener("change", onMatchMediaChangeHandler);
 
 document.addEventListener("DOMContentLoaded", function () {
+  if (document.querySelector(".footer-main__anchor")) {
+    document
+      .querySelector(".footer-main__anchor")
+      .addEventListener("click", function () {
+        locoScroll.scrollTo(0);
+      });
+  }
+
+  if (document.querySelector(".item-card")) {
+    document.querySelector(".header").classList.add("fixed");
+  }
+
   if (document.querySelector("section._fw")) {
     !tm.matches && document.documentElement.classList.add("_is-locked");
     document.querySelector("header").classList.add("absolute");
@@ -160,4 +173,12 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("load", function () {
     document.documentElement.classList.add("_page-loaded");
   });
+});
+
+document.addEventListener("mouseover", function (e) {
+  if (e.target.closest("[data-sb]")) {
+    locoScroll.stop();
+  } else {
+    locoScroll.start();
+  }
 });

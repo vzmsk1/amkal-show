@@ -1,0 +1,61 @@
+.error-page-chapter {
+  padding-top: 3px;
+
+  height: 100%;
+
+  @media (max-width: 64.05em) and (min-width: 48em) {
+    padding-top: 93px;
+  }
+
+  @media (max-width: 48em) {
+    padding-top: 0;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    text-align: center;
+  }
+
+  &__image-wrap {
+    margin-bottom: 31px;
+
+    width: 151px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    max-width: 300px;
+
+    &.title {
+      line-height: 40px;
+
+      @media (max-width: 48em) {
+        font-size: 32px;
+        line-height: 85%;
+      }
+    }
+
+    @media (max-width: 48em) {
+      max-width: 225px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 29px;
+
+    max-width: 284px;
+
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  &__btn {
+    background-color: transparent;
+  }
+}

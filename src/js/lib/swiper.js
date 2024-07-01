@@ -52,24 +52,27 @@ const initSliders = () => {
       },
     });
   }
-  if (document.querySelector(".item-card__swiper")) {
-    const thumbsSwiper = document.querySelector(".item-card__thumbs-swiper");
-
-    const thumbs = thumbsSwiper
-      ? new Swiper(thumbsSwiper, {
-          loop: true,
-          slidesPerView: "auto",
-          spaceBetween: 8,
-        })
-      : null;
-    new Swiper(".item-card__swiper", {
-      modules: [Thumbs],
+  if (document.querySelector(".sponsors__swiper")) {
+    new Swiper(".sponsors__swiper", {
+      modules: [Navigation],
       loop: true,
-      thumbs: thumbsSwiper
-        ? {
-            swiper: thumbs,
-          }
-        : null,
+      spaceBetween: 89,
+      slidesPerView: "auto",
+    });
+  }
+  if (document.querySelector(".item-card__thumbs-swiper")) {
+    new Swiper(".item-card__thumbs-swiper", {
+      loop: true,
+      slidesPerView: "auto",
+      spaceBetween: 8,
+    });
+  }
+  if (
+    document.querySelector(".item-card__swiper") &&
+    window.innerWidth <= 768
+  ) {
+    new Swiper(".item-card__swiper", {
+      loop: true,
     });
   }
 };

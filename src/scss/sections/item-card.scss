@@ -4,32 +4,37 @@
     column-gap: 15px;
   }
 
+  &__swiper-wrapper {
+    flex-direction: column;
+  }
+
   &__carousel {
     position: relative;
-
-    margin-bottom: -126px;
 
     flex: 0 0 757px;
     width: 757px;
     height: 100vh;
-
-    transform: translateY(-126px);
   }
 
   &__thumbs-swiper {
     &.swiper {
-      position: absolute;
+      position: fixed;
+      z-index: 2;
       bottom: 16px;
       left: 16px;
     }
   }
 
   &__content {
+    position: fixed;
+    bottom: 0;
+    right: 18px;
+
     padding-top: 160px;
 
     display: flex;
     flex-direction: column;
-    flex: 1 1 auto;
+    width: 47%;
   }
 
   &__head {
@@ -155,7 +160,7 @@
     width: 82px;
     height: 122px;
 
-    &.swiper-slide-thumb-active {
+    &._is-active {
       display: none;
     }
   }

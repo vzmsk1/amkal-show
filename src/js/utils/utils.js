@@ -1,3 +1,5 @@
+import { locoScroll } from "@js/lib/locomotive-scroll";
+
 /**
  * set hash to url
  * @param {string} hash
@@ -38,7 +40,8 @@ export const bodyUnlock = (delay = 500) => {
   if (!document.querySelector("._is-locked")) {
     if (bodyLockStatus) {
       setTimeout(() => {
-        document.documentElement.classList.remove("lock");
+        locoScroll.start();
+        document.documentElement.classList.remove("_lock");
       }, delay);
       bodyLockStatus = false;
       setTimeout(function () {
@@ -54,7 +57,8 @@ export const bodyUnlock = (delay = 500) => {
 export const bodyLock = (delay = 500) => {
   if (!document.querySelector("._is-locked")) {
     if (bodyLockStatus) {
-      document.documentElement.classList.add("lock");
+      locoScroll.stop();
+      document.documentElement.classList.add("_lock");
 
       bodyLockStatus = false;
       setTimeout(function () {

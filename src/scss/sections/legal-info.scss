@@ -1,14 +1,12 @@
 .legal-info {
   margin-bottom: 143px;
-  padding-top: 21px;
+  padding-top: 148px;
 
   @media (max-width: 64.05em) and (min-width: 48em) {
     margin-bottom: 75px;
-    padding-top: 83px;
   }
 
   @media (max-width: 48em) {
-    padding-top: 81px;
     margin-bottom: 53px;
   }
 
@@ -45,6 +43,13 @@
       &.title {
         line-height: 1;
         letter-spacing: -4.5px;
+      }
+    }
+
+    @media (max-width: 26em) {
+      &.title {
+        font-size: 40px;
+        line-height: 44px;
       }
     }
   }

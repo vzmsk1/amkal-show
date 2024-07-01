@@ -1,0 +1,26 @@
+[data-sb] {
+  .simplebar-content-wrapper {
+    overflow-x: hidden !important;
+  }
+  .simplebar-horizontal {
+    display: none;
+  }
+  .simplebar-track.simplebar-vertical {
+    right: -8px;
+
+    .simplebar-scrollbar {
+      right: 0;
+
+      &::before {
+        left: auto;
+        right: 3px;
+
+        width: 2px;
+
+        background: rgba(255, 255, 255, 0.4);
+
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 .textarea {
   display: flex;
   flex-direction: column;
-  row-gap: 29px;
+  row-gap: 26px;
 
   @media (max-width: 48em) {
     row-gap: 24px;
@@ -19,6 +19,14 @@
       &__counter {
         color: #00000066;
       }
+    }
+  }
+
+  &__label {
+    letter-spacing: 1.3px;
+
+    @media (max-width: 64.05em) {
+      letter-spacing: 0.6px;
     }
   }
 
