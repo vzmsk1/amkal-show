@@ -13,11 +13,11 @@ export const locoScroll = new LocomotiveScroll({
 });
 
 window.addEventListener("resize", function () {
+  const width = window.innerWidth;
   locoScroll.destroy();
 
   setTimeout(() => {
     locoScroll.init();
-    locoScroll.update();
   }, 500);
 });
 

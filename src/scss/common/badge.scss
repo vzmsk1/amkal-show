@@ -1,0 +1,30 @@
+.badge {
+  padding: 5px 7px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 5px;
+  height: 26px;
+  border: 0.5px solid $black;
+  border-radius: 20px;
+
+  transition:
+    border 0.3s ease,
+    background-color 0.3s ease;
+
+  &._is-active {
+    border: 0.5px solid #f3f3f3;
+
+    background-color: #f3f3f3;
+  }
+
+  &__icon-wrap {
+    flex: 0 0 10px;
+    width: 10px;
+  }
+
+  &__txt {
+    color: $black;
+  }
+}

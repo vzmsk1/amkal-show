@@ -84,21 +84,26 @@
     flex-direction: column;
   }
 
+  &__bg-wrap,
+  &__bg {
+    height: 1003px;
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      height: 682px;
+    }
+    @media (max-width: 48em) {
+      height: 286px;
+    }
+  }
+
   &__bg-wrap {
     margin-bottom: 16px;
 
-    height: 1003px;
-
     @media (max-width: 64.05em) and (min-width: 48em) {
       margin-bottom: 8px;
-
-      height: 682px;
     }
 
     @media (max-width: 48em) {
       margin-bottom: 13px;
-
-      height: 286px;
     }
   }
 
