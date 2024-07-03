@@ -1,6 +1,16 @@
+import { locoScroll } from "@js/lib/locomotive-scroll";
 import Swiper from "swiper";
 document.querySelector(".swiper") && import("swiper/css");
-import { Navigation, Pagination, Thumbs } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
+
+const toggleScroll = {
+  touchStart: () => {
+    locoScroll.stop();
+  },
+  touchEnd: () => {
+    locoScroll.start();
+  },
+};
 
 const setSlideContent = (slide) => {
   document.querySelector(".team__name").innerHTML = slide.dataset.name;
@@ -50,6 +60,29 @@ const initSliders = () => {
           );
         },
       },
+    });
+  }
+  if (document.querySelector(".feed-chapter__bg-swiper")) {
+    new Swiper(".feed-chapter__bg-swiper", {
+      modules: [Pagination],
+      loop: true,
+      pagination: {
+        el: ".feed-chapter__pagination",
+        type: "bullets",
+        clickable: true,
+      },
+
+      on: toggleScroll,
+    });
+  }
+  if (document.querySelector(".feed-chapter__images-swiper")) {
+    new Swiper(".feed-chapter__images-swiper", {
+      modules: [],
+      loop: true,
+      slidesPerView: "auto",
+      spaceBetween: window.innerWidth > 768 ? 17 : 8,
+      freemode: true,
+      on: toggleScroll,
     });
   }
   if (document.querySelector(".sponsors__swiper")) {

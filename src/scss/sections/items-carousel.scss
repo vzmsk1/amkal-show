@@ -1,5 +1,5 @@
 .items-carousel {
-  margin-bottom: 157px;
+  margin-bottom: 134px;
 
   @media (min-width: 64.05em) {
     .feed-card:first-child {
@@ -7,6 +7,10 @@
         column-gap: 72px;
       }
     }
+  }
+
+  @media (max-width: 64.05em) {
+    margin-bottom: 123px;
   }
 
   @media (max-width: 48em) {
@@ -56,10 +60,7 @@
       letter-spacing: -6px;
 
       @media (max-width: 64.05em) {
-        font-family: "Druk Wide";
-        letter-spacing: 0;
-
-        transform: translateY(-8px);
+        letter-spacing: -3px;
       }
     }
   }

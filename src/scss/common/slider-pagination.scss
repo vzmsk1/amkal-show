@@ -1,0 +1,37 @@
+.slider-pagination {
+  display: flex;
+  column-gap: 16px;
+
+  @media (max-width: 48em) {
+    column-gap: 8px;
+  }
+
+  .swiper-pagination-bullet {
+    flex: 0 0 109px;
+    width: 109px;
+    height: 4px;
+    border-radius: 15px;
+
+    background-color: $white;
+
+    opacity: 0.3;
+
+    transition: opacity 0.3s ease;
+
+    cursor: pointer;
+
+    &.swiper-pagination-bullet-active {
+      opacity: 1;
+    }
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      flex: 0 0 68px;
+      width: 68px;
+    }
+
+    @media (max-width: 48em) {
+      flex: 0 0 53px;
+      width: 53px;
+    }
+  }
+}
