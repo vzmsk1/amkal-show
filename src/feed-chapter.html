@@ -2,12 +2,14 @@
 <html lang="en">
   @@include('html/head.htm',{ "title":"FEED PAGE" })
   <body>
-    @@include('html/header.htm',{})
-    <div class="wrapper">
-      <main class="main">
-        @@include('html/feed-chapter.htm',{})
-        @@include('html/items-carousel.htm',{})
-      </main>
+    <div class="loco-scroll">
+      <div class="wrapper">
+        @@include('html/header.htm',{})
+        <main class="main">
+          @@include('html/feed-chapter.htm',{})
+          @@include('html/items-carousel.htm',{})
+        </main>
+      </div>
     </div>
     @@include('html/svg.htm',{}) @@include('html/js.htm',{})
   </body>

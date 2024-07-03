@@ -1,24 +1,33 @@
 .team {
-  padding-top: 154px;
-
-  height: 100%;
+  padding-top: 16px;
 
   overflow: hidden;
 
-  @media (min-width: 64.05em) {
-    height: 100vh;
+  @media (max-width: 64.05em) and (min-width: 48em) {
+    padding-top: 78px;
   }
 
-  @media (min-width: 48em) {
-    padding-top: 144px;
-    padding-bottom: 4px;
+  @media (max-width: 48em) {
+    padding-top: 88px;
   }
 
   &__container {
     display: flex;
     flex-direction: column;
     row-gap: 30px;
-    height: 100%;
+    height: calc(100vh - 147px);
+
+    @media (max-width: 64.05em) {
+      height: auto;
+    }
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      min-height: calc(100vh - 149px);
+    }
+
+    @media (max-width: 48em) {
+      min-height: calc(100vh - 155px);
+    }
   }
 
   &__title {

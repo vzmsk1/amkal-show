@@ -1,14 +1,14 @@
 .error-page-chapter {
-  padding-top: 3px;
+  padding-top: 150px;
 
-  height: 100%;
+  overflow: hidden;
 
   @media (max-width: 64.05em) and (min-width: 48em) {
-    padding-top: 93px;
+    padding-top: 418px;
   }
 
   @media (max-width: 48em) {
-    padding-top: 0;
+    padding-top: 170px;
   }
 
   &__container {

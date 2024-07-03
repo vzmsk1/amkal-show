@@ -1,13 +1,9 @@
 .legal-info {
   margin-bottom: 143px;
-  padding-top: 148px;
+  padding-top: 20px;
 
-  @media (max-width: 64.05em) and (min-width: 48em) {
-    margin-bottom: 75px;
-  }
-
-  @media (max-width: 48em) {
-    margin-bottom: 53px;
+  @media (max-width: 64.05em) {
+    padding-top: 81px;
   }
 
   &__container {

@@ -1,10 +1,18 @@
 .cart {
+  padding-top: 14px;
+  padding-bottom: 13px;
+
   height: 100%;
 
-  &__container {
-    padding-top: 17px;
-    padding-bottom: 13px;
+  @media (max-width: 64.05em) {
+    padding-top: 0;
+  }
 
+  .quantity {
+    column-gap: 23px;
+  }
+
+  &__container {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -47,10 +55,16 @@
     flex-direction: column;
     row-gap: 8px;
 
-    @media (max-width: 64.05em) {
+    @media (max-width: 64.05em) and (min-width: 48em) {
       margin-bottom: 80px;
+    }
 
+    @media (max-width: 64.05em) {
       row-gap: 7px;
+    }
+
+    @media (max-width: 48em) {
+      margin-bottom: 83px;
     }
   }
 
@@ -59,6 +73,7 @@
 
     align-self: flex-end;
     min-width: 356px;
+    height: 27px;
 
     @media (max-width: 64.05em) and (min-width: 48em) {
       min-width: 317px;
@@ -74,14 +89,20 @@
 }
 
 .item-cart {
-  padding-bottom: 5.5px;
+  padding-bottom: 3px;
 
   display: flex;
-  column-gap: 55px;
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
+  column-gap: 66px;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
+
+  @media (max-width: 64.05em) and (min-width: 48em) {
+    column-gap: 56px;
+  }
 
   @media (max-width: 48em) {
     padding-bottom: 4.5px;
+
+    column-gap: 59px;
   }
 
   &__image-wrap {
@@ -103,11 +124,11 @@
   }
 
   &__title {
-    margin-bottom: 41px;
+    margin-bottom: 36px;
 
     display: flex;
     flex-direction: column;
-    row-gap: 2px;
+    row-gap: 4px;
 
     @media (max-width: 48em) {
       row-gap: 3px;
@@ -115,10 +136,14 @@
   }
 
   &__price {
-    transform: translate(-8px, -4px);
+    transform: translate(-9px, -2px);
 
-    @media (max-width: 64.05em) {
-      transform: translate(-9px, -2px);
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      transform: translate(-6px, -2px);
+    }
+
+    @media (max-width: 48em) {
+      transform: translate(-6px, 0px);
     }
   }
 
@@ -135,8 +160,5 @@
   &__remove-btn-icon {
     width: 12px;
     height: 12px;
-  }
-
-  &__quantity {
   }
 }

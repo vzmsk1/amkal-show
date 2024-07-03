@@ -12,17 +12,13 @@ export const locoScroll = new LocomotiveScroll({
   },
 });
 
+// locoScroll.destroy();
+//
+// window.addEventListener("load", function () {
+//   setTimeout(() => {
+//     locoScroll.init();
+//   }, 1000);
+// });
 window.addEventListener("resize", function () {
-  const width = window.innerWidth;
-  locoScroll.destroy();
-
-  setTimeout(() => {
-    locoScroll.init();
-  }, 500);
-});
-
-window.addEventListener("load", function () {
-  setTimeout(() => {
-    locoScroll.update();
-  }, 1000);
+  locoScroll.update();
 });

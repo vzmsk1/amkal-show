@@ -19,6 +19,10 @@ $red: #ff7373;
 @import "./base/common";
 
 body {
+  &.dark-theme {
+    background-color: $bg;
+  }
+
   &._light-theme {
     &:not(.mainpage &) {
       color: $black;

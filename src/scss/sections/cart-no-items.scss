@@ -1,0 +1,74 @@
+.cart-no-items {
+  padding-top: 143px;
+  padding-bottom: 12px;
+
+  @media (max-width: 64.05em) and (min-width: 48em) {
+    padding-top: 195px;
+  }
+
+  @media (max-width: 48em) {
+    padding-top: 183px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__head {
+    margin-bottom: 89px;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      margin-bottom: 49px;
+    }
+
+    @media (max-width: 48em) {
+      margin-bottom: 46px;
+    }
+  }
+
+  &__title {
+    &.title {
+      @media (min-width: 48em) {
+        font-family: "Druk Wide";
+        letter-spacing: 0;
+      }
+    }
+  }
+
+  &__body {
+    margin-bottom: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 64.05em) {
+      margin-right: -5px;
+    }
+
+    @media (min-width: 48em) {
+      margin-left: auto;
+
+      width: 488px;
+    }
+  }
+
+  &__text {
+    margin-left: 3px;
+    margin-bottom: 101px;
+
+    @media (max-width: 64.05em) {
+      margin-left: 1px;
+    }
+
+    @media (max-width: 48em) and (min-width: 48em) {
+      margin-bottom: 87px;
+    }
+
+    @media (max-width: 48em) {
+      margin-bottom: 61px;
+
+      max-width: 307px;
+    }
+  }
+}

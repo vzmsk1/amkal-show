@@ -78,15 +78,10 @@ const initCartWidget = () => {
   document.documentElement.classList.remove("_show-header-menu");
   document.documentElement.classList.toggle("_show-cart-widget");
 
-  if (!document.querySelector("body._light-theme")) {
-    if (document.querySelector("._show-cart-widget")) {
-      header.classList.remove("_dark-theme");
-      mm.matches ? bodyLock() : bodyUnlock();
-    } else {
-      bodyUnlock();
-    }
+  if (document.querySelector("._show-cart-widget")) {
+    header.classList.remove("_dark-theme");
+    mm.matches ? bodyLock() : bodyUnlock();
   } else {
-    header.classList.add("_dark-theme");
     bodyUnlock();
   }
 };

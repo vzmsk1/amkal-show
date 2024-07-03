@@ -1,17 +1,19 @@
 <!doctype html>
 <html lang="en">
   @@include('html/head.htm',{ "title":"CART" })
-  <body class="_light-theme">
-    @@include('html/header-lt.htm',{})
-    <div class="wrapper">
-      <main class="main">@@include('html/cart.htm',{})</main>
-      <footer class="footer">
-        <div class="footer__container container">
-          <p class="footer__copyrights txt-uc">
-            ©<span id="currentYear"></span>, AMKAL ESPORTS
-          </p>
-        </div>
-      </footer>
+  <body class="dark-theme">
+    <div class="loco-scroll">
+      <div class="wrapper">
+        @@include('html/header.htm',{})
+        <main class="main">@@include('html/cart.htm',{})</main>
+        <footer class="footer">
+          <div class="footer__container container">
+            <p class="footer__copyrights txt-uc">
+              ©<span id="currentYear"></span>, AMKAL ESPORTS
+            </p>
+          </div>
+        </footer>
+      </div>
     </div>
     @@include('html/svg.htm',{}) @@include('html/js.htm',{})
   </body>

@@ -1,15 +1,23 @@
 .error-page {
-  padding-top: 245px;
+  padding-top: 112px;
   padding-left: 61px;
 
+  height: calc(100vh - 65px);
+
+  overflow: hidden;
+
   @media (max-width: 64.05em) and (min-width: 48em) {
-    padding-top: 436px;
+    padding-top: 372px;
     padding-left: 15px;
   }
 
   @media (max-width: 48em) {
-    padding-top: 113px;
+    padding-top: 200px;
     padding-left: 0;
+  }
+
+  @media (min-width: 64.05em) {
+    height: calc(100vh - 130px);
   }
 
   &__container {

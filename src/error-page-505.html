@@ -2,29 +2,31 @@
 <html lang="en">
   @@include('html/head.htm',{ "title":"505" })
   <body>
-    @@include('html/header.htm',{})
-    <div class="wrapper">
-      <main class="main">
-        <section class="error-page-chapter">
-          <div class="error-page-chapter__container container">
-            <div class="error-page-chapter__image-wrap">
-              <img
-                class="error-page-chapter__image"
-                src="@img/content/error-page.webp"
-                alt=""
-              />
+    <div class="loco-scroll">
+      <div class="wrapper">
+        @@include('html/header.htm',{})
+        <main class="main">
+          <section class="error-page-chapter">
+            <div class="error-page-chapter__container container">
+              <div class="error-page-chapter__image-wrap">
+                <img
+                  class="error-page-chapter__image"
+                  src="@img/content/error-page.webp"
+                  alt=""
+                />
+              </div>
+              <h1 class="error-page-chapter__title title">ERROR 505</h1>
+              <p class="error-page-chapter__text">Server request error;</p>
+              <a
+                href="/"
+                class="error-page-chapter__btn btn btn_ol btn_ol_white btn_centered"
+                ><span class="btn__txt">GO TO MAIN</span></a
+              >
             </div>
-            <h1 class="error-page-chapter__title title">ERROR 505</h1>
-            <p class="error-page-chapter__text">Server request error;</p>
-            <a
-              href="/"
-              class="error-page-chapter__btn btn btn_ol btn_ol_white btn_centered"
-              ><span class="btn__txt">GO TO MAIN</span></a
-            >
-          </div>
-        </section>
-      </main>
-      @@include('html/footer.htm',{})
+          </section>
+        </main>
+        @@include('html/footer.htm',{})
+      </div>
     </div>
     @@include('html/svg.htm',{}) @@include('html/js.htm',{})
   </body>
