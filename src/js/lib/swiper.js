@@ -1,3 +1,4 @@
+import { setThumbsClasses } from "@js/anim/item-card-carousel";
 import { locoScroll } from "@js/lib/locomotive-scroll";
 import Swiper from "swiper";
 document.querySelector(".swiper") && import("swiper/css");
@@ -112,6 +113,34 @@ const initSliders = () => {
           navigation: {
             prevEl: ".item-card__slider-btn_prev",
             nextEl: ".item-card__slider-btn_next",
+          },
+          on: {
+            init: (swiper) => {
+              const thumbs = document.querySelectorAll(
+                ".item-card__thumbs-slide",
+              );
+
+              if (thumbs.length) {
+                thumbs.forEach((thumb, idx) => {
+                  thumb.addEventListener("click", function () {
+                    swiper.slideTo(idx);
+                    setThumbsClasses(idx, thumbs);
+                  });
+                });
+              }
+            },
+            slideChange: (swiper) => {
+              if (
+                document.querySelectorAll(".item-card__thumbs-slide").length
+              ) {
+                setThumbsClasses(
+                  swiper.activeIndex,
+                  document.querySelectorAll(".item-card__thumbs-slide"),
+                );
+              }
+            },
+
+            ...toggleScroll,
           },
         })
       : null;

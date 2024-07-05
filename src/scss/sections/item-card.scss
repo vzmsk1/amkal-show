@@ -1,6 +1,6 @@
 .item-card {
   @media (max-width: 48em) {
-    padding-top: 98px;
+    padding-top: 100px;
   }
 
   &__container {
@@ -21,19 +21,14 @@
   &__carousel {
     position: relative;
 
-    @media (min-width: 64.05em) {
-      flex: 0 0 757px;
-      width: 757px;
+    flex: 0 0 50.5%;
+    width: 50.5%;
 
-      transform: translateX(-14px);
-    }
-
-    @media (max-width: 64.05em) and (min-width: 48em) {
-      flex: 0 0 506px;
-      width: 506px;
-    }
+    transform: translateX(-14px);
 
     @media (max-width: 48em) {
+      margin-bottom: 13px;
+
       width: calc(100% + 32px);
 
       transform: translateX(-16px);
@@ -43,7 +38,7 @@
   &__slider-btn {
     position: absolute;
     z-index: 2;
-    top: 231px;
+    top: 227px;
 
     &_prev {
       left: 18px;
@@ -61,8 +56,8 @@
   }
 
   &__slider-btn-icon {
-    width: 21px;
-    height: 21px;
+    width: 23px;
+    height: 23px;
 
     color: $black;
   }
@@ -83,6 +78,8 @@
       @media (max-width: 48em) {
         position: absolute;
         bottom: 15px;
+        top: auto;
+        left: 18px;
       }
     }
   }
@@ -92,7 +89,7 @@
       &.swiper {
         padding-top: 1px;
 
-        overflow: auto;
+        overflow: visible;
       }
     }
   }
@@ -110,7 +107,7 @@
     height: 100vh;
 
     @media (max-width: 64.05em) and (min-width: 48em) {
-      padding-top: 207px;
+      padding-top: 204px;
 
       width: 48.2%;
     }
@@ -120,6 +117,7 @@
 
       padding-right: 0;
       padding-top: 0;
+      padding-bottom: 85px;
 
       height: auto;
       width: 100%;
@@ -127,7 +125,7 @@
   }
 
   &__head {
-    margin-bottom: 68px;
+    margin-bottom: 66px;
 
     display: flex;
     flex-direction: column;
@@ -139,18 +137,26 @@
 
       width: 365px;
     }
+
+    @media (max-width: 48em) {
+      margin-bottom: 30px;
+    }
   }
 
   &__title {
-    margin-bottom: 35px;
+    margin-bottom: 32px;
 
     max-width: 107px;
 
     text-transform: uppercase;
     letter-spacing: 1px;
 
-    @media (max-width: 64.05em) {
+    @media (max-width: 64.05em) and (min-width: 48em) {
       margin-bottom: 30px;
+    }
+
+    @media (max-width: 48em) {
+      margin-bottom: 33px;
     }
   }
 
@@ -160,7 +166,7 @@
     display: flex;
     flex-direction: column;
 
-    @media (max-width: 64.05em) {
+    @media (max-width: 64.05em) and (min-width: 48em) {
       margin-bottom: 36px;
     }
   }
@@ -168,17 +174,27 @@
   &__characteristics {
     display: flex;
     flex-direction: column;
-    row-gap: 11px;
+    row-gap: 12px;
+
+    @media (max-width: 48em) {
+      row-gap: 14px;
+    }
   }
 }
 
 .characteristic-item-card {
   display: grid;
   grid-template-columns: repeat(2, 6fr);
-  min-height: 59px;
+  min-height: 57px;
 
-  @media (max-width: 64.05em) {
+  @media (max-width: 64.05em) and (min-width: 48em) {
     grid-template-columns: 1fr 259px;
+  }
+
+  @media (max-width: 48em) {
+    display: flex;
+    flex-direction: column;
+    min-height: 77px;
   }
 
   &:not(:last-child) {
@@ -207,6 +223,12 @@
         }
       }
     }
+
+    @media (max-width: 48em) {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+    }
   }
 }
 
@@ -217,7 +239,7 @@
 
   &__row {
     display: flex;
-    column-gap: 6px;
+    column-gap: 9px;
   }
 
   &__title {
@@ -244,6 +266,7 @@
         color: $green;
 
         background-color: $black;
+        border: 0.5px solid $black;
       }
     }
   }
@@ -252,15 +275,17 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 28px;
-    height: 22px;
-    border-radius: 12px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 0.5px solid rgba(0, 0, 0, 0.4);
 
     text-transform: uppercase;
 
     transition:
       background-color 0.3s ease,
-      color 0.3s ease;
+      color 0.3s ease,
+      border 0.3s ease;
   }
 }
 
@@ -273,6 +298,11 @@
 
     &._is-active {
       display: none;
+    }
+
+    @media (max-width: 48em) {
+      width: 58px;
+      height: 86px;
     }
   }
 
@@ -290,14 +320,11 @@
 .slide-item-card {
   &.swiper-slide,
   .slide-item-card__image {
-    height: 100vh;
+    height: 565px;
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
-      height: 657px;
-    }
-
-    @media (max-width: 48em) {
-      height: 569px;
+    @media (min-width: 48em) {
+      height: 64.5vw;
+      max-height: 982px;
     }
   }
 

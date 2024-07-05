@@ -136,6 +136,7 @@ const setLocoScrollAttr = (el) => {
 
     return () => {
       el.classList.contains("header") && el.classList.remove("fixed");
+      el.removeAttribute("style");
       el.removeAttribute("data-scroll");
       el.removeAttribute("data-scroll-sticky");
       el.removeAttribute("data-scroll-target");
