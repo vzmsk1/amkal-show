@@ -1,12 +1,13 @@
+import { locoScroll } from "@js/lib/locomotive-scroll";
 import { removeClasses } from "@js/utils/utils";
 import gsap from "gsap";
-import { ScrollTrigger, ScrollToPlugin } from "gsap/all";
+import { ScrollTrigger } from "gsap/all";
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
 const mm = gsap.matchMedia();
 
-const initItemCardCarousel = () => {
+export const initItemCardCarousel = () => {
   if (document.querySelector(".item-card__swiper")) {
     mm.add("(min-width: 1024px)", () => {
       const thumbs = document.querySelectorAll(".item-card__thumbs-slide");
@@ -14,17 +15,16 @@ const initItemCardCarousel = () => {
       const setThumbsClasses = (idx) => {
         removeClasses(thumbs, "_is-active");
         thumbs[idx] && thumbs[idx].classList.add("_is-active");
-        console.log(idx);
       };
 
       document.querySelectorAll(".item-card__slide").forEach((slide, idx) => {
         thumbs[idx].addEventListener("click", function () {
-          gsap.to(slide, {
-            duration: 1,
-            scrollTo: { y: 0, autoKill: true },
+          locoScroll.scrollTo(slide, {
+            offset: -1,
+            callback: () => {
+              setThumbsClasses(idx);
+            },
           });
-          setThumbsClasses(idx);
-          console.log(slide);
         });
 
         gsap.timeline({
@@ -44,4 +44,3 @@ const initItemCardCarousel = () => {
     });
   }
 };
-initItemCardCarousel();

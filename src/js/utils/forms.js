@@ -3,25 +3,12 @@ import gsap from "gsap";
 const addError = (input) => {
   input.closest(".field") &&
     input.closest(".field").classList.add("_has-error");
-
-  // gsap.set(input.closest(".field"), { opacity: 1, duration: 0.3 });
-  //
-  // if (input.tagName === "INPUT") {
-  //   gsap.to(input, { borderBottom: "0.5px solid #ff7373", duration: 0.3 });
-  // } else if (input.tagName === "TEXTAREA") {
-  //   gsap.to(input, { border: "0.5px solid #ff7373", duration: 0.3 });
-  // }
 };
 
 const removeError = (input) => {
   gsap.to(input.closest(".field"), { opacity: 1, duration: 0.3 });
-  input.closest(".field").classList.remove("_has-error");
-
-  // if (input.tagName === "INPUT") {
-  //   gsap.to(input, { borderBottom: "0.5px solid #000000", duration: 0.3 });
-  // } else if (input.tagName === "TEXTAREA") {
-  //   gsap.to(input, { border: "0.5px solid #000000", duration: 0.3 });
-  // }
+  input.closest(".field") &&
+    input.closest(".field").classList.remove("_has-error");
 };
 
 const onInputFocusInHandler = ({ target }) => {

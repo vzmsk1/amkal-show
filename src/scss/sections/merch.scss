@@ -1,0 +1,46 @@
+.merch {
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__head {
+    margin-bottom: 105px;
+
+    display: flex;
+  }
+
+  &__title {
+    margin-right: 90vw;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__items {
+    margin-bottom: 249px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 171px);
+    column-gap: 480px;
+    row-gap: 194px;
+
+    &:first-child {
+      margin-bottom: 199px;
+    }
+  }
+
+  &__image-text {
+    margin-bottom: 258px;
+  }
+}
+
+.image-text {
+  position: relative;
+  
+  max-width: 1920px;
+  width: 100%;
+  
+}

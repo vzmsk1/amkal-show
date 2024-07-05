@@ -2,6 +2,9 @@ import { locoScroll } from "@js/lib/locomotive-scroll";
 import Swiper from "swiper";
 document.querySelector(".swiper") && import("swiper/css");
 import { Navigation, Pagination } from "swiper/modules";
+import gsap from "gsap";
+
+const md = gsap.matchMedia();
 
 const toggleScroll = {
   touchStart: () => {
@@ -100,14 +103,23 @@ const initSliders = () => {
       spaceBetween: 8,
     });
   }
-  if (
-    document.querySelector(".item-card__swiper") &&
-    window.innerWidth <= 768
-  ) {
-    new Swiper(".item-card__swiper", {
-      loop: true,
-    });
-  }
+
+  md.add("(max-width: 48em)", () => {
+    const carousel = document.querySelector(".item-card__swiper")
+      ? new Swiper(".item-card__swiper", {
+          modules: [Navigation],
+          loop: true,
+          navigation: {
+            prevEl: ".item-card__slider-btn_prev",
+            nextEl: ".item-card__slider-btn_next",
+          },
+        })
+      : null;
+
+    return () => {
+      carousel && carousel.destroy();
+    };
+  });
 };
 
 window.addEventListener("load", initSliders);

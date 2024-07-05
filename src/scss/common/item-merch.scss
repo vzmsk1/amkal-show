@@ -1,0 +1,19 @@
+.item-merch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  &__image-wrap {
+    margin-bottom: 12px;
+
+    height: 259px;
+  }
+
+  &__image {
+    height: 100%;
+
+    object-fit: cover;
+  }
+}

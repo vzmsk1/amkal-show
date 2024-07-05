@@ -1,46 +1,11 @@
-<section class="item-card">
+<section id="item-card" class="item-card">
   <div class="item-card__container container">
-    <div class="item-card__thumbs-swiper swiper">
-      <ul class="item-card__thumbs-swiper-wrapper swiper-wrapper">
-        <li class="item-card__thumbs-slide thumbs-slide-item-card swiper-slide">
-          <div class="thumbs-slide-item-card__image-wrap">
-            <img
-              class="thumbs-slide-item-card__image"
-              src="@img/items/551.webp"
-              alt=""
-            />
-          </div>
-        </li>
-        <li class="item-card__thumbs-slide thumbs-slide-item-card swiper-slide">
-          <div class="thumbs-slide-item-card__image-wrap">
-            <img
-              class="thumbs-slide-item-card__image"
-              src="@img/items/98.webp"
-              alt=""
-            />
-          </div>
-        </li>
-        <li class="item-card__thumbs-slide thumbs-slide-item-card swiper-slide">
-          <div class="thumbs-slide-item-card__image-wrap">
-            <img
-              class="thumbs-slide-item-card__image"
-              src="@img/items/99.webp"
-              alt=""
-            />
-          </div>
-        </li>
-        <li class="item-card__thumbs-slide thumbs-slide-item-card swiper-slide">
-          <div class="thumbs-slide-item-card__image-wrap">
-            <img
-              class="thumbs-slide-item-card__image"
-              src="@img/items/100.webp"
-              alt=""
-            />
-          </div>
-        </li>
-      </ul>
-    </div>
     <div class="item-card__carousel">
+      <button class="item-card__slider-btn item-card__slider-btn_prev">
+        <svg class="item-card__slider-btn-icon">
+          <use href="#arr-svg"></use>
+        </svg>
+      </button>
       <div class="item-card__swiper swiper">
         <ul class="item-card__swiper-wrapper swiper-wrapper">
           <li class="item-card__slide slide-item-card swiper-slide">
@@ -81,6 +46,59 @@
           </li>
         </ul>
       </div>
+      <div class="item-card__thumbs-swiper swiper">
+        <ul class="item-card__thumbs-swiper-wrapper swiper-wrapper">
+          <li
+            class="item-card__thumbs-slide thumbs-slide-item-card swiper-slide _is-active"
+          >
+            <div class="thumbs-slide-item-card__image-wrap">
+              <img
+                class="thumbs-slide-item-card__image"
+                src="@img/items/551.webp"
+                alt=""
+              />
+            </div>
+          </li>
+          <li
+            class="item-card__thumbs-slide thumbs-slide-item-card swiper-slide"
+          >
+            <div class="thumbs-slide-item-card__image-wrap">
+              <img
+                class="thumbs-slide-item-card__image"
+                src="@img/items/98.webp"
+                alt=""
+              />
+            </div>
+          </li>
+          <li
+            class="item-card__thumbs-slide thumbs-slide-item-card swiper-slide"
+          >
+            <div class="thumbs-slide-item-card__image-wrap">
+              <img
+                class="thumbs-slide-item-card__image"
+                src="@img/items/99.webp"
+                alt=""
+              />
+            </div>
+          </li>
+          <li
+            class="item-card__thumbs-slide thumbs-slide-item-card swiper-slide"
+          >
+            <div class="thumbs-slide-item-card__image-wrap">
+              <img
+                class="thumbs-slide-item-card__image"
+                src="@img/items/100.webp"
+                alt=""
+              />
+            </div>
+          </li>
+        </ul>
+      </div>
+      <button class="item-card__slider-btn item-card__slider-btn_next">
+        <svg class="item-card__slider-btn-icon">
+          <use href="#arr-svg"></use>
+        </svg>
+      </button>
     </div>
     <div class="item-card__content">
       <div class="item-card__head">
@@ -165,7 +183,8 @@
           </div>
           <div class="item-card__characteristic characteristic-item-card">
             <span class="characteristic-item-card__title txt-12"
-              >Shipping & Returns</span
+              >Shipping <br />
+              & Returns</span
             >
             <div class="characteristic-item-card__text-wrap txt-12">
               <p class="characteristic-item-card__text">

@@ -30,6 +30,7 @@
 
   &.fixed {
     position: fixed;
+    z-index: 50;
   }
 
   ._light-theme & {

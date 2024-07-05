@@ -1,49 +1,144 @@
 .item-card {
+  @media (max-width: 48em) {
+    padding-top: 98px;
+  }
+
   &__container {
     display: flex;
     column-gap: 15px;
+
+    @media (max-width: 48em) {
+      flex-direction: column;
+    }
   }
 
   &__swiper-wrapper {
-    flex-direction: column;
+    @media (min-width: 48em) {
+      flex-direction: column;
+    }
   }
 
   &__carousel {
     position: relative;
 
-    flex: 0 0 757px;
-    width: 757px;
-    height: 100vh;
+    @media (min-width: 64.05em) {
+      flex: 0 0 757px;
+      width: 757px;
+
+      transform: translateX(-14px);
+    }
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      flex: 0 0 506px;
+      width: 506px;
+    }
+
+    @media (max-width: 48em) {
+      width: calc(100% + 32px);
+
+      transform: translateX(-16px);
+    }
+  }
+
+  &__slider-btn {
+    position: absolute;
+    z-index: 2;
+    top: 231px;
+
+    &_prev {
+      left: 18px;
+    }
+
+    &_next {
+      right: 18px;
+
+      transform: rotate(180deg);
+    }
+
+    @media (min-width: 48em) {
+      display: none;
+    }
+  }
+
+  &__slider-btn-icon {
+    width: 21px;
+    height: 21px;
+
+    color: $black;
   }
 
   &__thumbs-swiper {
     &.swiper {
       position: fixed;
       z-index: 2;
-      bottom: 16px;
       left: 16px;
+      top: calc(100vh - 122px - 16px);
+
+      @media (max-width: 64.05em) and (min-width: 48em) {
+        &[data-scroll] {
+          display: none;
+        }
+      }
+
+      @media (max-width: 48em) {
+        position: absolute;
+        bottom: 15px;
+      }
+    }
+  }
+
+  &__swiper {
+    @media (min-width: 48em) {
+      &.swiper {
+        padding-top: 1px;
+
+        overflow: auto;
+      }
     }
   }
 
   &__content {
     position: fixed;
-    bottom: 0;
-    right: 18px;
+    right: 0;
 
-    padding-top: 160px;
+    padding-right: 15px;
+    padding-top: 288px;
 
     display: flex;
     flex-direction: column;
-    width: 47%;
+    width: 49%;
+    height: 100vh;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      padding-top: 207px;
+
+      width: 48.2%;
+    }
+
+    @media (max-width: 48em) {
+      position: static;
+
+      padding-right: 0;
+      padding-top: 0;
+
+      height: auto;
+      width: 100%;
+    }
   }
 
   &__head {
-    margin-bottom: 96px;
-    margin-left: auto;
+    margin-bottom: 68px;
 
     display: flex;
     flex-direction: column;
-    width: 365px;
+
+    @media (min-width: 64.05em) {
+      margin-bottom: 80px;
+      margin-left: auto;
+      margin-right: -7px;
+
+      width: 365px;
+    }
   }
 
   &__title {
@@ -52,34 +147,47 @@
     max-width: 107px;
 
     text-transform: uppercase;
+    letter-spacing: 1px;
+
+    @media (max-width: 64.05em) {
+      margin-bottom: 30px;
+    }
   }
 
   &__parameters {
-    margin-bottom: 4px;
+    margin-bottom: 32px;
 
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 64.05em) {
+      margin-bottom: 36px;
+    }
   }
 
   &__characteristics {
     display: flex;
     flex-direction: column;
-    row-gap: 16px;
+    row-gap: 11px;
   }
 }
 
 .characteristic-item-card {
   display: grid;
   grid-template-columns: repeat(2, 6fr);
+  min-height: 59px;
+
+  @media (max-width: 64.05em) {
+    grid-template-columns: 1fr 259px;
+  }
 
   &:not(:last-child) {
-    padding-bottom: 28px;
-
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
   }
 
   &__title {
     text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
   &__text-wrap {
@@ -88,6 +196,8 @@
   }
 
   &__text {
+    line-height: 16px;
+
     a {
       text-decoration: underline;
 
@@ -103,15 +213,16 @@
 .parameter-item-card {
   display: flex;
   align-items: center;
-  column-gap: 33px;
+  column-gap: 22px;
 
   &__row {
     display: flex;
-    column-gap: 4px;
+    column-gap: 6px;
   }
 
   &__title {
     text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
   &__item {
@@ -177,8 +288,17 @@
 }
 
 .slide-item-card {
-  &.swiper-slide {
+  &.swiper-slide,
+  .slide-item-card__image {
     height: 100vh;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      height: 657px;
+    }
+
+    @media (max-width: 48em) {
+      height: 569px;
+    }
   }
 
   &__image {
@@ -187,6 +307,11 @@
     left: 0;
 
     width: auto;
-    height: 100vh;
+
+    @media (max-width: 48em) {
+      left: 50%;
+
+      transform: translateX(-50%);
+    }
   }
 }

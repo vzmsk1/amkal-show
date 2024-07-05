@@ -4,7 +4,9 @@ import { animateHero } from "@js/anim/transitions/hero";
 import { locoScroll } from "@js/lib/locomotive-scroll";
 import { bodyLock, bodyLockToggle, bodyUnlock } from "@js/utils/utils";
 import { initMainpageScroll } from "../anim/mainpage-scroll";
+import gsap from "gsap";
 
+const md = gsap.matchMedia();
 const tm = window.matchMedia("(max-width: 64.05em)");
 const mm = window.matchMedia("(max-width: 48em)");
 const header = document.querySelector(".header");
@@ -124,10 +126,35 @@ const onMatchMediaChangeHandler = () => {
   }
 };
 
+const setLocoScrollAttr = (el) => {
+  md.add("(min-width: 48em)", () => {
+    el.classList.contains("header") && el.classList.add("fixed");
+    el.setAttribute("data-scroll", "");
+    el.setAttribute("data-scroll-sticky", "");
+    el.setAttribute("data-scroll-target", "#item-card");
+    locoScroll.update();
+
+    return () => {
+      el.classList.contains("header") && el.classList.remove("fixed");
+      el.removeAttribute("data-scroll");
+      el.removeAttribute("data-scroll-sticky");
+      el.removeAttribute("data-scroll-target");
+      locoScroll.update();
+    };
+  });
+};
+
 document.addEventListener("click", onClickHandler);
 tm.addEventListener("change", onMatchMediaChangeHandler);
 
 document.addEventListener("DOMContentLoaded", function () {
+  if (document.getElementById("item-card")) {
+    setLocoScrollAttr(document.querySelector(".header"));
+    setLocoScrollAttr(document.querySelector(".item-card__thumbs-swiper"));
+    setLocoScrollAttr(document.querySelector(".item-card__content"));
+    locoScroll.update();
+  }
+
   if (document.querySelector(".footer-main__anchor")) {
     document
       .querySelector(".footer-main__anchor")
