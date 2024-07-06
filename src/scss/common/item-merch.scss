@@ -1,14 +1,42 @@
 .item-merch {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  text-align: center;
+    text-align: center;
+  }
+
+  &__title {
+    line-height: 14px;
+
+    @media (max-width: 48em) {
+      line-height: 15px;
+    }
+  }
 
   &__image-wrap {
     margin-bottom: 12px;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 259px;
+    width: 100%;
+
+    background-color: #eeeeee;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      margin-bottom: 9px;
+
+      height: 229px;
+    }
+
+    @media (max-width: 48em) {
+      margin-bottom: 14px;
+
+      height: 179px;
+    }
   }
 
   &__image {

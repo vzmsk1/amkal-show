@@ -3,6 +3,12 @@
     display: none;
   }
 
+  .lg-inner {
+    @media (max-width: 48em) {
+      top: -51px;
+    }
+  }
+
   .lg-toolbar .lg-close:after {
     content: "";
 
@@ -11,11 +17,38 @@
     height: 20px;
 
     background: url("@img/icons/cross.svg") center / contain no-repeat;
+
+    @media (max-width: 64.05em) {
+      width: 25px;
+      height: 25px;
+
+      transform: translate(3px, 0);
+    }
   }
 
-  .lg-toolbar .lg-icon {
+  .lg-sub-html {
+    display: none;
+  }
+
+  .lg-icon {
     font-size: 20px;
     color: #ffffff;
+
+    @media (max-width: 48em) {
+      &.lg-prev,
+      &.lg-next {
+        top: auto;
+        bottom: 62px;
+      }
+
+      &.lg-prev {
+        left: 4px;
+      }
+
+      &.lg-next {
+        right: 4px;
+      }
+    }
   }
 
   .lg-counter {
@@ -30,6 +63,10 @@
     line-height: 1;
     letter-spacing: 0.03em;
     color: #ffffff;
+
+    @media (max-width: 48em) {
+      bottom: -3px;
+    }
   }
 
   .lg-prev:after,
@@ -47,10 +84,35 @@
     transform: rotate(180deg);
   }
 
-  .lg-object.lg-image {
+  .lg-image {
+    width: 982px;
+    height: 674px;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      width: 824px;
+      height: 565px;
+    }
+
+    @media (max-width: 48em) {
+      width: 398px;
+      height: 273px;
+    }
+  }
+  ._is-vertical .lg-image {
     width: 618px;
     height: 812px;
 
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      width: 656px;
+      height: 860px;
+    }
+
+    @media (max-width: 48em) {
+      width: 396px;
+      height: 566px;
+    }
+  }
+  .lg-object.lg-image {
     object-fit: cover;
   }
 

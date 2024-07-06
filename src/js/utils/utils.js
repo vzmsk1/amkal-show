@@ -1,5 +1,8 @@
 import { locoScroll } from "@js/lib/locomotive-scroll";
 
+const mm = window.matchMedia("(max-width: 48em)");
+const tm = window.matchMedia("(max-width: 64.05em)");
+
 /**
  * set hash to url
  * @param {string} hash
@@ -40,9 +43,8 @@ export const bodyUnlock = (delay = 500) => {
   if (!document.querySelector("._is-locked")) {
     if (bodyLockStatus) {
       setTimeout(() => {
-        locoScroll.start();
+        !tm.matches && locoScroll.start();
 
-        console.log("unlock");
         document.documentElement.classList.remove("_lock");
       }, delay);
       bodyLockStatus = false;
@@ -59,8 +61,8 @@ export const bodyUnlock = (delay = 500) => {
 export const bodyLock = (delay = 500) => {
   if (!document.querySelector("._is-locked")) {
     if (bodyLockStatus) {
-      locoScroll.stop();
-      console.log("lock");
+      !tm.matches && locoScroll.stop();
+
       document.documentElement.classList.add("_lock");
 
       bodyLockStatus = false;

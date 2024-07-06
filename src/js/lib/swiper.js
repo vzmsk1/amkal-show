@@ -104,6 +104,30 @@ const initSliders = () => {
       spaceBetween: 8,
     });
   }
+  if (document.querySelector(".gallery__swiper")) {
+    new Swiper(".gallery__swiper", {
+      modules: [Navigation, Pagination],
+      loop: true,
+      grabCursor: true,
+      autoHeight: true,
+      navigation: {
+        prevEl: ".gallery__slider-btn_prev",
+        nextEl: ".gallery__slider-btn_next",
+      },
+      pagination: {
+        el: ".gallery__fraction",
+        type: "custom",
+        renderCustom: function (swiper, current, total) {
+          return current + "<span>/</span>" + total;
+        },
+      },
+      on: {
+        slideChange: () => {
+          locoScroll.update();
+        },
+      },
+    });
+  }
 
   md.add("(max-width: 48em)", () => {
     const carousel = document.querySelector(".item-card__swiper")

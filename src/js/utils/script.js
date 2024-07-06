@@ -107,6 +107,19 @@ const onClickHandler = (e) => {
       closeCartWidget();
     }
   }
+
+  if (target.closest(".filter__btn")) {
+    document.documentElement.classList.toggle("_show-filters");
+
+    mm.matches && bodyLockToggle();
+  } else if (
+    target.closest(".filter__close-btn") ||
+    !target.closest(".filter__body")
+  ) {
+    document.documentElement.classList.remove("_show-filters");
+
+    mm.matches && bodyUnlock();
+  }
 };
 
 const onMatchMediaChangeHandler = () => {

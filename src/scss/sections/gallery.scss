@@ -1,0 +1,163 @@
+.gallery {
+  padding-top: 94px;
+  padding-bottom: 18px;
+
+  @media (max-width: 64.05em) and (min-width: 48em) {
+    padding-top: 271px;
+  }
+
+  @media (max-width: 48em) {
+    padding-top: 32px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__body {
+    position: relative;
+
+    margin-bottom: 82px;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      margin-bottom: 224px;
+    }
+
+    @media (max-width: 48em) {
+      margin-bottom: 111px;
+    }
+  }
+
+  &__slider-btn {
+    position: absolute;
+    top: 50%;
+
+    transform: translateY(-176%);
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      transform: translateY(-71%);
+    }
+
+    @media (max-width: 48em) {
+      top: auto;
+      bottom: -44px;
+
+      transform: none;
+    }
+
+    &_prev {
+      left: 0;
+    }
+
+    &_next {
+      right: 0;
+
+      transform: translateY(-176%) rotate(180deg);
+
+      @media (max-width: 64.05em) and (min-width: 48em) {
+        transform: translateY(-71%) rotate(180deg);
+      }
+
+      @media (max-width: 48em) {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__swiper {
+    &.swiper {
+      width: 100%;
+    }
+  }
+
+  &__slider-btn-icon {
+    width: 25px;
+    height: 25px;
+
+    @media (max-width: 48em) {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__text {
+    max-width: 732px;
+
+    font-size: 16px;
+    line-height: 21px;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      max-width: 481px;
+    }
+
+    @media (max-width: 48em) {
+      max-width: 328px;
+    }
+  }
+
+  &__fraction {
+    display: flex;
+    align-items: center;
+    column-gap: 7px;
+
+    font-size: 16px;
+    line-height: 21px;
+  }
+}
+
+.slide-gallery {
+  &.swiper-slide {
+    display: flex;
+    justify-content: center;
+  }
+
+  &._is-vertical {
+    .slide-gallery {
+      &__image {
+        width: 461px;
+        height: 605px;
+
+        @media (max-width: 64.05em) and (min-width: 48em) {
+          width: 656px;
+          height: 860px;
+        }
+
+        @media (max-width: 48em) {
+          width: 396px;
+          height: 566px;
+        }
+      }
+    }
+  }
+
+  &:not(&._is-vertical) {
+    @media (max-width: 48em) {
+      padding-top: 232px;
+      padding-bottom: 66px;
+    }
+  }
+
+  &__image {
+    width: 982px;
+    height: 674px;
+
+    object-fit: cover;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      width: 824px;
+      height: 565px;
+    }
+
+    @media (max-width: 48em) {
+      width: 398px;
+      height: 273px;
+    }
+  }
+}

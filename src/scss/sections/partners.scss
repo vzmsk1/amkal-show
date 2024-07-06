@@ -1,4 +1,5 @@
 .partners {
+  margin-bottom: 131px;
   padding-top: 16px;
 
   @media (max-width: 64.05em) and (min-width: 48em) {
@@ -44,6 +45,10 @@
   &__body {
     display: grid;
     grid-template-columns: 1fr 810px 171px;
+
+    @media (max-width: 1400px) and (min-width: 64.05em) {
+      column-gap: 40px;
+    }
 
     @media (max-width: 64.05em) and (min-width: 48em) {
       grid-template-columns: 1fr 237px;

@@ -1,3 +1,17 @@
+.gallery-description {
+  position: absolute;
+  bottom: 13px;
+  left: 15px;
+
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 0.03em;
+
+  @media (max-width: 48em) {
+    bottom: 15px;
+  }
+}
+
 .feed-chapter {
   margin-bottom: 125px;
   padding-top: 53px;
@@ -220,6 +234,10 @@
 
     .swiper-slide {
       width: 219px;
+
+      &_sm {
+        width: 150px;
+      }
 
       @media (min-width: 48em) {
         width: 420px;

@@ -19,12 +19,14 @@ export const initItemCardCarousel = () => {
 
       document.querySelectorAll(".item-card__slide").forEach((slide, idx) => {
         thumbs[idx].addEventListener("click", function () {
-          locoScroll.scrollTo(slide, {
-            offset: -1,
-            callback: () => {
-              setThumbsClasses(idx, thumbs);
-            },
-          });
+          if (window.innerWidth > 1024) {
+            locoScroll.scrollTo(slide, {
+              offset: -1,
+              callback: () => {
+                setThumbsClasses(idx, thumbs);
+              },
+            });
+          }
         });
 
         gsap.timeline({
