@@ -1,9 +1,17 @@
 .hero {
+  &__video,
+  video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+
   &__container {
     position: relative;
     z-index: 1;
 
-    padding-top: 135px;
+    padding-top: 133px;
     padding-bottom: 11px;
 
     display: flex;
@@ -40,7 +48,7 @@
 
     display: inline-block;
 
-    color: $green;
+    color: #caff34ff;
   }
 
   &__video-wrap {
@@ -50,12 +58,5 @@
 
     width: 100%;
     height: 100%;
-  }
-
-  &__video {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
   }
 }

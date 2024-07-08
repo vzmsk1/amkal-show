@@ -6,6 +6,7 @@ import {
   enterVictoryScreen,
   leaveVictoryScreen,
 } from "@js/anim/screen/victory";
+import { heroTl } from "@js/anim/transitions/hero";
 import { langLeaveTl } from "@js/anim/transitions/lang";
 import gsap from "gsap";
 import { Observer } from "gsap/Observer";
@@ -56,6 +57,14 @@ export const initMainpageScroll = () => {
           case 4:
             leaveFeedScreen();
         }
+      } else {
+        switch (activeIdx) {
+          case 1:
+            setActiveScreen(1, 0);
+            heroTl.restart();
+            break;
+        }
+        console.log(activeIdx);
       }
 
       setTimeout(observer.enable, 1000);

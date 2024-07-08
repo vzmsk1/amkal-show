@@ -32,7 +32,7 @@ export const initItemCardCarousel = () => {
         gsap.timeline({
           scrollTrigger: {
             trigger: slide,
-            start: "top top",
+            start: "top center",
             end: "bottom bottom",
             onEnter: (e) => {
               setThumbsClasses(idx, thumbs);

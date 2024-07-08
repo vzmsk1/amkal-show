@@ -1,4 +1,5 @@
 import { locoScroll } from "@js/lib/locomotive-scroll";
+import gsap from "gsap";
 
 const mm = window.matchMedia("(max-width: 48em)");
 const tm = window.matchMedia("(max-width: 64.05em)");
@@ -30,9 +31,9 @@ export let bodyLockStatus = true;
  */
 export const bodyLockToggle = (delay = 500) => {
   if (document.documentElement.classList.contains("lock")) {
-    bodyUnlock(delay);
+    bodyUnlock(0);
   } else {
-    bodyLock(delay);
+    bodyLock(0);
   }
 };
 /**
@@ -40,18 +41,18 @@ export const bodyLockToggle = (delay = 500) => {
  * @param {number} delay
  */
 export const bodyUnlock = (delay = 500) => {
-  if (!document.querySelector("._is-locked")) {
-    if (bodyLockStatus) {
+  if (!document.querySelector(".hero")) {
+    if (!document.querySelector("._is-locked")) {
       setTimeout(() => {
-        !tm.matches && locoScroll.start();
+        locoScroll.start();
+
+        console.log("unlock");
 
         document.documentElement.classList.remove("_lock");
-      }, delay);
-      bodyLockStatus = false;
-      setTimeout(function () {
-        bodyLockStatus = true;
-      }, delay);
+      }, 0);
     }
+  } else {
+    gsap.set("body", { clearProps: "overflow, touch-action" });
   }
 };
 /**
@@ -59,17 +60,18 @@ export const bodyUnlock = (delay = 500) => {
  * @param {number} delay
  */
 export const bodyLock = (delay = 500) => {
-  if (!document.querySelector("._is-locked")) {
-    if (bodyLockStatus) {
-      !tm.matches && locoScroll.stop();
+  if (!document.querySelector(".hero")) {
+    if (!document.querySelector("._is-locked")) {
+      setTimeout(() => {
+        locoScroll.stop();
 
-      document.documentElement.classList.add("_lock");
+        console.log("lock");
 
-      bodyLockStatus = false;
-      setTimeout(function () {
-        bodyLockStatus = true;
-      }, delay);
+        document.documentElement.classList.add("_lock");
+      }, 0);
     }
+  } else {
+    gsap.set("body", { overflow: "hidden", "touch-action": "none" });
   }
 };
 
@@ -274,8 +276,10 @@ export const removeClasses = (array, className) => {
  * set current year
  */
 export const setCurrentYear = () => {
-  if (document.getElementById("currentYear")) {
-    document.getElementById("currentYear").innerHTML = new Date().getFullYear();
+  if (document.querySelectorAll(".current-year").length) {
+    document.querySelectorAll(".current-year").forEach((el) => {
+      el.innerHTML = new Date().getFullYear();
+    });
   }
 };
 
@@ -293,4 +297,20 @@ export const toggleClass = () => {
       });
     });
   }
+};
+
+export const checkFontsLoaded = (fontName) => {
+  return new Promise((resolve, reject) => {
+    // Use FontFaceSet API if available
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(resolve);
+    } else {
+      // Fallback to using FontFaceObserver for older browsers
+      const observer = new FontFaceObserver(fontName, {
+        weight: "normal",
+      });
+
+      observer.load().then(resolve).catch(reject);
+    }
+  });
 };

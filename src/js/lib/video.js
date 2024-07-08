@@ -1,11 +1,13 @@
 import videojs from "video.js";
 
-function initVideoJS() {
+export const initVideoJS = () => {
   const videos = document.querySelectorAll("[data-videojs]");
   videos.forEach((video) => {
+    const isHero = video.closest(".hero");
+
     const player = videojs(video, {
       autoplay: "muted",
-      loop: true,
+      loop: !isHero,
       playsinline: true,
       normalizeAutoplay: true,
       noUITitleAttributes: true,
@@ -25,6 +27,6 @@ function initVideoJS() {
       });
     }, 100);
   });
-}
+};
 
-initVideoJS();
+!document.querySelector(".mainpage") && initVideoJS();

@@ -4,6 +4,8 @@
   }
 
   &__container {
+    position: relative;
+
     display: flex;
     column-gap: 15px;
 
@@ -15,6 +17,13 @@
   &__swiper-wrapper {
     @media (min-width: 48em) {
       flex-direction: column;
+    }
+  }
+
+  &__carousel,
+  .slide-item-card__image {
+    @media (max-width: 48em) {
+      height: 565px;
     }
   }
 
@@ -59,7 +68,7 @@
     width: 23px;
     height: 23px;
 
-    color: $black;
+    color: #000000;
   }
 
   &__thumbs-swiper {
@@ -95,7 +104,7 @@
   }
 
   &__content {
-    position: fixed;
+    position: absolute;
     right: 0;
 
     padding-right: 15px;
@@ -107,6 +116,7 @@
     height: 100vh;
 
     @media (max-width: 64.05em) and (min-width: 48em) {
+      position: fixed;
       padding-top: 204px;
 
       width: 48.2%;
@@ -141,6 +151,10 @@
     @media (max-width: 48em) {
       margin-bottom: 30px;
     }
+  }
+
+  &__soldout {
+    color: #ff234f;
   }
 
   &__title {
@@ -263,10 +277,10 @@
 
     &:checked {
       + .parameter-item-card__item-txt {
-        color: $green;
+        color: #caff34ff;
 
-        background-color: $black;
-        border: 0.5px solid $black;
+        background-color: #000000;
+        border: 0.5px solid #000000;
       }
     }
   }

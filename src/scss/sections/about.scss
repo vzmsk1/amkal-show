@@ -1,13 +1,11 @@
 .about {
-  color: $black;
+  color: #000000;
 
   &__container {
-    margin-top: 5px;
-    padding-bottom: 16px;
+    padding-top: 184px;
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     height: 100vh;
   }
 
@@ -20,10 +18,9 @@
 
   &__image-wrap {
     margin-bottom: 9px;
-    margin-left: 413px;
 
-    width: 279px;
-    height: 185px;
+    width: 359px;
+    height: 205px;
   }
 
   &__image {
@@ -33,14 +30,8 @@
   }
 
   &__title {
-    margin-left: 622px;
-
     display: flex;
     flex-direction: column;
-
-    .letter {
-      overflow: hidden;
-    }
 
     .glitch-text-content {
       transform: translateY(4px);

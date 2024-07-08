@@ -19,7 +19,8 @@ $red: #ff7373;
 @import "./base/common";
 
 .lg-on,
-._lock {
+._lock,
+._show-cart-widget {
   @media (max-width: 64.05em) {
     overflow: hidden;
     touch-action: none;
@@ -53,7 +54,6 @@ main {
 
 // wrapper
 main,
-header,
 footer {
   margin: 0 auto;
 
@@ -109,11 +109,3 @@ footer {
 
 @import "./base/header";
 @import "./base/footer";
-@import "./base/sections";
-
-canvas {
-  position: fixed;
-  z-index: -1;
-  top: 0;
-  left: 0;
-}

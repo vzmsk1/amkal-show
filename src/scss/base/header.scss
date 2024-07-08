@@ -17,11 +17,6 @@
 }
 
 .header {
-  //  position: absolute;
-  //  z-index: 51;
-  //  top: 0;
-  //  left: 0;
-
   width: 100%;
 
   @media (max-width: 64.05em) {
@@ -31,6 +26,13 @@
   &.fixed {
     position: fixed;
     z-index: 50;
+  }
+
+  &.absolute {
+    position: absolute;
+    z-index: 51;
+    top: 0;
+    left: 0;
   }
 
   ._light-theme & {

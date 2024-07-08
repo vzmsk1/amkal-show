@@ -13,20 +13,15 @@ export const enterAboutScreen = () => {
     .querySelectorAll(".about__title .glitch-text .letter")
     .forEach((el) => {
       gsap.to(el.querySelectorAll(".glitch"), {
+        scaleX: 1,
+        stagger: 0.02,
         translateX: 0,
-        translateY: 0,
         opacity: 1,
-        skewX: "0deg",
-        stagger: 0.03,
-        delay: 0.5,
-        duration: 0.1,
-        onStart: () => {
-          gsap.fromTo(
-            ".about__title .glitch-text",
-            { translateX: 250 },
-            { translateX: 330 },
-          );
-        },
+      });
+      gsap.to(el.querySelectorAll(".glitch span"), {
+        left: 0,
+        stagger: 0.02,
+        delay: 0.1,
       });
     });
 
