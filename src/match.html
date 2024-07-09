@@ -1,13 +1,27 @@
 <!doctype html>
 <html lang="en">
-  @@include('html/head.htm',{ "title":"MATCH" })
+  <head>
+    <title>MATCH</title>
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- <style>body{opacity: 0;}</style> -->
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- <meta name="robots" content="noindex, nofollow"> -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
+  </head>
   <body class="_light-theme">
     <div class="loco-scroll">
       <div class="wrapper">
-        @@include('html/header-lt.htm',{})
-        <main class="main">@@include('html/match.htm',{})</main>
+        <include src="./components/header-lt.html"></include>
+        <main class="main">
+          <include src="./components/_match.html"></include>
+        </main>
       </div>
     </div>
-    @@include('html/svg.htm',{}) @@include('html/js.htm',{})
+    <include src="./components/svg.html"></include>
   </body>
 </html>

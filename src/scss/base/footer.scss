@@ -1,5 +1,7 @@
 .footer {
   .footer-main__anchor {
+    text-transform: uppercase;
+
     @media (max-width: 48em) {
       justify-self: end;
     }

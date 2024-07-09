@@ -1,6 +1,6 @@
-import { setActiveScreen } from "@js/anim/mainpage-scroll";
-import { enterFeedScreen } from "@js/anim/screen/feed";
-import { defaults } from "@js/anim/transitions";
+import { setActiveScreen } from "../../anim/mainpage-scroll";
+import { enterFeedScreen } from "../../anim/screen/feed";
+import { defaults } from "../../anim/transitions";
 import gsap from "gsap";
 
 export const langTl = gsap.timeline({ ...defaults, paused: true });

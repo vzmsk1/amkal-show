@@ -1,6 +1,6 @@
-import { setActiveScreen } from "@js/anim/mainpage-scroll";
-import { enterAboutScreen } from "@js/anim/screen/about";
-import { defaults } from "@js/anim/transitions";
+import { setActiveScreen } from "../../anim/mainpage-scroll";
+import { enterAboutScreen } from "../../anim/screen/about";
+import { defaults } from "../../anim/transitions";
 import gsap from "gsap";
 
 export const heroTl = gsap.timeline({

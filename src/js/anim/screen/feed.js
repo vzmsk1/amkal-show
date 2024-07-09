@@ -1,5 +1,4 @@
-import { defaults } from "@js/anim/transitions";
-import { feedLeaveTl, feedTl } from "@js/anim/transitions/feed";
+import { feedLeaveTl, feedTl } from "../../anim/transitions/feed";
 import gsap from "gsap";
 
 export const enterFeedScreen = () => {

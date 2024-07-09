@@ -1,7 +1,7 @@
-import { locoScroll } from "@js/lib/locomotive-scroll";
-import { removeClasses } from "@js/utils/utils";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { locoScroll } from "../lib/locomotive-scroll";
+import { removeClasses } from "../utils/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 

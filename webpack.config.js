@@ -1,68 +1,139 @@
-// export plugins
-const CopyPlugin = require("copy-webpack-plugin");
-const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const FileIncludeWebpackPlugin = require("file-include-webpack-plugin-replace");
-const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
-const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
+const fs = require("fs");
+const path = require("path");
 const glob = require("glob");
+
+const mode = process.env.NODE_ENV || "development";
+const devMode = mode === "development";
+const target = devMode ? "web" : "browserslist";
 
 const HTML_FILES = glob.sync("./src/*.html");
 const pages = HTML_FILES.map((page) => {
   return new HtmlWebpackPlugin({
     template: path.resolve(__dirname, page),
     filename: path.basename(page),
-    chunks: [path.basename(page, ".html")],
+    chunks: [path.basename(page, ".html"), "app"],
     minify: false,
   });
 });
 
-// variables
-const isProd = process.env.NODE_ENV === "production";
-const mode = isProd ? "production" : "development";
-const target = isProd ? "browserslist" : "web";
-// const pages = [
-//   new FileIncludeWebpackPlugin({
-//     source: "src",
-//     htmlBeautifyOptions: {
-//       "indent-with-tabs": true,
-//       indent_size: 3,
-//     },
-//     replace: isProd
-//       ? [
-//           { regex: "../img", to: "img" },
-//           { regex: "@img", to: "img" },
-//           { regex: "@js", to: "" },
-//           { regex: "NEW_PROJECT_NAME", to: path.basename(path.resolve()) },
-//         ]
-//       : [
-//           { regex: '<link rel="stylesheet" href="css/style.css">', to: "" },
-//           { regex: "@img", to: "../img" },
-//           { regex: "NEW_PROJECT_NAME", to: path.basename(path.resolve()) },
-//         ],
-//   }),
-// ];
+const videoSourcePath = path.resolve(__dirname, "./", "src/files/");
+const videoDestPath = path.resolve(__dirname, "./", "app/files/");
+
+if (fs.existsSync(videoSourcePath)) {
+  console.log(`Copying videos from ${videoSourcePath} to ${videoDestPath}`);
+
+  const copyPlugin = new CopyPlugin({
+    patterns: [
+      {
+        from: videoSourcePath,
+        to: videoDestPath,
+      },
+    ],
+  });
+
+  if (!module.exports.plugins) {
+    console.log("nety plugins");
+    module.exports.plugins = [];
+  }
+  console.log(module.exports.plugins);
+
+  module.exports.plugins.push(copyPlugin);
+} else {
+  console.warn(
+    `Warning: Directory ${videoSourcePath} does not exist. Videos will not be copied.`,
+  );
+}
+
+const INCLUDE_PATTERN =
+  /<include\s+src=["'](\.\/)?([^"']+)["'](?:\s+data-text='([^']+)')?\s*><\/include>/g;
+
+const { JSDOM } = require("jsdom");
+
+function processNestedHtml(content, loaderContext, resourcePath = "") {
+  let fileDir =
+    resourcePath === ""
+      ? path.dirname(loaderContext.resourcePath)
+      : path.dirname(resourcePath);
+
+  function replaceHtml(match, pathRule, src, dataText) {
+    if (pathRule === "./") {
+      fileDir = loaderContext.context;
+    }
+    const filePath = path.resolve(fileDir, src);
+    loaderContext.dependency(filePath);
+    let html = fs.readFileSync(filePath, "utf8");
+    console.log("filePath: ", filePath, "match: ", match);
+    try {
+      console.log("data: ", dataText);
+      const data = dataText && JSON.parse(dataText);
+      const dom = new JSDOM(html);
+      const document = dom.window.document;
+      if (data) {
+        Object.keys(data).forEach((selector) => {
+          const elementData = data[selector];
+          const elements = document.querySelectorAll(selector);
+
+          if (elements.length > 0) {
+            elements.forEach((element) => {
+              if (elementData.text) {
+                element.textContent = elementData.text;
+              }
+              if (elementData.html) {
+                element.innerHTML = elementData.html;
+              }
+              if (elementData.class) {
+                element.classList.add(elementData.class);
+              }
+            });
+          } else {
+            console.error(
+              `Elements with selector "${selector}" not found in ${src}`,
+            );
+          }
+        });
+      }
+
+      html = document.body.innerHTML;
+
+      html = processNestedHtml(html, loaderContext, filePath);
+      console.log("html: ", html);
+    } catch (error) {
+      console.error(`Error parsing data-text attribute: ${error.message}`);
+    }
+
+    return html;
+  }
+
+  content = content.replace(
+    INCLUDE_PATTERN,
+    (match, pathRule, src, dataText) => {
+      return replaceHtml(match, pathRule, src, dataText);
+    },
+  );
+
+  return content;
+}
+
+function processHtmlLoader(content, loaderContext) {
+  let newContent = processNestedHtml(content, loaderContext);
+  newContent = newContent.replace(
+    /(src|data-src)="(.*?)\.(jpg|png)"/gi,
+    (match, p1, p2, p3) => {
+      return `${p1}="${p2}.webp"`;
+    },
+  );
+  return newContent;
+}
 
 module.exports = {
   mode,
   target,
-
-  // entry point
-  entry: {
-    main: path.resolve(__dirname, "src/js/app.js"),
-    "feed-chapter": path.resolve(__dirname, "src/js/feed-chapter.js"),
-  },
-
-  // where the bundled file will resolve
-  output: {
-    path: path.resolve(__dirname, "app"),
-    filename: "js/[name].[contenthash].js",
-    clean: true,
-  },
-
-  // dev server
+  devtool: "inline-source-map",
   devServer: {
     historyApiFallback: true,
     open: true,
@@ -73,46 +144,190 @@ module.exports = {
     watchFiles: path.join(__dirname, "src"),
   },
 
-  // source map
-  devtool: "inline-source-map",
+  entry: {
+    app: path.resolve(__dirname, "src/js", "app.js"),
+    main: path.resolve(__dirname, "src/js/pages", "main.js"),
+    cart: path.resolve(__dirname, "src/js/pages", "cart.js"),
+    "cart-no-items": path.resolve(
+      __dirname,
+      "src/js/pages",
+      "cart-no-items.js",
+    ),
+    feed: path.resolve(__dirname, "src/js/pages", "feed.js"),
+    "feed-chapter": path.resolve(__dirname, "src/js/pages", "feed-chapter.js"),
+    "feed-chapter-2": path.resolve(
+      __dirname,
+      "src/js/pages",
+      "feed-chapter-2.js",
+    ),
+    checkout: path.resolve(__dirname, "src/js/pages", "checkout.js"),
+    contacts: path.resolve(__dirname, "src/js/pages", "contacts.js"),
+    "error-page-403": path.resolve(
+      __dirname,
+      "src/js/pages",
+      "error-page-chapter.js",
+    ),
+    "error-page-503": path.resolve(
+      __dirname,
+      "src/js/pages",
+      "error-page-chapter.js",
+    ),
+    "error-page-505": path.resolve(
+      __dirname,
+      "src/js/pages",
+      "error-page-chapter.js",
+    ),
+    "item-card": path.resolve(__dirname, "src/js/pages", "item-card.js"),
+    "legal-info": path.resolve(__dirname, "src/js/pages", "legal-info.js"),
+    team: path.resolve(__dirname, "src/js/pages", "team.js"),
+    "team-chapter": path.resolve(__dirname, "src/js/pages", "team-page.js"),
+    "order-confirm": path.resolve(
+      __dirname,
+      "src/js/pages",
+      "order-confirm.js",
+    ),
+    "order-confirm-error": path.resolve(
+      __dirname,
+      "src/js/pages",
+      "order-confirm.js",
+    ),
+    "not-found": path.resolve(__dirname, "src/js/pages", "not-found.js"),
+    match: path.resolve(__dirname, "src/js/pages", "match.js"),
+    manifest: path.resolve(__dirname, "src/js/pages", "manifest.js"),
+    partners: path.resolve(__dirname, "src/js/pages", "partners.js"),
+    merch: path.resolve(__dirname, "src/js/pages", "merch.js"),
+  },
+  output: {
+    path: path.resolve(__dirname, "app"),
+    clean: true,
+    filename: "js/[name].[contenthash:8].js",
+  },
 
-  // plugins
   plugins: [
     ...pages,
-    new CopyPlugin({
-      patterns: [
-        // copy images
-        {
-          from: "src/img",
-          to: "img",
-          noErrorOnMissing: true,
-        },
-        // copy fonts
-        {
-          from: "src/fonts",
-          to: "fonts",
-          noErrorOnMissing: true,
-        },
-        // copy additional assets
-        {
-          from: "src/files",
-          to: "files",
-          noErrorOnMissing: true,
-        },
-      ],
-    }),
     new MiniCssExtractPlugin({
       filename: "css/[name].css",
-      chunkFilename: "[name].[contenthash:8].css",
+      chunkFilename: "css/[name].[contenthash:8].css",
     }),
+    new ImageMinimizerPlugin({
+      minimizer: {
+        implementation: ImageMinimizerPlugin.imageminMinify,
+        options: {
+          plugins: [
+            "imagemin-gifsicle",
+            "imagemin-mozjpeg",
+            "imagemin-pngquant",
+            "imagemin-svgo",
+          ],
+        },
+      },
+    }),
+    new ImageminWebpWebpackPlugin({
+      config: [
+        {
+          test: /\.(jpe?g|png)/,
+          options: {
+            quality: 90,
+            overrideExtension: true,
+          },
+        },
+      ],
+      detailedLogs: false,
+      silent: false,
+      strict: true,
+    }),
+    fs.existsSync(videoSourcePath)
+      ? new CopyPlugin({
+          patterns: [
+            {
+              from: path.resolve(__dirname, "./", "src/img/"),
+              to: path.resolve(__dirname, "./", "app/img/"),
+              noErrorOnMissing: true,
+            },
+            {
+              from: path.resolve(__dirname, "./", "src/fonts/"),
+              to: path.resolve(__dirname, "./", "app/fonts/"),
+              noErrorOnMissing: true,
+            },
+            {
+              from: videoSourcePath,
+              to: videoDestPath,
+              noErrorOnMissing: true,
+            },
+          ],
+        })
+      : new CopyPlugin({
+          patterns: [
+            {
+              from: path.resolve(__dirname, "./", "src/img/"),
+              to: path.resolve(__dirname, "./", "app/img/"),
+              noErrorOnMissing: true,
+            },
+            {
+              from: path.resolve(__dirname, "./", "src/fonts/"),
+              to: path.resolve(__dirname, "./", "app/fonts/"),
+              noErrorOnMissing: true,
+            },
+          ],
+        }),
   ],
 
-  // modules
+  optimization: {
+    minimize: !devMode,
+  },
+
   module: {
     rules: [
-      // js
       {
-        test: /\.js$/,
+        test: /\.html$/i,
+        use: [
+          {
+            loader: "html-loader",
+            options: {
+              sources: false,
+              minimize: false,
+              esModule: false,
+              preprocessor: processHtmlLoader,
+            },
+          },
+        ],
+      },
+      // изображения
+      {
+        test: /\.(jpe?g|png|webp|gif|svg)$/i,
+        type: "asset/resource",
+      },
+      {
+        test: /\.(c|sa|sc)ss$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              esModule: false,
+              modules: {
+                auto: true,
+                namedExport: true,
+                localIdentName: "foo__[name]__[local]",
+              },
+              url: false,
+            },
+          },
+          "group-css-media-queries-loader",
+          "sass-loader",
+        ],
+      },
+      // шрифты
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "fonts/[name][ext]",
+        },
+      },
+      //js
+      {
+        test: /\.(?:js|mjs|cjs)$/i,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -121,91 +336,18 @@ module.exports = {
           },
         },
       },
-      // css
+      //video
       {
-        test: /\.(s[ac]|c)ss$/i,
+        test: /\.(mov|mp4)$/,
         use: [
-          MiniCssExtractPlugin.loader,
           {
-            loader: "string-replace-loader",
-            options: {
-              multiple: [
-                { search: "@img", replace: "../img", flags: "g" },
-                { search: "@fonts", replace: "../fonts", flags: "g" },
-              ],
-            },
+            loader: "file-loader",
           },
-          {
-            loader: "css-loader",
-            options: {
-              url: false,
-            },
-          },
-          {
-            loader: "postcss-loader",
-            options: {
-              postcssOptions: {
-                plugins: ["postcss-preset-env"],
-              },
-            },
-          },
-          "group-css-media-queries-loader",
-          "sass-loader",
         ],
+        generator: {
+          filename: "files/[name][ext]",
+        },
       },
     ],
-  },
-
-  // optimization
-  optimization: {
-    minimizer: [
-      // js
-      new TerserPlugin({
-        extractComments: false,
-      }),
-
-      // images
-      new ImageMinimizerPlugin({
-        loader: true,
-        generator: [
-          {
-            type: "asset",
-            implementation: ImageMinimizerPlugin.imageminGenerate,
-            filename: "[path][name][ext]",
-            options: {
-              plugins: [
-                "imagemin-gifsicle",
-                "imagemin-mozjpeg",
-                "imagemin-pngquant",
-                "imagemin-svgo",
-              ],
-            },
-          },
-        ],
-      }),
-      new ImageminWebpWebpackPlugin({
-        config: [
-          {
-            test: /\.(jpe?g|png)/,
-            options: {
-              quality: 75,
-            },
-          },
-        ],
-        overrideExtension: true,
-        detailedLogs: false,
-        silent: false,
-        strict: true,
-      }),
-    ],
-  },
-
-  // resolve
-  resolve: {
-    alias: {
-      "@scss": `${path.resolve(__dirname, "src")}/scss`,
-      "@js": `${path.resolve(__dirname, "src")}/js`,
-      "@img": `${path.resolve(__dirname, "src")}/img`,
-    },
   },
 };

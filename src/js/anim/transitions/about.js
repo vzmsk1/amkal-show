@@ -1,6 +1,4 @@
-import { setActiveScreen } from "@js/anim/mainpage-scroll";
-import { enterVictoryScreen } from "@js/anim/screen/victory";
-import { defaults } from "@js/anim/transitions";
+import { defaults } from "../../anim/transitions";
 import gsap from "gsap";
 
 export const leaveAboutTl = gsap.timeline({

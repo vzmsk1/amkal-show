@@ -1,15 +1,11 @@
-import { enterAboutScreen, leaveAboutScreen } from "@js/anim/screen/about";
-import { leaveFeedScreen } from "@js/anim/screen/feed";
-import { leaveHeroScreen } from "@js/anim/screen/hero";
-import { leaveLangScreen } from "@js/anim/screen/lang";
-import {
-  enterVictoryScreen,
-  leaveVictoryScreen,
-} from "@js/anim/screen/victory";
-import { heroTl } from "@js/anim/transitions/hero";
-import { langLeaveTl } from "@js/anim/transitions/lang";
 import gsap from "gsap";
 import { Observer } from "gsap/Observer";
+import { leaveAboutScreen } from "./screen/about";
+import { leaveFeedScreen } from "./screen/feed";
+import { leaveHeroScreen } from "./screen/hero";
+import { leaveLangScreen } from "./screen/lang";
+import { leaveVictoryScreen } from "./screen/victory";
+import { heroTl } from "./transitions/hero";
 
 gsap.registerPlugin(Observer);
 

@@ -16,7 +16,7 @@
     width: 20px;
     height: 20px;
 
-    background: url("@img/icons/cross.svg") center / contain no-repeat;
+    background: url("./img/icons/cross.svg") center / contain no-repeat;
 
     @media (max-width: 64.05em) {
       width: 25px;
@@ -77,7 +77,7 @@
     width: 25px;
     height: 8px;
 
-    background: url("@img/icons/arr.svg") center / contain no-repeat;
+    background: url("./img/icons/arr.svg") center / contain no-repeat;
   }
 
   .lg-next:before {

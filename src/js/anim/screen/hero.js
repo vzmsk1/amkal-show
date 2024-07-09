@@ -1,4 +1,4 @@
-import { heroLeaveTl } from "@js/anim/transitions/hero";
+import { heroLeaveTl } from "../../anim/transitions/hero";
 import videojs from "video.js";
 
 export const leaveHeroScreen = () => {

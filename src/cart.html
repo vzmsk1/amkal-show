@@ -1,20 +1,34 @@
 <!doctype html>
 <html lang="en">
-  @@include('html/head.htm',{ "title":"CART" })
+  <head>
+    <title>CART</title>
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- <style>body{opacity: 0;}</style> -->
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- <meta name="robots" content="noindex, nofollow"> -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
+  </head>
   <body class="dark-theme">
     <div class="loco-scroll">
       <div class="wrapper">
-        @@include('html/header.htm',{})
-        <main class="main">@@include('html/cart.htm',{})</main>
+        <include src="./components/header.html"></include>
+        <main class="main">
+          <include src="./components/_cart.html"></include>
+        </main>
         <footer class="footer">
           <div class="footer__container container">
             <p class="footer__copyrights txt-uc">
-              ©<span id="currentYear"></span>, AMKAL ESPORTS
+              ©<span class="current-year"></span>, AMKAL ESPORTS
             </p>
           </div>
         </footer>
       </div>
     </div>
-    @@include('html/svg.htm',{}) @@include('html/js.htm',{})
+    <include src="./components/svg.html"></include>
   </body>
 </html>

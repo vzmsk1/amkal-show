@@ -1,4 +1,4 @@
-import { aboutTl, leaveAboutTl } from "@js/anim/transitions/about";
+import { aboutTl, leaveAboutTl } from "../../anim/transitions/about";
 import gsap from "gsap";
 
 export const leaveAboutScreen = () => {

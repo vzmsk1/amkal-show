@@ -1,6 +1,7 @@
-import { initItemCardCarousel } from "@js/anim/item-card-carousel";
 import LocomotiveScroll from "locomotive-scroll";
+import "../../scss/common/locomotive-scroll.scss";
 import gsap from "gsap";
+import { initItemCardCarousel } from "../anim/item-card-carousel";
 import { ScrollTrigger } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -55,4 +56,12 @@ window.addEventListener("load", function () {
 });
 window.addEventListener("resize", function () {
   locoScroll.update();
+});
+
+document.addEventListener("mouseover", function (e) {
+  if (e.target.closest("[data-sb]")) {
+    locoScroll.stop();
+  } else {
+    locoScroll.start();
+  }
 });

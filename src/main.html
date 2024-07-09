@@ -1,17 +1,29 @@
 <!doctype html>
 <html lang="en">
-  @@include('html/head.htm',{ "title":"MAIN" })
+  <head>
+    <title>MAIN</title>
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- <style>body{opacity: 0;}</style> -->
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- <meta name="robots" content="noindex, nofollow"> -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
+  </head>
   <body>
-    @@include('html/header.htm',{})
+    <include src="./components/header.html"></include>
     <div class="wrapper">
       <main class="main">
-        @@include('html/hero.htm',{}) @@include('html/about.htm',{})
-        @@include('html/victory.htm',{}) @@include('html/lang.htm',{})
-        @@include('html/feed-screen.htm',{})
-        @@include('html/merch-screen.htm',{})
+        <include src="./components/_hero.html"></include>
+        <include src="./components/_about.html"></include>
+        <include src="./components/_victory.html"></include>
+        <include src="./components/_lang.html"></include>
       </main>
-      @@include('html/loader.htm',{})
+      <include src="./components/_loader.html"></include>
     </div>
-    @@include('html/svg.htm',{}) @@include('html/js.htm',{})
+    <include src="./components/svg.html"></include>
   </body>
 </html>

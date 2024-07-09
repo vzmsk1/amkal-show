@@ -1,5 +1,5 @@
-import { locoScroll } from "@js/lib/locomotive-scroll";
-import { bodyLock, bodyLockToggle, bodyUnlock } from "@js/utils/utils";
+import { locoScroll } from "../lib/locomotive-scroll";
+import { bodyLock, bodyLockToggle, bodyUnlock } from "./utils";
 import gsap from "gsap";
 
 const md = gsap.matchMedia();
@@ -92,46 +92,16 @@ const onMatchMediaChangeHandler = () => {
   }
 };
 
-const setLocoScrollAttr = (el) => {
-  md.add("(min-width: 48em)", () => {
-    el.classList.contains("header") && el.classList.add("fixed");
-    el.setAttribute("data-scroll", "");
-    el.setAttribute("data-scroll-sticky", "");
-    el.setAttribute("data-scroll-target", "#item-card");
-    locoScroll.update();
-
-    return () => {
-      el.classList.contains("header") && el.classList.remove("fixed");
-      el.removeAttribute("style");
-      el.removeAttribute("data-scroll");
-      el.removeAttribute("data-scroll-sticky");
-      el.removeAttribute("data-scroll-target");
-      locoScroll.update();
-    };
-  });
-};
-
 document.addEventListener("click", onClickHandler);
 tm.addEventListener("change", onMatchMediaChangeHandler);
 
 document.addEventListener("DOMContentLoaded", function () {
-  if (document.getElementById("item-card")) {
-    setLocoScrollAttr(document.querySelector(".header"));
-    setLocoScrollAttr(document.querySelector(".item-card__thumbs-swiper"));
-    setLocoScrollAttr(document.querySelector(".item-card__content"));
-    locoScroll.update();
-  }
-
   if (document.querySelector(".footer-main__anchor")) {
     document
       .querySelector(".footer-main__anchor")
       .addEventListener("click", function () {
         locoScroll.scrollTo(0);
       });
-  }
-
-  if (document.querySelector(".item-card")) {
-    document.querySelector(".header").classList.add("fixed");
   }
 
   if (document.querySelector("section._fw")) {
@@ -143,18 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("header").classList.add("_dark-theme");
   }
 
-  if (document.querySelector(".hero"))
-    document.documentElement.classList.add("mainpage");
-
   window.addEventListener("load", function () {
     document.documentElement.classList.add("_page-loaded");
   });
-});
-
-document.addEventListener("mouseover", function (e) {
-  if (e.target.closest("[data-sb]")) {
-    locoScroll.stop();
-  } else {
-    locoScroll.start();
-  }
 });

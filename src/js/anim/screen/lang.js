@@ -1,5 +1,5 @@
-import { langLeaveTl, langTl } from "@js/anim/transitions/lang";
 import gsap from "gsap";
+import { langLeaveTl, langTl } from "../transitions/lang";
 
 export const enterLangScreen = () => {
   langTl.play();
