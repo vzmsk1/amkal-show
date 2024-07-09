@@ -1,9 +1,5 @@
-import { setDefaults } from "@js/anim/transitions";
-import { animateHeader } from "@js/anim/transitions/header";
-import { animateHero } from "@js/anim/transitions/hero";
 import { locoScroll } from "@js/lib/locomotive-scroll";
 import { bodyLock, bodyLockToggle, bodyUnlock } from "@js/utils/utils";
-import { initMainpageScroll } from "../anim/mainpage-scroll";
 import gsap from "gsap";
 
 const md = gsap.matchMedia();

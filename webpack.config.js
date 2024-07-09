@@ -6,44 +6,59 @@ const FileIncludeWebpackPlugin = require("file-include-webpack-plugin-replace");
 const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const glob = require("glob");
+
+const HTML_FILES = glob.sync("./src/*.html");
+const pages = HTML_FILES.map((page) => {
+  return new HtmlWebpackPlugin({
+    template: path.resolve(__dirname, page),
+    filename: path.basename(page),
+    chunks: [path.basename(page, ".html")],
+    minify: false,
+  });
+});
 
 // variables
 const isProd = process.env.NODE_ENV === "production";
 const mode = isProd ? "production" : "development";
 const target = isProd ? "browserslist" : "web";
-const pages = [
-  new FileIncludeWebpackPlugin({
-    source: "src",
-    htmlBeautifyOptions: {
-      "indent-with-tabs": true,
-      indent_size: 3,
-    },
-    replace: isProd
-      ? [
-          { regex: "../img", to: "img" },
-          { regex: "@img", to: "img" },
-          { regex: "@js", to: "" },
-          { regex: "NEW_PROJECT_NAME", to: path.basename(path.resolve()) },
-        ]
-      : [
-          { regex: '<link rel="stylesheet" href="css/style.css">', to: "" },
-          { regex: "@img", to: "../img" },
-          { regex: "NEW_PROJECT_NAME", to: path.basename(path.resolve()) },
-        ],
-  }),
-];
+// const pages = [
+//   new FileIncludeWebpackPlugin({
+//     source: "src",
+//     htmlBeautifyOptions: {
+//       "indent-with-tabs": true,
+//       indent_size: 3,
+//     },
+//     replace: isProd
+//       ? [
+//           { regex: "../img", to: "img" },
+//           { regex: "@img", to: "img" },
+//           { regex: "@js", to: "" },
+//           { regex: "NEW_PROJECT_NAME", to: path.basename(path.resolve()) },
+//         ]
+//       : [
+//           { regex: '<link rel="stylesheet" href="css/style.css">', to: "" },
+//           { regex: "@img", to: "../img" },
+//           { regex: "NEW_PROJECT_NAME", to: path.basename(path.resolve()) },
+//         ],
+//   }),
+// ];
 
 module.exports = {
   mode,
   target,
 
   // entry point
-  entry: path.resolve(__dirname, "src/js/app.js"),
+  entry: {
+    main: path.resolve(__dirname, "src/js/app.js"),
+    "feed-chapter": path.resolve(__dirname, "src/js/feed-chapter.js"),
+  },
 
   // where the bundled file will resolve
   output: {
     path: path.resolve(__dirname, "app"),
-    filename: "js/app.js",
+    filename: "js/[name].[contenthash].js",
     clean: true,
   },
 
@@ -87,18 +102,14 @@ module.exports = {
       ],
     }),
     new MiniCssExtractPlugin({
-      filename: "css/style.css",
+      filename: "css/[name].css",
+      chunkFilename: "[name].[contenthash:8].css",
     }),
   ],
 
   // modules
   module: {
     rules: [
-      // glsl
-      {
-        test: /\.glsl$/,
-        loader: "webpack-glsl-loader",
-      },
       // js
       {
         test: /\.js$/,

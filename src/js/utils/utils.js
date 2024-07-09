@@ -50,8 +50,6 @@ export const bodyUnlock = (delay = 500) => {
       setTimeout(() => {
         locoScroll.start();
 
-        console.log("unlock");
-
         document.documentElement.classList.remove("_lock");
       }, 0);
     }
@@ -68,8 +66,6 @@ export const bodyLock = (delay = 500) => {
     if (!document.querySelector("._is-locked")) {
       setTimeout(() => {
         locoScroll.stop();
-
-        console.log("lock");
 
         document.documentElement.classList.add("_lock");
       }, 0);
