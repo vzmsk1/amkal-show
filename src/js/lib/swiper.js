@@ -2,7 +2,7 @@ import { setThumbsClasses } from "@js/anim/item-card-carousel";
 import { locoScroll } from "@js/lib/locomotive-scroll";
 import Swiper from "swiper";
 document.querySelector(".swiper") && import("swiper/css");
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import gsap from "gsap";
 
 const md = gsap.matchMedia();
@@ -68,16 +68,12 @@ const initSliders = () => {
   }
   if (document.querySelector(".feed-chapter__bg-swiper")) {
     new Swiper(".feed-chapter__bg-swiper", {
-      modules: [Pagination, Autoplay],
+      modules: [Pagination],
       loop: true,
       pagination: {
         el: ".feed-chapter__pagination",
         type: "bullets",
         clickable: true,
-      },
-      autoplay: {
-        delay: 4000,
-        disableOnInteraction: false,
       },
 
       on: toggleScroll,

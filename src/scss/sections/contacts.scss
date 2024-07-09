@@ -145,10 +145,10 @@
   &__btn {
     width: 100%;
 
-    background-color: #000000;
+    background-color: $black;
 
     .btn__txt {
-      color: #caff34ff;
+      color: $green;
     }
   }
 }

@@ -2,62 +2,9 @@ import { setDefaults } from "@js/anim/transitions";
 import { animateHeader } from "@js/anim/transitions/header";
 import { animateHero } from "@js/anim/transitions/hero";
 import { locoScroll } from "@js/lib/locomotive-scroll";
-import { initVideoJS } from "@js/lib/video";
-import {
-  bodyLock,
-  bodyLockToggle,
-  bodyUnlock,
-  checkFontsLoaded,
-} from "@js/utils/utils";
+import { bodyLock, bodyLockToggle, bodyUnlock } from "@js/utils/utils";
 import { initMainpageScroll } from "../anim/mainpage-scroll";
 import gsap from "gsap";
-
-const removeLoader = () => {
-  document.documentElement.classList.add("_page-loaded");
-
-  splitGlitchText();
-
-  gsap.to(".loader", {
-    opacity: 0,
-    duration: 0.7,
-  });
-
-  setTimeout(() => {
-    document.querySelector(".loader").remove();
-
-    initVideoJS();
-
-    initMainpageScroll();
-
-    animateHeader();
-    animateHero();
-  }, 700);
-};
-
-if (document.querySelector(".loader")) {
-  bodyLock();
-
-  checkFontsLoaded("DrukTextWideCyr")
-    .then(() => {
-      document.documentElement.classList.add("_fonts-loaded");
-
-      gsap.to(".loader__text .char", {
-        duration: 0.3,
-        opacity: 1,
-        stagger: 0.1,
-        ease: "power1.out",
-      });
-    })
-    .catch(() => {
-      console.warn("font could not be loaded");
-    });
-
-  window.addEventListener("load", removeLoader);
-} else {
-  window.addEventListener("load", function () {
-    document.documentElement.classList.add("_page-loaded");
-  });
-}
 
 const md = gsap.matchMedia();
 const tm = window.matchMedia("(max-width: 64.05em)");
@@ -74,7 +21,7 @@ const splitGlitchText = () => {
         for (let i = 1; i <= 10; i++) {
           const size = item.dataset.glitchSize ? +item.dataset.glitchSize : 170;
 
-          string += `<div class="glitch" style="transform: translateX(${i * -30}px) scaleX(${1 / i});opacity: 0"><span style="top: -${i * (size / 10)}px">${t}</span></div>`;
+          string += `<div class="glitch"><span style="top: -${i * (size / 10)}px;">${t}</span></div>`;
         }
         string += `</div>`;
         return string;
@@ -104,8 +51,6 @@ const splitGlitchText = () => {
         }
       }
     });
-
-    setDefaults();
   }
 };
 
@@ -137,6 +82,9 @@ const initCartWidget = () => {
 
   if (document.querySelector("._show-cart-widget")) {
     header.classList.remove("_dark-theme");
+    mm.matches ? bodyLock() : bodyUnlock();
+  } else {
+    bodyUnlock();
   }
 };
 
@@ -192,38 +140,36 @@ const onMatchMediaChangeHandler = () => {
 };
 
 const setLocoScrollAttr = (el) => {
-  if (locoScroll) {
-    md.add("(min-width: 48em)", () => {
-      el.classList.contains("header") && el.classList.add("fixed");
-      el.setAttribute("data-scroll", "");
-      el.setAttribute("data-scroll-sticky", "");
-      el.setAttribute("data-scroll-target", "#item-card");
-      locoScroll.update();
+  md.add("(min-width: 48em)", () => {
+    el.classList.contains("header") && el.classList.add("fixed");
+    el.setAttribute("data-scroll", "");
+    el.setAttribute("data-scroll-sticky", "");
+    el.setAttribute("data-scroll-target", "#item-card");
+    locoScroll.update();
 
-      return () => {
-        el.classList.contains("header") && el.classList.remove("fixed");
-        el.removeAttribute("style");
-        el.removeAttribute("data-scroll");
-        el.removeAttribute("data-scroll-sticky");
-        el.removeAttribute("data-scroll-target");
-        locoScroll.update();
-      };
-    });
-  }
+    return () => {
+      el.classList.contains("header") && el.classList.remove("fixed");
+      el.removeAttribute("style");
+      el.removeAttribute("data-scroll");
+      el.removeAttribute("data-scroll-sticky");
+      el.removeAttribute("data-scroll-target");
+      locoScroll.update();
+    };
+  });
 };
 
 document.addEventListener("click", onClickHandler);
 tm.addEventListener("change", onMatchMediaChangeHandler);
 
 document.addEventListener("DOMContentLoaded", function () {
-  if (document.getElementById("item-card") && locoScroll) {
+  if (document.getElementById("item-card")) {
     setLocoScrollAttr(document.querySelector(".header"));
     setLocoScrollAttr(document.querySelector(".item-card__thumbs-swiper"));
     setLocoScrollAttr(document.querySelector(".item-card__content"));
     locoScroll.update();
   }
 
-  if (document.querySelector(".footer-main__anchor") && locoScroll) {
+  if (document.querySelector(".footer-main__anchor")) {
     document
       .querySelector(".footer-main__anchor")
       .addEventListener("click", function () {
@@ -246,14 +192,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (document.querySelector(".hero"))
     document.documentElement.classList.add("mainpage");
+
+  if (document.querySelector(".loader")) {
+    initMainpageScroll();
+    splitGlitchText();
+
+    setDefaults();
+    animateHeader();
+    animateHero();
+
+    setTimeout(() => {
+      document.querySelector(".loader").remove();
+    }, 1000);
+  }
+
+  window.addEventListener("load", function () {
+    document.documentElement.classList.add("_page-loaded");
+  });
 });
 
-if (locoScroll) {
-  document.addEventListener("mouseover", function (e) {
-    if (e.target.closest("[data-sb]")) {
-      locoScroll.stop();
-    } else {
-      locoScroll.start();
-    }
-  });
-}
+document.addEventListener("mouseover", function (e) {
+  if (e.target.closest("[data-sb]")) {
+    locoScroll.stop();
+  } else {
+    locoScroll.start();
+  }
+});

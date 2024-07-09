@@ -94,6 +94,11 @@ module.exports = {
   // modules
   module: {
     rules: [
+      // glsl
+      {
+        test: /\.glsl$/,
+        loader: "webpack-glsl-loader",
+      },
       // js
       {
         test: /\.js$/,
@@ -145,7 +150,7 @@ module.exports = {
     minimizer: [
       // js
       new TerserPlugin({
-        extractComments: true,
+        extractComments: false,
       }),
 
       // images
