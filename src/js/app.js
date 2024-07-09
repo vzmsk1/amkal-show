@@ -11,9 +11,10 @@ document.querySelector("[data-sb]") && import("../js/lib/simplebar");
 import * as utils from "../js/utils/utils";
 utils.setCurrentYear();
 utils.toggleClass();
+document.querySelector(".loader") && utils.initLoader();
 
-import "../js/utils/forms";
+document.querySelector("form[data-validate]") && import("../js/utils/forms");
 import "../js/utils/quantity";
 import "../js/utils/script";
 
-import "./anim/item-card-carousel";
+document.querySelector(".item-card") && import("./anim/item-card-carousel");

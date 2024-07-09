@@ -41,6 +41,14 @@
     @media (max-width: 64.05em) {
       margin-bottom: 31px;
     }
+
+    .swiper {
+      @media (max-width: 48em) {
+        &:not(._page-loaded &) {
+          height: 235px;
+        }
+      }
+    }
   }
 
   &__container {
@@ -226,6 +234,12 @@
 
     @media (max-width: 48em) {
       margin-bottom: 61px;
+
+      &.swiper {
+        &:not(._page-loaded &) {
+          height: 165px;
+        }
+      }
     }
 
     .swiper-wrapper {
@@ -629,6 +643,10 @@
 
     @media (max-width: 48em) {
       grid-template-columns: 1fr;
+
+      &:not(._page-loaded &) {
+        height: 684px;
+      }
     }
 
     .feed-chapter__image-container .feed-chapter__image-wrap {

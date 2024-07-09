@@ -1,4 +1,4 @@
-"use strict";(self.webpackChunkwebpack_setup=self.webpackChunkwebpack_setup||[]).push([[678],{678:(t,e,i)=>{i.r(e);
+"use strict";(self.webpackChunkwebpack_setup=self.webpackChunkwebpack_setup||[]).push([[678],{3678:(t,e,i)=>{i.r(e);
 /*!
  * lightgallery | 2.7.2 | September 20th 2023
  * http://www.lightgalleryjs.com/

@@ -175,4 +175,4 @@ const initSliders = () => {
   });
 };
 
-window.addEventListener("load", initSliders);
+initSliders();

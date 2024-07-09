@@ -48,17 +48,15 @@ const initTextAreaCounter = () => {
 initTextAreaCounter();
 
 const initFormFields = () => {
-  if (document.querySelectorAll("form[data-validate]").length) {
-    document.querySelectorAll("form[data-validate]").forEach((form) => {
-      form.addEventListener("submit", function (e) {
-        onFormSubmitHandler(form, e);
-      });
-
-      form.querySelectorAll("input, textarea").forEach((input) => {
-        input.addEventListener("focusin", onInputFocusInHandler);
-        input.addEventListener("focusout", onInputFocusOutHandler);
-      });
+  document.querySelectorAll("form[data-validate]").forEach((form) => {
+    form.addEventListener("submit", function (e) {
+      onFormSubmitHandler(form, e);
     });
-  }
+
+    form.querySelectorAll("input, textarea").forEach((input) => {
+      input.addEventListener("focusin", onInputFocusInHandler);
+      input.addEventListener("focusout", onInputFocusOutHandler);
+    });
+  });
 };
 initFormFields();
