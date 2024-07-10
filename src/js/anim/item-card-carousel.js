@@ -1,6 +1,5 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { locoScroll } from "../lib/locomotive-scroll";
 import { removeClasses } from "../utils/utils";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -18,17 +17,6 @@ export const initItemCardCarousel = () => {
       const thumbs = document.querySelectorAll(".item-card__thumbs-slide");
 
       document.querySelectorAll(".item-card__slide").forEach((slide, idx) => {
-        thumbs[idx].addEventListener("click", function () {
-          if (window.innerWidth > 1024) {
-            locoScroll.scrollTo(slide, {
-              offset: -1,
-              callback: () => {
-                setThumbsClasses(idx, thumbs);
-              },
-            });
-          }
-        });
-
         gsap.timeline({
           scrollTrigger: {
             trigger: slide,

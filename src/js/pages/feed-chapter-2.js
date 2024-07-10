@@ -1,7 +1,6 @@
 import "../../scss/sections/gallery.scss";
 import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
-import { locoScroll } from "../lib/locomotive-scroll";
 import "swiper/css";
 
 if (document.querySelector(".gallery__swiper")) {
@@ -19,11 +18,6 @@ if (document.querySelector(".gallery__swiper")) {
       type: "custom",
       renderCustom: function (swiper, current, total) {
         return current + "<span>/</span>" + total;
-      },
-    },
-    on: {
-      slideChange: () => {
-        locoScroll.update();
       },
     },
   });

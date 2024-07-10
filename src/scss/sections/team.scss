@@ -167,6 +167,10 @@
 .slide-team {
   &.swiper-slide {
     display: flex;
+
+    &.swiper-slide-active {
+      z-index: 3;
+    }
   }
 
   &__inner {

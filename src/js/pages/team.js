@@ -4,7 +4,7 @@ import "../lib/video";
 import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
-import { setSlideContent } from "../lib/swiper";
+import { setSlideContent } from "../utils/utils";
 
 if (document.querySelector(".team__swiper")) {
   new Swiper(".team__swiper", {

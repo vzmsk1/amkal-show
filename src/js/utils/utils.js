@@ -1,12 +1,10 @@
-import { initMainpageScroll } from "../anim/mainpage-scroll";
-import { setDefaults } from "../anim/transitions";
-import { animateHeader } from "../anim/transitions/header";
-import { animateHero } from "../anim/transitions/hero";
-import { locoScroll } from "../lib/locomotive-scroll";
 import gsap from "gsap";
 
-const mm = window.matchMedia("(max-width: 48em)");
-const tm = window.matchMedia("(max-width: 64.05em)");
+export const setSlideContent = (slide) => {
+  document.querySelector(".team__name").innerHTML = slide.dataset.name;
+  document.querySelector(".team__text_team").innerHTML = slide.dataset.team;
+  document.querySelector(".team__text_date").innerHTML = slide.dataset.date;
+};
 
 /**
  * set hash to url
@@ -48,9 +46,9 @@ export const bodyUnlock = (delay = 500) => {
   if (!document.querySelector(".hero")) {
     if (!document.querySelector("._is-locked")) {
       setTimeout(() => {
-        locoScroll.start();
-
         document.documentElement.classList.remove("_lock");
+
+        document.dispatchEvent(new CustomEvent("bodyUnlock"));
       }, 0);
     }
   } else {
@@ -65,9 +63,9 @@ export const bodyLock = (delay = 500) => {
   if (!document.querySelector(".hero")) {
     if (!document.querySelector("._is-locked")) {
       setTimeout(() => {
-        locoScroll.stop();
-
         document.documentElement.classList.add("_lock");
+
+        document.dispatchEvent(new CustomEvent("bodyLock"));
       }, 0);
     }
   } else {

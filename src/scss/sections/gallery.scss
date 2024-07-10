@@ -31,6 +31,16 @@
     }
   }
 
+  &__swiper {
+    &.swiper {
+      @media (max-width: 48em) {
+        &:not(._page-loaded &) {
+          height: 566px;
+        }
+      }
+    }
+  }
+
   &__slider-btn {
     position: absolute;
     z-index: 2;

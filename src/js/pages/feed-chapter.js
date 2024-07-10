@@ -5,8 +5,8 @@ import "../anim/item-card-carousel";
 import "../lib/lightgallery";
 import Swiper from "swiper";
 import { Pagination } from "swiper/modules";
-import { toggleScroll } from "../lib/swiper";
 import "swiper/css";
+import { toggleScroll } from "../lib/locomotive-scroll";
 
 if (document.querySelector(".feed-chapter__bg-swiper")) {
   new Swiper(".feed-chapter__bg-swiper", {

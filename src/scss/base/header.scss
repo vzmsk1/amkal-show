@@ -252,6 +252,12 @@
 
       row-gap: 0.2px;
     }
+
+    @media (max-width: 64.05em) {
+      &:not(.header-menu &) {
+        display: none;
+      }
+    }
   }
 
   &__nav-link {

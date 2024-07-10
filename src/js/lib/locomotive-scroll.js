@@ -1,7 +1,10 @@
 import LocomotiveScroll from "locomotive-scroll";
 import "../../scss/common/locomotive-scroll.scss";
 import gsap from "gsap";
-import { initItemCardCarousel } from "../anim/item-card-carousel";
+import {
+  initItemCardCarousel,
+  setThumbsClasses,
+} from "../anim/item-card-carousel";
 import { ScrollTrigger } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -46,6 +49,15 @@ const fixScrollTrigger = () => {
   }, 0);
 };
 
+export const toggleScroll = {
+  touchStart: () => {
+    locoScroll.stop();
+  },
+  touchEnd: () => {
+    locoScroll.start();
+  },
+};
+
 window.addEventListener("load", function () {
   fixScrollTrigger();
   initItemCardCarousel();
@@ -64,4 +76,39 @@ document.addEventListener("mouseover", function (e) {
   } else {
     locoScroll.start();
   }
+});
+
+if (document.querySelector(".footer-main__anchor")) {
+  document
+    .querySelector(".footer-main__anchor")
+    .addEventListener("click", function () {
+      locoScroll.scrollTo(0);
+    });
+}
+
+if (document.querySelectorAll(".item-card__slide").length) {
+  document.querySelectorAll(".item-card__slide").forEach((slide, idx) => {
+    document
+      .querySelectorAll(".item-card__thumbs-slide")
+      [idx].addEventListener("click", function () {
+        if (window.innerWidth > 1024) {
+          locoScroll.scrollTo(slide, {
+            offset: -1,
+            callback: () => {
+              setThumbsClasses(
+                idx,
+                document.querySelectorAll(".item-card__thumbs-slide"),
+              );
+            },
+          });
+        }
+      });
+  });
+}
+
+document.addEventListener("bodyLock", function () {
+  locoScroll.stop();
+});
+document.addEventListener("bodyUnlock", function () {
+  locoScroll.start();
 });

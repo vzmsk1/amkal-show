@@ -3,8 +3,7 @@ import "../../scss/sections/item-card.scss";
 import Swiper from "swiper";
 import { Navigation } from "swiper/modules";
 import { setThumbsClasses } from "../anim/item-card-carousel";
-import { locoScroll } from "../lib/locomotive-scroll";
-import { toggleScroll } from "../lib/swiper";
+import { toggleScroll } from "../lib/locomotive-scroll";
 import "swiper/css";
 import gsap from "gsap";
 
@@ -16,7 +15,6 @@ const setLocoScrollAttr = (el) => {
     el.setAttribute("data-scroll", "");
     el.setAttribute("data-scroll-sticky", "");
     el.setAttribute("data-scroll-target", "#item-card");
-    locoScroll.update();
 
     return () => {
       el.classList.contains("header") && el.classList.remove("fixed");
@@ -24,10 +22,17 @@ const setLocoScrollAttr = (el) => {
       el.removeAttribute("data-scroll");
       el.removeAttribute("data-scroll-sticky");
       el.removeAttribute("data-scroll-target");
-      locoScroll.update();
     };
   });
 };
+
+if (document.querySelector(".item-card__thumbs-swiper")) {
+  new Swiper(".item-card__thumbs-swiper", {
+    loop: true,
+    slidesPerView: "auto",
+    spaceBetween: 8,
+  });
+}
 
 md.add("(max-width: 48em)", () => {
   const carousel = document.querySelector(".item-card__swiper")
@@ -78,5 +83,4 @@ document.addEventListener("DOMContentLoaded", function () {
   setLocoScrollAttr(document.querySelector(".header"));
   setLocoScrollAttr(document.querySelector(".item-card__thumbs-swiper"));
   setLocoScrollAttr(document.querySelector(".item-card__content"));
-  locoScroll.update();
 });
