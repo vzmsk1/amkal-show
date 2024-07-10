@@ -9,6 +9,12 @@
     }
   }
 
+  .lg-close {
+    @media (min-width: 64.05em) {
+      transform: translate(5px, 2px);
+    }
+  }
+
   .lg-toolbar .lg-close:after {
     content: "";
 
@@ -16,7 +22,7 @@
     width: 20px;
     height: 20px;
 
-    background: url("./img/icons/cross.svg") center / contain no-repeat;
+    background: url("../img/icons/cross.svg") center / contain no-repeat;
 
     @media (max-width: 64.05em) {
       width: 25px;
@@ -33,6 +39,29 @@
   .lg-icon {
     font-size: 20px;
     color: #ffffff;
+
+    &.lg-prev,
+    &.lg-next {
+      top: 46.3%;
+
+      background-color: transparent;
+
+      @media (max-width: 64.05em) and (min-width: 48em) {
+        top: 53.3%;
+      }
+
+      @media (max-width: 48em) {
+        top: 89.5%;
+      }
+    }
+
+    &.lg-prev {
+      left: 0;
+    }
+
+    &.lg-next {
+      right: 0;
+    }
 
     @media (max-width: 48em) {
       &.lg-prev,
@@ -77,7 +106,7 @@
     width: 25px;
     height: 8px;
 
-    background: url("./img/icons/arr.svg") center / contain no-repeat;
+    background: url("../img/icons/arr.svg") center / contain no-repeat;
   }
 
   .lg-next:before {
@@ -98,18 +127,63 @@
       height: 273px;
     }
   }
+  ._is-vertical .lg-img-wrap {
+    margin-top: -26px;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      margin-top: 67px;
+    }
+
+    @media (max-width: 48em) {
+      padding-top: 32px;
+    }
+  }
+
+  .lg-image {
+    margin-top: -42px;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      margin-top: 118px;
+    }
+
+    @media (max-width: 48em) {
+      margin-top: -6px;
+    }
+  }
   ._is-vertical .lg-image {
-    width: 618px;
+    margin-top: 60px;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      margin-top: 222px;
+    }
+
+    @media (max-width: 48em) {
+      margin-top: 179px;
+    }
+  }
+
+  ._is-vertical,
+  ._is-vertical .lg-image {
     height: 812px;
 
     @media (max-width: 64.05em) and (min-width: 48em) {
-      width: 656px;
       height: 860px;
     }
 
     @media (max-width: 48em) {
+      height: 600px;
+    }
+  }
+
+  ._is-vertical .lg-image {
+    width: 618px;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      width: 656px;
+    }
+
+    @media (max-width: 48em) {
       width: 396px;
-      height: 566px;
     }
   }
   .lg-object.lg-image {

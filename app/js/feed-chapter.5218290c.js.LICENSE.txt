@@ -1,0 +1,73 @@
+/*!
+ * GSAP 3.12.5
+ * https://gsap.com
+ *
+ * @license Copyright 2008-2024, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license or for
+ * Club GSAP members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/*!
+ * Observer 3.12.5
+ * https://gsap.com
+ *
+ * @license Copyright 2008-2024, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license or for
+ * Club GSAP members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/*!
+ * Programatically add the following
+ */
+
+/*!
+ * ScrollTrigger 3.12.5
+ * https://gsap.com
+ *
+ * @license Copyright 2008-2024, GreenSock. All rights reserved.
+ * Subject to the terms at https://gsap.com/standard-license or for
+ * Club GSAP members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/*!
+ * lightgallery | 2.7.2 | September 20th 2023
+ * http://www.lightgalleryjs.com/
+ * Copyright (c) 2020 Sachin Neravath;
+ * @license GPLv3
+ */
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+
+/*! @name @videojs/http-streaming @version 3.12.1 @license Apache-2.0 */
+
+/*! @name aes-decrypter @version 4.0.1 @license Apache-2.0 */
+
+/*! @name m3u8-parser @version 7.1.0 @license Apache-2.0 */
+
+/*! @name pkcs7 @version 1.0.4 @license Apache-2.0 */
+
+/*! @name videojs-contrib-quality-levels @version 4.1.0 @license Apache-2.0 */
+
+/**
+ * @license
+ * slighly modified parse-headers 2.0.2 <https://github.com/kesla/parse-headers/>
+ * Copyright (c) 2014 David Björklund
+ * Available under the MIT license
+ * <https://github.com/kesla/parse-headers/blob/master/LICENCE>
+ */

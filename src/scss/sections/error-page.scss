@@ -1,23 +1,17 @@
 .error-page {
-  padding-top: 112px;
-  padding-left: 61px;
+  position: absolute;
+  top: -65px;
 
-  height: calc(100vh - 65px);
+  margin: 0 auto;
+
+  width: 100vw;
+  height: 100vh;
+  max-width: 1920px;
 
   overflow: hidden;
 
-  @media (max-width: 64.05em) and (min-width: 48em) {
-    padding-top: 372px;
-    padding-left: 15px;
-  }
-
-  @media (max-width: 48em) {
-    padding-top: 214px;
-    padding-left: 0;
-  }
-
   @media (min-width: 64.05em) {
-    height: calc(100vh - 130px);
+    top: -127px;
   }
 
   &__container {
@@ -25,10 +19,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%;
   }
 
   &__video-wrap {
-    margin-bottom: -127px;
+    margin-top: -110px;
+    margin-bottom: -128px;
 
     width: 870px;
     height: 493px;
@@ -44,11 +40,13 @@
     }
 
     @media (max-width: 64.05em) and (min-width: 48em) {
+      margin-top: -74px;
       margin-bottom: -129px;
     }
 
     @media (max-width: 48em) {
-      margin-bottom: -84px;
+      margin-bottom: -80px;
+      margin-top: -89px;
 
       width: 605px;
       height: 348px;

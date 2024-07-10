@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const fs = require("fs");
@@ -274,6 +275,7 @@ module.exports = {
 
   optimization: {
     minimize: !devMode,
+    minimizer: [new TerserPlugin()],
   },
 
   module: {

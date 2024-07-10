@@ -55,7 +55,7 @@
   &__form {
     display: flex;
     flex-direction: column;
-    row-gap: 49px;
+    row-gap: 50px;
 
     @media (max-width: 64.05em) and (min-width: 48em) {
       row-gap: 52px;
@@ -104,7 +104,7 @@
   &__options {
     display: flex;
     flex-direction: column;
-    row-gap: 16px;
+    row-gap: 10px;
 
     @media (max-width: 64.05em) {
       row-gap: 10px;
@@ -124,6 +124,14 @@
       margin-bottom: 57px;
 
       grid-row: 1/2;
+    }
+  }
+
+  &__btn {
+    height: 28px;
+
+    .btn__txt {
+      letter-spacing: 1px;
     }
   }
 

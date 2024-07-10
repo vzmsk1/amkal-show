@@ -103,11 +103,19 @@
     }
   }
 
+  &__btn {
+    height: 24px;
+
+    .btn__txt {
+      letter-spacing: 1.3px;
+    }
+  }
+
   &__content {
     position: absolute;
     right: 0;
 
-    padding-right: 15px;
+    padding-right: 22px;
     padding-top: 288px;
 
     display: flex;
@@ -141,9 +149,10 @@
     flex-direction: column;
 
     @media (min-width: 64.05em) {
+      padding-right: 7px;
       margin-bottom: 80px;
       margin-left: auto;
-      margin-right: -7px;
+      margin-right: -15px;
 
       width: 365px;
     }
@@ -200,6 +209,7 @@
   display: grid;
   grid-template-columns: repeat(2, 6fr);
   min-height: 57px;
+  column-gap: 13px;
 
   @media (max-width: 64.05em) and (min-width: 48em) {
     grid-template-columns: 1fr 259px;
