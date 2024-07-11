@@ -56,6 +56,15 @@
   }
 }
 
+.sm-title {
+  font-family: "Druk Text Wide Cyr";
+  font-weight: 700;
+  font-size: 90px;
+  line-height: 85%;
+  letter-spacing: -5px;
+  text-transform: uppercase;
+}
+
 .txt-12 {
   font-size: 12px;
   line-height: 16px;
@@ -70,7 +79,7 @@
 .letter {
   display: inline-block;
   height: 177px;
-  overflow: hidden;
+  //  overflow: hidden;
 
   .glitch {
     position: relative;

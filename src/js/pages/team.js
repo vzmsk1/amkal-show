@@ -1,9 +1,9 @@
 import "../../scss/sections/team.scss";
 
-import "../lib/video";
 import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
+import { initVideoJS } from "../lib/video";
 import { setSlideContent } from "../utils/utils";
 
 if (document.querySelector(".team__swiper")) {
@@ -29,3 +29,7 @@ if (document.querySelector(".team__swiper")) {
     },
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  initVideoJS();
+});

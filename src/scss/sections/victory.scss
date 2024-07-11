@@ -1,91 +1,52 @@
 .victory {
   &__container {
-    padding-top: 140px;
+    padding-top: 572px;
 
     position: relative;
     z-index: 1;
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     height: 100vh;
+  }
 
-    --gradient: 0%;
-    --y: 0;
-    --opacity: 1;
-    --deg1: 180deg;
-    --deg2: 0deg;
+  &__text {
+    position: absolute;
 
-    &::before,
-    &::after {
-      content: "";
+    bottom: 12px;
+    left: 17px;
 
-      position: absolute;
-      left: 0;
-
-      width: 100%;
-      height: 50vh;
-
-      opacity: var(--opacity);
-
-      background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(0, 0, 0, 1) var(--gradient)
-      );
-    }
-
-    &::before {
-      top: 0;
-
-      transform: rotate(var(--deg1)) translateY(var(--y));
-    }
-
-    &::after {
-      bottom: 0;
-
-      transform: rotate(var(--deg2)) translateY(var(--y));
-    }
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    text-transform: uppercase;
   }
 
   &__title {
+    margin-left: auto;
+
     display: flex;
     flex-direction: column;
 
-    .letter {
-      height: 258px;
-
-      .glitch {
-        height: 25.8px;
-        font-size: 290px;
-      }
+    .glitch-text {
+      transform: translateX(-359px);
     }
 
-    span:first-child {
-      align-self: flex-end;
+    .glitch {
+      font-size: 200px;
+      line-height: 88%;
     }
   }
 
   &__title-txt {
-    &:first-child {
-      transform: translate(40px, 35px);
+    &_sm {
     }
-    &:last-child {
-      transform: translate(-16px, 7px);
-    }
-  }
-
-  &__text {
-    font-size: 18px;
-    line-height: 23px;
-
-    transform: translateY(-11px);
   }
 
   &__video-wrap {
     position: absolute;
     top: 0;
-    left: -95px;
+    left: -90px;
 
     width: calc(100% + 95px);
     height: 100%;
@@ -100,11 +61,11 @@
 
     video {
       position: absolute;
-      top: -163px;
+      top: -183px;
       left: -320px;
 
       width: 2469px;
-      height: 1145px;
+      height: 1165px;
 
       object-fit: cover;
       object-position: left top;

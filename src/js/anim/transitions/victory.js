@@ -3,65 +3,86 @@ import { enterLangScreen } from "../../anim/screen/lang";
 import { defaults } from "../../anim/transitions";
 import gsap from "gsap";
 
-export const victoryTl = gsap.timeline({ ...defaults, paused: true });
-export const victoryLeaveTl = gsap.timeline({ ...defaults, paused: true });
+export const victoryTl = gsap.timeline({
+  ...defaults,
+  paused: true,
+  ease: "power4.out",
+});
+export const victoryLeaveTl = gsap.timeline({
+  ...defaults,
+  paused: true,
+  ease: "power4.in",
+});
 
-victoryTl
-  .to(".victory__container", { "--gradient": "10%", opacity: 1 })
+victoryLeaveTl
+  .to(".victory__title-txt_sm_2, .victory__title-txt_sm_3", {
+    opacity: 0,
+    translateX: "100vw",
+    stagger: 0.01,
+    onStart: () => {
+      document
+        .querySelectorAll(".victory__title .glitch-text")
+        .forEach((item) => {
+          const letters = item.querySelectorAll(".letter");
+
+          letters.forEach((letter, i) => {
+            gsap.to(letter.querySelectorAll(".glitch"), {
+              translateX: `${100 * (letters.length - 1 - i)}%`,
+              scaleX: 0,
+              stagger: 0.05,
+            });
+          });
+        });
+    },
+  })
   .to(
-    ".victory__container",
+    ".victory__title-txt_sm_1",
     {
-      "--y": "100%",
-      duration: 0.7,
-      onComplete: () => {
-        gsap.to(".victory__container", {
-          "--opacity": 0,
-          "--y": 0,
-          "--deg1": "0deg",
-          "--deg2": "180deg",
-          "--gradient": "100%",
-          duration: 0,
+      opacity: 0,
+      translateX: "100vw",
+      onStart: () => {
+        gsap.to(".victory__text .char", {
+          opacity: 0,
+          stagger: -0.01,
         });
       },
     },
-    0,
-  )
-  .to(
-    ".victory__video-wrap",
-    {
-      opacity: 1,
-      onStart: () => {
-        document
-          .querySelectorAll(".victory__title .glitch-text .letter")
-          .forEach((el) => {
-            gsap.to(el.querySelectorAll(".glitch"), {
-              translateX: 0,
-              skewX: "0deg",
-              stagger: 0.03,
-              opacity: 1,
-              duration: 0.1,
-            });
-          });
-      },
-    },
-    0,
-  )
-  .to(
-    ".victory__text .char",
-    {
-      duration: 0.3,
-      opacity: 1,
-      stagger: 0.001,
-      ease: "power1.out",
-    },
-    0.3,
+    0.5,
   );
 
-victoryLeaveTl.to(".victory__container", {
-  "--opacity": 1,
-  "--gradient": "0%",
-  onComplete: () => {
-    enterLangScreen();
-    setActiveScreen(2, 3);
-  },
-});
+victoryTl
+  .to(".victory__video-wrap", {
+    opacity: 1,
+    duration: 1.5,
+    onStart: () => {
+      gsap.to(".victory__text .char", {
+        opacity: 1,
+        stagger: 0.1,
+      });
+
+      document
+        .querySelectorAll(".victory__title .glitch-text")
+        .forEach((item) => {
+          const letters = item.querySelectorAll(".letter");
+
+          letters.forEach((letter, i) => {
+            gsap.to(letter.querySelectorAll(".glitch"), {
+              translateX: 0,
+              scaleX: 1,
+              opacity: 1,
+              stagger: 0.05,
+            });
+          });
+        });
+    },
+  })
+  .to(
+    ".victory__title-txt_sm_1",
+    {
+      opacity: 1,
+      translateX: -607,
+    },
+    0,
+  )
+  .to(".victory__title-txt_sm_2", { opacity: 1, translateX: 12 }, 1)
+  .to(".victory__title-txt_sm_3", { opacity: 1, translateX: 120 }, 1.5);

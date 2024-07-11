@@ -2,12 +2,11 @@
   color: #000000;
 
   &__container {
-    margin-top: 5px;
+    padding-top: 185px;
     padding-bottom: 16px;
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     height: 100vh;
   }
 
@@ -16,14 +15,12 @@
 
     font-size: 16px;
     line-height: 21px;
+    text-transform: uppercase;
   }
 
   &__image-wrap {
-    margin-bottom: 9px;
-    margin-left: 413px;
-
-    width: 279px;
-    height: 185px;
+    width: 357px;
+    height: 206px;
   }
 
   &__image {
@@ -33,39 +30,30 @@
   }
 
   &__title {
-    margin-left: 622px;
+    margin-left: 1px;
 
     display: flex;
     flex-direction: column;
 
-    .letter {
-      overflow: hidden;
+    .glitch-text:last-child {
+      transform: translate(129px, -29px);
     }
 
-    .glitch-text-content {
-      transform: translateY(4px);
+    .lr {
+      transform: translate(129px, -30px);
     }
   }
 
   &__title-txt {
     font-family: "Druk Text Wide Cyr";
-    font-size: 90px;
-    line-height: 85%;
-    letter-spacing: -2px;
     text-transform: uppercase;
 
-    .char {
-      opacity: 1;
+    .glitch {
+      font-size: 178px;
+      line-height: 88%;
     }
 
-    &_large {
-      margin-left: 321px;
-
-      font-size: 200px;
-      line-height: 88.7%;
-    }
-
-    &_to-right {
+    &_sm {
       margin-left: auto;
     }
   }

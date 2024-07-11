@@ -5,7 +5,6 @@ import { leaveFeedScreen } from "./screen/feed";
 import { leaveHeroScreen } from "./screen/hero";
 import { leaveLangScreen } from "./screen/lang";
 import { leaveVictoryScreen } from "./screen/victory";
-import { heroTl } from "./transitions/hero";
 
 gsap.registerPlugin(Observer);
 
@@ -56,14 +55,19 @@ export const initMainpageScroll = () => {
       } else {
         switch (activeIdx) {
           case 1:
-            setActiveScreen(1, 0);
-            heroTl.restart();
+            leaveAboutScreen();
             break;
         }
-        console.log(activeIdx);
       }
 
       setTimeout(observer.enable, 1000);
     };
+
+    document.querySelector(".header").addEventListener("mouseover", () => {
+      observer.disable();
+    });
+    document.querySelector(".header").addEventListener("mouseleave", () => {
+      observer.enable();
+    });
   }
 };
