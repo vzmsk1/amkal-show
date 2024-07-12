@@ -1,7 +1,11 @@
 import { defaults } from "../../anim/transitions";
 import gsap from "gsap";
+import {
+  animateGlitchText,
+  moveGlitchText,
+  setGlitchStyling,
+} from "../../utils/splitGlitchText";
 import { setActiveScreen } from "../mainpage-scroll";
-import { enterVictoryScreen } from "../screen/victory";
 import { heroTl } from "./hero";
 
 export const leaveAboutTl = gsap
@@ -9,12 +13,6 @@ export const leaveAboutTl = gsap
     ...defaults,
     paused: true,
     ease: "power4.in",
-    onComplete: () => {
-      heroTl.restart();
-      gsap.to("header", { opacity: 0, duration: 0.5 });
-      setActiveScreen(1, 2);
-      enterVictoryScreen();
-    },
   })
   .to(".about__text", { opacity: 0 })
   .to(".about__image-wrap", { opacity: 0, translateX: 383 }, 0)
@@ -31,11 +29,7 @@ export const leaveAboutTl = gsap
             const letters = item.querySelectorAll(".letter");
 
             letters.forEach((letter, i) => {
-              gsap.to(letter.querySelectorAll(".glitch"), {
-                translateX: `${100 * (letters.length - 1 - i)}%`,
-                scaleX: 0,
-                stagger: 0.05,
-              });
+              moveGlitchText(letter, letters, i);
             });
           });
       },
@@ -50,6 +44,25 @@ export const aboutTl = gsap
     ease: "power4.out",
     onStart: () => {
       gsap.to(".about__text .char", { opacity: 1, stagger: 0.05 });
+
+      animateGlitchText(".about__title .io .letter");
+
+      document.querySelectorAll(".about__title .lr .letter").forEach((el) => {
+        gsap.to(el.querySelectorAll(".glitch"), {
+          stagger: 0.1,
+          translateX: 0,
+          scaleX: 1,
+        });
+        el.querySelectorAll(".glitch").forEach((glitch, j) => {
+          gsap.to(glitch.querySelector("span"), {
+            stagger: 0.1,
+            top: +el.querySelectorAll("span")[j].dataset.top,
+            ease: "power4.out",
+            delay: 0.05,
+            duration: 1,
+          });
+        });
+      });
     },
   })
   .to(".about__image-wrap", {

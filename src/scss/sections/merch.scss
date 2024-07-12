@@ -2,6 +2,49 @@
   margin-bottom: 20px;
   padding-top: 17px;
 
+  &[data-screen] {
+    margin-bottom: 0;
+    padding-top: 144px;
+
+    color: #000000;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      padding-top: 196px;
+    }
+
+    @media (max-width: 48em) {
+      padding-top: 119px;
+    }
+
+    .merch {
+      &__items {
+        grid-template-columns: repeat(4, 171px);
+        row-gap: 120px;
+
+        @media (max-width: 64.05em) {
+          row-gap: 205px;
+        }
+
+        @media (max-width: 64.05em) and (min-width: 48em) {
+          grid-template: repeat(3, 203px) / repeat(3, 151px);
+        }
+
+        @media (max-width: 48em) {
+          grid-template: repeat(2, 180px) / repeat(2, 119px);
+        }
+      }
+      &__link {
+        transform: translate(-31px, 9px);
+
+        @media (max-width: 48em) {
+          letter-spacing: 0.3px;
+
+          transform: translate(-27px, -4px);
+        }
+      }
+    }
+  }
+
   @media (max-width: 64.05em) and (min-width: 48em) {
     padding-top: 133px;
   }

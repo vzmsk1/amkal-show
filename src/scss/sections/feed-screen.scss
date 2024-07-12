@@ -1,41 +1,47 @@
+.swiper-grid-column > .swiper-wrapper {
+  @media (max-width: 64.05em) {
+    display: grid;
+    grid-template-rows: repeat(2, 354px);
+    grid-auto-flow: column;
+  }
+}
+
 .feed-screen {
-  padding-top: 142px;
-  padding-bottom: 16px;
-
-  --y: 0;
-  --bgc: #000000;
-
-  &::after,
-  &::before {
-    content: "";
-
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 100vw;
-    height: 100vh;
+  .feed-card__inner {
+    @media (max-width: 48em) {
+      row-gap: 17px;
+    }
   }
 
-  &::before {
-    z-index: 3;
-
-    background-color: var(--bgc);
-
-    transform: translateY(var(--y));
+  .swiper {
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      height: 100%;
+    }
   }
-
-  &::after {
-    background-color: #171717;
+  .swiper-slide {
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      height: 354px !important;
+    }
   }
 
   &__container {
     position: relative;
     z-index: 2;
 
+    padding-top: 142px;
+
     display: flex;
     flex-direction: column;
     height: 100%;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      padding-top: 196px;
+    }
+
+    @media (max-width: 48em) {
+      padding-top: 118px;
+      padding-bottom: 63px;
+    }
   }
 
   &__head {
@@ -44,21 +50,45 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      margin-bottom: 144px;
+    }
+
+    @media (max-width: 48em) {
+      margin-bottom: 210px;
+    }
   }
 
   &__link {
-    transform: translateY(11px);
+    @media (min-width: 48em) {
+      transform: translateY(11px);
+    }
   }
 
   &__title {
-    &.title {
-      font-family: "Druk Wide";
-      letter-spacing: 0;
+    @media (min-width: 48em) {
+      &.title {
+        font-family: "Druk Wide";
+        letter-spacing: 0;
+      }
     }
   }
 
   &__body {
+    padding-bottom: 8px;
+
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+  }
+
+  &__swiper {
     margin-bottom: auto;
+
+    &.swiper {
+      width: 100%;
+    }
   }
 
   &__navigation {
@@ -67,6 +97,16 @@
     display: inline-flex;
     align-items: center;
     column-gap: 65px;
+
+    @media (max-width: 64.05em) {
+      column-gap: 100px;
+    }
+
+    @media (max-width: 48em) {
+      margin: 0;
+
+      justify-content: space-between;
+    }
   }
 
   &__footer {
@@ -82,5 +122,10 @@
   &__nav-btn-icon {
     width: 22px;
     height: 22px;
+
+    @media (max-width: 64.05em) {
+      width: 26px;
+      height: 26px;
+    }
   }
 }

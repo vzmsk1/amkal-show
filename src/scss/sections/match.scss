@@ -2,6 +2,25 @@
   padding-bottom: 12px;
   padding-top: 12px;
 
+  &[data-screen] {
+    padding-top: 141px;
+    padding-bottom: 0;
+
+    color: #000000;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      padding-top: 198px;
+    }
+
+    @media (max-width: 48em) {
+      padding-top: 118px;
+
+      .table-match__row_head {
+        display: none;
+      }
+    }
+  }
+
   &_has-margin {
     margin-bottom: 128px;
     padding-bottom: 0;

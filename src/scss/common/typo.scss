@@ -76,31 +76,33 @@
   }
 }
 
+.glitch-text-content {
+  display: flex;
+}
+
 .letter {
   display: inline-block;
   height: 177px;
   //  overflow: hidden;
+
+  font-family: "Druk Text Wide Cyr";
+  text-transform: uppercase;
 
   .glitch {
     position: relative;
 
     padding-left: 10px;
 
-    height: 17px;
     width: 135%;
-
-    font-size: 200px;
-    text-transform: uppercase;
 
     overflow: hidden;
 
     span {
       position: relative;
 
-      left: -17px;
-
       line-height: 177px;
-      font-family: "Druk Text Wide Cyr";
+      font-size: 200px;
+      text-transform: uppercase;
     }
   }
 }

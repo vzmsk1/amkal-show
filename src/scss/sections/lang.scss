@@ -1,14 +1,23 @@
 .lang {
-  padding-top: 176px;
-  padding-bottom: 16px;
-
   &__container {
     position: relative;
+
+    padding-top: 291px;
+    padding-bottom: 16px;
 
     display: flex;
     flex-direction: column;
 
     height: 100%;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      padding-top: 602px;
+    }
+
+    @media (max-width: 48em) {
+      padding-top: 86px;
+      padding-bottom: 80px;
+    }
   }
 
   &__title {
@@ -17,8 +26,41 @@
     display: flex;
     flex-direction: column;
 
+    @media (max-width: 64.05em) {
+      margin-left: -5px;
+    }
+
     .glitch-text {
-      margin-bottom: -13px;
+      position: relative;
+      //      margin-bottom: -190px;
+
+      max-width: 1000px;
+
+      overflow: hidden;
+
+      transform: translate(65px, -16px);
+
+      @media (max-width: 64.05em) and (min-width: 48em) {
+        transform: translate(79px, -29px);
+      }
+
+      @media (max-width: 48em) {
+        margin-bottom: 29px;
+
+        transform: translateX(-6px);
+
+        .letter {
+          height: 71px;
+        }
+        .glitch span {
+          font-size: 79.8279px;
+          line-height: 88.7%;
+        }
+      }
+    }
+
+    .glitch span {
+      font-size: 200px;
     }
   }
 
@@ -27,6 +69,10 @@
 
     font-size: 12px;
     line-height: 16px;
+
+    @media (max-width: 48em) {
+      margin-right: 67px;
+    }
   }
 
   &__title-txt {
@@ -40,32 +86,75 @@
       line-height: 80px;
       font-size: 90px;
       letter-spacing: -5px;
+
+      @media (max-width: 48em) {
+        font-size: 35.6306px;
+        line-height: 88.7%;
+        letter-spacing: -2px;
+      }
     }
 
-    .glitch {
-      height: 24.3px;
-
-      font-size: 203px;
+    &_2,
+    &_3 {
+      transform: translateX(492px);
     }
   }
 
-  &__image-wrap {
-    position: absolute;
+  &__text {
+    font-size: 16px;
+    line-height: 21px;
+  }
 
+  &__image-wrap {
     &_right {
-      top: 18px;
+      top: 260px;
       right: 16px;
 
-      width: 482px;
-      height: 219px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 12px;
+
+      .lang__image {
+        width: 482px;
+        height: 232px;
+      }
     }
 
     &_left {
       left: 16px;
-      bottom: 0;
+      bottom: 17px;
 
       width: 357px;
       height: 219px;
+
+      @media (max-width: 64.05em) {
+        width: 405px;
+        height: 247px;
+      }
+    }
+
+    @media (max-width: 48em) {
+      position: static;
+
+      &_right {
+        margin-bottom: 109px;
+
+        order: -1;
+
+        .lang__image {
+          margin-left: auto;
+
+          width: 259px;
+          height: 147px;
+        }
+      }
+
+      &_left {
+        .lang__image {
+          width: 100%;
+          height: 231px;
+        }
+      }
     }
   }
 

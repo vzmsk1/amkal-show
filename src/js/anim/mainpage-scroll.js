@@ -4,6 +4,8 @@ import { leaveAboutScreen } from "./screen/about";
 import { leaveFeedScreen } from "./screen/feed";
 import { leaveHeroScreen } from "./screen/hero";
 import { leaveLangScreen } from "./screen/lang";
+import { leaveMatchScreen } from "./screen/match";
+import { leaveMerchScreen } from "./screen/merch";
 import { leaveVictoryScreen } from "./screen/victory";
 
 gsap.registerPlugin(Observer);
@@ -41,21 +43,43 @@ export const initMainpageScroll = () => {
             leaveHeroScreen();
             break;
           case 1:
-            leaveAboutScreen();
+            leaveAboutScreen(true);
             break;
           case 2:
-            leaveVictoryScreen();
+            leaveVictoryScreen(true);
             break;
           case 3:
-            leaveLangScreen();
+            leaveLangScreen(true);
             break;
           case 4:
-            leaveFeedScreen();
+            leaveFeedScreen(true);
+            break;
+          case 5:
+            leaveMerchScreen(true);
+            break;
+          case 6:
+            leaveMatchScreen(true);
+            break;
         }
       } else {
         switch (activeIdx) {
           case 1:
-            leaveAboutScreen();
+            leaveAboutScreen(false);
+            break;
+          case 2:
+            leaveVictoryScreen(false);
+            break;
+          case 3:
+            leaveLangScreen(false);
+            break;
+          case 4:
+            leaveFeedScreen(false);
+            break;
+          case 5:
+            leaveMerchScreen(false);
+            break;
+          case 6:
+            leaveMatchScreen(false);
             break;
         }
       }

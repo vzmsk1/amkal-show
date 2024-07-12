@@ -8,6 +8,14 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      padding-top: 562px;
+    }
+
+    @media (max-width: 48em) {
+      padding-top: 334px;
+    }
   }
 
   &__text {
@@ -16,11 +24,31 @@
     font-size: 16px;
     line-height: 21px;
     text-transform: uppercase;
+
+    @media (max-width: 48em) {
+      margin-bottom: 13px;
+
+      letter-spacing: -1.2px;
+    }
   }
 
   &__image-wrap {
     width: 357px;
     height: 206px;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      margin-bottom: 67px;
+
+      width: 322px;
+      height: 178px;
+    }
+
+    @media (max-width: 48em) {
+      margin-bottom: 130px;
+
+      width: 260px;
+      height: 148px;
+    }
   }
 
   &__image {
@@ -35,6 +63,42 @@
     display: flex;
     flex-direction: column;
 
+    .io {
+      @media (max-width: 64.05em) and (min-width: 48em) {
+        margin-bottom: -17px;
+      }
+
+      @media (max-width: 48em) {
+        margin-bottom: 25px;
+      }
+    }
+
+    .lr {
+      @media (max-width: 64.05em) and (min-width: 48em) {
+        margin-left: -44px;
+        margin-bottom: -15px;
+      }
+
+      @media (max-width: 48em) {
+        margin-bottom: 4px;
+        margin-left: -98px;
+      }
+    }
+
+    @media (max-width: 64.05em) {
+      margin-left: -13px;
+    }
+
+    .glitch-text {
+      max-width: 1000px;
+
+      overflow: hidden;
+    }
+
+    .glitch-text-content {
+      white-space: nowrap;
+    }
+
     .glitch-text:last-child {
       transform: translate(129px, -29px);
     }
@@ -42,19 +106,60 @@
     .lr {
       transform: translate(129px, -30px);
     }
+
+    .letter {
+      @media (max-width: 48em) {
+        height: 60px;
+      }
+    }
   }
 
   &__title-txt {
-    font-family: "Druk Text Wide Cyr";
-    text-transform: uppercase;
-
     .glitch {
-      font-size: 178px;
-      line-height: 88%;
+      span {
+        font-size: 178px;
+        line-height: 88%;
+
+        @media (max-width: 64.05em) and (min-width: 48em) {
+          font-size: 147.335px;
+        }
+
+        @media (max-width: 48em) {
+          font-size: 59.9698px;
+          line-height: 85%;
+        }
+      }
     }
 
     &_sm {
       margin-left: auto;
+
+      @media (max-width: 64.05em) and (min-width: 48em) {
+        &_1 {
+          margin-right: -72px;
+        }
+
+        &_2 {
+          margin-right: -17px;
+        }
+      }
+
+      @media (max-width: 48em) {
+        font-size: 36.6328px;
+        line-height: 85%;
+
+        &_1 {
+          margin-right: -254px;
+        }
+
+        &_2 {
+          margin-right: -22px;
+        }
+
+        &_3 {
+          margin-right: -2px;
+        }
+      }
     }
   }
 }

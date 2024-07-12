@@ -2,6 +2,56 @@ import { setActiveScreen } from "../../anim/mainpage-scroll";
 import { enterLangScreen } from "../../anim/screen/lang";
 import { defaults } from "../../anim/transitions";
 import gsap from "gsap";
+import { animateGlitchText, moveGlitchText } from "../../utils/splitGlitchText";
+import { enterAboutScreen } from "../screen/about";
+
+const layer = document.querySelector(".victory__layer");
+
+layer.innerHTML = `
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  `;
+
+export const victoryOnComplete = (isNext) => {
+  gsap.to(layer, { "--layer": "100%", duration: 1.5, delay: 0.5 });
+  gsap.to(layer, {
+    "--opacity": 1,
+    duration: 0.5,
+    onComplete: () => {
+      gsap.to(".victory__video-wrap", {
+        opacity: 0,
+        onComplete: () => {
+          if (isNext) {
+            setActiveScreen(2, 3);
+            enterLangScreen();
+          } else {
+            gsap.to("header", { opacity: 0, duration: 0.5 });
+
+            setActiveScreen(2, 1);
+
+            enterAboutScreen();
+            gsap.to("body", {
+              backgroundColor: "#caff34",
+              duration: 0.5,
+              delay: 1,
+            });
+          }
+        },
+      });
+    },
+  });
+};
 
 export const victoryTl = gsap.timeline({
   ...defaults,
@@ -26,11 +76,7 @@ victoryLeaveTl
           const letters = item.querySelectorAll(".letter");
 
           letters.forEach((letter, i) => {
-            gsap.to(letter.querySelectorAll(".glitch"), {
-              translateX: `${100 * (letters.length - 1 - i)}%`,
-              scaleX: 0,
-              stagger: 0.05,
-            });
+            moveGlitchText(letter, letters, i);
           });
         });
     },
@@ -60,29 +106,45 @@ victoryTl
         stagger: 0.1,
       });
 
-      document
-        .querySelectorAll(".victory__title .glitch-text")
-        .forEach((item) => {
-          const letters = item.querySelectorAll(".letter");
-
-          letters.forEach((letter, i) => {
-            gsap.to(letter.querySelectorAll(".glitch"), {
-              translateX: 0,
-              scaleX: 1,
-              opacity: 1,
-              stagger: 0.05,
-            });
-          });
-        });
+      animateGlitchText(".victory__title .letter");
     },
   })
   .to(
     ".victory__title-txt_sm_1",
     {
       opacity: 1,
-      translateX: -607,
+      translateX:
+        window.innerWidth <= 1024 && window.innerWidth > 768
+          ? -375
+          : window.innerWidth <= 768
+            ? -120
+            : -607,
     },
     0,
   )
-  .to(".victory__title-txt_sm_2", { opacity: 1, translateX: 12 }, 1)
-  .to(".victory__title-txt_sm_3", { opacity: 1, translateX: 120 }, 1.5);
+  .to(
+    ".victory__title-txt_sm_2",
+    {
+      opacity: 1,
+      translateX:
+        window.innerWidth <= 1024 && window.innerWidth > 768
+          ? 46
+          : window.innerWidth <= 768
+            ? 21
+            : 12,
+    },
+    1,
+  )
+  .to(
+    ".victory__title-txt_sm_3",
+    {
+      opacity: 1,
+      translateX:
+        window.innerWidth <= 1024 && window.innerWidth > 768
+          ? 146
+          : window.innerWidth <= 768
+            ? 81
+            : 120,
+    },
+    1.5,
+  );

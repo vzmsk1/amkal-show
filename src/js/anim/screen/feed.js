@@ -1,11 +1,16 @@
-import { feedLeaveTl, feedTl } from "../../anim/transitions/feed";
-import gsap from "gsap";
+import { feedLeaveTl, feedOnLeave, feedTl } from "../../anim/transitions/feed";
 
 export const enterFeedScreen = () => {
   feedTl.play();
 };
 
-export const leaveFeedScreen = () => {
-  gsap.to(".feed-screen", { "--y": "100vh", "--bgc": "#ffffff", duration: 0 });
+export const leaveFeedScreen = (isNext) => {
   feedLeaveTl.play();
+
+  feedLeaveTl.vars = {
+    ...feedLeaveTl.vars,
+    onComplete: () => {
+      feedOnLeave(isNext);
+    },
+  };
 };

@@ -1,23 +1,15 @@
-import gsap from "gsap";
-import { langLeaveTl, langTl } from "../transitions/lang";
+import { langLeaveTl, langOnComplete, langTl } from "../transitions/lang";
 
 export const enterLangScreen = () => {
-  langTl.play();
+  langTl.play(0);
 };
 
-export const leaveLangScreen = () => {
-  document
-    .querySelectorAll(".lang__title .glitch-text .letter")
-    .forEach((el) => {
-      gsap.to(".lang__text", { opacity: 0, delay: 0.3 });
-      gsap.to(el.querySelectorAll(".glitch"), {
-        translateX: "100%",
-        skewX: "10deg",
-        stagger: 0.03,
-        duration: 0.1,
-        onComplete: () => {
-          langLeaveTl.play();
-        },
-      });
-    });
+export const leaveLangScreen = (isNext) => {
+  langLeaveTl.play();
+  langLeaveTl.vars = {
+    ...langLeaveTl.vars,
+    onComplete: () => {
+      langOnComplete(isNext);
+    },
+  };
 };
