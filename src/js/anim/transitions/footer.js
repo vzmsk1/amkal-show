@@ -1,5 +1,5 @@
 import { animateGlitchText, moveGlitchText } from "../../utils/splitGlitchText";
-import { observer, setActiveScreen } from "../mainpage-scroll";
+import { setActiveScreen } from "../mainpage-scroll";
 import { enterMatchScreen } from "../screen/match";
 import { defaults } from "../transitions";
 import gsap from "gsap";
@@ -26,23 +26,15 @@ export const footerTl = gsap.timeline({
   ease: "power4.out",
   paused: true,
   onStart: () => {
-    observer.disable();
-
     document.querySelector("body").classList.remove("_light-theme");
 
     animateGlitchText(".footer-main__title .glitch-text .letter");
-  },
-  onComplete: () => {
-    observer.enable();
   },
 });
 export const footerLeaveTl = gsap.timeline({
   ...defaults,
   ease: "power4.in",
   paused: true,
-  onStart: () => {
-    observer.disable();
-  },
 });
 
 footerTl

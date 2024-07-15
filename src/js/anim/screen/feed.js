@@ -5,6 +5,7 @@ export const enterFeedScreen = () => {
 };
 
 export const leaveFeedScreen = (isNext) => {
+  feedLeaveTl.progress(1);
   feedLeaveTl.play(0);
 
   feedLeaveTl.vars = {

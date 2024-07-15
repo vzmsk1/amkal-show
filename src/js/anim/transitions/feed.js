@@ -1,4 +1,4 @@
-import { observer, setActiveScreen } from "../../anim/mainpage-scroll";
+import { setActiveScreen } from "../../anim/mainpage-scroll";
 import { defaults } from "../../anim/transitions";
 import gsap from "gsap";
 import { enterLangScreen } from "../screen/lang";
@@ -21,21 +21,13 @@ export const feedTl = gsap.timeline({
   ease: "power4.out",
   paused: true,
   onStart: () => {
-    observer.disable();
-
     gsap.set("body", { backgroundColor: "#171717" });
-  },
-  onComplete: () => {
-    observer.enable();
   },
 });
 export const feedLeaveTl = gsap.timeline({
   ...defaults,
   ease: "power4.in",
   paused: true,
-  onStart: () => {
-    observer.disable();
-  },
 });
 
 feedLeaveTl

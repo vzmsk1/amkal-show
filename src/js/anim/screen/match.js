@@ -6,6 +6,7 @@ export const enterMatchScreen = () => {
 };
 
 export const leaveMatchScreen = (isNext) => {
+  matchTl.progress(1);
   matchLeaveTl.play(0);
 
   matchLeaveTl.vars = {

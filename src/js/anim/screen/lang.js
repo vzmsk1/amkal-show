@@ -5,6 +5,7 @@ export const enterLangScreen = () => {
 };
 
 export const leaveLangScreen = (isNext) => {
+  langTl.progress(1);
   langLeaveTl.play(0);
   langLeaveTl.vars = {
     ...langLeaveTl.vars,

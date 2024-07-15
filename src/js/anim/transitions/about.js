@@ -1,7 +1,6 @@
 import { charTr, defaults } from "../../anim/transitions";
 import gsap from "gsap";
 import { animateGlitchText, moveGlitchText } from "../../utils/splitGlitchText";
-import { observer } from "../mainpage-scroll";
 
 export const leaveAboutTl = gsap.timeline({
   ...defaults,
@@ -13,12 +12,7 @@ export const aboutTl = gsap.timeline({
   ...defaults,
   ease: "power4.in",
   paused: true,
-  onComplete: () => {
-    observer.enable();
-  },
   onStart: () => {
-    observer.disable();
-
     gsap.set(".about__text", { opacity: 1 });
     gsap.set(".about__text .char", { opacity: 0 });
 

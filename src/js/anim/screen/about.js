@@ -1,9 +1,10 @@
 import { aboutTl, leaveAboutTl } from "../../anim/transitions/about";
-import { observer, setActiveScreen } from "../mainpage-scroll";
+import { setActiveScreen } from "../mainpage-scroll";
 import { heroTl } from "../transitions/hero";
 import { enterVictoryScreen } from "./victory";
 
 export const leaveAboutScreen = (isNext) => {
+  aboutTl.progress(1);
   leaveAboutTl.play(0);
 
   if (isNext) {

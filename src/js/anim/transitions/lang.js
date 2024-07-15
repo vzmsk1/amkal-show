@@ -1,4 +1,4 @@
-import { observer, setActiveScreen } from "../../anim/mainpage-scroll";
+import { setActiveScreen } from "../../anim/mainpage-scroll";
 import { enterFeedScreen } from "../../anim/screen/feed";
 import { defaults } from "../../anim/transitions";
 import gsap from "gsap";
@@ -20,8 +20,6 @@ export const langTl = gsap.timeline({
   ease: "power4.out",
   paused: true,
   onStart: () => {
-    observer.disable();
-
     animateGlitchText(".lang__title .letter");
 
     gsap.set(".lang__text", {
@@ -38,17 +36,11 @@ export const langTl = gsap.timeline({
       translateX: 0,
     });
   },
-  onComplete: () => {
-    observer.enable();
-  },
 });
 export const langLeaveTl = gsap.timeline({
   ...defaults,
   ease: "power4.in",
   paused: true,
-  onStart: () => {
-    observer.disable();
-  },
 });
 
 langTl

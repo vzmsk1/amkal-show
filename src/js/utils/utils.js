@@ -43,16 +43,12 @@ export const bodyLockToggle = (delay = 500) => {
  * @param {number} delay
  */
 export const bodyUnlock = (delay = 500) => {
-  if (!document.querySelector(".hero")) {
-    if (!document.querySelector("._is-locked")) {
-      setTimeout(() => {
-        document.documentElement.classList.remove("_lock");
+  if (!document.querySelector("._is-locked")) {
+    setTimeout(() => {
+      document.documentElement.classList.remove("_lock");
 
-        document.dispatchEvent(new CustomEvent("bodyUnlock"));
-      }, 0);
-    }
-  } else {
-    gsap.set("body", { clearProps: "overflow, touch-action" });
+      document.dispatchEvent(new CustomEvent("bodyUnlock"));
+    }, 0);
   }
 };
 /**
@@ -60,16 +56,12 @@ export const bodyUnlock = (delay = 500) => {
  * @param {number} delay
  */
 export const bodyLock = (delay = 500) => {
-  if (!document.querySelector(".hero")) {
-    if (!document.querySelector("._is-locked")) {
-      setTimeout(() => {
-        document.documentElement.classList.add("_lock");
+  if (!document.querySelector("._is-locked")) {
+    setTimeout(() => {
+      document.documentElement.classList.add("_lock");
 
-        document.dispatchEvent(new CustomEvent("bodyLock"));
-      }, 0);
-    }
-  } else {
-    gsap.set("body", { overflow: "hidden", "touch-action": "none" });
+      document.dispatchEvent(new CustomEvent("bodyLock"));
+    }, 0);
   }
 };
 

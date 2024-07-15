@@ -1,7 +1,6 @@
 import { charTr, defaults } from "../../anim/transitions";
 import gsap from "gsap";
 import { animateGlitchText, moveGlitchText } from "../../utils/splitGlitchText";
-import { observer } from "../mainpage-scroll";
 
 const layer = document.querySelector(".victory__layer");
 
@@ -26,8 +25,6 @@ export const victoryTl = gsap.timeline({
   ease: "power4.out",
   paused: true,
   onStart: () => {
-    observer.disable();
-
     gsap.set(".victory__title .ran_1", {
       opacity: 1,
     });
@@ -55,17 +52,11 @@ export const victoryTl = gsap.timeline({
       animateGlitchText(".victory__title .letter", 1000);
     }
   },
-  onComplete: () => {
-    observer.enable();
-  },
 });
 export const victoryLeaveTl = gsap.timeline({
   ...defaults,
   ease: "power4.in",
   paused: true,
-  onStart: () => {
-    observer.disable();
-  },
 });
 
 victoryLeaveTl

@@ -72,18 +72,25 @@ const scroll = (active, isNext) => {
     }
   }
 
-  setTimeout(observer.enable, 1000);
+  setTimeout(() => {
+    observer.enable();
+  }, 1000);
 };
 
 export const observer = Observer.create({
   target: document.querySelector(".hero").closest("html"),
   type: "wheel,touch",
   tolerance: 200,
+  wheelSpeed: -1,
   onUp: (e) => {
-    scroll(document.querySelector('[data-screen="active"]'), false);
+    !e.event.srcElement.closest(".header") &&
+      !e.event.srcElement.closest(".swiper") &&
+      scroll(document.querySelector('[data-screen="active"]'), true);
   },
   onDown: (e) => {
-    scroll(document.querySelector('[data-screen="active"]'), true);
+    !e.event.srcElement.closest(".header") &&
+      !e.event.srcElement.closest(".swiper") &&
+      scroll(document.querySelector('[data-screen="active"]'), false);
   },
 });
 
@@ -93,12 +100,12 @@ export const setActiveScreen = (prev, active) => {
 };
 
 export const initMainpageScroll = () => {
-  if (screens.length) {
-    document.querySelector(".header").addEventListener("mouseover", () => {
-      observer.disable();
-    });
-    document.querySelector(".header").addEventListener("mouseleave", () => {
-      observer.enable();
-    });
-  }
+  // if (screens.length) {
+  //   document.querySelector(".header").addEventListener("mouseover", () => {
+  //     window.innerWidth > 1024 && observer.disable();
+  //   });
+  //   document.querySelector(".header").addEventListener("mouseleave", () => {
+  //     window.innerWidth > 1024 && observer.enable();
+  //   });
+  // }
 };

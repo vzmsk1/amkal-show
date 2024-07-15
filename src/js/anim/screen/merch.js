@@ -5,6 +5,7 @@ export const enterMerchScreen = () => {
 };
 
 export const leaveMerchScreen = (isNext) => {
+  merchTl.progress(1);
   merchLeaveTl.play(0);
 
   merchLeaveTl.vars = {

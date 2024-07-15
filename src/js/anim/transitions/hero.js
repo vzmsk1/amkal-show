@@ -1,4 +1,4 @@
-import { observer, setActiveScreen } from "../../anim/mainpage-scroll";
+import { setActiveScreen } from "../../anim/mainpage-scroll";
 import { enterAboutScreen } from "../../anim/screen/about";
 import { defaults } from "../../anim/transitions";
 import gsap from "gsap";
@@ -7,6 +7,8 @@ import { enterFooterScreen } from "../screen/footer";
 import { leaveAboutTl } from "./about";
 
 export const onHeroLeave = (isNext) => {
+  heroTl.progress(1);
+
   if (isNext) {
     document.querySelector("body").classList.add("_light-theme");
     document.querySelector("body").classList.add("_light-theme_green");
@@ -28,12 +30,7 @@ export const heroTl = gsap.timeline({
   duration: 0.5,
   delay: 1,
   ease: "power4.out",
-  onComplete: () => {
-    observer.enable();
-  },
   onStart: () => {
-    observer.disable();
-
     initVideoJS();
     document.querySelector("body").classList.remove("_light-theme");
     document.querySelector("body").classList.remove("_light-theme_green");
@@ -47,9 +44,6 @@ export const heroLeaveTl = gsap.timeline({
   ...defaults,
   ease: "power4.in",
   paused: true,
-  onStart: () => {
-    observer.disable();
-  },
 });
 
 export const animateHero = () => {

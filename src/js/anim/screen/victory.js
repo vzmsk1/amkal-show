@@ -18,6 +18,7 @@ export const enterVictoryScreen = () => {
 };
 
 export const leaveVictoryScreen = (isNext) => {
+  victoryTl.progress(1);
   victoryLeaveTl.play(0);
 
   victoryLeaveTl.vars = {
