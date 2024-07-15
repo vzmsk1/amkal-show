@@ -1,36 +1,44 @@
 .footer-main {
-  padding-top: 223px;
-  padding-bottom: 13px;
+  padding-top: 28.5rem;
+  padding-bottom: 2rem;
+
+  @media (min-width: 1600px) {
+    padding-top: 21.1rem;
+  }
 
   @media (max-width: 64.05em) and (min-width: 48em) {
-    padding-top: 339px;
+    padding-top: 58rem;
   }
 
   @media (max-width: 48em) {
-    padding-top: 119px;
+    padding-top: 32rem;
   }
 
   .footer__list {
     &:not(&_sublist) {
       margin: 0;
 
-      row-gap: 27px;
+      row-gap: 3.5rem;
 
-      transform: translate(-57px, -33px);
+      transform: translate(-6rem, -3.4rem);
 
       @media (max-width: 64.05em) and (min-width: 48em) {
-        margin-right: -50px;
-        margin-bottom: 104px;
+        margin-right: -5rem;
+        margin-bottom: 24rem;
 
-        row-gap: 33px;
+        row-gap: 6.5rem;
+
+        transform: translate(-6rem, -1.4rem);
       }
 
       @media (max-width: 48em) {
         margin-right: auto;
-        margin-left: 57px;
+        margin-left: 6rem;
         margin-bottom: auto;
 
-        row-gap: 25px;
+        row-gap: 4rem;
+
+        transform: translate(-6rem, -2.8rem);
       }
     }
   }
@@ -40,10 +48,6 @@
     flex-direction: column;
     height: 100%;
     width: 100%;
-
-    @media (max-width: 48em) {
-      padding-bottom: 46px;
-    }
   }
 
   &__head {
@@ -71,58 +75,119 @@
     flex-direction: column;
 
     .glitch-text {
-      transform: translate(-20px, -15px);
+      transform: translate(-2rem, -3rem);
 
-      @media (max-width: 48em) {
-        margin-bottom: 177px;
+      .glitch span {
+        line-height: 123%;
+        font-weight: 700;
 
-        transform: translate(-10px, 0);
+        @media (min-width: 1600px) {
+          font-size: 20.3rem;
+          line-height: 123.7%;
+        }
+
+        @media (min-width: 48em) {
+          font-size: 25.5rem;
+        }
+
+        @media (max-width: 48em) {
+          font-family: "Druk Wide";
+        }
+      }
+
+      .letter {
+        margin: 0 -1.3rem;
+
+        @media (max-width: 64.05em) and (min-width: 48em) {
+          margin: 0 -0.5rem;
+        }
+
+        @media (max-width: 48em) {
+          margin: 0 -0.6rem;
+        }
+      }
+
+      @media (max-width: 64.05em) and (min-width: 48em) {
+        transform: translateX(-3rem);
 
         .glitch span {
-          font-size: 75.1517px;
-          line-height: 88.7%;
+          line-height: 46rem;
+          font-size: 38.2rem;
         }
         .letter {
-          height: 67px;
+          margin: 0 -1.2rem;
+
+          height: 31.6rem;
         }
       }
     }
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
-      transform: translateX(30px);
+    @media (max-width: 64.05em) {
+      margin-right: auto;
     }
 
     @media (max-width: 48em) {
-      transform: translateX(15px);
+      margin-bottom: 27rem;
+
+      transform: none;
+
+      .letter {
+        height: 11rem;
+      }
+
+      .glitch span {
+        font-size: 13.1rem;
+        line-height: 12rem;
+      }
     }
   }
 
   &__title-txt {
+    margin-bottom: 2rem;
+
     font-family: "Druk Text Wide Cyr";
     font-weight: 700;
-    font-size: 90.6325px;
+    font-size: 11.5rem;
     line-height: 88.7%;
-    letter-spacing: -6px;
+    letter-spacing: -0.7rem;
     text-transform: uppercase;
 
-    @media (max-width: 64.05em) {
-      margin-bottom: -14px;
+    @media (min-width: 1600px) {
+      font-size: 9rem;
+    }
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      margin-bottom: 1rem;
+
+      font-size: 16.9rem;
+      letter-spacing: -1.2rem;
+
+      transform: translateX(2rem);
     }
 
     @media (max-width: 48em) {
-      margin-bottom: -1px;
+      margin-bottom: 2.3rem;
 
-      font-size: 46.3403px;
+      font-family: "Druk Wide";
+      font-size: 8.1rem;
+      letter-spacing: 0;
       line-height: 85%;
-      letter-spacing: 2px;
     }
   }
 
   &__sponsors {
-    margin-bottom: 67px;
+    margin-bottom: 8rem;
 
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      margin-bottom: 12rem;
+    }
+
+    @media (max-width: 48em) {
+      margin-bottom: 9rem;
+    }
   }
 
   &__subtitle {
@@ -153,6 +218,92 @@
   &__sponsors-swiper-wrapper {
     &.swiper-wrapper {
       align-items: center;
+    }
+  }
+}
+
+.footer-main {
+  &_ru {
+    padding-top: 20.5rem;
+
+    .footer__list:not(.footer-main .footer__list_sublist) {
+      transform: translate(-6rem, 8rem);
+    }
+
+    .footer-main {
+      &__title {
+        .glitch-text {
+          margin-bottom: -1rem;
+
+          transform: none;
+
+          .glitch span {
+            font-family: "Druk Text Wide Cyr";
+            line-height: 123%;
+
+            @media (max-width: 64.05em) {
+              line-height: 148%;
+            }
+          }
+
+          .letter {
+            margin: 0 -1rem;
+          }
+
+          &:first-child {
+            margin-left: -2rem;
+
+            .glitch span {
+              font-size: 16rem;
+
+              @media (min-width: 1600px) {
+                font-size: 12.6rem;
+              }
+
+              @media (max-width: 48em) {
+                font-size: 8rem;
+              }
+            }
+            .letter {
+              height: 16rem;
+
+              @media (max-width: 48em) {
+                height: 10rem;
+              }
+            }
+          }
+
+          &:nth-child(2) {
+            transform: translate(18rem, -2rem);
+
+            .glitch span {
+              font-size: 10.2rem;
+            }
+            .letter {
+              height: 10rem;
+
+              &:first-child {
+                margin-right: 4.4rem;
+              }
+            }
+          }
+        }
+      }
+
+      &__title-txt {
+        margin-bottom: 0;
+
+        font-size: 10.1rem;
+        font-family: "Druk Text Wide Cyr";
+
+        @media (min-width: 1600px) {
+          height: 7.9rem;
+        }
+
+        @media (max-width: 48em) {
+          font-size: 6.1rem;
+        }
+      }
     }
   }
 }

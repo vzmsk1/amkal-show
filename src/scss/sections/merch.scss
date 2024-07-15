@@ -4,42 +4,115 @@
 
   &[data-screen] {
     margin-bottom: 0;
-    padding-top: 144px;
+    padding-top: 18rem;
 
     color: #000000;
 
+    @media (min-width: 1600px) {
+      padding-top: 15.4rem;
+    }
+
     @media (max-width: 64.05em) and (min-width: 48em) {
-      padding-top: 196px;
+      padding-top: 37rem;
     }
 
     @media (max-width: 48em) {
-      padding-top: 119px;
+      padding-top: 32rem;
+    }
+
+    .item-merch__image-wrap {
+      height: 32.5rem;
+
+      @media (min-width: 1600px) {
+        height: 26rem;
+      }
+
+      @media (max-width: 64.05em) and (min-width: 48em) {
+        height: 43rem;
+      }
+      @media (max-width: 48em) {
+        height: 31.5rem;
+      }
     }
 
     .merch {
+      &__head {
+        margin-bottom: 12rem;
+
+        @media (min-width: 1600px) {
+          margin-bottom: 10.5rem;
+        }
+
+        @media (max-width: 64.05em) and (min-width: 48em) {
+          margin-bottom: 9rem;
+        }
+
+        @media (max-width: 48em) {
+          margin-bottom: 22.5rem;
+        }
+      }
+      &__title {
+        font-size: 5.8rem;
+        letter-spacing: 0.2rem;
+
+        @media (min-width: 1600px) {
+          font-size: 4.5rem;
+          line-height: 5.9rem;
+          letter-spacing: 0;
+        }
+
+        @media (max-width: 64.05em) and (min-width: 48em) {
+          font-size: 8.2rem;
+          letter-spacing: 0.2rem;
+        }
+
+        @media (max-width: 48em) {
+          font-size: 7.4rem;
+          letter-spacing: 0;
+        }
+      }
       &__items {
-        grid-template-columns: repeat(4, 171px);
-        row-gap: 120px;
+        margin-bottom: 0;
+
+        grid-template-columns: repeat(4, 22rem);
+        row-gap: 17rem;
+
+        @media (min-width: 1600px) {
+          grid-template-columns: repeat(4, 17.1rem);
+          row-gap: 8.2rem;
+        }
 
         @media (max-width: 64.05em) {
           row-gap: 205px;
         }
 
         @media (max-width: 64.05em) and (min-width: 48em) {
-          grid-template: repeat(3, 203px) / repeat(3, 151px);
+          grid-template: repeat(3, 43rem) / repeat(3, 29rem);
+          row-gap: 33.5rem;
         }
 
         @media (max-width: 48em) {
-          grid-template: repeat(2, 180px) / repeat(2, 119px);
+          grid-template: repeat(2, 31.5rem) / repeat(2, 21rem);
+          row-gap: 35.5rem;
         }
       }
       &__link {
-        transform: translate(-31px, 9px);
+        font-size: 1.6rem;
+
+        transform: translate(-3.7rem, 1.6rem);
+
+        @media (min-width: 1600px) {
+          font-size: 1.2rem;
+        }
+
+        @media (max-width: 64.05em) and (min-width: 48em) {
+          font-size: 2.3rem;
+        }
 
         @media (max-width: 48em) {
-          letter-spacing: 0.3px;
+          font-size: 2.1rem;
 
-          transform: translate(-27px, -4px);
+          transform: translate(-4.6rem, -0.5rem);
         }
       }
     }
@@ -301,6 +374,18 @@
   &__text-content {
     &_white {
       color: #ffffff;
+    }
+  }
+}
+
+.merch {
+  &_ru {
+    .merch {
+      &__title {
+        &.title {
+          letter-spacing: -0.3rem;
+        }
+      }
     }
   }
 }

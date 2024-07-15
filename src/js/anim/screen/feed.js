@@ -1,11 +1,11 @@
 import { feedLeaveTl, feedOnLeave, feedTl } from "../../anim/transitions/feed";
 
 export const enterFeedScreen = () => {
-  feedTl.play();
+  feedTl.play(0);
 };
 
 export const leaveFeedScreen = (isNext) => {
-  feedLeaveTl.play();
+  feedLeaveTl.play(0);
 
   feedLeaveTl.vars = {
     ...feedLeaveTl.vars,

@@ -1,19 +1,44 @@
-import { defaults } from "../../anim/transitions";
+import { charTr, defaults } from "../../anim/transitions";
 import gsap from "gsap";
-import {
-  animateGlitchText,
-  moveGlitchText,
-  setGlitchStyling,
-} from "../../utils/splitGlitchText";
-import { setActiveScreen } from "../mainpage-scroll";
-import { heroTl } from "./hero";
+import { animateGlitchText, moveGlitchText } from "../../utils/splitGlitchText";
+import { observer } from "../mainpage-scroll";
 
-export const leaveAboutTl = gsap
-  .timeline({
-    ...defaults,
-    paused: true,
-    ease: "power4.in",
-  })
+export const leaveAboutTl = gsap.timeline({
+  ...defaults,
+  ease: "power4.out",
+  paused: true,
+});
+
+export const aboutTl = gsap.timeline({
+  ...defaults,
+  ease: "power4.in",
+  paused: true,
+  onComplete: () => {
+    observer.enable();
+  },
+  onStart: () => {
+    observer.disable();
+
+    gsap.set(".about__text", { opacity: 1 });
+    gsap.set(".about__text .char", { opacity: 0 });
+
+    gsap.to(".about__text .char", charTr);
+
+    animateGlitchText(".about__title .io .letter");
+    animateGlitchText(".about__title .lr-t .letter");
+
+    setTimeout(() => {
+      gsap.set(".about__title .lr, .about__title .bs", {
+        opacity: 1,
+      });
+
+      animateGlitchText(".about__title .lr .letter");
+      animateGlitchText(".about__title .bs .letter");
+    }, 400);
+  },
+});
+
+leaveAboutTl
   .to(".about__text", { opacity: 0 })
   .to(".about__image-wrap", { opacity: 0, translateX: 383 }, 0)
   .to(
@@ -23,62 +48,43 @@ export const leaveAboutTl = gsap
       translateX: "100vw",
       stagger: -0.1,
       onStart: () => {
-        document
-          .querySelectorAll(".about__title .glitch-text")
-          .forEach((item) => {
-            const letters = item.querySelectorAll(".letter");
-
-            letters.forEach((letter, i) => {
-              moveGlitchText(letter, letters, i);
-            });
-          });
+        moveGlitchText(".about__title .glitch-text");
       },
     },
     0,
   );
 
-export const aboutTl = gsap
-  .timeline({
-    ...defaults,
-    paused: true,
-    ease: "power4.out",
-    onStart: () => {
-      gsap.to(".about__text .char", { opacity: 1, stagger: 0.05 });
+aboutTl
 
-      animateGlitchText(".about__title .io .letter");
-
-      document.querySelectorAll(".about__title .lr .letter").forEach((el) => {
-        gsap.to(el.querySelectorAll(".glitch"), {
-          stagger: 0.1,
-          translateX: 0,
-          scaleX: 1,
-        });
-        el.querySelectorAll(".glitch").forEach((glitch, j) => {
-          gsap.to(glitch.querySelector("span"), {
-            stagger: 0.1,
-            top: +el.querySelectorAll("span")[j].dataset.top,
-            ease: "power4.out",
-            delay: 0.05,
-            duration: 1,
-          });
-        });
-      });
+  .to(
+    ".about__image-wrap",
+    {
+      translateX: 0,
+      opacity: 1,
     },
-  })
-  .to(".about__image-wrap", {
-    translateX: 0,
-    opacity: 1,
-    duration: 1,
-  })
-  .to(".about__title-txt_sm_1", {
-    opacity: 1,
-    translateX: -384,
-  })
-  .to(".about__title-txt_sm_2", {
-    opacity: 1,
-    translateX: -22,
-  })
-  .to(".about__title-txt_sm_3", {
-    opacity: 1,
-    translateX: -1,
-  });
+    0,
+  )
+  .to(
+    ".about__title-txt_sm_1",
+    {
+      opacity: 1,
+      translateX: -384,
+    },
+    0.8,
+  )
+  .to(
+    ".about__title-txt_sm_2",
+    {
+      opacity: 1,
+      translateX: -22,
+    },
+    1,
+  )
+  .to(
+    ".about__title-txt_sm_3",
+    {
+      opacity: 1,
+      translateX: -1,
+    },
+    1.2,
+  );

@@ -15,7 +15,8 @@
     position: relative;
     z-index: 1;
 
-    padding-bottom: 11px;
+    padding-bottom: 1.3rem;
+    padding-top: 57rem;
 
     display: flex;
     flex-direction: column;
@@ -24,45 +25,55 @@
 
     overflow: hidden;
 
-    @media (min-width: 64.05em) {
-      padding-top: 133px;
+    @media (min-width: 1600px) {
+      padding-top: 43.2rem;
     }
 
     @media (max-width: 64.05em) and (min-width: 48em) {
-      padding-bottom: 16px;
+      padding-top: 120rem;
+      padding-bottom: 3rem;
     }
 
     @media (max-width: 48em) {
+      padding-top: 28rem;
       padding-bottom: 32px;
     }
   }
 
   &__title {
     margin-bottom: auto;
-    padding-top: 310px;
 
     display: flex;
     justify-content: space-between;
 
     font-family: "Druk Text Wide Cyr";
     font-weight: 700;
-    font-size: 90px;
-    line-height: 114px;
+    font-size: 11.4rem;
+    line-height: 13rem;
     letter-spacing: -0.06em;
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
-      padding-top: 639px;
+    span {
+      &:last-child {
+        margin-right: 1rem;
+      }
+    }
 
-      font-size: 72.8805px;
-      line-height: 92px;
+    @media (min-width: 1600px) {
+      font-size: 9rem;
+    }
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      font-size: 13.5rem;
+      line-height: 17.3rem;
     }
 
     @media (max-width: 48em) {
-      padding-top: 159px;
+      margin-right: auto;
+      margin-left: auto;
 
       flex-direction: column;
 
-      font-size: 46.34px;
+      font-size: 8.1rem;
       line-height: 85%;
       letter-spacing: -0.09em;
 

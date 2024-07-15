@@ -1,4 +1,4 @@
-import { setActiveScreen } from "../../anim/mainpage-scroll";
+import { observer, setActiveScreen } from "../../anim/mainpage-scroll";
 import { defaults } from "../../anim/transitions";
 import gsap from "gsap";
 import { enterFeedScreen } from "../screen/feed";
@@ -11,24 +11,33 @@ export const merchOnComplete = (isNext) => {
   } else {
     setActiveScreen(5, 4);
     enterFeedScreen();
+
+    document.querySelector("body").classList.remove("_light-theme");
   }
 };
 
 export const merchTl = gsap.timeline({
   ...defaults,
-  paused: true,
   ease: "power4.out",
+  paused: true,
   onStart: () => {
+    observer.disable();
+
     document.querySelector("body").classList.add("_light-theme");
 
-    gsap.to("header", { opacity: 1 });
     gsap.to("body", { backgroundColor: "#ffffff" });
+  },
+  onComplete: () => {
+    observer.enable();
   },
 });
 export const merchLeaveTl = gsap.timeline({
   ...defaults,
-  paused: true,
   ease: "power4.in",
+  paused: true,
+  onStart: () => {
+    observer.disable();
+  },
 });
 
 merchTl.to(".merch__head, .merch__item", { opacity: 1, stagger: 0.1 });

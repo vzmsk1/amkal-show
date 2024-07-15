@@ -2,9 +2,15 @@ import gsap from "gsap";
 
 export const defaults = { defaults: { duration: 0.5 } };
 
+export const charTr = {
+  opacity: 1,
+  stagger: 0.02,
+  duration: 0.3,
+};
+
 export const setDefaults = () => {
   gsap.set(
-    ".hero__container, .footer-main__sponsors, .footer-main .footer__list, .footer-main__bottom, .match__head, .match__footer, .match__filters, .table-match__row, .merch__head, .merch__item, .feed-screen__navigation, .feed-screen__head, .victory__video-wrap, .hero__video-wrap, .feed-screen .swiper-slide-active .feed-card__inner, .feed-screen .swiper-slide-next .feed-card__inner, .feed-screen .swiper-slide-next + .swiper-slide .feed-card__inner",
+    ".hero__video-wrap, .about__title .lr, .victory__title .ran, .about__title .bs, .footer-main__sponsors, .footer-main .footer__list, .footer-main__bottom, .match__head, .match__footer, .match__filters, .table-match__row, .merch__head, .merch__item, .feed-screen__navigation, .feed-screen__head, .victory__video-wrap, .feed-screen .swiper-slide .feed-card__inner",
     {
       opacity: 0,
     },
@@ -35,7 +41,7 @@ export const setDefaults = () => {
   gsap.set(".victory__title-txt_sm_2", {
     opacity: 0,
     translateX: -114,
-    translateY: -21,
+    translateY: -24,
   });
   gsap.set(".victory__title-txt_sm_3", {
     opacity: 0,
@@ -60,8 +66,18 @@ export const setDefaults = () => {
     translateX: -380,
     translateY: -30,
   });
-  gsap.set(".footer-main__title-txt", {
-    opacity: 0,
-    translateX: "-110%",
-  });
+  gsap.set(
+    ".footer-main__title-txt, .lang__title-content_1, .lang__title-content_2",
+    {
+      opacity: 0,
+      translateX: "-110%",
+    },
+  );
+  gsap.set(
+    ".footer-main__title-txt, .lang__title-content_3, .lang__title-content_4",
+    {
+      opacity: 0,
+      translateX: "-40%",
+    },
+  );
 };

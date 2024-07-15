@@ -9,7 +9,7 @@ export const enterFooterScreen = () => {
 };
 
 export const leaveFooterScreen = (isNext) => {
-  footerLeaveTl.play();
+  footerLeaveTl.play(0);
 
   footerLeaveTl.vars = {
     ...footerLeaveTl.vars,

@@ -1,4 +1,4 @@
-import { setActiveScreen } from "../../anim/mainpage-scroll";
+import { observer, setActiveScreen } from "../../anim/mainpage-scroll";
 import { defaults } from "../../anim/transitions";
 import gsap from "gsap";
 import { enterLangScreen } from "../screen/lang";
@@ -10,7 +10,6 @@ export const feedOnLeave = (isNext) => {
     enterMerchScreen();
   } else {
     gsap.to("body", { backgroundColor: "#000000" });
-    gsap.to("header", { opacity: 0 });
 
     setActiveScreen(4, 3);
     enterLangScreen();
@@ -19,29 +18,34 @@ export const feedOnLeave = (isNext) => {
 
 export const feedTl = gsap.timeline({
   ...defaults,
-  paused: true,
   ease: "power4.out",
+  paused: true,
   onStart: () => {
+    observer.disable();
+
     gsap.set("body", { backgroundColor: "#171717" });
+  },
+  onComplete: () => {
+    observer.enable();
   },
 });
 export const feedLeaveTl = gsap.timeline({
   ...defaults,
-  paused: true,
   ease: "power4.in",
+  paused: true,
+  onStart: () => {
+    observer.disable();
+  },
 });
 
 feedLeaveTl
   .to(".feed-screen__head", {
     opacity: 0,
     onStart: () => {
-      gsap.to(
-        ".feed-screen .swiper-slide-active .feed-card__inner, .feed-screen .swiper-slide-next .feed-card__inner, .feed-screen .swiper-slide-next + .swiper-slide .feed-card__inner",
-        {
-          opacity: 0,
-          stagger: 0.1,
-        },
-      );
+      gsap.to(".feed-screen .swiper-slide .feed-card__inner", {
+        opacity: 0,
+        stagger: 0.1,
+      });
     },
   })
   .to(".feed-screen__navigation", { opacity: 0 }, 0.5);
@@ -50,13 +54,10 @@ feedTl
   .to(".feed-screen__head", {
     opacity: 1,
     onStart: () => {
-      gsap.to(
-        ".feed-screen .swiper-slide-active .feed-card__inner, .feed-screen .swiper-slide-next .feed-card__inner, .feed-screen .swiper-slide-next + .swiper-slide .feed-card__inner",
-        {
-          opacity: 1,
-          stagger: 0.1,
-        },
-      );
+      gsap.to(".feed-screen .swiper-slide .feed-card__inner", {
+        opacity: 1,
+        stagger: 0.1,
+      });
     },
   })
 

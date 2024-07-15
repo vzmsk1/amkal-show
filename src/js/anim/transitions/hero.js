@@ -1,21 +1,42 @@
-import { setActiveScreen } from "../../anim/mainpage-scroll";
+import { observer, setActiveScreen } from "../../anim/mainpage-scroll";
 import { enterAboutScreen } from "../../anim/screen/about";
 import { defaults } from "../../anim/transitions";
 import gsap from "gsap";
 import { initVideoJS } from "../../lib/video";
-import { setGlitchStyling, splitGlitchText } from "../../utils/splitGlitchText";
+import { enterFooterScreen } from "../screen/footer";
 import { leaveAboutTl } from "./about";
 
+export const onHeroLeave = (isNext) => {
+  if (isNext) {
+    document.querySelector("body").classList.add("_light-theme");
+    document.querySelector("body").classList.add("_light-theme_green");
+    gsap.to("body", {
+      backgroundColor: "#caff34",
+      duration: 0.5,
+      onComplete: () => {
+        setActiveScreen(0, 1);
+        enterAboutScreen();
+      },
+    });
+  } else {
+    setActiveScreen(0, 7);
+    enterFooterScreen();
+  }
+};
+
 export const heroTl = gsap.timeline({
-  ...defaults,
-  delay: 0.5,
+  duration: 0.5,
+  delay: 1,
   ease: "power4.out",
+  onComplete: () => {
+    observer.enable();
+  },
   onStart: () => {
+    observer.disable();
+
     initVideoJS();
-    setGlitchStyling();
-    leaveAboutTl.revert();
-    gsap.to("header", { opacity: 1, duration: 0.5 });
     document.querySelector("body").classList.remove("_light-theme");
+    document.querySelector("body").classList.remove("_light-theme_green");
     gsap.to("body", {
       backgroundColor: "#000000",
       duration: 0.5,
@@ -26,21 +47,13 @@ export const heroLeaveTl = gsap.timeline({
   ...defaults,
   ease: "power4.in",
   paused: true,
-  onComplete: () => {
-    gsap.to("header", { opacity: 0, duration: 0.5 });
-    gsap.to("body", {
-      backgroundColor: "#caff34",
-      duration: 0.5,
-      onComplete: () => {
-        enterAboutScreen();
-        setActiveScreen(0, 1);
-      },
-    });
+  onStart: () => {
+    observer.disable();
   },
 });
 
 export const animateHero = () => {
-  heroTl.to(".hero__container, .hero__video-wrap", { opacity: 1 }, 0);
+  heroTl.to(".hero__video-wrap", { opacity: 1, duration: 1 });
   heroTl.to(
     ".hero__title span",
     {

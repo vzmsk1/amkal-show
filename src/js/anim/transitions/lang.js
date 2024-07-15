@@ -1,4 +1,4 @@
-import { setActiveScreen } from "../../anim/mainpage-scroll";
+import { observer, setActiveScreen } from "../../anim/mainpage-scroll";
 import { enterFeedScreen } from "../../anim/screen/feed";
 import { defaults } from "../../anim/transitions";
 import gsap from "gsap";
@@ -17,33 +17,44 @@ export const langOnComplete = (isNext) => {
 
 export const langTl = gsap.timeline({
   ...defaults,
-  paused: true,
   ease: "power4.out",
+  paused: true,
   onStart: () => {
-    gsap.to("header", { opacity: 1 });
+    observer.disable();
+
+    animateGlitchText(".lang__title .letter");
+
+    gsap.set(".lang__text", {
+      opacity: 1,
+    });
+
+    gsap.to(".lang__text .char", {
+      opacity: 1,
+      stagger: 0.01,
+    });
+
+    gsap.to(".lang__image-wrap_right .lang__image", {
+      opacity: 1,
+      translateX: 0,
+    });
+  },
+  onComplete: () => {
+    observer.enable();
   },
 });
 export const langLeaveTl = gsap.timeline({
   ...defaults,
-  paused: true,
   ease: "power4.in",
+  paused: true,
+  onStart: () => {
+    observer.disable();
+  },
 });
 
 langTl
   .to(".lang__title-txt_1", {
     opacity: 1,
     translateX: 0,
-    onStart: () => {
-      gsap.to(".lang__text .char", {
-        opacity: 1,
-        stagger: 0.01,
-      });
-
-      gsap.to(".lang__image-wrap_right .lang__image", {
-        opacity: 1,
-        translateX: 0,
-      });
-    },
   })
 
   .to(
@@ -66,13 +77,20 @@ langTl
                 : 490,
           opacity: 1,
         });
-
-        animateGlitchText(".lang__title .letter");
       },
     },
     0.5,
   )
-  .to(".lang__image-wrap_left", { translateX: 0, opacity: 1 }, 1);
+  .to(".lang__image-wrap_left", { translateX: 0, opacity: 1 }, 1)
+  .to(
+    ".lang__title-content_1, .lang__title-content_2, .lang__title-content_3, .lang__title-content_4",
+    {
+      translateX: 0,
+      opacity: 1,
+      stagger: 0.1,
+    },
+    0.5,
+  );
 
 langLeaveTl
   .to(".lang__image-wrap_left, .lang__title-txt_2, .lang__title-txt_3", {
@@ -80,21 +98,33 @@ langLeaveTl
     opacity: 0,
     stagger: -0.1,
   })
+  .to(".lang__title-content_2", {
+    translateX: "110vw",
+    opacity: 0,
+  })
+  .to(
+    ".lang__title-content_3, .lang__title-content_4",
+    {
+      translateX: "110vw",
+      opacity: 0,
+    },
+    0.2,
+  )
+  .to(
+    ".lang__title-content_1",
+    {
+      translateX: "110vw",
+      opacity: 0,
+    },
+    0.4,
+  )
   .to(
     ".lang__image-wrap_right .lang__image, .lang__title-txt_1",
     {
       translateX: "100vw",
       opacity: 0,
       onStart: () => {
-        document
-          .querySelectorAll(".lang__title .glitch-text")
-          .forEach((item) => {
-            const letters = item.querySelectorAll(".letter");
-
-            letters.forEach((letter, i) => {
-              moveGlitchText(letter, letters, i);
-            });
-          });
+        moveGlitchText(".lang__title .glitch-text", true);
       },
     },
     0.5,

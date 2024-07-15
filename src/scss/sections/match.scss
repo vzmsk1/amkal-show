@@ -3,8 +3,8 @@
   padding-top: 12px;
 
   &[data-screen] {
-    padding-top: 141px;
-    padding-bottom: 0;
+    padding-top: 18rem;
+    padding-bottom: 1.5rem;
 
     color: #000000;
 
@@ -17,6 +17,50 @@
 
       .table-match__row_head {
         display: none;
+      }
+    }
+
+    .match {
+      @media (max-width: 64.05em) and (min-width: 48em) {
+        padding-top: 37rem;
+      }
+
+      @media (max-width: 48em) {
+        padding-top: 32rem;
+      }
+
+      &__container {
+        height: 100%;
+      }
+      &__body {
+        margin-bottom: auto;
+      }
+      &__head {
+        margin-bottom: 1.5rem;
+
+        @media (max-width: 64.05em) and (min-width: 48em) {
+          margin-bottom: 2rem;
+        }
+
+        @media (max-width: 48em) {
+          margin-bottom: 3.5rem;
+        }
+      }
+      &__title {
+        margin-right: 0;
+
+        font-size: 5.8rem;
+        letter-spacing: 0.2rem;
+
+        @media (max-width: 64.05em) and (min-width: 48em) {
+          font-size: 8.2rem;
+          letter-spacing: 0.2rem;
+        }
+
+        @media (max-width: 48em) {
+          font-size: 7.5rem;
+          letter-spacing: -0.1rem;
+        }
       }
     }
   }
@@ -91,7 +135,7 @@
     display: flex;
     flex-direction: column;
 
-    &:not(.match_dark-theme &) {
+    &:not(.match_dark-theme &, .mainpage &) {
       margin-bottom: 116px;
 
       @media (min-width: 1600px) {
@@ -319,5 +363,18 @@
     height: 25px;
 
     object-fit: contain;
+  }
+}
+
+.match {
+  &_ru {
+    .match {
+      &__title {
+        &.title {
+          font-family: "Druk Text Wide Cyr";
+          letter-spacing: -0.3rem;
+        }
+      }
+    }
   }
 }
