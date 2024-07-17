@@ -1,5 +1,5 @@
-import { initMainpageScroll } from "../anim/mainpage-scroll";
 import { setDefaults } from "../anim/transitions";
+import { aboutTl } from "../anim/transitions/about";
 import { animateHeader } from "../anim/transitions/header";
 import { animateHero } from "../anim/transitions/hero";
 import { splitGlitchText } from "./splitGlitchText";
@@ -16,9 +16,9 @@ document.fonts.ready.then(function () {
 window.addEventListener("load", function () {
   splitGlitchText();
 
-  initMainpageScroll();
-
   setDefaults();
+
+  document.documentElement.classList.add("_is-animating");
 
   gsap.to(".loader", {
     opacity: 0,

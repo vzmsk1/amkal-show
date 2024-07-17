@@ -1,5 +1,3 @@
-import gsap from "gsap";
-
 export const setSlideContent = (slide) => {
   document.querySelector(".team__name").innerHTML = slide.dataset.name;
   document.querySelector(".team__text_team").innerHTML = slide.dataset.team;

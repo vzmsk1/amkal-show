@@ -22,6 +22,7 @@
     flex-direction: column;
     justify-content: flex-end;
     height: 100vh;
+    height: 100dvh;
 
     overflow: hidden;
 
@@ -29,12 +30,12 @@
       padding-top: 43.2rem;
     }
 
-    @media (max-width: 64.05em) and (min-width: 49em) {
+    @media (max-width: 64.05em) and (min-width: 48.1em) {
       padding-top: 47vh;
       padding-bottom: 3rem;
     }
 
-    @media (max-width: 49em) {
+    @media (max-width: 48em) {
       padding-top: 28rem;
       padding-bottom: 32px;
     }
@@ -62,12 +63,12 @@
       font-size: 9rem;
     }
 
-    @media (max-width: 64.05em) and (min-width: 49em) {
+    @media (max-width: 64.05em) and (min-width: 48.1em) {
       font-size: 13.5rem;
       line-height: 17.3rem;
     }
 
-    @media (max-width: 49em) {
+    @media (max-width: 48em) {
       margin-right: auto;
       margin-left: auto;
 
@@ -79,7 +80,7 @@
 
       span {
         &:last-child {
-          margin-left: 122px;
+          margin-left: 19.7rem;
         }
       }
     }
@@ -112,7 +113,7 @@
     width: 100%;
     height: 100%;
 
-    @media (max-width: 49em) {
+    @media (max-width: 48em) {
       top: auto;
       bottom: 0;
 

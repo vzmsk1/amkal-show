@@ -33,30 +33,36 @@ export const victoryTl = gsap.timeline({
     gsap.to(".victory__text .char", { ...charTr, delay: 1 });
 
     if (document.querySelector(".victory_ru")) {
-      animateGlitchText(".victory__title .ran_1 .letter", 1000);
+      animateGlitchText(".victory__title .ran_1 .letter", 500);
 
       setTimeout(() => {
         gsap.set(".victory__title .ran_2", {
           opacity: 1,
         });
-        animateGlitchText(".victory__title .ran_2 .letter", 1000);
-      }, 500);
+        animateGlitchText(".victory__title .ran_2 .letter");
+      }, 1200);
 
       setTimeout(() => {
         gsap.set(".victory__title .ran_3", {
           opacity: 1,
         });
-        animateGlitchText(".victory__title .ran_3 .letter", 1000);
-      }, 1000);
+        animateGlitchText(".victory__title .ran_3 .letter", 0, true);
+      }, 1700);
     } else {
       animateGlitchText(".victory__title .letter", 1000);
     }
+  },
+  onComplete: () => {
+    document.documentElement.classList.remove("_is-animating");
   },
 });
 export const victoryLeaveTl = gsap.timeline({
   ...defaults,
   ease: "power4.in",
   paused: true,
+  onStart: () => {
+    document.documentElement.classList.add("_is-animating");
+  },
 });
 
 victoryLeaveTl
@@ -68,7 +74,7 @@ victoryLeaveTl
       stagger: 0.01,
       onStart: () => {
         document.querySelector(".victory__layer").classList.add("_fw");
-        moveGlitchText(".victory__title .glitch-text");
+        moveGlitchText(".victory__title .glitch-text", false, true);
       },
     },
     0,
@@ -91,9 +97,8 @@ victoryLeaveTl
     ".victory__layer",
     {
       "--opacity": 1,
-      duration: 0.5,
     },
-    1,
+    0.8,
   )
   .to(
     ".victory__layer",
@@ -101,16 +106,15 @@ victoryLeaveTl
       "--lHeight": "100%",
       "--sHeightFW": 0,
     },
-    1.3,
+    1,
   )
 
   .to(
     ".victory__video-wrap",
     {
       opacity: 0,
-      duration: 0.5,
     },
-    1.8,
+    1.4,
   );
 
 victoryTl
@@ -123,7 +127,6 @@ victoryTl
     {
       "--lHeight": 0,
       "--sHeight": "20px",
-      duration: 1,
       onComplete: () => {
         gsap.to(".victory__layer", { "--opacity": 0, duration: 0.3 });
       },
@@ -134,47 +137,19 @@ victoryTl
     ".victory__video-wrap",
     {
       opacity: 1,
-      duration: 1,
     },
     0,
   )
+  .to(".victory__title-txt_sm_1", {
+    opacity: 1,
+    translateX: 0,
+  })
   .to(
-    ".victory__title-txt_sm_1",
+    ".victory__title-txt_sm_2, .victory__title-txt_sm_3",
     {
       opacity: 1,
-      translateX:
-        window.innerWidth <= 1024 && window.innerWidth > 768
-          ? -375
-          : window.innerWidth <= 768
-            ? -142
-            : -638,
+      translateX: 0,
+      stagger: 0.05,
     },
-    1,
-  )
-  .to(
-    ".victory__title-txt_sm_2",
-    {
-      opacity: 1,
-      translateX:
-        window.innerWidth <= 1024 && window.innerWidth > 768
-          ? 46
-          : window.innerWidth <= 768
-            ? -2
-            : -19,
-    },
-    1,
-  )
-  .to(
-    ".victory__title-txt_sm_3",
-    {
-      opacity: 1,
-      duration: 0.5,
-      translateX:
-        window.innerWidth <= 1024 && window.innerWidth > 768
-          ? 146
-          : window.innerWidth <= 768
-            ? 63
-            : 86,
-    },
-    1.5,
+    1.3,
   );

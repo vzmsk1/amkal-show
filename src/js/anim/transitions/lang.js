@@ -30,58 +30,39 @@ export const langTl = gsap.timeline({
       opacity: 1,
       stagger: 0.01,
     });
-
-    gsap.to(".lang__image-wrap_right .lang__image", {
-      opacity: 1,
-      translateX: 0,
-    });
+  },
+  onComplete: () => {
+    document.documentElement.classList.remove("_is-animating");
   },
 });
 export const langLeaveTl = gsap.timeline({
   ...defaults,
   ease: "power4.in",
   paused: true,
+  onStart: () => {
+    document.documentElement.classList.add("_is-animating");
+  },
 });
 
 langTl
-  .to(".lang__title-txt_1", {
+  .to(".lang__title-txt_1, .lang__image-wrap_right .lang__image", {
     opacity: 1,
     translateX: 0,
   })
-
-  .to(
-    ".lang__title-txt_2",
-    {
-      translateX:
-        window.innerWidth <= 1024 && window.innerWidth > 478
-          ? 510
-          : window.innerWidth <= 478
-            ? 209
-            : 493,
-      opacity: 1,
-      onStart: () => {
-        gsap.to(".lang__title-txt_3", {
-          translateX:
-            window.innerWidth <= 1024 && window.innerWidth > 478
-              ? 510
-              : window.innerWidth <= 478
-                ? 208
-                : 490,
-          opacity: 1,
-        });
-      },
-    },
-    0.5,
-  )
-  .to(".lang__image-wrap_left", { translateX: 0, opacity: 1 }, 1)
+  .to(".lang__title-txt_2, .lang__title-txt_3", {
+    opacity: 1,
+    translateX: 0,
+    stagger: 0.1,
+  })
+  .to(".lang__image-wrap_left", { translateX: 0, opacity: 1 }, 0.8)
   .to(
     ".lang__title-content_1, .lang__title-content_2, .lang__title-content_3, .lang__title-content_4",
     {
       translateX: 0,
       opacity: 1,
-      stagger: 0.1,
+      stagger: 0.05,
     },
-    0.5,
+    0.3,
   );
 
 langLeaveTl
@@ -121,4 +102,4 @@ langLeaveTl
     },
     0.5,
   )
-  .to(".lang__text", { opacity: 0 }, 1);
+  .to(".lang__text", { opacity: 0 }, 0.7);

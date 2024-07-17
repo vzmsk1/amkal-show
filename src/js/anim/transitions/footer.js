@@ -30,17 +30,26 @@ export const footerTl = gsap.timeline({
 
     animateGlitchText(".footer-main__title .glitch-text .letter");
   },
+  onComplete: () => {
+    document.documentElement.classList.remove("_is-animating");
+  },
 });
 export const footerLeaveTl = gsap.timeline({
   ...defaults,
   ease: "power4.in",
   paused: true,
+  onStart: () => {
+    document.documentElement.classList.add("_is-animating");
+  },
 });
 
 footerTl
-  .to(".footer__list, .footer-main__bottom", {
+  .to(".footer__item", {
     opacity: 1,
-    delay: 1,
+    stagger: 0.05,
+  })
+  .to(".footer-main__bottom", {
+    opacity: 1,
   })
   .to(
     ".footer-main__title-txt",

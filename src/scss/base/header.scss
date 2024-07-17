@@ -173,12 +173,12 @@
     justify-content: center;
     flex: 0 0 21px;
     width: 21px;
-    height: 20px;
+    height: 21px;
     border-radius: 12px;
 
     font-weight: 500;
     font-size: 12px;
-    line-height: 16px;
+    line-height: 1;
     color: #000000;
 
     &:not(._show-cart-widget &),
@@ -200,12 +200,6 @@
           background-color: $green;
         }
       }
-    }
-
-    @media (max-width: 48em) {
-      flex: 0 0 24px;
-      width: 24px;
-      height: 20px;
     }
   }
 }

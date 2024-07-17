@@ -39,20 +39,26 @@ export const heroTl = gsap.timeline({
       duration: 0.5,
     });
   },
+  onComplete: () => {
+    document.documentElement.classList.remove("_is-animating");
+  },
 });
 export const heroLeaveTl = gsap.timeline({
   ...defaults,
   ease: "power4.in",
   paused: true,
+  onStart: () => {
+    document.documentElement.classList.add("_is-animating");
+  },
 });
 
 export const animateHero = () => {
-  heroTl.to(".hero__video-wrap", { opacity: 1, duration: 1 });
+  heroTl.to(".hero__video-wrap", { opacity: 1, duration: 0.5 });
   heroTl.to(
     ".hero__title span",
     {
       translateX: 0,
-      duration: 1,
+      duration: 0.5,
     },
     0,
   );
@@ -69,13 +75,13 @@ export const animateHero = () => {
 heroLeaveTl
   .to(".hero__title span:first-child", {
     translateX: "-110%",
-    duration: 1,
+    duration: 0.5,
   })
   .to(
     ".hero__title span:last-child",
     {
       translateX: "110%",
-      duration: 1,
+      duration: 0.5,
       onStart: () => {
         gsap.to(".hero__text .char", {
           opacity: 0,

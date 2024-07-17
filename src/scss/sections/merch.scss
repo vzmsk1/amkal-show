@@ -1,24 +1,6 @@
 .merch {
-  margin-bottom: 20px;
-  padding-top: 17px;
-
   &[data-screen] {
-    margin-bottom: 0;
-    padding-top: 18rem;
-
     color: #000000;
-
-    @media (min-width: 1600px) {
-      padding-top: 15.4rem;
-    }
-
-    @media (max-width: 64.05em) and (min-width: 48em) {
-      padding-top: 37rem;
-    }
-
-    @media (max-width: 48em) {
-      padding-top: 32rem;
-    }
 
     .item-merch__image-wrap {
       height: 32.5rem;
@@ -27,15 +9,46 @@
         height: 26rem;
       }
 
-      @media (max-width: 64.05em) and (min-width: 48em) {
+      @media (max-width: 64.05em) and (min-width: 48.1em) and (min-height: 1200px) {
         height: 43rem;
+      }
+      @media (max-width: 64.05em) and (min-width: 48.1em) and (max-height: 1200px) {
+        height: 35rem;
       }
       @media (max-width: 48em) {
         height: 31.5rem;
+        max-height: 277px;
       }
     }
 
     .merch {
+      &__container {
+        margin-bottom: 0;
+        padding-top: 18rem;
+
+        height: 100vh;
+        height: 100dvh;
+
+        @media (min-width: 1600px) {
+          padding-top: 15.4rem;
+        }
+
+        @media (max-width: 64.05em) and (min-width: 48.1em) and (min-height: 1200px) {
+          padding-top: 37rem;
+        }
+
+        @media (max-width: 64.05em) and (min-width: 48.1em) and (max-height: 1200px) {
+          padding-top: 17rem;
+        }
+
+        @media (max-width: 48em) and (min-height: 880px) {
+          padding-top: 186px;
+        }
+
+        @media (max-width: 48em) and (max-height: 880px) {
+          padding-top: 23rem;
+        }
+      }
       &__head {
         margin-bottom: 12rem;
 
@@ -43,12 +56,19 @@
           margin-bottom: 10.5rem;
         }
 
-        @media (max-width: 64.05em) and (min-width: 48em) {
+        @media (max-width: 64.05em) and (min-width: 48.1em) and (min-height: 1200px) {
           margin-bottom: 9rem;
         }
 
-        @media (max-width: 48em) {
-          margin-bottom: 22.5rem;
+        @media (max-width: 64.05em) and (min-width: 48.1em) and (max-height: 1200px) {
+          margin-bottom: 5rem;
+        }
+
+        @media (max-width: 48em) and (min-height: 880px) {
+          margin-bottom: 127px;
+        }
+        @media (max-width: 48em) and (max-height: 880px) {
+          margin-bottom: 9rem;
         }
       }
       &__title {
@@ -61,13 +81,17 @@
           letter-spacing: 0;
         }
 
-        @media (max-width: 64.05em) and (min-width: 48em) {
+        @media (max-width: 64.05em) and (min-width: 48.1em) and (min-height: 1200px) {
           font-size: 8.2rem;
           letter-spacing: 0.2rem;
         }
 
+        @media (max-width: 64.05em) and (min-width: 48.1em) and (max-height: 1200px) {
+          font-size: 7.2rem;
+        }
+
         @media (max-width: 48em) {
-          font-size: 7.4rem;
+          font-size: 42px;
           letter-spacing: 0;
         }
       }
@@ -82,19 +106,32 @@
           row-gap: 8.2rem;
         }
 
-        @media (max-width: 64.05em) {
-          row-gap: 205px;
-        }
-
-        @media (max-width: 64.05em) and (min-width: 48em) {
+        @media (max-width: 64.05em) and (min-width: 48.1em) and (min-height: 1200px) {
           grid-template: repeat(3, 43rem) / repeat(3, 29rem);
           row-gap: 33.5rem;
         }
 
-        @media (max-width: 48em) {
-          grid-template: repeat(2, 31.5rem) / repeat(2, 21rem);
-          row-gap: 35.5rem;
+        @media (max-width: 64.05em) and (min-width: 48.1em) and (max-height: 1200px) {
+          grid-template: repeat(3, 37rem) / repeat(3, 29rem);
+          row-gap: 5.5rem;
         }
+
+        @media (max-width: 48em) {
+          grid-template: 1fr auto / repeat(2, 21rem);
+          row-gap: 0;
+        }
+      }
+      &__body,
+      &__items {
+        @media (max-width: 48em) {
+          flex: 1 1 auto;
+        }
+        //        @media (max-width: 48em) and (min-height: 880px) {
+        //                height: calc(100% - 174px);
+        //        }
+        //        @media (max-width: 48em) and (max-height: 880px) {
+        //          height: calc(100% - 18rem);
+        //        }
       }
       &__link {
         font-size: 1.6rem;
@@ -105,12 +142,12 @@
           font-size: 1.2rem;
         }
 
-        @media (max-width: 64.05em) and (min-width: 48em) {
+        @media (max-width: 64.05em) and (min-width: 48.1em) {
           font-size: 2.3rem;
         }
 
         @media (max-width: 48em) {
-          font-size: 2.1rem;
+          font-size: 12px;
 
           transform: translate(-4.6rem, -0.5rem);
         }
@@ -118,17 +155,20 @@
     }
   }
 
-  @media (max-width: 64.05em) and (min-width: 48em) {
-    padding-top: 133px;
-  }
-
-  @media (max-width: 48em) {
-    padding-top: 119px;
-  }
-
   &__container {
+    margin-bottom: 20px;
+    padding-top: 17px;
+
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 64.05em) and (min-width: 48.1em) {
+      padding-top: 133px;
+    }
+
+    @media (max-width: 48em) {
+      padding-top: 119px;
+    }
   }
 
   &__head {
@@ -138,7 +178,7 @@
     justify-content: space-between;
     align-items: flex-start;
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
+    @media (max-width: 64.05em) and (min-width: 48.1em) {
       margin-bottom: 50px;
     }
 
@@ -151,7 +191,7 @@
     &.title {
       letter-spacing: 2.6px;
 
-      @media (max-width: 64.05em) and (min-width: 48em) {
+      @media (max-width: 64.05em) and (min-width: 48.1em) {
         font-family: "Druk Wide";
         letter-spacing: 0;
       }
@@ -165,7 +205,7 @@
   &__filter {
     margin-right: 116px;
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
+    @media (max-width: 64.05em) and (min-width: 48.1em) {
       margin-right: 96px;
       margin-top: 2px;
     }
@@ -193,7 +233,17 @@
       margin-bottom: 199px;
     }
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
+    @media (max-width: 64.05em) and (min-width: 48.1em) {
+      margin-bottom: 128px;
+
+      grid-template-columns: repeat(3, 150px);
+      row-gap: 128px;
+
+      &:first-child {
+        margin-bottom: 129px;
+      }
+    }
+    @media (max-width: 64.05em) and (min-width: 48.1em) {
       margin-bottom: 128px;
 
       grid-template-columns: repeat(3, 150px);
@@ -220,7 +270,7 @@
   &__image-text {
     margin-bottom: 258px;
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
+    @media (max-width: 64.05em) and (min-width: 48.1em) {
       margin-bottom: 235px;
     }
 
@@ -249,7 +299,7 @@
       &__image-wrap {
         height: 982px;
 
-        @media (max-width: 64.05em) and (min-width: 48em) {
+        @media (max-width: 64.05em) and (min-width: 48.1em) {
           height: 662px;
         }
 
@@ -289,7 +339,7 @@
             &:first-child {
               margin-right: 13%;
 
-              @media (max-width: 64.05em) and (min-width: 48em) {
+              @media (max-width: 64.05em) and (min-width: 48.1em) {
                 margin-right: 11.5%;
               }
 
@@ -310,7 +360,7 @@
             &:nth-child(4) {
               margin-right: 31.2%;
 
-              @media (max-width: 64.05em) and (min-width: 48em) {
+              @media (max-width: 64.05em) and (min-width: 48.1em) {
                 margin-right: 28.2%;
               }
 
@@ -333,7 +383,7 @@
 
     object-fit: cover;
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
+    @media (max-width: 64.05em) and (min-width: 48.1em) {
       width: 658px;
       height: 426px;
     }
@@ -358,7 +408,7 @@
 
     transform: translateY(-50%);
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
+    @media (max-width: 64.05em) and (min-width: 48.1em) {
       font-size: 32px;
       line-height: 32px;
 
@@ -374,18 +424,6 @@
   &__text-content {
     &_white {
       color: #ffffff;
-    }
-  }
-}
-
-.merch {
-  &_ru {
-    .merch {
-      &__title {
-        &.title {
-          letter-spacing: -0.3rem;
-        }
-      }
     }
   }
 }

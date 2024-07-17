@@ -6,6 +6,9 @@ export const leaveAboutTl = gsap.timeline({
   ...defaults,
   ease: "power4.out",
   paused: true,
+  onStart: () => {
+    document.documentElement.classList.add("_is-animating");
+  },
 });
 
 export const aboutTl = gsap.timeline({
@@ -22,13 +25,23 @@ export const aboutTl = gsap.timeline({
     animateGlitchText(".about__title .lr-t .letter");
 
     setTimeout(() => {
-      gsap.set(".about__title .lr, .about__title .bs", {
+      gsap.set(".about__title .bs", {
+        opacity: 1,
+      });
+
+      animateGlitchText(".about__title .bs .letter");
+    }, 800);
+
+    setTimeout(() => {
+      gsap.set(".about__title .lr", {
         opacity: 1,
       });
 
       animateGlitchText(".about__title .lr .letter");
-      animateGlitchText(".about__title .bs .letter");
-    }, 400);
+    }, 300);
+  },
+  onComplete: () => {
+    document.documentElement.classList.remove("_is-animating");
   },
 });
 
@@ -36,7 +49,7 @@ leaveAboutTl
   .to(".about__text", { opacity: 0 })
   .to(".about__image-wrap", { opacity: 0, translateX: 383 }, 0)
   .to(
-    ".about__title-txt_sm",
+    ".about__title-txt.sm-title",
     {
       opacity: 0,
       translateX: "100vw",
@@ -49,7 +62,6 @@ leaveAboutTl
   );
 
 aboutTl
-
   .to(
     ".about__image-wrap",
     {
@@ -59,26 +71,11 @@ aboutTl
     0,
   )
   .to(
-    ".about__title-txt_sm_1",
+    ".about__title-txt",
     {
       opacity: 1,
-      translateX: -384,
+      translateX: 0,
+      stagger: 0.05,
     },
-    0.8,
-  )
-  .to(
-    ".about__title-txt_sm_2",
-    {
-      opacity: 1,
-      translateX: -22,
-    },
-    1,
-  )
-  .to(
-    ".about__title-txt_sm_3",
-    {
-      opacity: 1,
-      translateX: -1,
-    },
-    1.2,
+    0.5,
   );

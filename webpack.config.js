@@ -202,14 +202,14 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "app"),
     clean: true,
-    filename: "js/[name].[contenthash:8].js",
+    filename: "js/[name].js",
   },
 
   plugins: [
     ...pages,
     new MiniCssExtractPlugin({
       filename: "css/[name].css",
-      chunkFilename: "css/[name].[contenthash:8].css",
+      chunkFilename: "css/[name].css",
     }),
     new ImageMinimizerPlugin({
       minimizer: {

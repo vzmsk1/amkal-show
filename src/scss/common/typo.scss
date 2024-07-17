@@ -68,14 +68,18 @@
     font-size: 9rem;
   }
 
-  @media (max-width: 64.05em) and (min-width: 48em) {
+  @media (max-width: 64.05em) and (min-width: 48.1em) and (min-height: 1200px) {
     font-size: 17rem;
   }
 
+  @media (max-width: 64.05em) and (min-width: 48.1em) and (max-height: 1200px) {
+    font-size: 10rem;
+  }
+
   @media (max-width: 48em) {
-    font-size: 6.3rem;
+    font-size: 36px;
     line-height: 1;
-    letter-spacing: -0.5rem;
+    letter-spacing: -1.72px;
   }
 }
 

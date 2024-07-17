@@ -23,11 +23,17 @@ export const feedTl = gsap.timeline({
   onStart: () => {
     gsap.set("body", { backgroundColor: "#171717" });
   },
+  onComplete: () => {
+    document.documentElement.classList.remove("_is-animating");
+  },
 });
 export const feedLeaveTl = gsap.timeline({
   ...defaults,
   ease: "power4.in",
   paused: true,
+  onStart: () => {
+    document.documentElement.classList.add("_is-animating");
+  },
 });
 
 feedLeaveTl

@@ -15,6 +15,7 @@ import gsap from "gsap";
 import Swiper from "swiper";
 import { Navigation, Grid } from "swiper/modules";
 import "swiper/css";
+import { remToPx } from "../utils/utils";
 
 const mm = gsap.matchMedia();
 
@@ -22,14 +23,22 @@ const initSlider = () => {
   new Swiper(".feed-screen__swiper", {
     modules: [Navigation],
     rewind: true,
-    spaceBetween: 203,
+    spaceBetween: remToPx(31.1),
     navigation: {
       prevEl: ".feed-screen__nav-btn_prev",
       nextEl: ".feed-screen__nav-btn_next",
     },
     breakpoints: {
-      768: {
+      769: {
         slidesPerView: 3,
+      },
+    },
+    on: {
+      touchMove: () => {
+        document.documentElement.classList.add("_touch");
+      },
+      touchEnd: () => {
+        document.documentElement.classList.remove("_touch");
       },
     },
   });
@@ -43,7 +52,8 @@ const initGridSlider = () => {
       prevEl: ".feed-screen__nav-btn_prev",
       nextEl: ".feed-screen__nav-btn_next",
     },
-    spaceBetween: 184,
+    spaceBetween:
+      window.innerWidth <= 1024 && window.innerHeight < 1200 ? 50 : 184,
     slidesPerView: 2,
     grid: {
       rows: 2,
@@ -55,11 +65,11 @@ document.addEventListener("DOMContentLoaded", function () {
   document.documentElement.classList.add("mainpage");
 
   if (document.querySelector(".feed-screen__swiper")) {
-    window.matchMedia("(max-width: 1024px) and (min-width: 768px)").matches
+    window.matchMedia("(max-width: 1024px) and (min-width: 48.1em)").matches
       ? initGridSlider()
       : initSlider();
 
-    mm.add("(max-width: 1024px) and (min-width: 768px)", () => {
+    mm.add("(max-width: 1024px) and (min-width: 48.1em)", () => {
       initGridSlider();
 
       return () => {

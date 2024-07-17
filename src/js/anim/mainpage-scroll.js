@@ -17,8 +17,6 @@ const scroll = (active, isNext) => {
   const activeIdx = screens.indexOf(active);
   const previous = screens[activeIdx - 1] ? screens[activeIdx - 1] : null;
 
-  observer.disable();
-
   if (isNext) {
     switch (activeIdx) {
       case 0:
@@ -48,6 +46,10 @@ const scroll = (active, isNext) => {
     }
   } else {
     switch (activeIdx) {
+      case 0:
+        leaveHeroScreen(false);
+        enterFooterScreen();
+        break;
       case 1:
         leaveAboutScreen(false);
         break;
@@ -71,41 +73,36 @@ const scroll = (active, isNext) => {
         break;
     }
   }
-
-  setTimeout(() => {
-    observer.enable();
-  }, 1000);
 };
 
-export const observer = Observer.create({
+const observer = Observer.create({
   target: document.querySelector(".hero").closest("html"),
   type: "wheel,touch",
-  tolerance: 200,
+  tolerance: 50,
   wheelSpeed: -1,
   onUp: (e) => {
-    !e.event.srcElement.closest(".header") &&
-      !e.event.srcElement.closest(".swiper") &&
-      scroll(document.querySelector('[data-screen="active"]'), true);
+    if (
+      !document.querySelector("._is-animating") &&
+      !document.querySelector("._touch") &&
+      !document.querySelector("._lock")
+    ) {
+      !e.event.srcElement.closest("[data-sb]") &&
+        scroll(document.querySelector('[data-screen="active"]'), true);
+    }
   },
   onDown: (e) => {
-    !e.event.srcElement.closest(".header") &&
-      !e.event.srcElement.closest(".swiper") &&
-      scroll(document.querySelector('[data-screen="active"]'), false);
+    if (
+      !document.querySelector("._is-animating") &&
+      !document.querySelector("._touch") &&
+      !document.querySelector("._lock")
+    ) {
+      !e.event.srcElement.closest("[data-sb]") &&
+        scroll(document.querySelector('[data-screen="active"]'), false);
+    }
   },
 });
 
 export const setActiveScreen = (prev, active) => {
   screens[prev].dataset.screen = "";
   screens[active].dataset.screen = "active";
-};
-
-export const initMainpageScroll = () => {
-  // if (screens.length) {
-  //   document.querySelector(".header").addEventListener("mouseover", () => {
-  //     window.innerWidth > 1024 && observer.disable();
-  //   });
-  //   document.querySelector(".header").addEventListener("mouseleave", () => {
-  //     window.innerWidth > 1024 && observer.enable();
-  //   });
-  // }
 };

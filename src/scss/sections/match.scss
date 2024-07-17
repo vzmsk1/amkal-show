@@ -1,36 +1,36 @@
 .match {
-  padding-bottom: 12px;
-  padding-top: 12px;
-
   &[data-screen] {
-    padding-top: 18rem;
-    padding-bottom: 1.5rem;
-
     color: #000000;
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
-      padding-top: 198px;
-    }
-
-    @media (max-width: 48em) {
-      padding-top: 118px;
-
-      .table-match__row_head {
-        display: none;
-      }
-    }
-
     .match {
-      @media (max-width: 64.05em) and (min-width: 48em) {
-        padding-top: 37rem;
-      }
-
-      @media (max-width: 48em) {
-        padding-top: 32rem;
-      }
-
       &__container {
-        height: 100%;
+        padding-top: 18rem;
+        padding-bottom: 1.5rem;
+
+        height: 100vh;
+        height: 100dvh;
+
+        @media (max-width: 64.05em) and (min-width: 48.1em) and (min-height: 1200px) {
+          padding-top: 37rem;
+        }
+
+        @media (max-width: 64.05em) and (min-width: 48.1em) and (max-height: 1200px) {
+          padding-top: 16rem;
+        }
+
+        @media (max-width: 48em) {
+          .table-match__row_head {
+            display: none;
+          }
+        }
+
+        @media (max-width: 48em) and (min-height: 880px) {
+          padding-top: 183px;
+        }
+
+        @media (max-width: 48em) and (max-height: 880px) {
+          padding-top: 23rem;
+        }
       }
       &__body {
         margin-bottom: auto;
@@ -38,12 +38,17 @@
       &__head {
         margin-bottom: 1.5rem;
 
-        @media (max-width: 64.05em) and (min-width: 48em) {
+        @media (max-width: 64.05em) and (min-width: 48.1em) {
           margin-bottom: 2rem;
         }
 
         @media (max-width: 48em) {
           margin-bottom: 3.5rem;
+        }
+      }
+      &__filters {
+        @media (max-width: 64.05em) and (min-width: 48.1em) and (max-height: 1200px) {
+          margin-bottom: 0;
         }
       }
       &__title {
@@ -52,41 +57,63 @@
         font-size: 5.8rem;
         letter-spacing: 0.2rem;
 
-        @media (max-width: 64.05em) and (min-width: 48em) {
+        @media (max-width: 64.05em) and (min-width: 48.1em) and (min-height: 1200px) {
           font-size: 8.2rem;
           letter-spacing: 0.2rem;
         }
+        @media (max-width: 64.05em) and (min-width: 48.1em) and (max-height: 1200px) {
+          font-size: 7.2rem;
+        }
 
         @media (max-width: 48em) {
-          font-size: 7.5rem;
+          font-size: 43px;
           letter-spacing: -0.1rem;
         }
+      }
+    }
+
+    .table-match {
+      @media (max-width: 64.05em) and (min-width: 48.1em) and (max-height: 1200px) {
+        grid-auto-rows: 47px;
+      }
+      @media (max-width: 48em) and (max-height: 880px) {
+        grid-auto-rows: 10rem;
       }
     }
   }
 
   &_has-margin {
     margin-bottom: 128px;
-    padding-bottom: 0;
-  }
 
-  @media (max-width: 64.05em) and (min-width: 48em) {
-    padding-top: 132px;
-  }
-
-  @media (max-width: 48em) {
-    padding-top: 119px;
+    .match__container {
+      padding-bottom: 0;
+    }
   }
 
   &_dark-theme {
     padding-top: 0;
 
     color: #ffffff;
+
+    .match__container {
+      padding-top: 0;
+    }
   }
 
   &__container {
+    padding-bottom: 12px;
+    padding-top: 12px;
+
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 64.05em) and (min-width: 48.1em) {
+      padding-top: 132px;
+    }
+
+    @media (max-width: 48em) {
+      padding-top: 119px;
+    }
   }
 
   &__filters {
@@ -95,12 +122,15 @@
     display: flex;
     column-gap: 7px;
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
+    @media (max-width: 64.05em) and (min-width: 48.1em) {
       margin-bottom: 78px;
     }
 
-    @media (max-width: 48em) {
+    @media (max-width: 48em) and (min-height: 880px) {
       margin-bottom: 73px;
+    }
+    @media (max-width: 48em) and (max-height: 880px) {
+      margin-bottom: 1rem;
     }
   }
 
@@ -109,7 +139,7 @@
 
     display: flex;
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
+    @media (max-width: 64.05em) and (min-width: 48.1em) {
       margin-bottom: 12px;
     }
 
@@ -124,7 +154,7 @@
     &.title {
       letter-spacing: -3px;
 
-      @media (min-width: 48em) {
+      @media (min-width: 48.1em) {
         letter-spacing: 0px;
         font-family: "Druk Wide";
       }
@@ -142,7 +172,7 @@
         margin-bottom: 100px;
       }
 
-      @media (max-width: 64.05em) and (min-width: 48em) {
+      @media (max-width: 64.05em) and (min-width: 48.1em) {
         margin-bottom: 390px;
       }
 
@@ -255,7 +285,7 @@
       }
     }
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
+    @media (max-width: 64.05em) and (min-width: 48.1em) {
       grid-template-columns: repeat(2, 3fr) repeat(3, 2fr);
 
       &:not(&_head) {
@@ -291,7 +321,7 @@
 
       transform: translateX(2px);
 
-      @media (max-width: 64.05em) and (min-width: 48em) {
+      @media (max-width: 64.05em) and (min-width: 48.1em) {
         transform: translateX(-58px);
       }
 
@@ -310,14 +340,14 @@
       &:nth-child(3) {
         padding-left: 6px;
 
-        @media (max-width: 64.05em) and (min-width: 48em) {
+        @media (max-width: 64.05em) and (min-width: 48.1em) {
           padding-left: 9px;
         }
       }
 
       &:nth-child(4),
       &:nth-child(5) {
-        @media (min-width: 64.05em) and (min-width: 48em) {
+        @media (min-width: 64.05em) and (min-width: 48.1em) {
           padding-left: 10px;
         }
       }
@@ -325,13 +355,13 @@
       &:nth-child(6) {
         padding-left: 14px;
 
-        @media (max-width: 64.05em) and (min-width: 48em) {
+        @media (max-width: 64.05em) and (min-width: 48.1em) {
           padding-left: 4px;
         }
       }
 
       &:nth-child(7) {
-        @media (min-width: 64.05em) and (min-width: 48em) {
+        @media (min-width: 64.05em) and (min-width: 48.1em) {
           padding-left: 16px;
         }
       }
@@ -363,18 +393,5 @@
     height: 25px;
 
     object-fit: contain;
-  }
-}
-
-.match {
-  &_ru {
-    .match {
-      &__title {
-        &.title {
-          font-family: "Druk Text Wide Cyr";
-          letter-spacing: -0.3rem;
-        }
-      }
-    }
   }
 }

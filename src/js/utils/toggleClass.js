@@ -1,3 +1,5 @@
+import { removeClasses } from "./utils";
+
 const toggleClass = () => {
   if (document.querySelectorAll("[data-toggle-class]").length) {
     document.querySelectorAll("[data-toggle-class]").forEach((element) => {

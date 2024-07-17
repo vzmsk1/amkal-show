@@ -25,11 +25,17 @@ export const merchTl = gsap.timeline({
 
     gsap.to("body", { backgroundColor: "#ffffff" });
   },
+  onComplete: () => {
+    document.documentElement.classList.remove("_is-animating");
+  },
 });
 export const merchLeaveTl = gsap.timeline({
   ...defaults,
   ease: "power4.in",
   paused: true,
+  onStart: () => {
+    document.documentElement.classList.add("_is-animating");
+  },
 });
 
 merchTl.to(".merch__head, .merch__item", { opacity: 1, stagger: 0.1 });

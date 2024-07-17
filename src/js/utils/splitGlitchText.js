@@ -19,20 +19,16 @@ export const moveGlitchText = (selector, isReversed = false) => {
 
       const cur = letters.length - (i + 1);
 
-      // gsap.to(letter, {
-      //   skewX: "-10deg",
-      //   duration: 0.5,
-      // });
-
       gsap.to(letter.querySelectorAll(".glitch"), {
         translateX: cur * letter.offsetWidth,
         scaleX: 0,
         stagger: isReversed ? -0.05 : 0.05,
+        // ease: "power4.in",
+        duration: cur / 10 + 0.05,
       });
       gsap.to(letter, {
         duration: 0.5,
         stagger: 0.05,
-        // skewX: "-10deg",
         onStart: () => {
           gsap.to(letter.querySelectorAll("span"), {
             left: "100%",
@@ -61,7 +57,7 @@ export const moveGlitchText = (selector, isReversed = false) => {
   });
 };
 
-export const animateGlitchText = (selector, delay = 0) => {
+export const animateGlitchText = (selector, delay = 0, setTrigger = false) => {
   if (document.querySelectorAll(selector).length) {
     gsap.set(selector, { opacity: 0 });
     setTimeout(() => {
@@ -70,37 +66,10 @@ export const animateGlitchText = (selector, delay = 0) => {
       for (let i = 0; i < document.querySelectorAll(selector).length; i++) {
         const letter = document.querySelectorAll(selector)[i];
 
-        // if (letter.closest(".io")) {
-        //   gsap.fromTo(
-        //     letter,
-        //     {
-        //       translateX: i <= 2 ? 16 * (i + 1) : -16 * (i + 1),
-        //     },
-        //     {
-        //       translateX: -i * 16,
-        //       duration: 0.5,
-        //     },
-        //   );
-        // }
-        // else {
-        //   if (i !== 0) {
-        //     gsap.fromTo(
-        //       letter,
-        //       {
-        //         translateX: (-letter.offsetWidth * i) / 2,
-        //       },
-        //       {
-        //         translateX: -i * 16,
-        //         duration: 0.5,
-        //       },
-        //     );
-        //   }
-        // }
-
         for (let j = 0; j < letter.querySelectorAll(".glitch").length; j++) {
           const glitch = letter.querySelectorAll(".glitch")[j];
+          const cur = letter.querySelectorAll(".glitch").length - (j + 2);
 
-          gsap.set(glitch, { overflow: "hidden" });
           gsap.set(glitch.querySelector("span"), {
             left: 0,
             top: +letter.querySelectorAll("span")[j].dataset.top,
@@ -113,15 +82,28 @@ export const animateGlitchText = (selector, delay = 0) => {
                 {
                   translateX: j * 15,
                   scaleX: 1.5 - (j * 2) / 10,
-                  // opacity: 1 - (j + 1) / 10,
                 },
-                toVars,
+                {
+                  stagger: 0.05,
+                  translateX: 0,
+                  scaleX: 1,
+                  ease: "power4.out",
+                  delay: 0.05,
+                  duration: (j + 1) / 10 + 0.05,
+                },
               );
             } else {
               gsap.fromTo(
                 glitch,
                 { translateX: -j * 200 * (i / 10), scaleX: 1.5 - (i * 2) / 10 },
-                toVars,
+                {
+                  stagger: 0.1,
+                  translateX: 0,
+                  scaleX: 1,
+                  ease: "power4.out",
+                  delay: 0.05,
+                  duration: (j + 1) / 10 + 0.1,
+                },
               );
             }
           } else if (letter.closest(".bs")) {
@@ -132,24 +114,43 @@ export const animateGlitchText = (selector, delay = 0) => {
                   i === 0 ? `-${10 * (j + 1)}%` : `-${10 * (i + 1) * (j + 1)}%`,
                 scaleX: 0.5,
               },
-              toVars,
+              {
+                stagger: -0.05,
+                translateX: 0,
+                scaleX: 1,
+                ease: "power4.out",
+                delay: 0.05,
+                duration: (j + 1) / 10 + 0.05,
+              },
             );
           } else if (letter.closest(".bt")) {
-            const cur = letter.querySelectorAll(".glitch").length - (j + 2);
-
             gsap.fromTo(
               glitch,
               {
-                translateX: `-${j * 30}%`,
+                translateX: j < 5 ? `-${cur * 30}%` : `-${j * 30}%`,
                 scaleX: 1.2 - cur / 10,
               },
-              toVars,
+              {
+                stagger: -0.1,
+                translateX: 0,
+                scaleX: 1,
+                ease: "power4.out",
+                delay: 0.05,
+                duration: cur / 10 + 0.5,
+              },
             );
           } else if (letter.closest(".lr")) {
             gsap.fromTo(
               letter.querySelectorAll(".glitch"),
               { translateX: `-${letter.offsetWidth * i - 10}px`, scaleX: 0 },
-              toVars,
+              {
+                stagger: 0.05,
+                translateX: 0,
+                scaleX: 1,
+                ease: "power4.out",
+                delay: 0.05,
+                duration: (j + 1) / 10 + 0.05,
+              },
             );
           } else if (letter.closest(".lr-t")) {
             gsap.fromTo(
@@ -157,14 +158,14 @@ export const animateGlitchText = (selector, delay = 0) => {
               {
                 translateX: `-${letter.offsetWidth * i - 10}px`,
                 scaleX: 0,
-                // opacity: 0,
               },
               {
                 stagger: -0.05,
                 translateX: 0,
                 scaleX: 1,
-                duration: 0.5,
-                opacity: 1,
+                ease: "power4.out",
+                delay: 0.05,
+                duration: (j + 1) / 10 + 0.05,
               },
             );
           } else if (letter.closest(".ran")) {
@@ -174,7 +175,14 @@ export const animateGlitchText = (selector, delay = 0) => {
                 translateX: -i * letter.offsetWidth,
                 scaleX: 0,
               },
-              toVars,
+              {
+                stagger: 0.05,
+                translateX: 0,
+                scaleX: 1,
+                ease: "power4.out",
+                delay: 0.05,
+                duration: (j + 1) / 10 + 0.05,
+              },
             );
           }
 
@@ -182,6 +190,10 @@ export const animateGlitchText = (selector, delay = 0) => {
             stagger: 0.05,
             top: +letter.querySelectorAll("span")[j].dataset.top,
             ease: "power4.out",
+            onComplete: () => {
+              setTrigger &&
+                document.documentElement.classList.remove("_is-animating");
+            },
           });
         }
       }
@@ -211,9 +223,9 @@ export const splitGlitchText = () => {
       const data = item.dataset.glitchSize.split(",");
 
       if (data.length > 1) {
-        window.innerWidth <= 1024 && window.innerWidth > 768
+        window.innerWidth <= 1024 && window.innerWidth > 769
           ? data[1] && (text.innerHTML = split(text.innerHTML, item, +data[1]))
-          : window.innerWidth <= 768
+          : window.innerWidth <= 769
             ? data[2] &&
               (text.innerHTML = split(text.innerHTML, item, +data[2]))
             : (text.innerHTML = split(text.innerHTML, item, 0 + data[0]));
