@@ -4,7 +4,6 @@ import { defaults } from "../../anim/transitions";
 import gsap from "gsap";
 import { initVideoJS } from "../../lib/video";
 import { enterFooterScreen } from "../screen/footer";
-import { leaveAboutTl } from "./about";
 
 export const onHeroLeave = (isNext) => {
   heroTl.progress(1);

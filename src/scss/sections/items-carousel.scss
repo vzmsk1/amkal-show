@@ -1,11 +1,15 @@
 .items-carousel {
   margin-bottom: 134px;
 
-  @media (min-width: 64.05em) {
-    .feed-card:first-child {
-      .feed-card__group {
-        column-gap: 72px;
-      }
+  .feed-card__group {
+    column-gap: 8rem;
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      column-gap: 37rem;
+    }
+
+    @media (max-width: 48em) {
+      column-gap: 15rem;
     }
   }
 
@@ -29,11 +33,15 @@
   &__swiper-wrapper {
     &.swiper-wrapper {
       display: grid;
-      grid-template-columns: repeat(3, 357px);
+      grid-template-columns: repeat(3, 45.4rem);
       justify-content: space-between;
 
-      @media (max-width: 80em) and (min-width: 48em) {
-        grid-template-columns: repeat(2, 403px);
+      //      @media (max-width: 80em) and (min-width: 64.05em) {
+      //        grid-template-columns: repeat(3, 60rem);
+      //      }
+
+      @media (max-width: 64.05em) and (min-width: 48em) {
+        grid-template-columns: repeat(2, 76rem);
       }
 
       @media (max-width: 48em) {
