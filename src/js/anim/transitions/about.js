@@ -16,6 +16,23 @@ export const aboutTl = gsap.timeline({
   ease: "power4.in",
   paused: true,
   onStart: () => {
+    if (!document.querySelector(".victory__layer span")) {
+      document.querySelector(".victory__layer").innerHTML = `
+       <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>`;
+    }
+
     gsap.set(".about__text", { opacity: 1 });
     gsap.set(".about__text .char", { opacity: 0 });
 
@@ -25,19 +42,12 @@ export const aboutTl = gsap.timeline({
     animateGlitchText(".about__title .lr-t .letter");
 
     setTimeout(() => {
-      gsap.set(".about__title .bs", {
-        opacity: 1,
-      });
-
-      animateGlitchText(".about__title .bs .letter");
-    }, 800);
-
-    setTimeout(() => {
-      gsap.set(".about__title .lr", {
+      gsap.set(".about__title .lr, .about__title .bs", {
         opacity: 1,
       });
 
       animateGlitchText(".about__title .lr .letter");
+      animateGlitchText(".about__title .bs .letter");
     }, 300);
   },
   onComplete: () => {

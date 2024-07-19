@@ -1,4 +1,10 @@
 .feed-card {
+  .btn_ghost {
+    padding: 3px 12px 2px 12px;
+
+    height: 23px;
+  }
+
   &__inner {
     display: flex;
     flex-direction: column;

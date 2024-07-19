@@ -26,8 +26,6 @@ const videoSourcePath = path.resolve(__dirname, "./", "src/files/");
 const videoDestPath = path.resolve(__dirname, "./", "app/files/");
 
 if (fs.existsSync(videoSourcePath)) {
-  console.log(`Copying videos from ${videoSourcePath} to ${videoDestPath}`);
-
   const copyPlugin = new CopyPlugin({
     patterns: [
       {
@@ -38,10 +36,8 @@ if (fs.existsSync(videoSourcePath)) {
   });
 
   if (!module.exports.plugins) {
-    console.log("nety plugins");
     module.exports.plugins = [];
   }
-  console.log(module.exports.plugins);
 
   module.exports.plugins.push(copyPlugin);
 } else {
@@ -68,9 +64,7 @@ function processNestedHtml(content, loaderContext, resourcePath = "") {
     const filePath = path.resolve(fileDir, src);
     loaderContext.dependency(filePath);
     let html = fs.readFileSync(filePath, "utf8");
-    console.log("filePath: ", filePath, "match: ", match);
     try {
-      console.log("data: ", dataText);
       const data = dataText && JSON.parse(dataText);
       const dom = new JSDOM(html);
       const document = dom.window.document;
@@ -102,10 +96,7 @@ function processNestedHtml(content, loaderContext, resourcePath = "") {
       html = document.body.innerHTML;
 
       html = processNestedHtml(html, loaderContext, filePath);
-      console.log("html: ", html);
-    } catch (error) {
-      console.error(`Error parsing data-text attribute: ${error.message}`);
-    }
+    } catch (error) {}
 
     return html;
   }

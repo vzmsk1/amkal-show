@@ -75,32 +75,34 @@ const scroll = (active, isNext) => {
   }
 };
 
-const observer = Observer.create({
-  target: document.querySelector(".hero").closest("html"),
-  type: "wheel,touch",
-  tolerance: 50,
-  wheelSpeed: -1,
-  onUp: (e) => {
-    if (
-      !document.querySelector("._is-animating") &&
-      !document.querySelector("._touch") &&
-      !document.querySelector("._lock")
-    ) {
-      !e.event.srcElement.closest("[data-sb]") &&
-        scroll(document.querySelector('[data-screen="active"]'), true);
-    }
-  },
-  onDown: (e) => {
-    if (
-      !document.querySelector("._is-animating") &&
-      !document.querySelector("._touch") &&
-      !document.querySelector("._lock")
-    ) {
-      !e.event.srcElement.closest("[data-sb]") &&
-        scroll(document.querySelector('[data-screen="active"]'), false);
-    }
-  },
-});
+export const createObserver = () => {
+  Observer.create({
+    target: document.querySelector(".hero").closest("html"),
+    type: "wheel,touch",
+    tolerance: 50,
+    wheelSpeed: -1,
+    onUp: (e) => {
+      if (
+        !document.querySelector("._is-animating") &&
+        !document.querySelector("._touch") &&
+        !document.querySelector("._lock")
+      ) {
+        !e.event.srcElement.closest("[data-sb]") &&
+          scroll(document.querySelector('[data-screen="active"]'), true);
+      }
+    },
+    onDown: (e) => {
+      if (
+        !document.querySelector("._is-animating") &&
+        !document.querySelector("._touch") &&
+        !document.querySelector("._lock")
+      ) {
+        !e.event.srcElement.closest("[data-sb]") &&
+          scroll(document.querySelector('[data-screen="active"]'), false);
+      }
+    },
+  });
+};
 
 export const setActiveScreen = (prev, active) => {
   screens[prev].dataset.screen = "";

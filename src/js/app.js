@@ -1,11 +1,10 @@
 import "../scss/style.scss";
 
-import "./lib/simplebar";
-
 import "./utils/setCurrentYear";
-import "./utils/toggleClass";
-import "./utils/quantity";
 import "./utils/script";
+import "./utils/quantity";
+import "./utils/toggleClass";
+import "./lib/simplebar";
 
 window.innerWidth > 1024 &&
   document.querySelector(".loco-scroll") &&

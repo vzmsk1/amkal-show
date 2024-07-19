@@ -3,9 +3,14 @@ import { enterAboutScreen } from "../../anim/screen/about";
 import { defaults } from "../../anim/transitions";
 import gsap from "gsap";
 import { initVideoJS } from "../../lib/video";
+import { splitGlitchText } from "../../utils/splitGlitchText";
 import { enterFooterScreen } from "../screen/footer";
 
 export const onHeroLeave = (isNext) => {
+  if (!document.querySelector(".letter")) {
+    splitGlitchText();
+  }
+
   heroTl.progress(1);
 
   if (isNext) {
@@ -31,6 +36,7 @@ export const heroTl = gsap.timeline({
   ease: "power4.out",
   onStart: () => {
     initVideoJS();
+
     document.querySelector("body").classList.remove("_light-theme");
     document.querySelector("body").classList.remove("_light-theme_green");
     gsap.to("body", {
@@ -58,6 +64,7 @@ export const animateHero = () => {
     {
       translateX: 0,
       duration: 0.5,
+      opacity: 1,
     },
     0,
   );

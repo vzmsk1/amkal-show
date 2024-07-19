@@ -2,24 +2,6 @@ import { charTr, defaults } from "../../anim/transitions";
 import gsap from "gsap";
 import { animateGlitchText, moveGlitchText } from "../../utils/splitGlitchText";
 
-const layer = document.querySelector(".victory__layer");
-
-layer.innerHTML = `
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  `;
-
 export const victoryTl = gsap.timeline({
   ...defaults,
   ease: "power4.out",
