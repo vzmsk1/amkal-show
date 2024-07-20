@@ -9,5 +9,11 @@ export const animateHeader = () => {
     opacity: 1,
     stagger: 0.15,
     onStart: animateHero,
+    onComplete: () => {
+      import("../../pages/main-styles");
+      if (document.querySelector(".about_ru")) {
+        import("../../../scss/sections/main-ru.scss");
+      }
+    },
   });
 };

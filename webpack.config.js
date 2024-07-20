@@ -139,7 +139,7 @@ module.exports = {
   entry: {
     app: path.resolve(__dirname, "src/js", "app.js"),
     main: path.resolve(__dirname, "src/js/pages", "main.js"),
-    "main-ru": path.resolve(__dirname, "src/js/pages", "main.js"),
+    "main-ru": path.resolve(__dirname, "src/js/pages", "main-ru.js"),
     cart: path.resolve(__dirname, "src/js/pages", "cart.js"),
     "cart-no-items": path.resolve(
       __dirname,

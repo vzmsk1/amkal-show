@@ -55,7 +55,8 @@
     }
 
     @media (max-width: 48em) {
-      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
     }
   }
 
@@ -74,7 +75,7 @@
     height: 93px;
 
     @media (max-width: 48em) {
-      width: 258px;
+      width: 100%;
     }
   }
 
@@ -97,7 +98,7 @@
     @media (max-width: 48em) {
       margin-bottom: 27px;
 
-      max-width: 425px;
+      max-width: 360px;
 
       font-size: 24px;
       line-height: 24px;
@@ -119,7 +120,7 @@
 
     @media (max-width: 48em) {
       display: none;
-      width: 400px;
+      width: 100%;
       &_mobile-only {
         display: block;
       }
@@ -132,6 +133,12 @@
     display: flex;
     flex-direction: column;
 
+    @media (min-width: 48em) {
+      &._mobile-only {
+        display: none;
+      }
+    }
+
     @media (max-width: 64.05em) and (min-width: 48em) {
       padding-top: 206px;
     }
@@ -139,6 +146,10 @@
     @media (max-width: 48em) {
       margin-bottom: 67px;
       padding-top: 0;
+
+      &._desktop-only {
+        display: none;
+      }
     }
   }
 

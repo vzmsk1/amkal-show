@@ -22,14 +22,14 @@ export const victoryTl = gsap.timeline({
           opacity: 1,
         });
         animateGlitchText(".victory__title .ran_2 .letter");
-      }, 1200);
+      }, 800);
 
       setTimeout(() => {
         gsap.set(".victory__title .ran_3", {
           opacity: 1,
         });
         animateGlitchText(".victory__title .ran_3 .letter", 0, true);
-      }, 1700);
+      }, 1100);
     } else {
       animateGlitchText(".victory__title .letter", 1000);
     }
