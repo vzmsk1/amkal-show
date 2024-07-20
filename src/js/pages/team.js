@@ -1,4 +1,5 @@
 import "../../scss/sections/team.scss";
+window.innerWidth > 1024 && import("../lib/locomotive-scroll");
 
 import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";

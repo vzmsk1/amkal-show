@@ -1,4 +1,5 @@
 import "../../scss/sections/item-card.scss";
+window.innerWidth > 1024 && import("../lib/locomotive-scroll");
 
 import Swiper from "swiper";
 import { Navigation } from "swiper/modules";
