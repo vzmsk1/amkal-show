@@ -1,18 +1,16 @@
 import { setActiveScreen } from "../../anim/mainpage-scroll";
 import gsap from "gsap";
-import { enterFooterScreen } from "../screen/footer";
-import { enterMerchScreen } from "../screen/merch";
 import { defaults } from "../transitions";
 
-export const matchOnComplete = (isNext) => {
+export const matchOnComplete = (isNext, currentIdx) => {
   matchTl.progress(1);
 
   if (isNext) {
-    setActiveScreen(6, 7);
-    enterFooterScreen();
+    setActiveScreen(currentIdx, currentIdx + 1);
+    // enterFooterScreen();
   } else {
-    setActiveScreen(6, 5);
-    enterMerchScreen();
+    setActiveScreen(currentIdx, currentIdx - 1);
+    // enterMerchScreen();
   }
 };
 
@@ -20,6 +18,11 @@ export const matchTl = gsap.timeline({
   ...defaults,
   ease: "power4.out",
   paused: true,
+  onStart: () => {
+    document.querySelector("body").classList.add("_light-theme");
+
+    gsap.to("body", { backgroundColor: "#ffffff" });
+  },
   onComplete: () => {
     document.documentElement.classList.remove("_is-animating");
   },

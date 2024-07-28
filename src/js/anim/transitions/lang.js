@@ -1,17 +1,15 @@
 import { setActiveScreen } from "../../anim/mainpage-scroll";
-import { enterFeedScreen } from "../../anim/screen/feed";
 import { defaults } from "../../anim/transitions";
 import gsap from "gsap";
 import { animateGlitchText, moveGlitchText } from "../../utils/splitGlitchText";
-import { enterVictoryScreen } from "../screen/victory";
 
-export const langOnComplete = (isNext) => {
+export const langOnComplete = (isNext, currentIdx) => {
   if (isNext) {
-    enterFeedScreen();
-    setActiveScreen(3, 4);
+    // enterFeedScreen();
+    setActiveScreen(currentIdx, currentIdx + 1);
   } else {
-    enterVictoryScreen();
-    setActiveScreen(3, 2);
+    // enterVictoryScreen();
+    setActiveScreen(currentIdx, currentIdx - 1);
   }
 };
 

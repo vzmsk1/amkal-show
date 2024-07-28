@@ -21,6 +21,9 @@
 }
 
 .header {
+  position: relative;
+  z-index: 2;
+
   width: 100%;
 
   @media (max-width: 64.05em) {
@@ -165,8 +168,10 @@
 
   &__txt-content {
     @media (max-width: 48em) {
-      ._show-cart-widget & {
-        color: $white;
+      &:not(._light-theme &) {
+        ._show-cart-widget & {
+          color: $white;
+        }
       }
     }
   }

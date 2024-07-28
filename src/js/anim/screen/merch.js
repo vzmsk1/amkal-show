@@ -4,14 +4,14 @@ export const enterMerchScreen = () => {
   merchTl.play(0);
 };
 
-export const leaveMerchScreen = (isNext) => {
+export const leaveMerchScreen = (isNext, currentIdx) => {
   merchTl.progress(1);
   merchLeaveTl.play(0);
 
   merchLeaveTl.vars = {
     ...merchLeaveTl.vars,
     onComplete: () => {
-      merchOnComplete(isNext);
+      merchOnComplete(isNext, currentIdx);
     },
   };
 };

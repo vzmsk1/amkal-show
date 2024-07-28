@@ -1,77 +1,40 @@
 import gsap from "gsap";
 import { Observer } from "gsap/Observer";
-import { leaveAboutScreen } from "./screen/about";
-import { leaveFeedScreen } from "./screen/feed";
+import { enterAboutScreen, leaveAboutScreen } from "./screen/about";
+import { enterFeedScreen, leaveFeedScreen } from "./screen/feed";
 import { enterFooterScreen, leaveFooterScreen } from "./screen/footer";
 import { leaveHeroScreen } from "./screen/hero";
-import { leaveLangScreen } from "./screen/lang";
-import { leaveMatchScreen } from "./screen/match";
-import { leaveMerchScreen } from "./screen/merch";
-import { leaveVictoryScreen } from "./screen/victory";
+import { enterLangScreen, leaveLangScreen } from "./screen/lang";
+import { enterMatchScreen, leaveMatchScreen } from "./screen/match";
+import { enterMerchScreen, leaveMerchScreen } from "./screen/merch";
+import { enterVictoryScreen, leaveVictoryScreen } from "./screen/victory";
+import { heroTl } from "./transitions/hero";
 
 gsap.registerPlugin(Observer);
 
 const screens = Array.from(document.querySelectorAll("[data-screen]"));
 
-const scroll = (active, isNext) => {
-  const activeIdx = screens.indexOf(active);
-  const previous = screens[activeIdx - 1] ? screens[activeIdx - 1] : null;
+const scroll = (current, isNext) => {
+  const currentIdx = screens.indexOf(current);
 
-  if (isNext) {
-    switch (activeIdx) {
-      case 0:
-        leaveHeroScreen(true);
-        break;
-      case 1:
-        leaveAboutScreen(true);
-        break;
-      case 2:
-        leaveVictoryScreen(true);
-        break;
-      case 3:
-        leaveLangScreen(true);
-        break;
-      case 4:
-        leaveFeedScreen(true);
-        break;
-      case 5:
-        leaveMerchScreen(true);
-        break;
-      case 6:
-        leaveMatchScreen(true);
-        break;
-      case 7:
-        leaveFooterScreen(true);
-        break;
-    }
-  } else {
-    switch (activeIdx) {
-      case 0:
-        leaveHeroScreen(false);
-        enterFooterScreen();
-        break;
-      case 1:
-        leaveAboutScreen(false);
-        break;
-      case 2:
-        leaveVictoryScreen(false);
-        break;
-      case 3:
-        leaveLangScreen(false);
-        break;
-      case 4:
-        leaveFeedScreen(false);
-        break;
-      case 5:
-        leaveMerchScreen(false);
-        break;
-      case 6:
-        leaveMatchScreen(false);
-        break;
-      case 7:
-        leaveFooterScreen(false);
-        break;
-    }
+  if (current.classList.contains("hero")) {
+    leaveHeroScreen(isNext, currentIdx);
+  } else if (current.classList.contains("about")) {
+    leaveAboutScreen(isNext, currentIdx);
+  } else if (current.classList.contains("victory")) {
+    leaveVictoryScreen(isNext, currentIdx);
+  } else if (current.classList.contains("lang")) {
+    leaveLangScreen(isNext, currentIdx);
+  } else if (current.classList.contains("feed")) {
+    leaveFeedScreen(isNext, currentIdx);
+  } else if (current.classList.contains("feed-screen")) {
+    leaveFeedScreen(isNext, currentIdx);
+  } else if (current.classList.contains("merch")) {
+    leaveMerchScreen(isNext, currentIdx);
+  } else if (current.classList.contains("match")) {
+    leaveMatchScreen(isNext, currentIdx);
+  } else if (current.classList.contains("footer-main")) {
+    leaveFooterScreen(isNext, currentIdx);
   }
 };
 
@@ -85,7 +48,8 @@ export const createObserver = () => {
       if (
         !document.querySelector("._is-animating") &&
         !document.querySelector("._touch") &&
-        !document.querySelector("._lock")
+        !document.querySelector("._lock") &&
+        !document.querySelector("._show-cart-widget")
       ) {
         !e.event.srcElement.closest("[data-sb]") &&
           scroll(document.querySelector('[data-screen="active"]'), true);
@@ -95,7 +59,8 @@ export const createObserver = () => {
       if (
         !document.querySelector("._is-animating") &&
         !document.querySelector("._touch") &&
-        !document.querySelector("._lock")
+        !document.querySelector("._lock") &&
+        !document.querySelector("._show-cart-widget")
       ) {
         !e.event.srcElement.closest("[data-sb]") &&
           scroll(document.querySelector('[data-screen="active"]'), false);
@@ -105,6 +70,31 @@ export const createObserver = () => {
 };
 
 export const setActiveScreen = (prev, active) => {
+  const current =
+    active > screens.length - 1
+      ? screens[0]
+      : active < 0
+        ? screens[screens.length - 1]
+        : screens[active];
+
   screens[prev].dataset.screen = "";
-  screens[active].dataset.screen = "active";
+  current.dataset.screen = "active";
+
+  if (current.classList.contains("hero")) {
+    heroTl.play(0);
+  } else if (current.classList.contains("about")) {
+    enterAboutScreen();
+  } else if (current.classList.contains("victory")) {
+    enterVictoryScreen();
+  } else if (current.classList.contains("lang")) {
+    enterLangScreen();
+  } else if (current.classList.contains("feed-screen")) {
+    enterFeedScreen();
+  } else if (current.classList.contains("merch")) {
+    enterMerchScreen();
+  } else if (current.classList.contains("match")) {
+    enterMatchScreen();
+  } else if (current.classList.contains("footer-main")) {
+    enterFooterScreen();
+  }
 };

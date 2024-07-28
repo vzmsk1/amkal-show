@@ -1,23 +1,21 @@
 import { animateGlitchText, moveGlitchText } from "../../utils/splitGlitchText";
 import { setActiveScreen } from "../mainpage-scroll";
-import { enterMatchScreen } from "../screen/match";
 import { defaults } from "../transitions";
 import gsap from "gsap";
-import { heroTl } from "./hero";
 
-export const footerOnComplete = (isNext) => {
+export const footerOnComplete = (isNext, currentIdx) => {
   if (isNext) {
-    setActiveScreen(7, 0);
-    heroTl.play(0);
+    setActiveScreen(currentIdx, currentIdx + 1);
+    // heroTl.play(0);
   } else {
-    setActiveScreen(7, 6);
+    setActiveScreen(currentIdx, currentIdx - 1);
 
     document.querySelector("body").classList.add("_light-theme");
     gsap.to("body", {
       backgroundColor: "#ffffff",
     });
 
-    enterMatchScreen();
+    // enterMatchScreen();
   }
 };
 

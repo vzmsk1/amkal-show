@@ -7,10 +7,14 @@ gsap.registerPlugin(ScrollToPlugin);
 const tm = window.matchMedia("(max-width: 64.05em)");
 const mm = window.matchMedia("(max-width: 48em)");
 const header = document.querySelector(".header");
+const supportsTouch = "ontouchstart" in window || navigator.msMaxTouchPoints;
 
 const closeCartWidget = () => {
   document.documentElement.classList.remove("_show-cart-widget");
   bodyUnlock();
+
+  document.documentElement.style.removeProperty("overflow");
+  document.documentElement.style.removeProperty("touch-action");
 };
 
 const closeHeaderMenu = () => {
@@ -35,9 +39,17 @@ const initCartWidget = () => {
 
   if (document.querySelector("._show-cart-widget")) {
     header.classList.remove("_dark-theme");
-    mm.matches ? bodyLock() : bodyUnlock();
-  } else {
-    bodyUnlock();
+    // mm.matches ? bodyLock() : bodyUnlock();
+
+    if (
+      supportsTouch &&
+      !document.querySelector(".actions-nav-row__item_cart._has-items")
+    ) {
+      gsap.set("html", {
+        overflow: "hidden",
+        "touch-action": "none",
+      });
+    }
   }
 };
 
@@ -76,6 +88,24 @@ const onClickHandler = (e) => {
   }
 };
 
+const onTouchStartHandler = (e) => {
+  const { target } = e;
+
+  if (document.querySelector("._show-cart-widget")) {
+    if (!target.closest(".cart-widget")) {
+      closeCartWidget();
+
+      if (document.querySelector(".cart-widget._touch")) {
+        document
+          .querySelector(".cart-widget._touch")
+          .classList.remove("_touch");
+      }
+    } else {
+      target.closest(".cart-widget").classList.add("_touch");
+    }
+  }
+};
+
 const onMatchMediaChangeHandler = () => {
   if (!tm.matches) {
     document.querySelector("section._fw") &&
@@ -94,6 +124,7 @@ const onMatchMediaChangeHandler = () => {
 };
 
 document.addEventListener("click", onClickHandler);
+document.addEventListener("touchstart", onTouchStartHandler);
 tm.addEventListener("change", onMatchMediaChangeHandler);
 
 document.addEventListener("DOMContentLoaded", function () {

@@ -1,9 +1,7 @@
 import { aboutTl, leaveAboutTl } from "../../anim/transitions/about";
 import { setActiveScreen } from "../mainpage-scroll";
-import { heroTl } from "../transitions/hero";
-import { enterVictoryScreen } from "./victory";
 
-export const leaveAboutScreen = (isNext) => {
+export const leaveAboutScreen = (isNext, currentIdx) => {
   aboutTl.progress(1);
   leaveAboutTl.play(0);
 
@@ -13,15 +11,16 @@ export const leaveAboutScreen = (isNext) => {
       onComplete: () => {
         document.querySelector("body").classList.remove("_light-theme");
         document.querySelector("body").classList.remove("_light-theme_green");
-        setActiveScreen(1, 2), enterVictoryScreen();
+        setActiveScreen(currentIdx, currentIdx + 1);
+        // enterVictoryScreen();
       },
     };
   } else {
     leaveAboutTl.vars = {
       ...leaveAboutTl.vars,
       onComplete: () => {
-        setActiveScreen(1, 0);
-        heroTl.restart();
+        setActiveScreen(currentIdx, currentIdx - 1);
+        // heroTl.restart();
       },
     };
   }

@@ -1,18 +1,16 @@
 import { setActiveScreen } from "../../anim/mainpage-scroll";
 import { defaults } from "../../anim/transitions";
 import gsap from "gsap";
-import { enterLangScreen } from "../screen/lang";
-import { enterMerchScreen } from "../screen/merch";
 
-export const feedOnLeave = (isNext) => {
+export const feedOnLeave = (isNext, currentIdx) => {
   if (isNext) {
-    setActiveScreen(4, 5);
-    enterMerchScreen();
+    setActiveScreen(currentIdx, currentIdx + 1);
+    // enterMerchScreen();
   } else {
     gsap.to("body", { backgroundColor: "#000000" });
 
-    setActiveScreen(4, 3);
-    enterLangScreen();
+    setActiveScreen(currentIdx, currentIdx - 1);
+    // enterLangScreen();
   }
 };
 

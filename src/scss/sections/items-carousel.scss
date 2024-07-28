@@ -35,6 +35,7 @@
       display: grid;
       grid-template-columns: repeat(3, 45.4rem);
       justify-content: space-between;
+      row-gap: 5rem;
 
       //      @media (max-width: 80em) and (min-width: 64.05em) {
       //        grid-template-columns: repeat(3, 60rem);

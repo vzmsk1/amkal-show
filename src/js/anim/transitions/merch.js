@@ -1,16 +1,14 @@
 import { setActiveScreen } from "../../anim/mainpage-scroll";
 import { defaults } from "../../anim/transitions";
 import gsap from "gsap";
-import { enterFeedScreen } from "../screen/feed";
-import { enterMatchScreen } from "../screen/match";
 
-export const merchOnComplete = (isNext) => {
+export const merchOnComplete = (isNext, currentIdx) => {
   if (isNext) {
-    setActiveScreen(5, 6);
-    enterMatchScreen();
+    setActiveScreen(currentIdx, currentIdx + 1);
+    // enterMatchScreen();
   } else {
-    setActiveScreen(5, 4);
-    enterFeedScreen();
+    setActiveScreen(currentIdx, currentIdx - 1);
+    // enterFeedScreen();
 
     document.querySelector("body").classList.remove("_light-theme");
   }

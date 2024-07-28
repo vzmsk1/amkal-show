@@ -1,12 +1,10 @@
 import { setActiveScreen } from "../../anim/mainpage-scroll";
-import { enterAboutScreen } from "../../anim/screen/about";
 import { defaults } from "../../anim/transitions";
 import gsap from "gsap";
 import { initVideoJS } from "../../lib/video";
 import { splitGlitchText } from "../../utils/splitGlitchText";
-import { enterFooterScreen } from "../screen/footer";
 
-export const onHeroLeave = (isNext) => {
+export const onHeroLeave = (isNext, currentIdx) => {
   if (!document.querySelector(".letter")) {
     splitGlitchText();
   }
@@ -20,13 +18,13 @@ export const onHeroLeave = (isNext) => {
       backgroundColor: "#caff34",
       duration: 0.5,
       onComplete: () => {
-        setActiveScreen(0, 1);
-        enterAboutScreen();
+        setActiveScreen(currentIdx, currentIdx + 1);
+        // enterAboutScreen();
       },
     });
   } else {
-    setActiveScreen(0, 7);
-    enterFooterScreen();
+    setActiveScreen(currentIdx, currentIdx - 1);
+    // enterFooterScreen();
   }
 };
 

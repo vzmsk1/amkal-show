@@ -63,7 +63,7 @@ html.has-scroll-dragging {
 .c-scrollbar_thumb {
   position: absolute;
   top: 0;
-  right: 4px;
+  right: 5px;
   background-color: #171717;
   width: 8px;
   border-radius: 20px;
@@ -72,10 +72,6 @@ html.has-scroll-dragging {
 
   ._light-theme & {
     background: rgba(0, 0, 0, 0.2);
-  }
-
-  @media (min-width: 1600px) {
-    right: 10px;
   }
 }
 .has-scroll-dragging .c-scrollbar_thumb {

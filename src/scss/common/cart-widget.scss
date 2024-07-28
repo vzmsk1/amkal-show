@@ -30,6 +30,18 @@
     transform: none;
   }
 
+  &_add {
+    display: none;
+    ._has-items & {
+      display: flex !important;
+    }
+  }
+  &_no-items {
+    ._has-items & {
+      display: none !important;
+    }
+  }
+
   @media (min-width: 64.05em) {
     transform: translateX(110%);
   }

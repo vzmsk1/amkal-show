@@ -1,12 +1,6 @@
-import {
-  victoryLeaveTl,
-  victoryOnComplete,
-  victoryTl,
-} from "../../anim/transitions/victory";
+import { victoryLeaveTl, victoryTl } from "../../anim/transitions/victory";
 import gsap from "gsap";
 import { setActiveScreen } from "../mainpage-scroll";
-import { enterAboutScreen } from "./about";
-import { enterLangScreen } from "./lang";
 
 export const enterVictoryScreen = () => {
   gsap.to("body", {
@@ -17,7 +11,7 @@ export const enterVictoryScreen = () => {
   victoryTl.play(0);
 };
 
-export const leaveVictoryScreen = (isNext) => {
+export const leaveVictoryScreen = (isNext, currentIdx) => {
   victoryTl.progress(1);
   victoryLeaveTl.play(0);
 
@@ -31,12 +25,12 @@ export const leaveVictoryScreen = (isNext) => {
       document.querySelector(".victory__layer").classList.remove("_fw");
 
       if (isNext) {
-        setActiveScreen(2, 3);
-        enterLangScreen();
+        setActiveScreen(currentIdx, currentIdx + 1);
+        // enterLangScreen();
       } else {
-        setActiveScreen(2, 1);
+        setActiveScreen(currentIdx, currentIdx - 1);
 
-        enterAboutScreen();
+        // enterAboutScreen();
 
         document.querySelector("body").classList.add("_light-theme");
 

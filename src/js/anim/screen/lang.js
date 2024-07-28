@@ -4,13 +4,13 @@ export const enterLangScreen = () => {
   langTl.play(0);
 };
 
-export const leaveLangScreen = (isNext) => {
+export const leaveLangScreen = (isNext, currentIdx) => {
   langTl.progress(1);
   langLeaveTl.play(0);
   langLeaveTl.vars = {
     ...langLeaveTl.vars,
     onComplete: () => {
-      langOnComplete(isNext);
+      langOnComplete(isNext, currentIdx);
     },
   };
 };
