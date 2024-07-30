@@ -230,9 +230,9 @@ export const splitGlitchText = () => {
       const data = item.dataset.glitchSize.split(",");
 
       if (data.length > 1) {
-        window.innerWidth <= 1024 && window.innerWidth > 769
+        window.screen.availWidth <= 1024 && window.screen.availWidth > 768
           ? data[1] && (text.innerHTML = split(text.innerHTML, item, +data[1]))
-          : window.innerWidth <= 769
+          : window.screen.availWidth <= 768
             ? data[2] &&
               (text.innerHTML = split(text.innerHTML, item, +data[2]))
             : (text.innerHTML = split(text.innerHTML, item, 0 + data[0]));

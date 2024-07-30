@@ -18,6 +18,10 @@ $red: #ff7373;
 @import "./base/set";
 @import "./base/common";
 
+body {
+  transform-origin: 0 0;
+}
+
 .lg-on,
 ._lock,
 ._show-header-menu {
@@ -50,6 +54,7 @@ main {
   position: relative;
 
   flex: 1 1 auto;
+  min-height: 100%;
 }
 
 // wrapper
@@ -63,7 +68,7 @@ footer {
 .wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100%;
 
   user-select: none;
 }
@@ -75,10 +80,13 @@ footer {
   left: 0;
 
   width: 100%;
+  min-height: 100%;
   height: 100%;
-  height: 100dvh;
+  //  height: 100dvh;
 
   overflow: hidden;
+
+  transform-origin: 0 0;
 
   transition:
     opacity 0.4s ease,

@@ -16,13 +16,16 @@ const initSlider = () => {
   new Swiper(".feed-screen__swiper", {
     modules: [Navigation],
     rewind: true,
-    spaceBetween: remToPx(31.1),
+    spaceBetween: window.innerWidth > 1024 ? 210 : 30,
     navigation: {
       prevEl: ".feed-screen__nav-btn_prev",
       nextEl: ".feed-screen__nav-btn_next",
     },
     breakpoints: {
       769: {
+        slidesPerView: 2,
+      },
+      1024: {
         slidesPerView: 3,
       },
     },
@@ -45,8 +48,7 @@ const initGridSlider = () => {
       prevEl: ".feed-screen__nav-btn_prev",
       nextEl: ".feed-screen__nav-btn_next",
     },
-    spaceBetween:
-      window.innerWidth <= 1024 && window.innerHeight < 1200 ? 50 : 184,
+    spaceBetween: window.innerHeight < 1230 ? 20 : 184,
     slidesPerView: 2,
     grid: {
       rows: 2,
@@ -68,17 +70,22 @@ window.addEventListener("load", function () {
       document.querySelector(".loader").remove();
 
       if (document.querySelector(".feed-screen__swiper")) {
-        window.matchMedia("(max-width: 1024px) and (min-width: 48.1em)").matches
+        window.matchMedia(
+          "(max-width: 1024px) and (min-width: 48.1em) and (min-height: 1200px)",
+        ).matches
           ? initGridSlider()
           : initSlider();
 
-        mm.add("(max-width: 1024px) and (min-width: 48.1em)", () => {
-          initGridSlider();
+        mm.add(
+          "(max-width: 1024px) and (min-width: 48.1em) and (min-height: 1200px)",
+          () => {
+            initGridSlider();
 
-          return () => {
-            initSlider();
-          };
-        });
+            return () => {
+              initSlider();
+            };
+          },
+        );
       }
       if (document.querySelector(".footer-main__sponsors-swiper")) {
         new Swiper(".footer-main__sponsors-swiper", {

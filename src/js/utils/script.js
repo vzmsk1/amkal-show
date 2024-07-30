@@ -7,7 +7,8 @@ gsap.registerPlugin(ScrollToPlugin);
 const tm = window.matchMedia("(max-width: 64.05em)");
 const mm = window.matchMedia("(max-width: 48em)");
 const header = document.querySelector(".header");
-const supportsTouch = "ontouchstart" in window || navigator.msMaxTouchPoints;
+export const supportsTouch =
+  "ontouchstart" in window || navigator.msMaxTouchPoints;
 
 const closeCartWidget = () => {
   document.documentElement.classList.remove("_show-cart-widget");
@@ -123,6 +124,67 @@ const onMatchMediaChangeHandler = () => {
   }
 };
 
+const handleZoom = () => {
+  if (!supportsTouch) {
+    if (window.innerWidth !== window.screen.availWidth) {
+      document.querySelector("body").style.zoom = 1 / devicePixelRatio;
+      document.querySelector("body").style["-moz-transform"] =
+        `scale(${1 / devicePixelRatio})`;
+
+      document.documentElement.classList.add("_zoom");
+    } else {
+      document.querySelector("body").style.zoom = 1;
+      document.querySelector("body").style["-moz-transform"] = `scale(${1})`;
+
+      document.documentElement.classList.remove("_zoom");
+    }
+
+    if (document.querySelector("._zoom")) {
+      const isTablet =
+        window.screen.availWidth <= 1024 && window.screen.availWidth > 768;
+      const isMobile = window.screen.availWidth <= 768;
+
+      if (isTablet) {
+        document.documentElement.classList.add("_zoom-tab");
+      } else {
+        document.documentElement.classList.remove("_zoom-tab");
+      }
+
+      if (isMobile) {
+        document.documentElement.classList.add("_zoom-mob");
+      } else {
+        document.documentElement.classList.remove("_zoom-mob");
+      }
+
+      if (!isMobile && !isTablet) {
+        document.documentElement.classList.add("_zoom-desk");
+      } else {
+        document.documentElement.classList.remove("_zoom-desk");
+      }
+    } else {
+      document.documentElement.classList.remove("_zoom-tab");
+      document.documentElement.classList.remove("_zoom-mob");
+      document.documentElement.classList.remove("_zoom-desk");
+    }
+  } else {
+    document.querySelector("body").style.zoom = 1;
+    document.querySelector("body").style["-moz-transform"] = `scale(${1})`;
+    document.documentElement.classList.remove("_zoom");
+    document.documentElement.classList.remove("_zoom-tab");
+    document.documentElement.classList.remove("_zoom-mob");
+    document.documentElement.classList.remove("_zoom-desk");
+  }
+};
+
+document.addEventListener(
+  "wheel",
+  function touchHandler(e) {
+    if (e.ctrlKey) {
+      e.preventDefault();
+    }
+  },
+  { passive: false },
+);
 document.addEventListener("click", onClickHandler);
 document.addEventListener("touchstart", onTouchStartHandler);
 tm.addEventListener("change", onMatchMediaChangeHandler);
@@ -150,5 +212,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("load", function () {
     document.documentElement.classList.add("_page-loaded");
+    handleZoom();
   });
 });
+
+window.addEventListener("resize", (e) => {
+  const zoom = 1 / devicePixelRatio;
+
+  handleZoom();
+});
+window.addEventListener(
+  "keydown",
+  function (e) {
+    if (
+      (e.ctrlKey || e.metaKey) &&
+      (e.which === 61 ||
+        e.which === 107 ||
+        e.which === 173 ||
+        e.which === 109 ||
+        e.which === 187 ||
+        e.which === 189)
+    ) {
+      e.preventDefault();
+    }
+  },
+  false,
+);
