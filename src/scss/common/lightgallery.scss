@@ -115,7 +115,12 @@
 
   .lg-image {
     width: 982px;
-    height: 674px;
+    height: 68.8vh;
+
+    @media (min-width: 64.05em) {
+      max-height: 675px;
+      min-height: 520px;
+    }
 
     @media (max-width: 64.05em) and (min-width: 48em) {
       width: 824px;
@@ -164,7 +169,8 @@
 
   ._is-vertical,
   ._is-vertical .lg-image {
-    height: 812px;
+    height: 82.7vh;
+    max-height: 812px;
 
     @media (max-width: 64.05em) and (min-width: 48em) {
       height: 860px;

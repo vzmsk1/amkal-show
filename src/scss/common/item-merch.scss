@@ -44,7 +44,12 @@
   }
 
   &__title {
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
     line-height: 14px;
+    white-space: nowrap;
 
     @media (max-width: 48em) {
       line-height: 15px;

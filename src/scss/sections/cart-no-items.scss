@@ -1,13 +1,13 @@
 .cart-no-items {
-  padding-top: 143px;
+  padding-top: 15px;
   padding-bottom: 12px;
 
   @media (max-width: 64.05em) and (min-width: 48em) {
-    padding-top: 195px;
+    padding-top: 128px;
   }
 
   @media (max-width: 48em) {
-    padding-top: 183px;
+    padding-top: 119px;
   }
 
   &__container {
@@ -59,6 +59,10 @@
 
     @media (max-width: 64.05em) {
       margin-left: 1px;
+    }
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      margin-bottom: 91px;
     }
 
     @media (max-width: 48em) and (min-width: 48em) {

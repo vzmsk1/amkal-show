@@ -680,8 +680,14 @@
 
 .slide-feed-chapter {
   &__image {
-    height: 818px;
+    .feed-chapter__bg-swiper & {
+      height: 83.3vh;
 
+      @media (min-width: 64.05em) {
+        max-height: 818px;
+        min-height: 550px;
+      }
+    }
     object-fit: cover;
 
     @media (max-width: 64.05em) and (min-width: 48em) {

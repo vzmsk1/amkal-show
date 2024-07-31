@@ -27,9 +27,14 @@
     }
   }
 
+  &__filter {
+    transform: translate(3px, 10px);
+  }
+
   &__btn {
     padding: 4px 8px;
 
+    display: inline-flex;
     width: 100%;
 
     @media (max-width: 48em) {
@@ -38,11 +43,10 @@
   }
 
   &__btn-arrow {
-    transform: rotate(180deg) translateY(30%);
-    transition: transform 0.3s ease;
+    transform: rotate(180deg) translate(-5px, 30%);
 
     ._show-filters & {
-      transform: rotate(0deg) translateY(10%);
+      transform: rotate(0deg) translate(5px, 10%);
     }
 
     @media (max-width: 48em) {

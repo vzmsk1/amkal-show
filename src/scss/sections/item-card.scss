@@ -123,6 +123,16 @@
     width: 49%;
     height: 100vh;
 
+    @media (min-width: 48em) {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      overflow: auto;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
     @media (max-width: 64.05em) and (min-width: 48em) {
       position: fixed;
       padding-top: 204px;

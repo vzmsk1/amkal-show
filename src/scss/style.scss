@@ -53,6 +53,8 @@ body {
 main {
   position: relative;
 
+  display: flex;
+  flex-direction: column;
   flex: 1 1 auto;
   min-height: 100%;
 }
@@ -99,20 +101,29 @@ footer {
 }
 
 ._desktop-only {
-  @media (max-width: 48em) {
-    display: none;
+  ._zoom-mob &,
+  &:not(._zoom &) {
+    @media (max-width: 48em) {
+      display: none;
+    }
   }
 }
 
 ._desktop-t-only {
-  @media (max-width: 64.05em) {
-    display: none;
+  ._zoom-tab &,
+  &:not(._zoom &) {
+    @media (max-width: 64.05em) {
+      display: none;
+    }
   }
 }
 
 ._mobile-only {
-  @media (min-width: 48em) {
-    display: none;
+  ._zoom-desk &,
+  &:not(._zoom &) {
+    @media (min-width: 48em) {
+      display: none;
+    }
   }
 }
 

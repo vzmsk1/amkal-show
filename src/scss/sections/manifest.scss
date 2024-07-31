@@ -91,7 +91,13 @@
 
   &__bg-wrap,
   &__bg {
-    height: 1003px;
+    height: 103vh;
+
+    @media (min-width: 64.05em) {
+      max-height: 1003px;
+      min-height: 550px;
+    }
+
     @media (max-width: 64.05em) and (min-width: 48em) {
       height: 682px;
     }

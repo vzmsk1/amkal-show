@@ -27,12 +27,19 @@
     transform: none;
   }
 
+  ._zoom & {
+    display: none;
+  }
   @media (min-width: 64.05em) {
     display: none;
   }
 
-  @media (max-width: 64.05em) {
-    padding-top: 100px;
+  ._zoom-tab &,
+  ._zoom-mob &,
+  &:not(._zoom &) {
+    @media (max-width: 64.05em) {
+      padding-top: 100px;
+    }
   }
 
   &__container {

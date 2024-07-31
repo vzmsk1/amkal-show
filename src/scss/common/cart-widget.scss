@@ -42,79 +42,88 @@
     }
   }
 
-  @media (min-width: 64.05em) {
-    transform: translateX(110%);
+  ._zoom-desk &,
+  &:not(._zoom &) {
+    @media (min-width: 64.05em) {
+      transform: translateX(110%);
+    }
   }
 
-  @media (max-width: 64.05em) and (min-width: 48em) {
-    margin-right: 8px;
-    padding: 7px;
+  ._zoom-tab &,
+  &:not(._zoom &) {
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      margin-right: 8px;
+      padding: 7px;
 
-    width: 318px;
+      width: 318px;
+    }
   }
 
-  @media (max-width: 48em) {
-    &:not(&_add) {
-      position: fixed;
-      z-index: 52;
-      top: 0;
-      left: 0;
+  ._zoom-mob &,
+  &:not(._zoom &) {
+    @media (max-width: 48em) {
+      &:not(&.cart-widget_add) {
+        position: fixed;
+        z-index: 52;
+        top: 0;
+        left: 0;
 
-      padding-top: 183px;
-      padding-bottom: 58px;
-      padding-left: 16px;
-      padding-right: 16px;
+        padding-top: 183px;
+        padding-bottom: 58px;
+        padding-left: 16px;
+        padding-right: 16px;
 
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      height: 100vh;
-      height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
 
-      overflow: auto;
+        overflow: auto;
 
-      .simplebar-track {
-        display: none;
-      }
-
-      .cart-widget {
-        &__title {
-          margin-bottom: 47px;
+        .simplebar-track {
+          display: none;
         }
-        &__items {
-          margin-bottom: auto;
 
-          row-gap: normal;
-        }
-        &__btn {
-          padding: 5px 10px;
-        }
-      }
+        .cart-widget {
+          &__title {
+            margin-bottom: 47px;
+          }
+          &__items {
+            margin-bottom: auto;
 
-      .item-cart {
-        padding-bottom: 6.5px;
+            row-gap: normal;
+          }
+          &__btn {
+            padding: 5px 10px;
+          }
+        }
 
-        row-gap: 78px;
+        .item-cart {
+          padding-bottom: 6.5px;
 
-        &__image-wrap {
-          margin-right: 79px;
-        }
-        &__title {
-          margin-bottom: 34px;
+          row-gap: 78px;
 
-          transform: translateY(-1px);
-        }
-        &__price {
-          transform: translate(-12px, 0px);
-        }
-        &__remove-btn {
-          transform: translate(0px, -3px);
-        }
-        &__info {
-          transform: translateY(2px);
-        }
-        &__title-txt {
-          line-height: 12px;
+          &__image-wrap {
+            margin-right: 79px;
+          }
+          &__title {
+            margin-bottom: 34px;
+
+            transform: translateY(-1px);
+          }
+          &__price {
+            transform: translate(-12px, 0px);
+          }
+          &__remove-btn {
+            transform: translate(0px, -3px);
+          }
+          &__info {
+            transform: translateY(2px);
+          }
+          &__title-txt {
+            line-height: 12px;
+          }
         }
       }
     }
@@ -142,6 +151,10 @@
     top: 13px;
     left: 13px;
 
+    ._zoom & {
+      display: none;
+    }
+
     @media (min-width: 48em) {
       display: none;
     }
@@ -157,6 +170,10 @@
   &__title {
     margin-bottom: 50px;
 
+    ._zoom & {
+      display: none;
+    }
+
     @media (min-width: 48em) {
       display: none;
     }
@@ -169,16 +186,26 @@
 
     line-height: 13.5px;
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
-      margin-bottom: 61px;
+    ._zoom-tab &,
+    &:not(._zoom &) {
+      @media (max-width: 64.05em) and (min-width: 48em) {
+        margin-bottom: 61px;
+      }
     }
 
-    @media (max-width: 64.05em) {
-      line-height: 15.5px;
+    ._zoom-tab &,
+    ._zoom-mob &,
+    &:not(._zoom &) {
+      @media (max-width: 64.05em) {
+        line-height: 15.5px;
+      }
     }
 
-    @media (max-width: 48em) {
-      margin-bottom: auto;
+    ._zoom-mob &,
+    &:not(._zoom &) {
+      @media (max-width: 48em) {
+        margin-bottom: auto;
+      }
     }
   }
 
@@ -193,20 +220,26 @@
 
       height: 242px;
 
-      @media (max-width: 64.05em) and (min-width: 48em) {
-        height: 230px;
+      ._zoom-tab &,
+      &:not(._zoom &) {
+        @media (max-width: 64.05em) and (min-width: 48em) {
+          height: 230px;
 
-        &::after {
-          transform: translate(-8px, 36px) rotate(180deg);
+          &::after {
+            transform: translate(-8px, 36px) rotate(180deg);
+          }
+
+          padding-bottom: 14px;
         }
-
-        padding-bottom: 14px;
       }
 
-      @media (max-width: 48em) {
-        padding-bottom: 30px;
+      ._zoom-mob &,
+      &:not(._zoom &) {
+        @media (max-width: 48em) {
+          padding-bottom: 30px;
 
-        height: 580px;
+          height: 580px;
+        }
       }
 
       &::after {
@@ -245,15 +278,23 @@
         border-bottom: none;
       }
 
-      @media (max-width: 64.05em) {
-        column-gap: normal;
+      ._zoom-tab &,
+      ._zoom-mob &,
+      &:not(._zoom &) {
+        @media (max-width: 64.05em) {
+          column-gap: normal;
+        }
       }
 
       &__title {
         margin-bottom: 32px;
 
-        @media (max-width: 64.05em) {
-          margin-bottom: 34px;
+        ._zoom-tab &,
+        ._zoom-mob &,
+        &:not(._zoom &) {
+          @media (max-width: 64.05em) {
+            margin-bottom: 34px;
+          }
         }
       }
 
@@ -265,24 +306,34 @@
       &__info {
         padding-right: 9px;
 
-        @media (max-width: 64.05em) and (min-width: 48em) {
-          transform: translate(9px, 0px);
+        ._zoom-tab &,
+        &:not(._zoom &) {
+          @media (max-width: 64.05em) and (min-width: 48em) {
+            transform: translate(9px, 0px);
+          }
         }
       }
 
       &__remove-btn {
         transform: translate(-7px, 2px);
 
-        @media (max-width: 64.05em) {
-          transform: translate(-7px, 0px);
+        ._zoom-tab &,
+        ._zoom-mob &,
+        &:not(._zoom &) {
+          @media (max-width: 64.05em) {
+            transform: translate(-7px, 0px);
+          }
         }
       }
 
       &__image-wrap {
-        @media (max-width: 64.05em) and (min-width: 48em) {
-          margin-right: 44px;
+        ._zoom-tab &,
+        &:not(._zoom &) {
+          @media (max-width: 64.05em) and (min-width: 48em) {
+            margin-right: 44px;
 
-          width: 63px;
+            width: 63px;
+          }
         }
       }
 
@@ -291,16 +342,23 @@
       }
 
       &__items {
-        @media (max-width: 64.05em) {
-          row-gap: 7px;
+        ._zoom-tab &,
+        ._zoom-mob &,
+        &:not(._zoom &) {
+          @media (max-width: 64.05em) {
+            row-gap: 7px;
+          }
         }
       }
 
       .quantity {
         column-gap: 24px;
 
-        @media (min-width: 48em) {
-          transform: translateY(2px);
+        ._zoom-desk &,
+        &:not(._zoom &) {
+          @media (min-width: 48em) {
+            transform: translateY(2px);
+          }
         }
 
         svg {
@@ -315,24 +373,33 @@
   }
 
   &_add {
-    @media (max-width: 48em) {
-      z-index: 2;
+    ._zoom-mob &,
+    &:not(._zoom &) {
+      @media (max-width: 48em) {
+        z-index: 2;
 
-      right: 1px;
+        right: 1px;
 
-      width: calc(100vw - 33px);
+        width: calc(100vw - 33px);
+      }
     }
 
     .cart-widget {
       &__items {
         margin-bottom: 21px;
 
-        @media (max-width: 64.05em) and (min-width: 48em) {
-          margin-bottom: 12px;
+        ._zoom-tab &,
+        &:not(._zoom &) {
+          @media (max-width: 64.05em) and (min-width: 48em) {
+            margin-bottom: 12px;
+          }
         }
 
-        @media (max-width: 48em) {
-          margin-bottom: 18px;
+        ._zoom-mob &,
+        &:not(._zoom &) {
+          @media (max-width: 48em) {
+            margin-bottom: 18px;
+          }
         }
       }
     }
@@ -342,8 +409,12 @@
       &__image-wrap {
         margin-right: 55px;
 
-        @media (max-width: 64.05em) {
-          margin-right: 51px;
+        ._zoom-tab &,
+        ._zoom-mob &,
+        &:not(._zoom &) {
+          @media (max-width: 64.05em) {
+            margin-right: 51px;
+          }
         }
       }
 

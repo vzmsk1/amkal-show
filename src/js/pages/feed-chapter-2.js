@@ -9,7 +9,6 @@ if (document.querySelector(".gallery__swiper")) {
     modules: [Navigation, Pagination],
     loop: true,
     grabCursor: true,
-    autoHeight: true,
     navigation: {
       prevEl: ".gallery__slider-btn_prev",
       nextEl: ".gallery__slider-btn_next",
