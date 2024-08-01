@@ -5,6 +5,38 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
 
+  [data-screen] & {
+    line-height: 2rem;
+    letter-spacing: 0.2rem;
+    font-size: 1.3rem;
+
+    &:not(._zoom &) {
+      @media (min-width: 64.05em) and (min-width: 48.05em) and (max-height: 900px) {
+        font-size: 2rem;
+      }
+    }
+
+    ._zoom-tab &,
+    &:not(._zoom &) {
+      @media (max-width: 64.05em) and (min-width: 48.05em) {
+        letter-spacing: 0.4rem;
+      }
+      @media (max-width: 64.05em) and (min-width: 48.05em) and (min-height: 660px) {
+        font-size: 2rem;
+      }
+      @media (max-width: 64.05em) and (min-width: 48.05em) and (max-height: 660px) {
+        font-size: 4rem;
+      }
+    }
+
+    ._zoom-mob &,
+    &:not(._zoom &) {
+      @media (max-width: 48em) {
+        font-size: 1.8rem;
+      }
+    }
+  }
+
   &_11 {
     font-size: 11px;
   }
@@ -59,9 +91,9 @@
 .sm-title {
   font-family: "Druk Text Wide Cyr";
   font-weight: 700;
-  font-size: 12rem;
+  font-size: 11rem;
   line-height: 85%;
-  letter-spacing: -5px;
+  letter-spacing: -0.3rem;
   text-transform: uppercase;
 
   ._zoom-tab &,
@@ -107,9 +139,23 @@
   .glitch {
     position: relative;
 
-    padding-left: 9px;
+    padding-left: 1.2rem;
 
     width: 135%;
+
+    ._zoom-tab &,
+    &:not(._zoom &) {
+      @media (max-width: 64.05em) and (min-width: 48.05em) {
+        padding-left: 1.8rem;
+      }
+    }
+
+    ._zoom-mob &,
+    &:not(._zoom &) {
+      @media (max-width: 48em) {
+        padding-left: 1.6rem;
+      }
+    }
 
     span {
       position: relative;

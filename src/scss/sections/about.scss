@@ -21,7 +21,7 @@
   &__text {
     margin-bottom: 1rem;
 
-    font-size: 2.15rem;
+    font-size: 2.05rem;
     line-height: 4rem;
     text-transform: uppercase;
 
@@ -43,16 +43,25 @@
   }
 
   &__image-wrap {
-    width: 48.6rem;
-    height: 27.5rem;
+    width: 45.6rem;
+    height: 25.5rem;
 
     transform: translateX(-450%);
     opacity: 0;
 
+    &:not(._zoom &) {
+      @media (min-width: 64.05em) and (max-height: 900px) {
+        margin-bottom: 1rem;
+      }
+    }
+    ._zoom-desk & {
+      margin-bottom: 1rem;
+    }
+
     ._zoom-tab &,
     &:not(._zoom &) {
       @media (max-width: 64.05em) and (min-width: 48.05em) {
-        margin-bottom: 13rem;
+        margin-bottom: 15rem;
 
         width: 63.6rem;
         height: 36.5rem;
@@ -62,10 +71,16 @@
     ._zoom-mob &,
     &:not(._zoom &) {
       @media (max-width: 48em) {
-        margin-bottom: 22rem;
-
         width: 45rem;
         height: 26rem;
+      }
+
+      @media (max-width: 48em) and (min-height: 450px) {
+        margin-bottom: 22rem;
+      }
+
+      @media (max-width: 48em) and (max-height: 450px) {
+        margin-bottom: 8rem;
       }
     }
   }
@@ -81,7 +96,6 @@
 
     display: flex;
     flex-direction: column;
-    row-gap: 1rem;
 
     ._zoom-mob &,
     &:not(._zoom &) {
@@ -91,7 +105,9 @@
     }
 
     .io {
-      margin-left: 0.5rem;
+      margin-left: 1rem;
+      margin-bottom: -1rem;
+
       ._zoom-tab &,
       &:not(._zoom &) {
         @media (max-width: 64.05em) and (min-width: 48.05em) {
@@ -107,10 +123,19 @@
     }
 
     .lr {
-      margin-bottom: 3rem;
       margin-left: 18rem;
 
       opacity: 0;
+
+      &:not(._zoom &) {
+        @media (min-width: 64.05em) {
+          margin-bottom: 1rem;
+        }
+      }
+
+      ._zoom-desk & {
+        margin-bottom: 1rem;
+      }
 
       ._zoom-tab &,
       &:not(._zoom &) {
@@ -141,7 +166,7 @@
     }
 
     .letter {
-      margin: 0 -1.1rem;
+      margin: 0 -1.2rem;
 
       height: 20rem;
 
@@ -164,9 +189,11 @@
   }
 
   &__title-txt {
+    white-space: nowrap;
+
     .glitch {
       span {
-        font-size: 24.5rem;
+        font-size: 23rem;
         line-height: 100%;
 
         ._zoom-tab &,
@@ -189,11 +216,29 @@
     &_sm {
       width: fit-content;
 
-      white-space: nowrap;
+      letter-spacing: -0.2rem;
+      line-height: 94%;
+
       ._zoom-tab &,
+      ._zoom-mob &,
       &:not(._zoom &) {
         @media (max-width: 64.05em) {
           margin-left: auto;
+        }
+      }
+
+      ._zoom-tab &,
+      &:not(._zoom &) {
+        @media (max-width: 64.05em) and (min-width: 48.05em) {
+          line-height: 90%;
+          letter-spacing: -1rem;
+        }
+      }
+
+      ._zoom-mob &,
+      &:not(._zoom &) {
+        @media (max-width: 48em) {
+          line-height: 86%;
         }
       }
 
@@ -208,14 +253,7 @@
       }
 
       &_1 {
-        &:not(._zoom &) {
-          @media (min-width: 64.05em) {
-            margin-left: 51%;
-          }
-        }
-        ._zoom-desk & {
-          margin-left: 51%;
-        }
+        margin-left: 50.4%;
 
         ._zoom-tab &,
         &:not(._zoom &) {

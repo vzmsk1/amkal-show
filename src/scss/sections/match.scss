@@ -6,13 +6,55 @@
   &[data-screen] {
     color: #000000;
 
+    .txt-uc {
+      font-size: 1.5rem;
+
+      //      ._zoom-desk &,
+      &:not(._zoom &) {
+        @media (min-width: 64.05em) and (max-height: 900px) {
+          font-size: 2.5rem;
+          line-height: 100%;
+        }
+      }
+
+      ._zoom-tab &,
+      &:not(._zoom &) {
+        @media (max-width: 64.05em) and (min-width: 48.05em) {
+          letter-spacing: 0;
+        }
+        @media (max-width: 64.05em) and (min-width: 48.05em) and (max-height: 660px) {
+          font-size: 4rem;
+          line-height: 100%;
+        }
+        @media (max-width: 64.05em) and (min-width: 48.05em) and (min-height: 660px) {
+          font-size: 2.8rem;
+        }
+      }
+
+      ._zoom-mob &,
+      &:not(._zoom &) {
+        @media (max-width: 48em) and (max-height: 500px) {
+          font-size: 3rem;
+          line-height: 100%;
+        }
+      }
+    }
+
     .match {
       &__container {
-        padding-top: 19rem;
+        padding-top: 139px;
         padding-bottom: 1.5rem;
 
         min-height: 100%;
         height: 100%;
+        width: 100%;
+
+        //        ._zoom-desk &,
+        &:not(._zoom &) {
+          @media (min-width: 64.05em) and (max-height: 900px) {
+            padding-top: 119px;
+          }
+        }
 
         ._zoom-tab &,
         &:not(._zoom &) {
@@ -72,6 +114,12 @@
         ._zoom-tab &,
         &:not(._zoom &) {
           @media (max-width: 64.05em) and (min-width: 48.05em) {
+            column-gap: 2.5rem;
+          }
+          @media (max-width: 64.05em) and (min-width: 48.05em) and (max-height: 660px) {
+            margin-bottom: 4rem;
+          }
+          @media (max-width: 64.05em) and (min-width: 48.05em) and (min-height: 660px) {
             margin-bottom: 5.7vh;
           }
         }
@@ -82,19 +130,21 @@
       &__title {
         margin-right: 0;
 
-        font-size: 5.8rem;
-        letter-spacing: 0.2rem;
+        &.title {
+          font-size: 5.8rem;
+          letter-spacing: 0;
+        }
 
         ._zoom-tab &,
         &:not(._zoom &) {
           @media (max-width: 64.05em) and (min-width: 48.05em) {
-            letter-spacing: 1rem;
+            letter-spacing: 0.6rem;
           }
           @media (max-width: 64.05em) and (min-width: 48.05em) and (max-height: 660px) {
             font-size: 14.2rem;
           }
           @media (max-width: 64.05em) and (min-width: 48.05em) and (min-height: 660px) {
-            font-size: 8.2rem;
+            font-size: 8.5rem;
           }
         }
 
@@ -109,7 +159,7 @@
     }
 
     .table-match {
-      grid-auto-rows: 9.8rem;
+      grid-auto-rows: 9.2rem;
 
       &__row {
         opacity: 0;
@@ -118,7 +168,7 @@
       ._zoom-tab &,
       &:not(._zoom &) {
         @media (max-width: 64.05em) and (min-width: 48.05em) {
-          grid-auto-rows: 15rem;
+          grid-auto-rows: 14.4rem;
         }
       }
       ._zoom-mob &,
@@ -221,10 +271,12 @@
     &.title {
       letter-spacing: -3px;
 
-      ._zoom-desk &,
+      //      ._zoom-desk &,
       &:not(._zoom &) {
         @media (min-width: 48.05em) {
-          letter-spacing: 0.4rem;
+          &:not(.mainpage &) {
+            letter-spacing: 0.4rem;
+          }
           font-family: "Druk Wide";
         }
       }
@@ -334,20 +386,27 @@
         }
 
         &:nth-child(4) {
-          ._zoom-tab &,
+          //          ._zoom-tab &,
           &:not(._zoom &) {
             @media (min-width: 64.05em) {
               transform: translateX(8px);
             }
           }
+
+          ._zoom-desk & {
+            transform: translateX(8px);
+          }
         }
 
         &:nth-child(5) {
-          ._zoom-tab &,
           &:not(._zoom &) {
             @media (min-width: 64.05em) {
               transform: translateX(11px);
             }
+          }
+
+          ._zoom-desk & {
+            transform: translateX(11px);
           }
         }
 
@@ -374,7 +433,7 @@
         }
       }
 
-      ._zoom-desk &,
+      //      ._zoom-desk &,
       &:not(._zoom &) {
         @media (min-width: 64.05em) {
           grid-template-columns: repeat(4, 4fr) repeat(2, 3fr) 2fr;
@@ -487,11 +546,15 @@
       }
 
       &:nth-child(7) {
-        ._zoom-tab &,
+        //        ._zoom-tab &,
         &:not(._zoom &) {
-          @media (min-width: 64.05em) and (min-width: 48.05em) {
+          @media (min-width: 64.05em) {
             padding-left: 16px;
           }
+        }
+
+        ._zoom-desk & {
+          padding-left: 16px;
         }
       }
     }

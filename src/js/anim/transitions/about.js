@@ -84,8 +84,8 @@ aboutTl
     ".about__title-txt",
     {
       opacity: 1,
-      translateX: 0,
       stagger: 0.05,
+      translateX: 0,
     },
     0.5,
   );

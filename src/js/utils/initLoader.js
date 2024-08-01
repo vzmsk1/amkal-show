@@ -4,7 +4,6 @@ import Splitting from "splitting";
 import Swiper from "swiper";
 import "swiper/css";
 import { Navigation, Grid } from "swiper/modules";
-import { remToPx } from "../utils/utils";
 
 Splitting();
 

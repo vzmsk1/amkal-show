@@ -2,7 +2,7 @@
   &__container {
     position: relative;
 
-    padding-top: 40rem;
+    padding-top: 37rem;
 
     display: flex;
     flex-direction: column;
@@ -44,11 +44,17 @@
 
       margin-bottom: 1.1rem;
 
-      transform: translateX(4.8%);
+      transform: translate(4.8%, -1.5rem);
+
+      &:not(._zoom &) {
+        @media (min-width: 64.05em) and (max-height: 900px) {
+          transform: translate(4.8%, 0.5rem);
+        }
+      }
 
       .glitch span {
-        line-height: 79%;
-        font-size: 28rem;
+        line-height: 97%;
+        font-size: 26.4rem;
 
         ._zoom-tab &,
         &:not(._zoom &) {
@@ -89,21 +95,21 @@
       ._zoom-tab &,
       &:not(._zoom &) {
         @media (max-width: 64.05em) and (min-width: 48.05em) {
-          transform: translateX(7.8%);
+          transform: translate(7.8%, -1.5rem);
         }
       }
 
       ._zoom-mob &,
       &:not(._zoom &) {
         @media (max-width: 48em) {
-          transform: translateX(-1.2%);
+          transform: translate(-1.2%, -1rem);
         }
       }
     }
   }
 
   &__text {
-    font-size: 2.1rem;
+    font-size: 2rem;
     line-height: 2.5rem;
 
     ._zoom-tab &,
@@ -123,6 +129,13 @@
   }
 
   &__title-txt {
+    ._zoom-tab &,
+    &:not(._zoom &) {
+      @media (max-width: 64.05em) and (min-width: 48.05em) {
+        letter-spacing: -1rem;
+      }
+    }
+
     ._zoom-mob &,
     &:not(._zoom &) {
       @media (max-width: 48em) {
@@ -157,7 +170,7 @@
 
     &_2 {
       margin-bottom: 1rem;
-      margin-left: 67rem;
+      margin-left: 63rem;
 
       ._zoom-tab &,
       &:not(._zoom &) {
@@ -176,7 +189,7 @@
     }
 
     &_3 {
-      margin-left: 67rem;
+      margin-left: 63rem;
 
       ._zoom-tab &,
       &:not(._zoom &) {
@@ -198,18 +211,18 @@
     position: absolute;
 
     &_right {
-      top: 35.2rem;
+      top: 33.2rem;
       right: 2rem;
 
       display: flex;
       flex-direction: column;
-      row-gap: 2rem;
-      width: 65.1rem;
+      row-gap: 1rem;
+      width: 61.1rem;
 
       .lang__image {
         align-self: flex-end;
         width: 100%;
-        height: 31rem;
+        height: 30rem;
 
         transform: translateX(-18rem);
         opacity: 0;
@@ -230,9 +243,11 @@
       }
 
       ._zoom-tab &,
-      ._zoom-mob &,
       &:not(._zoom &) {
-        @media (max-width: 64.05em) {
+        @media (max-width: 64.05em) and (min-width: 48.05em) {
+          right: 3rem;
+
+          row-gap: 2rem;
         }
       }
 
@@ -241,7 +256,7 @@
         @media (max-width: 64.05em) and (min-width: 48.05em) {
           top: 27vh;
 
-          width: 99.1rem;
+          width: 98.1rem;
         }
       }
 
@@ -259,8 +274,8 @@
       left: 2rem;
       bottom: 2rem;
 
-      width: 48.5rem;
-      height: 30rem;
+      width: 45.5rem;
+      height: 28rem;
 
       transform: translateX(-100%);
       opacity: 0;

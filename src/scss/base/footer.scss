@@ -2,8 +2,11 @@
   .footer-main__anchor {
     text-transform: uppercase;
 
-    @media (max-width: 48em) {
-      justify-self: end;
+    ._zoom-mob &,
+    &:not(._zoom &) {
+      @media (max-width: 48em) {
+        justify-self: end;
+      }
     }
   }
   &__container {
@@ -13,14 +16,21 @@
     justify-content: space-between;
     align-items: flex-end;
 
-    @media (max-width: 64.05em) {
-      padding-bottom: 15px;
+    ._zoom-tab &,
+    ._zoom-mob &,
+    &:not(._zoom &) {
+      @media (max-width: 64.05em) {
+        padding-bottom: 15px;
+      }
     }
 
-    @media (max-width: 48em) {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      row-gap: 60px;
+    ._zoom-mob &,
+    &:not(._zoom &) {
+      @media (max-width: 48em) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 60px;
+      }
     }
   }
 
@@ -32,9 +42,12 @@
     flex-direction: column;
     row-gap: 23px;
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
-      margin-right: 25px;
-      margin-top: -2px;
+    ._zoom-tab &,
+    &:not(._zoom &) {
+      @media (max-width: 64.05em) and (min-width: 48em) {
+        margin-right: 25px;
+        margin-top: -2px;
+      }
     }
 
     &_sublist {
@@ -42,27 +55,36 @@
 
       row-gap: 4px;
 
+      ._zoom-tab &,
+      &:not(._zoom &) {
+      }
       @media (max-width: 64.05em) and (min-width: 48em) {
         padding-left: 84px;
       }
 
-      @media (max-width: 48em) {
-        padding-left: 68px;
+      ._zoom-mob &,
+      &:not(._zoom &) {
+        @media (max-width: 48em) {
+          padding-left: 68px;
+        }
       }
     }
 
-    @media (max-width: 48em) {
-      &:not(&_sublist) {
-        margin-top: -4px;
-        margin-right: 15px;
+    ._zoom-tab &,
+    &:not(._zoom &) {
+      @media (max-width: 48em) {
+        &:not(&.footer__list_sublist) {
+          margin-top: -4px;
+          margin-right: 15px;
 
-        row-gap: 15px;
-        grid-row: 1/2;
-        grid-column: span 2;
-      }
+          row-gap: 15px;
+          grid-row: 1/2;
+          grid-column: span 2;
+        }
 
-      &._desktop-only {
-        display: none;
+        &._desktop-only {
+          display: none;
+        }
       }
     }
   }

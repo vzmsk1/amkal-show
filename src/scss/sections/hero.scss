@@ -11,6 +11,13 @@
     object-fit: cover;
   }
 
+  ._zoom-mob &,
+  &:not(._zoom &) {
+    @media (max-width: 48em) and (max-height: 450px) {
+      padding-top: 10rem;
+    }
+  }
+
   &__container {
     position: relative;
     z-index: 1;
@@ -51,10 +58,9 @@
 
     font-family: "Druk Text Wide Cyr";
     font-weight: 700;
-
-    font-size: 89px;
-    line-height: 81px;
-    letter-spacing: -5px;
+    font-size: 11.2rem;
+    line-height: 98%;
+    letter-spacing: -0.6rem;
 
     transform: translate(-50%, -39%);
 
@@ -74,8 +80,8 @@
     ._zoom-tab &,
     &:not(._zoom &) {
       @media (max-width: 64.05em) and (min-width: 48.1em) {
-        font-size: 72px;
-        line-height: 59px;
+        font-size: 14.4rem;
+        letter-spacing: -1rem;
       }
     }
 
@@ -86,11 +92,11 @@
 
         flex-direction: column;
         width: calc(100% - 32px);
-        max-width: 398px;
+        max-width: 69rem;
 
-        font-size: 46px;
-        line-height: 39px;
-        letter-spacing: -4px;
+        font-size: 8rem;
+        line-height: 89%;
+        letter-spacing: -0.7rem;
 
         transform: translate(-50%, 0);
 
@@ -104,16 +110,30 @@
   }
 
   &__text {
-    font-size: 16px;
-    line-height: 21px;
+    font-size: 2.1rem;
+    line-height: 2.7rem;
 
     ._zoom-tab &,
-    &:not(._zoom &),
-    ._zoom-mob & {
+    ._zoom-mob &,
+    &:not(._zoom &) {
       @media (max-width: 64.05em) {
-        max-width: 600px;
+        max-width: 120rem;
+      }
+    }
 
-        line-height: 18px;
+    ._zoom-tab &,
+    &:not(._zoom &) {
+      @media (max-width: 64.05em) and (min-width: 48.05em) {
+        font-size: 3.4rem;
+        line-height: 4rem;
+      }
+    }
+
+    ._zoom-mob &,
+    &:not(._zoom &) {
+      @media (max-width: 48em) {
+        font-size: 3rem;
+        line-height: 3rem;
       }
     }
   }
