@@ -161,6 +161,10 @@
     .table-match {
       grid-auto-rows: 9.2rem;
 
+      .txt-uc {
+        font-size: 12px;
+      }
+
       &__row {
         opacity: 0;
       }
