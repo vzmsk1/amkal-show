@@ -19,9 +19,11 @@
 
   .footer__list {
     &:not(&_sublist) {
-      margin-right: 5rem;
+      margin-right: 6rem;
 
       row-gap: 3.5rem;
+
+      transform: translateY(2rem);
 
       ._zoom-tab &,
       &:not(._zoom &) {
@@ -86,12 +88,16 @@
   .footer__item {
     row-gap: 0;
 
+    line-height: 125%;
+
     opacity: 0;
 
     ._zoom-tab &,
     &:not(._zoom &) {
       @media (max-width: 64.05em) and (min-width: 48.05em) {
         row-gap: 10px;
+
+        line-height: 82%;
       }
     }
 
@@ -99,12 +105,14 @@
     &:not(._zoom &) {
       @media (max-width: 48em) {
         row-gap: 1.5rem;
+
+        line-height: 94%;
       }
     }
   }
 
   &__container {
-    padding-top: 28.5rem;
+    padding-top: 26.5rem;
     padding-bottom: 2rem;
 
     display: flex;
@@ -244,7 +252,7 @@
     ._zoom-mob &,
     &:not(._zoom &) {
       @media (max-width: 48em) and (min-height: 770px) {
-        margin-bottom: 13.5vh;
+        margin-bottom: 15vh;
       }
       @media (max-width: 48em) and (max-height: 770px) {
         margin-bottom: 2rem;
@@ -274,8 +282,6 @@
   }
 
   &__title-txt {
-    margin-bottom: 2rem;
-
     font-family: "Druk Text Wide Cyr";
     font-weight: 700;
     font-size: 10.9rem;
@@ -294,9 +300,6 @@
       @media (max-width: 64.05em) and (min-width: 48.05em) and (min-height: 660px) {
         font-size: 17rem;
       }
-      @media (max-width: 64.05em) and (min-width: 48.05em) {
-        margin-bottom: 0;
-      }
     }
 
     ._zoom-mob &,
@@ -308,8 +311,6 @@
         font-size: 8.1rem;
       }
       @media (max-width: 48em) {
-        margin-bottom: 3.3rem;
-
         font-family: "Druk Wide";
         letter-spacing: 0;
         line-height: 85%;
@@ -318,12 +319,16 @@
   }
 
   &__sponsors {
-    margin-bottom: 7rem;
-
     display: flex;
     flex-direction: column;
 
     opacity: 0;
+
+    &:not(._zoom &) {
+      @media (min-width: 64.05em) {
+        margin-bottom: 8rem;
+      }
+    }
 
     ._zoom-tab &,
     &:not(._zoom &) {

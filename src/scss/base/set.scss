@@ -13,9 +13,13 @@ html {
   //  font-size: 7px;
   //  font-size: calc((100 / 1024) * 5vw);
   &.mainpage {
-    &._zoom {
-      font-size: 7px;
-    }
+    //    &._zoom {
+    //      font-size: 7px;
+    //
+    //      &._zoom-desk-sm {
+    //        font-size: 5px;
+    //      }
+    //    }
     &:not(&._zoom) {
       @media (min-width: 64.05em) and (max-height: 900px) and (min-height: 700px) {
         font-size: calc((100 / 1024) * 5vw);

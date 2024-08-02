@@ -124,6 +124,11 @@ const onMatchMediaChangeHandler = () => {
   }
 };
 
+const fontSize = window
+  .getComputedStyle(document.documentElement)
+  .getPropertyValue("font-size");
+console.log(fontSize);
+
 const handleZoom = () => {
   if (!supportsTouch) {
     if (window.innerWidth !== window.screen.availWidth) {
@@ -132,11 +137,13 @@ const handleZoom = () => {
         `scale(${1 / devicePixelRatio})`;
 
       document.documentElement.classList.add("_zoom");
+      document.documentElement.style.fontSize = fontSize;
     } else {
       document.querySelector("body").style.zoom = 1;
       document.querySelector("body").style["-moz-transform"] = `scale(${1})`;
 
       document.documentElement.classList.remove("_zoom");
+      document.documentElement.style.removeProperty("font-size");
     }
 
     if (document.querySelector("._zoom")) {
@@ -158,13 +165,21 @@ const handleZoom = () => {
 
       if (!isMobile && !isTablet) {
         document.documentElement.classList.add("_zoom-desk");
+
+        if (window.screen.availHeight < 900) {
+          document.documentElement.classList.add("_zoom-desk-sm");
+        } else {
+          document.documentElement.classList.remove("_zoom-desk-sm");
+        }
       } else {
         document.documentElement.classList.remove("_zoom-desk");
+        document.documentElement.classList.remove("_zoom-desk-sm");
       }
     } else {
       document.documentElement.classList.remove("_zoom-tab");
       document.documentElement.classList.remove("_zoom-mob");
       document.documentElement.classList.remove("_zoom-desk");
+      document.documentElement.classList.remove("_zoom-desk-sm");
     }
   } else {
     document.querySelector("body").style.zoom = 1;
@@ -173,6 +188,7 @@ const handleZoom = () => {
     document.documentElement.classList.remove("_zoom-tab");
     document.documentElement.classList.remove("_zoom-mob");
     document.documentElement.classList.remove("_zoom-desk");
+    document.documentElement.classList.remove("_zoom-desk-sm");
   }
 };
 
