@@ -80,12 +80,14 @@ heroLeaveTl
   .to(".hero__title span:first-child", {
     translateX: "-110%",
     duration: 0.5,
+    opacity: 0,
   })
   .to(
     ".hero__title span:last-child",
     {
       translateX: "110%",
       duration: 0.5,
+      opacity: 0,
       onStart: () => {
         gsap.to(".hero__text .char", {
           opacity: 0,
