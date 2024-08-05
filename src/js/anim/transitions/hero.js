@@ -56,12 +56,15 @@ export const heroLeaveTl = gsap.timeline({
 });
 
 export const animateHero = () => {
-  heroTl.to(".hero__video-wrap", { opacity: 1, duration: 0.5 });
+  heroTl.to(".hero__video-wrap, .hero__image-wrap", {
+    opacity: 1,
+    duration: 1,
+  });
   heroTl.to(
     ".hero__title span",
     {
       translateX: 0,
-      duration: 0.5,
+      duration: 1,
       opacity: 1,
     },
     0,
@@ -98,4 +101,4 @@ heroLeaveTl
     },
     0,
   )
-  .to(".hero__video-wrap", { opacity: 0 }, 0.5);
+  .to(".hero__video-wrap, .hero__image-wrap", { opacity: 0 }, 0.5);

@@ -77,10 +77,10 @@
           }
           ._zoom-mob &,
           &:not(._zoom &) {
-            @media (max-width: 48em) and (max-height: 500px) {
-              padding-top: 15.4vh;
+            @media (max-width: 48em) and (max-height: 800px) {
+              padding-top: 100px;
             }
-            @media (max-width: 48em) and (min-height: 500px) {
+            @media (max-width: 48em) and (min-height: 800px) {
               padding-top: 19.4vh;
             }
           }

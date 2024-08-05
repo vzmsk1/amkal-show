@@ -3,8 +3,12 @@ import videojs from "video.js";
 import { enterFooterScreen } from "./footer";
 
 export const leaveHeroScreen = (isNext, currentIdx) => {
-  videojs.getPlayer(document.querySelector(".hero__video").id) &&
+  if (
+    document.querySelector(".hero__video") &&
+    videojs.getPlayer(document.querySelector(".hero__video").id)
+  ) {
     videojs.getPlayer(document.querySelector(".hero__video").id).pause();
+  }
   heroLeaveTl.restart();
 
   !isNext && enterFooterScreen();

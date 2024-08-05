@@ -48,33 +48,47 @@ export const victoryLeaveTl = gsap.timeline({
 });
 
 victoryLeaveTl
-  .to(
-    ".victory__title-txt_sm_2, .victory__title-txt_sm_3",
-    {
-      opacity: 0,
-      translateX: "100vw",
-      stagger: 0.01,
-      onStart: () => {
-        document.querySelector(".victory__layer").classList.add("_fw");
-        moveGlitchText(".victory__title .glitch-text", false, true);
-      },
+  // .to(
+  //   ".victory__title-txt_sm_2, .victory__title-txt_sm_3",
+  //   {
+  //     opacity: 0,
+  //     translateX: "100vw",
+  //     stagger: 0.01,
+  //     onStart: () => {
+  //       document.querySelector(".victory__layer").classList.add("_fw");
+  //       moveGlitchText(".victory__title .glitch-text", false, true);
+  //     },
+  //   },
+  //   0,
+  // )
+  .to(".victory__title-txt_sm", {
+    opacity: 0,
+    translateX: "100vw",
+    stagger: -0.05,
+    onStart: () => {
+      document.querySelector(".victory__layer").classList.add("_fw");
+      moveGlitchText(".victory__title .glitch-text", false, true);
+
+      gsap.to(".victory__text .char", {
+        opacity: 0,
+        stagger: -0.01,
+      });
     },
-    0,
-  )
-  .to(
-    ".victory__title-txt_sm_1",
-    {
-      opacity: 0,
-      translateX: "100vw",
-      onStart: () => {
-        gsap.to(".victory__text .char", {
-          opacity: 0,
-          stagger: -0.01,
-        });
-      },
-    },
-    0.5,
-  )
+  })
+  // .to(
+  //   ".victory__title-txt_sm_1",
+  //   {
+  //     opacity: 0,
+  //     translateX: "100vw",
+  //     onStart: () => {
+  //       gsap.to(".victory__text .char", {
+  //         opacity: 0,
+  //         stagger: -0.01,
+  //       });
+  //     },
+  //   },
+  //   0.5,
+  // )
   .to(
     ".victory__layer",
     {
@@ -92,7 +106,7 @@ victoryLeaveTl
   )
 
   .to(
-    ".victory__video-wrap",
+    ".victory__video-wrap, .victory__image-wrap",
     {
       opacity: 0,
     },
@@ -116,22 +130,27 @@ victoryTl
     0.4,
   )
   .to(
-    ".victory__video-wrap",
+    ".victory__video-wrap, .victory__image-wrap",
     {
       opacity: 1,
     },
     0,
   )
-  .to(".victory__title-txt_sm_1", {
+  .to(".victory__title-txt_sm", {
     opacity: 1,
     translateX: 0,
-  })
-  .to(
-    ".victory__title-txt_sm_2, .victory__title-txt_sm_3",
-    {
-      opacity: 1,
-      translateX: 0,
-      stagger: 0.05,
-    },
-    1.3,
-  );
+    stagger: 0.05,
+  });
+// .to(".victory__title-txt_sm_1", {
+//   opacity: 1,
+//   translateX: 0,
+// })
+// .to(
+//   ".victory__title-txt_sm_2, .victory__title-txt_sm_3",
+//   {
+//     opacity: 1,
+//     translateX: 0,
+//     stagger: 0.05,
+//   },
+//   1.3,
+// );

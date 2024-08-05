@@ -303,6 +303,8 @@
     .victory {
       &__container {
         padding-bottom: 0;
+
+        justify-content: flex-end;
       }
       &__title {
         margin-right: 0;
