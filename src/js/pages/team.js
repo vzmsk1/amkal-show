@@ -1,9 +1,9 @@
-import "../../scss/sections/team.scss";
+// import "../../scss/sections/team.scss";
 window.innerWidth > 1024 && import("../lib/locomotive-scroll");
 
 import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
+import("swiper/css");
 import { initVideoJS } from "../lib/video";
 import { setSlideContent } from "../utils/utils";
 

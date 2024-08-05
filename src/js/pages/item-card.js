@@ -1,11 +1,11 @@
-import "../../scss/sections/item-card.scss";
+// import "../../scss/sections/item-card.scss";
 window.innerWidth > 1024 && import("../lib/locomotive-scroll");
 
 import Swiper from "swiper";
 import { Navigation } from "swiper/modules";
 import { setThumbsClasses } from "../anim/item-card-carousel";
 import { toggleScroll } from "../lib/locomotive-scroll";
-import "swiper/css";
+import("swiper/css");
 import gsap from "gsap";
 
 const md = gsap.matchMedia();

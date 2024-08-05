@@ -2,7 +2,7 @@ import { animateHeader } from "../anim/transitions/header";
 import gsap from "gsap";
 import Splitting from "splitting";
 import Swiper from "swiper";
-import "swiper/css";
+import("swiper/css");
 import { Navigation, Grid } from "swiper/modules";
 
 Splitting();

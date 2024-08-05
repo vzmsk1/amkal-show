@@ -1,6 +1,6 @@
 import lightGallery from "lightgallery";
-import "../../scss/common/lightgallery.scss";
-import "lightgallery/css/lightgallery-bundle.min.css";
+// import "../../scss/common/lightgallery.scss";
+import("lightgallery/css/lightgallery-bundle.min.css");
 
 const initLightGallery = () => {
   const images = document.querySelectorAll(

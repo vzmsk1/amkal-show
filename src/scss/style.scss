@@ -131,3 +131,35 @@ footer {
 
 @import "./base/header";
 @import "./base/footer";
+
+@import "./sections/cart";
+@import "./sections/cart-no-items";
+@import "./sections/checkout";
+@import "./sections/contacts";
+@import "./sections/error-page-chapter";
+@import "./sections/feed";
+@import "./sections/feed-chapter";
+@import "./sections/items-carousel";
+@import "./sections/gallery";
+@import "./sections/item-card";
+@import "./sections/legal-info";
+@import "./sections/hero";
+@import "./sections/loader";
+@import "./sections/about";
+@import "./sections/victory";
+@import "./sections/lang";
+@import "./sections/feed-screen";
+@import "./sections/merch";
+@import "./sections/match";
+@import "./sections/footer-main";
+@import "./sections/manifest";
+@import "./sections/error-page";
+@import "./sections/order-confirm";
+@import "./sections/partners";
+@import "./sections/team";
+@import "./sections/team-chapter";
+@import "./sections/main-ru";
+
+@import "./common/lightgallery.scss";
+@import "./common/simplebar.scss";
+@import "./common/locomotive-scroll.scss";

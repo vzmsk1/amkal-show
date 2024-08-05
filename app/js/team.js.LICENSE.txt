@@ -1,8 +1,4 @@
-/*!
- * Programatically add the following
- */
-
-/*! @name @videojs/http-streaming @version 3.12.1 @license Apache-2.0 */
+/*! @name @videojs/http-streaming @version 3.13.2 @license Apache-2.0 */
 
 /*! @name aes-decrypter @version 4.0.1 @license Apache-2.0 */
 

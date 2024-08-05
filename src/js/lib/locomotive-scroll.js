@@ -1,5 +1,5 @@
 import LocomotiveScroll from "locomotive-scroll";
-import "../../scss/common/locomotive-scroll.scss";
+// import "../../scss/common/locomotive-scroll.scss";
 import gsap from "gsap";
 import {
   initItemCardCarousel,

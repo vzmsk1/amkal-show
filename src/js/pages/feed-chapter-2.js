@@ -1,8 +1,8 @@
-import "../../scss/sections/gallery.scss";
+// import "../../scss/sections/gallery.scss";
 window.innerWidth > 1024 && import("../lib/locomotive-scroll");
 import Swiper from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
+import("swiper/css");
 
 if (document.querySelector(".gallery__swiper")) {
   new Swiper(".gallery__swiper", {

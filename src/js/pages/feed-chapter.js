@@ -1,12 +1,12 @@
-import "../../scss/sections/feed-chapter.scss";
-import "../../scss/sections/items-carousel.scss";
+// import "../../scss/sections/feed-chapter.scss";
+// import "../../scss/sections/items-carousel.scss";
 window.innerWidth > 1024 && import("../lib/locomotive-scroll");
 
 import "../anim/item-card-carousel";
 import "../lib/lightgallery";
 import Swiper from "swiper";
 import { Pagination } from "swiper/modules";
-import "swiper/css";
+import("swiper/css");
 import { toggleScroll } from "../lib/locomotive-scroll";
 
 if (document.querySelector(".feed-chapter__bg-swiper")) {
