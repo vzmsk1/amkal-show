@@ -170,6 +170,13 @@
 
       height: 20rem;
 
+      ._zoom-desk &,
+      &:not(._zoom &) {
+        @media (min-width: 64.05em) and (max-height: 980px) {
+          height: 17rem;
+        }
+      }
+
       ._zoom-tab &,
       &:not(._zoom &) {
         @media (max-width: 64.05em) and (min-width: 48.05em) {
@@ -196,6 +203,14 @@
         font-size: 23rem;
         line-height: 100%;
 
+        ._zoom-desk &,
+        &:not(._zoom &) {
+          @media (min-width: 64.05em) and (max-height: 980px) {
+            font-size: 19rem;
+            line-height: 117%;
+          }
+        }
+
         ._zoom-tab &,
         &:not(._zoom &) {
           @media (max-width: 64.05em) and (min-width: 48.05em) {
@@ -218,6 +233,13 @@
 
       letter-spacing: -0.2rem;
       line-height: 94%;
+
+      ._zoom-desk &,
+      &:not(._zoom &) {
+        @media (min-width: 64.05em) and (max-height: 980px) {
+          font-size: 9rem;
+        }
+      }
 
       ._zoom-tab &,
       ._zoom-mob &,
