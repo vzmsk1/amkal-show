@@ -10,6 +10,7 @@ html {
   height: 100%;
   font-family: "Suisse Int'l";
   font-size: 0.5208335vw;
+  zoom: unset;
   &.mainpage {
     &:not(&._zoom) {
       @media (min-width: 1600px) {
