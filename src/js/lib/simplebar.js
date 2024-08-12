@@ -10,4 +10,4 @@ function initSimplebar() {
   });
 }
 
-initSimplebar();
+window.addEventListener("load", initSimplebar);

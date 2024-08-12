@@ -16,57 +16,92 @@ const closeCartWidget = () => {
 
   document.documentElement.style.removeProperty("overflow");
   document.documentElement.style.removeProperty("touch-action");
+
+  document
+    .querySelector(".actions-nav-row__item_cart .actions-nav-row__txt")
+    .addEventListener("click", (e) => {
+      initCartWidget();
+    });
 };
 
 const closeHeaderMenu = () => {
   document.documentElement.classList.remove("_show-header-menu");
   header.classList.remove("_dark-theme");
   bodyUnlock();
+
+  init();
 };
 
 const initHamburgerMenu = () => {
-  if (!document.querySelector("._show-header-menu")) {
-    document.documentElement.classList.add("_show-header-menu");
-    bodyLock();
-    header.classList.add("_dark-theme");
-  } else {
-    closeHeaderMenu();
-  }
+  // if (!document.querySelector("._show-header-menu")) {
+  document.documentElement.classList.add("_show-header-menu");
+  bodyLock();
+  header.classList.add("_dark-theme");
+
+  document
+    .querySelector(".nav-row__hamburger")
+    .addEventListener("click", (e) => {
+      closeHeaderMenu();
+    });
+  // } else {
+  //   closeHeaderMenu();
+  // }
 };
 
 const initCartWidget = () => {
-  document.documentElement.classList.remove("_show-header-menu");
-  document.documentElement.classList.toggle("_show-cart-widget");
+  document
+    .querySelector(".actions-nav-row__item_cart .actions-nav-row__txt")
+    .addEventListener("click", (e) => {
+      document.documentElement.classList.remove("_show-header-menu");
+      document.documentElement.classList.add("_show-cart-widget");
 
-  if (document.querySelector("._show-cart-widget")) {
-    header.classList.remove("_dark-theme");
-    // mm.matches ? bodyLock() : bodyUnlock();
+      // if (document.querySelector("._show-cart-widget")) {
+      header.classList.remove("_dark-theme");
+      // mm.matches ? bodyLock() : bodyUnlock();
 
-    if (
-      supportsTouch &&
-      !document.querySelector(".actions-nav-row__item_cart._has-items")
-    ) {
-      gsap.set("html", {
-        overflow: "hidden",
-        "touch-action": "none",
-      });
-    }
-  }
+      if (
+        supportsTouch &&
+        !document.querySelector(".actions-nav-row__item_cart._has-items")
+      ) {
+        gsap.set("html", {
+          overflow: "hidden",
+          "touch-action": "none",
+        });
+      }
+
+      document
+        .querySelector(".actions-nav-row__item_cart .actions-nav-row__txt")
+        .addEventListener("click", (e) => {
+          closeCartWidget();
+        });
+
+      // }
+    });
 };
+initCartWidget();
+
+const init = () => {
+  document
+    .querySelector(".nav-row__hamburger")
+    .addEventListener("click", (e) => {
+      initHamburgerMenu();
+    });
+};
+init();
 
 const onClickHandler = (e) => {
   const { target } = e;
 
-  if (target.closest(".nav-row__hamburger")) {
-    initHamburgerMenu();
-  }
+  // if (target.closest(".nav-row__hamburger")) {
+  //   initHamburgerMenu();
+  // }
 
   if (tm.matches) {
-    if (target.closest(".actions-nav-row__item_cart .actions-nav-row__txt")) {
-      initCartWidget();
-    }
+    // if (target.closest(".actions-nav-row__item_cart .actions-nav-row__txt")) {
+    //   initCartWidget();
+    // }
     if (
-      document.querySelector("._show-cart-widget") &&
+      target.closest("._show-cart-widget") &&
       (!target.closest(".actions-nav-row__item_cart") ||
         target.closest(".cart-widget__close-btn"))
     ) {
