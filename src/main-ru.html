@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" style="overflow: hidden">
   <head>
     <title>MAIN</title>
     <meta charset="UTF-8" />
@@ -12,6 +12,12 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"
     />
+
+    <script>
+      window.onload((e) => {
+        document.documentElement.style.removeProperty("overflow");
+      });
+    </script>
   </head>
   <body>
     <header class="header">

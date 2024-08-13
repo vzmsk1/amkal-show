@@ -17,11 +17,15 @@ const closeCartWidget = () => {
   document.documentElement.style.removeProperty("overflow");
   document.documentElement.style.removeProperty("touch-action");
 
-  document
-    .querySelector(".actions-nav-row__item_cart .actions-nav-row__txt")
-    .addEventListener("click", (e) => {
-      initCartWidget();
-    });
+  document.querySelector(".cart-widget._touch") &&
+    document.querySelector(".cart-widget._touch").classList.remove("_touch");
+
+  document.querySelector(".actions-nav-row__item_cart .actions-nav-row__txt") &&
+    document
+      .querySelector(".actions-nav-row__item_cart .actions-nav-row__txt")
+      .addEventListener("click", (e) => {
+        initCartWidget();
+      });
 };
 
 const closeHeaderMenu = () => {
@@ -49,34 +53,38 @@ const initHamburgerMenu = () => {
 };
 
 const initCartWidget = () => {
-  document
-    .querySelector(".actions-nav-row__item_cart .actions-nav-row__txt")
-    .addEventListener("click", (e) => {
-      document.documentElement.classList.remove("_show-header-menu");
-      document.documentElement.classList.add("_show-cart-widget");
+  document.querySelector(".actions-nav-row__item_cart .actions-nav-row__txt") &&
+    document
+      .querySelector(".actions-nav-row__item_cart .actions-nav-row__txt")
+      .addEventListener("click", (e) => {
+        document.documentElement.classList.remove("_show-header-menu");
+        document.documentElement.classList.add("_show-cart-widget");
 
-      // if (document.querySelector("._show-cart-widget")) {
-      header.classList.remove("_dark-theme");
-      // mm.matches ? bodyLock() : bodyUnlock();
+        // if (document.querySelector("._show-cart-widget")) {
+        header.classList.remove("_dark-theme");
+        // mm.matches ? bodyLock() : bodyUnlock();
 
-      if (
-        supportsTouch &&
-        !document.querySelector(".actions-nav-row__item_cart._has-items")
-      ) {
-        gsap.set("html", {
-          overflow: "hidden",
-          "touch-action": "none",
-        });
-      }
+        if (
+          supportsTouch &&
+          !document.querySelector(".actions-nav-row__item_cart._has-items")
+        ) {
+          gsap.set("html", {
+            overflow: "hidden",
+            "touch-action": "none",
+          });
+        }
 
-      document
-        .querySelector(".actions-nav-row__item_cart .actions-nav-row__txt")
-        .addEventListener("click", (e) => {
-          closeCartWidget();
-        });
+        document.querySelector(
+          ".actions-nav-row__item_cart .actions-nav-row__txt",
+        ) &&
+          document
+            .querySelector(".actions-nav-row__item_cart .actions-nav-row__txt")
+            .addEventListener("click", (e) => {
+              closeCartWidget();
+            });
 
-      // }
-    });
+        // }
+      });
 };
 initCartWidget();
 
