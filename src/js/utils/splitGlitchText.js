@@ -235,7 +235,9 @@ export const splitGlitchText = () => {
           : window.screen.availWidth <= 768
             ? data[2] &&
               (text.innerHTML = split(text.innerHTML, item, +data[2]))
-            : (text.innerHTML = split(text.innerHTML, item, 0 + data[0]));
+            : data[3] && window.innerWidth > 1600
+              ? (text.innerHTML = split(text.innerHTML, item, +data[3]))
+              : (text.innerHTML = split(text.innerHTML, item, 0 + data[0]));
       } else {
         text.innerHTML = split(text.innerHTML, item, +data[0]);
       }

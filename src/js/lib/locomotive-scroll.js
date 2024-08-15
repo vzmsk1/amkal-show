@@ -22,13 +22,13 @@ export const locoScroll = new LocomotiveScroll({
   },
 });
 
-new ResizeObserver(() => {
-  setTimeout(() => {
-    locoScroll.destroy();
-    locoScroll.update();
-    locoScroll.init();
-  }, 100);
-}).observe(document.querySelector("main"));
+// new ResizeObserver(() => {
+//   setTimeout(() => {
+//     locoScroll.destroy();
+//     locoScroll.update();
+//     locoScroll.init();
+//   }, 100);
+// }).observe(document.querySelector("main"));
 
 const fixScrollTrigger = () => {
   ScrollTrigger.scrollerProxy(locoScroll.el, {
@@ -67,12 +67,12 @@ export const toggleScroll = {
 };
 
 window.addEventListener("load", function () {
-  fixScrollTrigger();
-  initItemCardCarousel();
-
-  setTimeout(() => {
-    locoScroll.update();
-  }, 1000);
+  // fixScrollTrigger();
+  // initItemCardCarousel();
+  //
+  // setTimeout(() => {
+  //   locoScroll.update();
+  // }, 1000);
 });
 window.addEventListener("resize", function () {
   locoScroll.update();

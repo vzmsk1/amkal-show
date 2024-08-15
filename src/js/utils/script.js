@@ -53,7 +53,9 @@ const initHamburgerMenu = () => {
 };
 
 const initCartWidget = () => {
-  document.querySelector(".actions-nav-row__item_cart .actions-nav-row__txt") &&
+  if (
+    document.querySelector(".actions-nav-row__item_cart .actions-nav-row__txt")
+  ) {
     document
       .querySelector(".actions-nav-row__item_cart .actions-nav-row__txt")
       .addEventListener("click", (e) => {
@@ -85,15 +87,17 @@ const initCartWidget = () => {
 
         // }
       });
+  }
 };
 initCartWidget();
 
 const init = () => {
-  document
-    .querySelector(".nav-row__hamburger")
-    .addEventListener("click", (e) => {
-      initHamburgerMenu();
-    });
+  document.querySelector(".nav-row__hamburger") &&
+    document
+      .querySelector(".nav-row__hamburger")
+      .addEventListener("click", (e) => {
+        initHamburgerMenu();
+      });
 };
 init();
 

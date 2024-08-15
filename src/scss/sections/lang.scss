@@ -52,6 +52,13 @@
         line-height: 97%;
         font-size: 26.4rem;
 
+        ._zoom-desk &,
+        &:not(._zoom &) {
+          @media (min-width: 1920px) {
+            line-height: 85%;
+          }
+        }
+
         ._zoom-tab &,
         &:not(._zoom &) {
           @media (max-width: 64.05em) and (min-width: 48.05em) {
