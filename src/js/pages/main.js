@@ -11,7 +11,6 @@ window.addEventListener("load", function () {
   const fontSize = window
     .getComputedStyle(document.documentElement)
     .getPropertyValue("font-size");
-  console.log(fontSize);
 
   const handleZoom = () => {
     if (!supportsTouch) {
@@ -75,20 +74,6 @@ window.addEventListener("load", function () {
       document.documentElement.classList.remove("_zoom-desk-sm");
     }
   };
-  // handleZoom();
-
-  // function listenOnDevicePixelRatio() {
-  //   function onChange() {
-  //     console.log("devicePixelRatio changed: " + window.devicePixelRatio);
-  //     listenOnDevicePixelRatio();
-  //     handleZoom();
-  //   }
-  //   matchMedia(`(resolution: ${window.devicePixelRatio}dppx)`).addEventListener(
-  //     "change",
-  //     onChange,
-  //   );
-  // }
-  // setTimeout(listenOnDevicePixelRatio, 0);
 
   setTimeout(() => {
     window.addEventListener("resize", (e) => {

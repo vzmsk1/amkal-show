@@ -37,6 +37,12 @@
   &.fixed {
     position: fixed;
     z-index: 50;
+
+    .item-card-page & {
+      @media (max-width: 48em) {
+        position: absolute;
+      }
+    }
   }
 
   &.absolute,
@@ -306,6 +312,13 @@
         &:not(.header-menu &) {
           display: none;
         }
+      }
+    }
+
+    ._zoom-mob &,
+    &:not(._zoom &) {
+      @media (max-width: 48em) {
+        row-gap: 3px;
       }
     }
   }
