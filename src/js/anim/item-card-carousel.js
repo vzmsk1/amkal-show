@@ -7,7 +7,6 @@ gsap.registerPlugin(ScrollTrigger);
 const mm = gsap.matchMedia();
 
 document.documentElement.classList.add("item-card-page");
-document.querySelector("body").classList.add("_light-theme");
 
 export const setThumbsClasses = (idx, thumbs) => {
   removeClasses(thumbs, "_is-active");

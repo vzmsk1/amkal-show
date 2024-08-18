@@ -7,6 +7,8 @@ import { setThumbsClasses } from "../anim/item-card-carousel";
 import { toggleScroll } from "../lib/locomotive-scroll";
 import("swiper/css");
 import gsap from "gsap";
+import { initSimplebar } from "../lib/simplebar";
+import { initCartWidget, onTouchStartHandler } from "../utils/script";
 
 const md = gsap.matchMedia();
 
@@ -84,4 +86,25 @@ document.addEventListener("DOMContentLoaded", function () {
   setLocoScrollAttr(document.querySelector(".header"));
   setLocoScrollAttr(document.querySelector(".item-card__thumbs-swiper"));
   setLocoScrollAttr(document.querySelector(".item-card__content"));
+
+  document.addEventListener("showCartWidget", function () {
+    document
+      .querySelector(".actions-nav-row__item_cart")
+      .classList.add("_has-items");
+
+    setTimeout(() => {
+      document.documentElement.classList.add("_show-cart-widget");
+    }, 0);
+
+    setTimeout(() => {
+      if (!document.querySelector(".cart-widget._touch")) {
+        document.documentElement.classList.remove("_show-cart-widget");
+      }
+    }, 2500);
+
+    // initCartWidget();
+    initSimplebar();
+
+    // if (document.querySelectorAll('.cart-widget .cart__item').length === 1) {}
+  });
 });
