@@ -24,12 +24,6 @@
     opacity 0.3s ease,
     visibility 0.3s ease;
 
-  ._show-cart-widget & {
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-  }
-
   &_add {
     display: none;
     ._has-items & {
@@ -43,7 +37,7 @@
   }
 
   ._zoom-desk &,
-  &:not(._zoom &) {
+  &:not(._zoom &, ._show-cart-widget &) {
     @media (min-width: 64.05em) {
       transform: translateX(110%);
     }
@@ -442,5 +436,11 @@
     padding: 10px;
 
     width: 320px;
+  }
+
+  ._show-cart-widget & {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
   }
 }

@@ -1,8 +1,10 @@
 import gsap from "gsap";
 
 const addError = (input) => {
-  input.closest(".field") &&
+  if (input.closest(".field")) {
     input.closest(".field").classList.add("_has-error");
+    gsap.to(input.closest(".field"), { opacity: 1, duration: 0.3 });
+  }
 };
 
 const removeError = (input) => {

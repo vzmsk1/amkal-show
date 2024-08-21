@@ -4,7 +4,7 @@ import("simplebar/dist/simplebar.css");
 
 export function initSimplebar() {
   document.querySelectorAll("[data-sb]").forEach((el) => {
-    new SimpleBar(el, {
+    const sb = new SimpleBar(el, {
       autoHide: false,
     });
     // document.addEventListener("showCartWidget", function () {
@@ -12,5 +12,9 @@ export function initSimplebar() {
     // });
   });
 }
+//
+// document.addEventListener("showCartWidget", function () {
+//   initSimplebar();
+// });
 
 window.addEventListener("load", initSimplebar);

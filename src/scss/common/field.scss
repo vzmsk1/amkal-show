@@ -30,6 +30,14 @@ input:focus {
 .field {
   opacity: 0.4;
 
+  transition: opacity 0.3s ease;
+
+  &._has-error {
+    .field__input {
+      border-bottom: 0.5px solid #c42929;
+    }
+  }
+
   &__label {
     display: flex;
     flex-direction: column;
@@ -61,8 +69,10 @@ input:focus {
   }
 
   &_light-theme {
-    .field__input:not(._has-error) {
-      border-bottom: 0.5px solid rgba(0, 0, 0, 0.6);
+    &:not(._has-error) {
+      .field__input {
+        border-bottom: 0.5px solid rgba(0, 0, 0, 0.6);
+      }
     }
   }
 }

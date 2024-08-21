@@ -7,15 +7,23 @@
     row-gap: 24px;
   }
 
+  &._has-error {
+    .textarea__field {
+      border: 0.5px solid #c42929;
+    }
+  }
+
   &_light-theme {
-    .textarea {
-      &__field:not(._has-error) {
+    &:not(._has-error) {
+      .textarea__field {
         border: 0.5px solid rgba(0, 0, 0, 0.6);
 
         &::placeholder {
           color: #00000066;
         }
       }
+    }
+    .textarea {
       &__counter {
         color: #00000066;
       }

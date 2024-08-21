@@ -37,6 +37,10 @@
     &.title {
       font-family: "Druk Wide";
       letter-spacing: 0;
+
+      @media (max-width: 399px) {
+        font-size: 40px;
+      }
     }
   }
 

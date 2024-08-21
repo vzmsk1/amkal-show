@@ -1,5 +1,41 @@
 .lang {
   &_ru {
+    ._zoom-desk &,
+    &:not(._zoom &) {
+      @media (min-width: 1600px) and (max-width: 1920px) and (max-height: 1200px) {
+        .lang {
+          &__text {
+            //            font-size: 3rem;
+          }
+        }
+        .lang__title-content_3,
+        .lang__title-content_4 {
+          margin-left: 29%;
+        }
+        .lang__image-wrap_left {
+          width: 61.5rem;
+          height: 39rem;
+        }
+        .lang__image-wrap_right {
+          top: 22rem;
+
+          width: 66.1rem;
+
+          .lang__image {
+            height: 36rem;
+          }
+        }
+        .sm-title {
+          font-size: 14rem;
+        }
+      }
+      @media (min-width: 1600px) and (min-height: 1200px) {
+        .sm-title {
+          font-size: 10rem;
+        }
+      }
+    }
+
     .lang {
       &__container {
         padding-top: 45rem;
@@ -300,6 +336,15 @@
 
 .victory {
   &_ru {
+    ._zoom-desk &,
+    &:not(._zoom &) {
+      @media (min-width: 1600px) and (max-width: 1920px) and (max-height: 1200px) {
+        .sm-title {
+          font-size: 13rem;
+          line-height: 92%;
+        }
+      }
+    }
     .victory {
       &__container {
         padding-bottom: 0;
