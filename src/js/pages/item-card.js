@@ -8,7 +8,6 @@ import { toggleScroll } from "../lib/locomotive-scroll";
 import("swiper/css");
 import gsap from "gsap";
 import { initSimplebar } from "../lib/simplebar";
-import { initCartWidget, onTouchStartHandler } from "../utils/script";
 
 const md = gsap.matchMedia();
 
