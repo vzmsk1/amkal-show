@@ -2,7 +2,6 @@
 // import "../../scss/sections/items-carousel.scss";
 window.innerWidth > 1024 && import("../lib/locomotive-scroll");
 
-import "../anim/item-card-carousel";
 import "../lib/lightgallery";
 import Swiper from "swiper";
 import { Pagination } from "swiper/modules";

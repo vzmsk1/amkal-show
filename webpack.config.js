@@ -153,6 +153,11 @@ module.exports = {
       "src/js/pages",
       "feed-chapter-2.js",
     ),
+    "feed-chapter-new": path.resolve(
+      __dirname,
+      "src/js/pages",
+      "feed-chapter-new.js",
+    ),
     checkout: path.resolve(__dirname, "src/js/pages", "checkout.js"),
     contacts: path.resolve(__dirname, "src/js/pages", "contacts.js"),
     "error-page-403": path.resolve(
