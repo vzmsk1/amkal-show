@@ -366,82 +366,82 @@
     }
 
     &_head {
-      .table-match__subtitle {
-        &:nth-child(2) {
-          transform: translateX(3px);
+      //      .table-match__subtitle {
+      //        &:nth-child(2) {
+      //          transform: translateX(3px);
+      //
+      //          ._zoom-tab &,
+      //          &:not(._zoom &) {
+      //            @media (max-width: 64.05em) {
+      //              transform: translateX(6px);
+      //            }
+      //          }
+      //        }
+      //
+      //        &:nth-child(3) {
+      //          transform: translateX(4px);
+      //
+      //          ._zoom-tab &,
+      //          &:not(._zoom &) {
+      //            @media (max-width: 64.05em) {
+      //              transform: translateX(8px);
+      //            }
+      //          }
+      //        }
+      //
+      //        &:nth-child(4) {
+      //          //          ._zoom-tab &,
+      //          &:not(._zoom &) {
+      //            @media (min-width: 64.05em) {
+      //              transform: translateX(8px);
+      //            }
+      //          }
+      //
+      //          ._zoom-desk & {
+      //            transform: translateX(8px);
+      //          }
+      //        }
+      //
+      //        &:nth-child(5) {
+      //          &:not(._zoom &) {
+      //            @media (min-width: 64.05em) {
+      //              transform: translateX(11px);
+      //            }
+      //          }
+      //
+      //          ._zoom-desk & {
+      //            transform: translateX(11px);
+      //          }
+      //        }
+      //
+      //        &:nth-child(6) {
+      //          transform: translateX(13px);
+      //
+      //          ._zoom-tab &,
+      //          &:not(._zoom &) {
+      //            @media (max-width: 64.05em) {
+      //              transform: translateX(14px);
+      //            }
+      //          }
+      //        }
+      //
+      //        &:nth-child(7) {
+      //          transform: translateX(16px);
+      //
+      //          ._zoom-tab &,
+      //          &:not(._zoom &) {
+      //            @media (max-width: 64.05em) {
+      //              transform: translateX(14px);
+      //            }
+      //          }
+      //        }
+      //      }
+    }
 
-          ._zoom-tab &,
-          &:not(._zoom &) {
-            @media (max-width: 64.05em) {
-              transform: translateX(6px);
-            }
-          }
-        }
-
-        &:nth-child(3) {
-          transform: translateX(4px);
-
-          ._zoom-tab &,
-          &:not(._zoom &) {
-            @media (max-width: 64.05em) {
-              transform: translateX(8px);
-            }
-          }
-        }
-
-        &:nth-child(4) {
-          //          ._zoom-tab &,
-          &:not(._zoom &) {
-            @media (min-width: 64.05em) {
-              transform: translateX(8px);
-            }
-          }
-
-          ._zoom-desk & {
-            transform: translateX(8px);
-          }
-        }
-
-        &:nth-child(5) {
-          &:not(._zoom &) {
-            @media (min-width: 64.05em) {
-              transform: translateX(11px);
-            }
-          }
-
-          ._zoom-desk & {
-            transform: translateX(11px);
-          }
-        }
-
-        &:nth-child(6) {
-          transform: translateX(13px);
-
-          ._zoom-tab &,
-          &:not(._zoom &) {
-            @media (max-width: 64.05em) {
-              transform: translateX(14px);
-            }
-          }
-        }
-
-        &:nth-child(7) {
-          transform: translateX(16px);
-
-          ._zoom-tab &,
-          &:not(._zoom &) {
-            @media (max-width: 64.05em) {
-              transform: translateX(14px);
-            }
-          }
-        }
-      }
-
-      //      ._zoom-desk &,
-      &:not(._zoom &) {
-        @media (min-width: 64.05em) {
-          grid-template-columns: repeat(4, 4fr) repeat(2, 3fr) 2fr;
-        }
+    //      ._zoom-desk &,
+    &:not(._zoom &) {
+      @media (min-width: 64.05em) {
+        grid-template-columns: repeat(4, 4fr) repeat(2, 3fr) 3fr;
       }
     }
 
@@ -518,14 +518,14 @@
 
     &:not(.table-match__row_head &) {
       &:nth-child(3) {
-        padding-left: 6px;
-
-        ._zoom-tab &,
-        &:not(._zoom &) {
-          @media (max-width: 64.05em) and (min-width: 48.05em) {
-            padding-left: 9px;
-          }
-        }
+        //        padding-left: 6px;
+        //
+        //        ._zoom-tab &,
+        //        &:not(._zoom &) {
+        //          @media (max-width: 64.05em) and (min-width: 48.05em) {
+        //            padding-left: 9px;
+        //          }
+        //        }
       }
 
       &:nth-child(4),
@@ -539,26 +539,37 @@
       }
 
       &:nth-child(6) {
-        padding-left: 14px;
-
-        ._zoom-tab &,
-        &:not(._zoom &) {
-          @media (max-width: 64.05em) and (min-width: 48.05em) {
-            padding-left: 4px;
-          }
-        }
+        //        padding-left: 14px;
+        //
+        //        ._zoom-tab &,
+        //        &:not(._zoom &) {
+        //          @media (max-width: 64.05em) and (min-width: 48.05em) {
+        //            padding-left: 4px;
+        //          }
+        //        }
       }
 
       &:nth-child(7) {
         //        ._zoom-tab &,
-        &:not(._zoom &) {
-          @media (min-width: 64.05em) {
-            padding-left: 16px;
-          }
-        }
+        //        &:not(._zoom &) {
+        //          @media (min-width: 64.05em) {
+        //            padding-left: 16px;
+        //          }
+        //        }
+        //
+        //        ._zoom-desk & {
+        //          padding-left: 16px;
+        //        }
+      }
+    }
 
-        ._zoom-desk & {
-          padding-left: 16px;
+    &._desktop-t-only {
+      ._zoom-desk &,
+      &:not(._zoom &) {
+        @media (min-width: 48em) {
+          max-width: 121px;
+
+          line-height: 100%;
         }
       }
     }
@@ -588,7 +599,7 @@
   &__subtitle-icon {
     display: inline-flex;
     align-items: center;
-    width: 55px;
+    //    width: 55px;
     height: 25px;
 
     object-fit: contain;
