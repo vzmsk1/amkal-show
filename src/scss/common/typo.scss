@@ -45,15 +45,10 @@
   font-family: "Druk Text Wide Cyr";
   font-weight: 700;
   font-size: 45px;
-  line-height: 59px;
-  letter-spacing: -5px;
+  line-height: 115%;
+  letter-spacing: -0.5px;
 
   text-transform: uppercase;
-
-  @media (max-width: 48em) {
-    line-height: 39px;
-    letter-spacing: -3px;
-  }
 }
 
 .quote {
@@ -87,7 +82,7 @@
   font-weight: 700;
   font-size: 11rem;
   line-height: 85%;
-  letter-spacing: -0.3rem;
+  letter-spacing: -0.5px;
   text-transform: uppercase;
 
   ._zoom-tab &,
@@ -102,7 +97,6 @@
   &:not(._zoom &) {
     @media (max-width: 48em) {
       font-size: 6.9rem;
-      letter-spacing: -0.9rem;
     }
   }
 }

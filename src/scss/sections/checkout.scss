@@ -29,12 +29,6 @@
     }
   }
 
-  &__title {
-    &.title {
-      letter-spacing: -3px;
-    }
-  }
-
   &__body {
     display: grid;
     grid-template-columns: minmax(461px, 40vw) 483px;

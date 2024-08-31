@@ -24,15 +24,13 @@
 
   &__title {
     &.title {
-      letter-spacing: -4px;
-
       @media (max-width: 64.05em) and (min-width: 48em) {
         font-family: "Druk Wide";
-        letter-spacing: 0;
+        letter-spacing: 2.25px;
       }
 
       @media (max-width: 48em) {
-        letter-spacing: -3px;
+        letter-spacing: -0.5px;
       }
 
       @media (max-width: 400px) {

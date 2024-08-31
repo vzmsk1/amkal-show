@@ -29,12 +29,6 @@
     }
   }
 
-  &__title {
-    &.title {
-      letter-spacing: -4.5px;
-    }
-  }
-
   &__cards {
     display: grid;
     grid-template-columns: repeat(3, 356px);

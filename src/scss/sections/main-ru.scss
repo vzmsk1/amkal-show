@@ -78,28 +78,13 @@
         ._zoom-mob &,
         &:not(._zoom &) {
           @media (max-width: 48em) {
-            letter-spacing: -0.3rem;
-            line-height: 103%;
+            line-height: 112%;
             font-size: 6.3rem;
           }
         }
       }
 
       &__title-content {
-        ._zoom-tab &,
-        &:not(._zoom &) {
-          @media (max-width: 64.05em) and (min-width: 48.05em) {
-            letter-spacing: -0.9rem;
-          }
-        }
-
-        ._zoom-mob &,
-        &:not(._zoom &) {
-          @media (max-width: 48em) {
-            letter-spacing: -0.4rem;
-          }
-        }
-
         &_1,
         &_2 {
           transform: translateX(-110%);
@@ -118,13 +103,13 @@
           ._zoom-tab &,
           &:not(._zoom &) {
             @media (max-width: 64.05em) and (min-width: 48.05em) {
-              margin-left: 31rem;
+              margin-left: 25rem;
             }
           }
           ._zoom-mob &,
           &:not(._zoom &) {
             @media (max-width: 48em) {
-              margin-left: 11.8rem;
+              margin-left: 9.8rem;
               margin-top: -1rem;
             }
           }
@@ -137,7 +122,7 @@
           ._zoom-tab &,
           &:not(._zoom &) {
             @media (max-width: 64.05em) and (min-width: 48.05em) {
-              margin-left: 31rem;
+              margin-left: 25rem;
               margin-top: 0;
             }
           }
@@ -145,7 +130,7 @@
           ._zoom-mob &,
           &:not(._zoom &) {
             @media (max-width: 48em) {
-              margin-left: 11.3rem;
+              margin-left: 9.8rem;
               margin-top: -0.3rem;
             }
           }
@@ -320,7 +305,6 @@
         margin-bottom: 0;
 
         font-size: 10.1rem;
-        letter-spacing: -0.6rem;
         font-family: "Druk Text Wide Cyr";
 
         ._zoom-mob &,
@@ -354,6 +338,8 @@
       &__title {
         margin-right: 0;
         margin-left: 1rem;
+
+        row-gap: 2rem;
 
         .glitch-text {
           margin-bottom: 0;
@@ -463,28 +449,20 @@
         margin-left: auto;
 
         &:nth-child(1) {
-          margin-bottom: 0.5rem;
           margin-right: 34rem;
         }
         &:nth-child(2) {
           margin-right: 65rem;
-          margin-bottom: 1rem;
         }
 
         ._zoom-tab &,
         &:not(._zoom &) {
           @media (max-width: 64.05em) and (min-width: 48.05em) {
-            letter-spacing: -0.4rem;
-
             &:nth-child(1) {
               margin-right: 55rem;
             }
             &:nth-child(2) {
               margin-right: 107rem;
-              margin-bottom: 0;
-            }
-            &:nth-child(3) {
-              margin-bottom: 1rem;
             }
           }
         }
@@ -492,12 +470,10 @@
         ._zoom-mob &,
         &:not(._zoom &) {
           @media (max-width: 48em) {
-            &:nth-child(1) {
-              margin-bottom: -1rem;
-            }
+            letter-spacing: -0.5px;
+
             &:nth-child(2) {
               margin-right: 38rem;
-              margin-bottom: -1rem;
             }
           }
         }
@@ -622,20 +598,18 @@
         }
 
         font-size: 10.2rem;
-        letter-spacing: -0.6rem;
 
         ._zoom-tab &,
         &:not(._zoom &) {
           @media (max-width: 64.05em) and (min-width: 48.05em) {
             font-size: 11.1rem;
-            letter-spacing: -0.2rem;
           }
         }
 
         ._zoom-mob &,
         &:not(._zoom &) {
           @media (max-width: 48em) {
-            letter-spacing: -0.5rem;
+            line-height: 100%;
           }
           @media (max-width: 48em) and (min-height: 500px) {
             font-size: 4.3rem;

@@ -35,10 +35,9 @@
     &.gallery {
       margin-bottom: 63px;
       padding-bottom: 0;
+      padding-top: 0;
 
       @media (max-width: 64.05em) and (min-width: 48em) {
-        padding-top: 60px;
-
         .gallery__body {
           margin-bottom: 100px;
         }
@@ -47,9 +46,6 @@
       @media (max-width: 48em) {
         .slide-gallery__image {
           margin-top: 0;
-        }
-        .slide-gallery:not(.slide-gallery._is-vertical) {
-          padding-top: 130px;
         }
       }
     }
@@ -85,19 +81,15 @@
   }
 
   &__head {
-    margin-bottom: 55px;
+    @media (min-width: 64.05em) {
+      margin-bottom: 90px;
+    }
 
     .feed-chapter__container {
       row-gap: 9px;
     }
 
-    @media (max-width: 64.05em) and (min-width: 48em) {
-      margin-bottom: 20px;
-    }
-
     @media (max-width: 48em) {
-      margin-bottom: 24px;
-
       .feed-chapter__container {
         row-gap: 4px;
       }

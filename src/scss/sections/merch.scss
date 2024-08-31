@@ -85,13 +85,11 @@
       }
       &__title {
         font-size: 5.7rem;
-        letter-spacing: 0;
 
         ._zoom-tab &,
         &:not(._zoom &) {
           @media (max-width: 64.05em) and (min-width: 48.05em) {
             font-size: 8.2rem;
-            letter-spacing: 1rem;
           }
         }
 
@@ -99,7 +97,6 @@
         &:not(._zoom &) {
           @media (max-width: 48em) {
             font-size: 7.5rem;
-            letter-spacing: 0;
           }
         }
       }
@@ -225,26 +222,11 @@
 
   &__title {
     &.title {
-      letter-spacing: 0.9px;
-
       ._zoom-desk &,
       &:not(._zoom &) {
         @media (min-width: 48em) {
           font-family: "Druk Wide";
-        }
-      }
-
-      ._zoom-tab &,
-      &:not(._zoom &) {
-        @media (max-width: 64.05em) and (min-width: 48.05em) {
-          letter-spacing: 0;
-        }
-      }
-
-      ._zoom-mob &,
-      &:not(._zoom &) {
-        @media (max-width: 48em) {
-          letter-spacing: -2.4px;
+          letter-spacing: 2.25px;
         }
       }
     }

@@ -38,9 +38,9 @@
     .glitch-text {
       position: relative;
 
-      margin-bottom: 1.1rem;
+      margin-bottom: 1rem;
 
-      transform: translate(4.8%, -1.5rem);
+      transform: translate(4.8%, 0);
 
       &:not(._zoom &) {
         @media (min-width: 64.05em) and (max-height: 900px) {
@@ -135,25 +135,17 @@
   }
 
   &__title-txt {
-    ._zoom-tab &,
-    &:not(._zoom &) {
-      @media (max-width: 64.05em) and (min-width: 48.05em) {
-        letter-spacing: -1rem;
-      }
-    }
-
     ._zoom-mob &,
     &:not(._zoom &) {
       .sm-title {
         @media (max-width: 48em) and (max-height: 800px) {
           font-size: 4.9rem;
-          letter-spacing: -0.5rem;
         }
       }
     }
 
     &_1 {
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
 
       transform: translateX(-100%);
       opacity: 0;
@@ -185,15 +177,15 @@
       ._zoom-tab &,
       &:not(._zoom &) {
         @media (max-width: 64.05em) and (min-width: 48.05em) {
-          margin-left: 101rem;
+          margin-left: 94rem;
         }
       }
 
       ._zoom-mob &,
       &:not(._zoom &) {
         @media (max-width: 48em) {
-          margin-bottom: 0;
-          margin-left: 35rem;
+          margin-bottom: 0.5rem;
+          margin-left: 33rem;
         }
       }
     }
@@ -204,14 +196,14 @@
       ._zoom-tab &,
       &:not(._zoom &) {
         @media (max-width: 64.05em) and (min-width: 48.05em) {
-          margin-left: 101rem;
+          margin-left: 94rem;
         }
       }
 
       ._zoom-mob &,
       &:not(._zoom &) {
         @media (max-width: 48em) {
-          margin-left: 35rem;
+          margin-left: 33rem;
         }
       }
     }

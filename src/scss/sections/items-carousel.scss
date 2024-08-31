@@ -64,16 +64,6 @@
     }
   }
 
-  &__title {
-    &.title {
-      letter-spacing: -6px;
-
-      @media (max-width: 64.05em) {
-        letter-spacing: -3px;
-      }
-    }
-  }
-
   &__slide {
     @media (max-width: 64.05em) {
       &:not(:first-child, :nth-child(2)) {

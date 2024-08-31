@@ -24,8 +24,7 @@
     flex-direction: column;
 
     font-weight: 500;
-    line-height: 1;
-    letter-spacing: -4.6px;
+    line-height: 115%;
 
     span:last-child {
       transform: translateY(-9px);
@@ -35,17 +34,9 @@
       max-width: 548px;
     }
 
-    @media (max-width: 48em) {
-      &.title {
-        line-height: 1;
-        letter-spacing: -4.5px;
-      }
-    }
-
     @media (max-width: 26em) {
       &.title {
-        font-size: 40px;
-        line-height: 44px;
+        font-size: 39px;
       }
     }
   }

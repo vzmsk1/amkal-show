@@ -36,7 +36,7 @@
     ._zoom-mob &,
     &:not(._zoom &) {
       @media (max-width: 48em) {
-        font-size: 2.45rem;
+        font-size: 2.7rem;
         line-height: 6rem;
       }
     }
@@ -231,7 +231,6 @@
     &_sm {
       width: fit-content;
 
-      letter-spacing: -0.2rem;
       line-height: 94%;
 
       ._zoom-desk &,

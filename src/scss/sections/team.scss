@@ -33,10 +33,6 @@
   }
 
   &__title {
-    &.title {
-      letter-spacing: -5.2px;
-    }
-
     ._page-loaded & {
       transform: translateX(-2px);
     }

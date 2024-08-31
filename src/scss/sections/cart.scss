@@ -32,7 +32,7 @@
 
     &.title {
       font-family: "Druk Wide";
-      letter-spacing: 0;
+      letter-spacing: 2.25px;
     }
 
     @media (max-width: 64.05em) and (min-width: 48em) {
@@ -43,7 +43,7 @@
 
       &.title {
         font-family: "Druk Text Wide Cyr";
-        letter-spacing: -3px;
+        letter-spacing: -0.5px;
       }
     }
   }

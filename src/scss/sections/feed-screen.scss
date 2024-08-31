@@ -168,7 +168,6 @@
     &.title {
       font-size: 5.7rem;
       line-height: 131%;
-      letter-spacing: 0.3rem;
 
       ._zoom-tab &,
       &:not(._zoom &) {
@@ -183,7 +182,6 @@
       @media (max-width: 48em) {
         &.title {
           line-height: 93%;
-          letter-spacing: -0.4rem;
           font-size: 7.7rem;
         }
       }
@@ -192,7 +190,7 @@
     @media (min-width: 48.05em) {
       &.title {
         font-family: "Druk Wide";
-        letter-spacing: 0;
+        letter-spacing: 2.25px;
       }
     }
   }

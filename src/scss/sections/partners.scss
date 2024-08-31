@@ -28,20 +28,6 @@
     }
   }
 
-  &__title {
-    &.title {
-      letter-spacing: -4px;
-
-      @media (max-width: 64.05em) and (min-width: 48em) {
-        letter-spacing: 2.3px;
-      }
-
-      @media (max-width: 48em) {
-        letter-spacing: -2.9px;
-      }
-    }
-  }
-
   &__body {
     display: grid;
     grid-template-columns: 1fr 810px 171px;
