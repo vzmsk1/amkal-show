@@ -32,8 +32,27 @@
   }
 
   &__gallery {
-    margin-bottom: 63px;
-    padding-bottom: 0;
+    &.gallery {
+      margin-bottom: 63px;
+      padding-bottom: 0;
+
+      @media (max-width: 64.05em) and (min-width: 48em) {
+        padding-top: 60px;
+
+        .gallery__body {
+          margin-bottom: 100px;
+        }
+      }
+
+      @media (max-width: 48em) {
+        .slide-gallery__image {
+          margin-top: 0;
+        }
+        .slide-gallery:not(.slide-gallery._is-vertical) {
+          padding-top: 130px;
+        }
+      }
+    }
   }
 
   &__carousel {
