@@ -198,7 +198,7 @@
       ._zoom-mob &,
       &:not(._zoom &) {
         @media (max-width: 48em) {
-          padding-top: 27.5rem;
+          padding-top: 26.5rem;
         }
       }
     }
@@ -218,14 +218,14 @@
     left: 2.5rem;
 
     font-weight: 500;
-    font-size: 2.25rem;
+    font-size: 15px;
     line-height: 2rem;
     text-transform: uppercase;
 
     ._zoom-tab &,
     &:not(._zoom &) {
       @media (max-width: 64.05em) and (min-width: 48.05em) {
-        font-size: 3.7rem;
+        font-size: 3.3rem;
         line-height: 5rem;
       }
     }
@@ -240,7 +240,7 @@
         width: 100%;
         order: -1;
 
-        font-size: 2.7rem;
+        font-size: 8.5px;
         line-height: 5rem;
       }
     }
@@ -254,7 +254,7 @@
       ._zoom-desk &,
       &:not(._zoom &) {
         @media (min-width: 64.05em) {
-          transform: translateY(2rem);
+          transform: translateY(3rem);
         }
       }
 
@@ -282,7 +282,7 @@
         margin: 0 auto;
 
         width: 100%;
-        row-gap: 1.5rem;
+        row-gap: 1rem;
       }
     }
 
@@ -292,24 +292,15 @@
   }
 
   &__title-txt {
-    line-height: 90%;
+    line-height: 95%;
 
     opacity: 0;
     transform: translateX(-30%);
 
     &:not(.victory_ru &) {
       &.victory__title-txt_sm {
-        &:nth-child(1) {
-          ._zoom-desk &,
-          &:not(._zoom &) {
-            @media (min-width: 48.05em) {
-              margin-top: 1rem;
-            }
-          }
-        }
         &:nth-child(2) {
-          margin-left: 50rem;
-          margin-bottom: 1rem;
+          margin-left: 53rem;
 
           ._zoom-tab &,
           &:not(._zoom &) {
@@ -336,7 +327,7 @@
           margin-left: auto;
         }
         &:nth-child(3) {
-          margin-right: 51.5rem;
+          margin-right: 55.5rem;
 
           ._zoom-tab &,
           &:not(._zoom &) {
@@ -374,7 +365,6 @@
       &:not(._zoom &) {
         @media (max-width: 48em) {
           font-weight: 700;
-          line-height: 81%;
         }
       }
 
@@ -400,7 +390,6 @@
       }
 
       &_2 {
-        margin-bottom: 1rem;
         margin-left: 110rem;
 
         transform: translateX(-15rem);
@@ -441,6 +430,13 @@
             margin-left: 35rem;
           }
         }
+      }
+    }
+
+    ._zoom-mob &,
+    &:not(._zoom &) {
+      @media (max-width: 48em) {
+        line-height: 87%;
       }
     }
   }

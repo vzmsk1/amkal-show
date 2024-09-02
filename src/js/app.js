@@ -30,3 +30,5 @@ import "./lib/inputmask";
 //     }
 //   }, 2500);
 // });
+
+console.log(window);

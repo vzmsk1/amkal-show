@@ -2,7 +2,7 @@
   &__container {
     position: relative;
 
-    padding-top: 37rem;
+    padding-top: 39rem;
 
     display: flex;
     flex-direction: column;
@@ -22,7 +22,7 @@
         flex-direction: column-reverse;
       }
       @media (max-width: 48em) and (min-height: 800px) {
-        padding-top: 46.6vh;
+        padding-top: 47vh;
       }
       @media (max-width: 48em) and (max-height: 800px) {
         padding-top: 37.6vh;
@@ -38,38 +38,26 @@
     .glitch-text {
       position: relative;
 
-      margin-bottom: 1rem;
-
       transform: translate(4.8%, 0);
 
-      &:not(._zoom &) {
-        @media (min-width: 64.05em) and (max-height: 900px) {
-          transform: translate(4.8%, 0.5rem);
-        }
-      }
-
       .glitch span {
-        line-height: 97%;
-        font-size: 26.4rem;
-
-        ._zoom-desk &,
-        &:not(._zoom &) {
-          @media (min-width: 1920px) {
-            line-height: 85%;
-          }
-        }
+        line-height: 123%;
+        font-size: 27rem;
+        font-weight: 700;
 
         ._zoom-tab &,
         &:not(._zoom &) {
           @media (max-width: 64.05em) and (min-width: 48.05em) {
-            font-size: 41rem;
+            font-size: 39.3rem;
+            line-height: 121%;
           }
         }
 
         ._zoom-mob &,
         &:not(._zoom &) {
           @media (max-width: 48em) {
-            font-size: 14rem;
+            font-size: 13.5rem;
+            line-height: 123%;
           }
         }
       }
@@ -77,20 +65,21 @@
       .letter {
         margin: 0 -1.1rem;
 
-        height: 21rem;
+        height: 24rem;
 
         ._zoom-tab &,
         &:not(._zoom &) {
           @media (max-width: 64.05em) and (min-width: 48.05em) {
             margin: 0 -1.4rem;
-            height: 32rem;
+
+            height: 35rem;
           }
         }
 
         ._zoom-mob &,
         &:not(._zoom &) {
           @media (max-width: 48em) {
-            height: 10rem;
+            height: 11.5rem;
           }
         }
       }
@@ -98,22 +87,24 @@
       ._zoom-tab &,
       &:not(._zoom &) {
         @media (max-width: 64.05em) and (min-width: 48.05em) {
-          transform: translate(7.8%, -1.5rem);
+          transform: translate(7.8%, 0);
         }
       }
 
       ._zoom-mob &,
       &:not(._zoom &) {
         @media (max-width: 48em) {
-          transform: translate(-1.2%, -1rem);
+          margin-bottom: 1rem;
+
+          transform: translate(-1.2%, 0);
         }
       }
     }
   }
 
   &__text {
-    font-size: 2rem;
-    line-height: 2.5rem;
+    font-size: 15px;
+    line-height: 101%;
 
     ._zoom-tab &,
     &:not(._zoom &) {
@@ -125,16 +116,15 @@
 
     ._zoom-mob &,
     &:not(._zoom &) {
-      @media (max-width: 48em) and (min-height: 800px) {
-        font-size: 2.7rem;
-      }
-      @media (max-width: 48em) and (max-height: 800px) {
-        font-size: 1.7rem;
+      @media (max-width: 48em) {
+        font-size: 8.5px;
       }
     }
   }
 
   &__title-txt {
+    line-height: 92%;
+
     ._zoom-mob &,
     &:not(._zoom &) {
       .sm-title {
@@ -145,7 +135,7 @@
     }
 
     &_1 {
-      margin-bottom: 1.5rem;
+      //      margin-bottom: 1.5rem;
 
       transform: translateX(-100%);
       opacity: 0;
@@ -171,39 +161,38 @@
     }
 
     &_2 {
-      margin-bottom: 1rem;
-      margin-left: 63rem;
+      //      margin-bottom: 1rem;
+      margin-left: 67rem;
 
       ._zoom-tab &,
       &:not(._zoom &) {
         @media (max-width: 64.05em) and (min-width: 48.05em) {
-          margin-left: 94rem;
+          margin-left: 101rem;
         }
       }
 
       ._zoom-mob &,
       &:not(._zoom &) {
         @media (max-width: 48em) {
-          margin-bottom: 0.5rem;
-          margin-left: 33rem;
+          margin-left: 36rem;
         }
       }
     }
 
     &_3 {
-      margin-left: 63rem;
+      margin-left: 67rem;
 
       ._zoom-tab &,
       &:not(._zoom &) {
         @media (max-width: 64.05em) and (min-width: 48.05em) {
-          margin-left: 94rem;
+          margin-left: 101rem;
         }
       }
 
       ._zoom-mob &,
       &:not(._zoom &) {
         @media (max-width: 48em) {
-          margin-left: 33rem;
+          margin-left: 36rem;
         }
       }
     }
@@ -213,18 +202,18 @@
     position: absolute;
 
     &_right {
-      top: 33.2rem;
+      top: 35.2rem;
       right: 2rem;
 
       display: flex;
       flex-direction: column;
-      row-gap: 1rem;
-      width: 61.1rem;
+      row-gap: 2rem;
+      width: 65.1rem;
 
       .lang__image {
         align-self: flex-end;
         width: 100%;
-        height: 30rem;
+        height: 32rem;
 
         transform: translateX(-18rem);
         opacity: 0;
@@ -284,8 +273,8 @@
       left: 2rem;
       bottom: 2rem;
 
-      width: 45.5rem;
-      height: 28rem;
+      width: 48.4rem;
+      height: 29.7rem;
 
       transform: translateX(-100%);
       opacity: 0;

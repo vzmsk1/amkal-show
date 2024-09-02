@@ -120,12 +120,15 @@
   }
 
   &__name {
-    margin-bottom: auto;
-
     min-width: 220px;
 
-    font-size: 36.4111px;
+    font-size: 12px;
     line-height: 1;
+
+    @media (max-width: 48em) {
+      font-size: 16px;
+      line-height: 21px;
+    }
   }
 
   &__swiper {

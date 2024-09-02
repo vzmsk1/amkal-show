@@ -166,15 +166,7 @@
 
   &__title {
     &.title {
-      font-size: 5.7rem;
       line-height: 131%;
-
-      ._zoom-tab &,
-      &:not(._zoom &) {
-        @media (max-width: 64.05em) and (min-width: 48.05em) {
-          font-size: 9rem;
-        }
-      }
     }
 
     ._zoom-mob &,
@@ -182,15 +174,17 @@
       @media (max-width: 48em) {
         &.title {
           line-height: 93%;
-          font-size: 7.7rem;
         }
       }
     }
 
-    @media (min-width: 48.05em) {
-      &.title {
-        font-family: "Druk Wide";
-        letter-spacing: 2.25px;
+    ._zoom-desk &,
+    &:not(._zoom &) {
+      @media (min-width: 48.05em) {
+        &.title {
+          font-family: "Druk Wide";
+          letter-spacing: 3px;
+        }
       }
     }
   }

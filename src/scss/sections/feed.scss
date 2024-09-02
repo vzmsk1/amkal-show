@@ -38,7 +38,13 @@
   &__title {
     &.title {
       font-family: "Druk Wide";
-      letter-spacing: 2.25px;
+
+      ._zoom-desk &,
+      &:not(._zoom &) {
+        @media (min-width: 48.05em) {
+          letter-spacing: 3px;
+        }
+      }
 
       @media (max-width: 48em) {
         font-family: "Druk Text Wide Cyr";
