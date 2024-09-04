@@ -302,6 +302,16 @@
         &:nth-child(2) {
           margin-left: 53rem;
 
+          ._zoom-desk &,
+          &:not(._zoom &) {
+            @media (min-width: 64.05em) and (max-height: 900px) {
+              margin-left: 30vh;
+            }
+            @media (min-width: 1520px) and (min-height: 900px) {
+              margin-left: 391px;
+            }
+          }
+
           ._zoom-tab &,
           &:not(._zoom &) {
             @media (max-width: 64.05em) and (min-width: 48.05em) {
@@ -328,6 +338,16 @@
         }
         &:nth-child(3) {
           margin-right: 55.5rem;
+
+          ._zoom-desk &,
+          &:not(._zoom &) {
+            @media (min-width: 64.05em) and (max-height: 900px) {
+              margin-right: 41vh;
+            }
+            @media (min-width: 1520px) and (min-height: 900px) {
+              margin-right: 409px;
+            }
+          }
 
           ._zoom-tab &,
           &:not(._zoom &) {
@@ -361,6 +381,13 @@
       }
     }
     &_sm {
+      ._zoom-desk &,
+      &:not(._zoom &) {
+        @media (min-width: 64.05em) and (max-height: 900px) {
+          font-size: 9.5vh;
+        }
+      }
+
       ._zoom-mob &,
       &:not(._zoom &) {
         @media (max-width: 48em) {

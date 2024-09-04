@@ -160,6 +160,7 @@ module.exports = {
     ),
     checkout: path.resolve(__dirname, "src/js/pages", "checkout.js"),
     contacts: path.resolve(__dirname, "src/js/pages", "contacts.js"),
+    "contacts-success": path.resolve(__dirname, "src/js/pages", "contacts.js"),
     "error-page-403": path.resolve(
       __dirname,
       "src/js/pages",

@@ -256,6 +256,19 @@
     background-color: #caff34;
   }
 
+  .mainpage & {
+    ._zoom-desk &,
+    &:not(._zoom &) {
+      @media (min-width: 64.05em) and (max-height: 750px) {
+        padding: 7px 15px 0 17px;
+
+        .nav-row__nav-link {
+          line-height: 115%;
+        }
+      }
+    }
+  }
+
   ._zoom-tab &,
   ._zoom-mob &,
   &:not(._zoom &) {
@@ -301,7 +314,7 @@
       @media (min-width: 48em) {
         margin-top: -2px;
 
-        row-gap: 5px;
+        //        row-gap: 5px;
       }
     }
 
@@ -324,7 +337,7 @@
   }
 
   &__nav-link {
-    line-height: 10px;
+    line-height: 130%;
     letter-spacing: 1.5px;
     font-size: 12px;
 

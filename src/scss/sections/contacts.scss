@@ -49,12 +49,32 @@
     flex-direction: column;
   }
 
+  &__message {
+    .contacts__subtitle {
+      margin-bottom: 64px;
+    }
+    .btn {
+      width: 100%;
+
+      background-color: #000000;
+
+      .btn__txt {
+        color: #ffffff;
+      }
+    }
+  }
+
+  &__message,
   &__form {
     width: 100%;
 
     @media (max-width: 48em) {
       margin-bottom: 98px;
+    }
+  }
 
+  &__form {
+    @media (max-width: 48em) {
       .subtitle {
         font-size: 26px;
       }

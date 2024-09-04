@@ -104,10 +104,17 @@
 
     font-family: "Druk Text Wide Cyr";
     font-weight: 700;
-    font-size: 11.6rem;
+    font-size: 85px;
     line-height: 100%;
 
     transform: translate(-50%, -39%);
+
+    ._zoom-desk &,
+    &:not(._zoom &) {
+      @media (min-width: 64.05em) and (max-height: 900px) {
+        font-size: 9.5vh;
+      }
+    }
 
     span {
       letter-spacing: -2px;
@@ -155,8 +162,8 @@
   }
 
   &__text {
-    font-size: 2.1rem;
-    line-height: 2.7rem;
+    font-size: 15px;
+    line-height: 19px;
 
     ._zoom-tab &,
     ._zoom-mob &,

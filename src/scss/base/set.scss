@@ -158,6 +158,10 @@ input[type="number"] {
 
   max-width: 2000px;
   width: 100%;
+
+  .mainpage & {
+    max-width: 2000px;
+  }
 }
 
 html {

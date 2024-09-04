@@ -63,15 +63,15 @@
     transform: translateX(-450%);
     opacity: 0;
 
+    ._zoom-desk &,
     &:not(._zoom &) {
       @media (min-width: 64.05em) and (max-height: 960px) {
-        margin-bottom: 3vh;
+        margin-bottom: 1vh;
 
         height: 21vh;
+        width: 36.5vh;
+        min-width: 263px;
       }
-    }
-    ._zoom-desk & {
-      margin-bottom: 1rem;
     }
 
     ._zoom-tab &,
@@ -185,7 +185,7 @@
       ._zoom-desk &,
       &:not(._zoom &) {
         @media (min-width: 64.05em) and (max-height: 960px) {
-          height: 14vh;
+          height: 15vh;
         }
       }
 
@@ -228,7 +228,8 @@
         ._zoom-desk &,
         &:not(._zoom &) {
           @media (min-width: 64.05em) and (max-height: 960px) {
-            font-size: 16vh;
+            font-size: 18vh;
+            line-height: 22.4vh;
           }
         }
 
