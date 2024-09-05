@@ -69,6 +69,13 @@
       }
     }
   }
+
+  ._zoom-mob &,
+  &:not(._zoom &) {
+    @media (max-width: 400px) {
+      font-size: 38px;
+    }
+  }
 }
 
 .quote {

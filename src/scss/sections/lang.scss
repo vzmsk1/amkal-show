@@ -49,7 +49,7 @@
         flex-direction: column-reverse;
       }
       @media (max-width: 48em) and (min-height: 800px) {
-        padding-top: 47vh;
+        padding-top: 45vh;
       }
       @media (max-width: 48em) and (max-height: 800px) {
         padding-top: 37.6vh;
@@ -118,6 +118,9 @@
             font-size: 13.5rem;
             line-height: 123%;
           }
+          @media (max-width: 48em) and (min-width: 500px) {
+            line-height: 107%;
+          }
         }
       }
 
@@ -167,6 +170,12 @@
           @media (max-width: 48em) {
             height: 11.5rem;
           }
+          @media (max-width: 48em) and (min-width: 500px) {
+            height: 11rem;
+          }
+          @media (max-width: 400px) {
+            height: 11rem;
+          }
         }
       }
 
@@ -180,9 +189,10 @@
       ._zoom-mob &,
       &:not(._zoom &) {
         @media (max-width: 48em) {
-          margin-bottom: 1rem;
-
           transform: translate(-1.2%, 0);
+        }
+        @media (max-width: 48em) and (max-width: 500px) {
+          margin-bottom: 1rem;
         }
       }
     }
@@ -221,6 +231,10 @@
         font-size: 3.3rem;
         line-height: 3.8rem;
       }
+      @media (max-width: 48em) and (min-width: 500px) {
+        font-size: 10px;
+        line-height: 170%;
+      }
     }
 
     ._zoom-mob &,
@@ -239,6 +253,9 @@
       .sm-title {
         @media (max-width: 48em) and (max-height: 800px) {
           font-size: 4.9rem;
+        }
+        @media (max-width: 48em) and (min-width: 500px) {
+          line-height: 103%;
         }
       }
     }
