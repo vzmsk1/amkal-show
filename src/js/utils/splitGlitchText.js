@@ -213,11 +213,15 @@ export const splitGlitchText = () => {
     const split = (t, item, size) => {
       let repeat = (t) => {
         let string = `<div class="letter">`;
-        // for (let i = 1; i <= 8; i++) {
-        //   string += `<div class="glitch" style='height: ${size / 8}px;'><span data-top='-${i * (size / 8)}' data-style='top: -${i * (size / 8)}px' style='top: -${i * (size / 8)}px'>${t}</span></div>`;
-        // }
-        for (let i = 1; i <= 8; i++) {
-          string += `<div class="glitch"><span>${t}</span></div>`;
+
+        if (window.innerWidth > 1024) {
+          for (let i = 1; i <= 8; i++) {
+            string += `<div class="glitch"><span>${t}</span></div>`;
+          }
+        } else {
+          for (let i = 1; i <= 8; i++) {
+            string += `<div class="glitch" style='height: ${size / 8}px;'><span data-top='-${i * (size / 8)}' data-style='top: -${i * (size / 8)}px' style='top: -${i * (size / 8)}px'>${t}</span></div>`;
+          }
         }
         string += `</div>`;
         return string;
@@ -246,31 +250,40 @@ export const splitGlitchText = () => {
       //   text.innerHTML = split(text.innerHTML, item, +data[0]);
       // }
 
-      text.innerHTML = split(text.innerHTML, text);
+      if (window.innerWidth > 1024) {
+        text.innerHTML = split(text.innerHTML, text);
 
-      const setSize = () => {
-        const size = item.querySelector(".letter").offsetHeight;
+        const setSize = () => {
+          const size =
+            window.innerWidth <= 1024 && window.innerWidth > 768
+              ? data[1]
+              : window.innerWidth <= 768
+                ? data[2]
+                : item.querySelector(".letter").offsetHeight + 30;
 
-        item.querySelectorAll(".letter").forEach((element) => {
-          element.querySelectorAll(".glitch").forEach((el, i) => {
-            el.style.height = `${(size + 30) / 8}px`;
-            el.querySelector("span").dataset.top = `-${i * ((size + 30) / 8)}`;
-            el.querySelector("span").dataset.style =
-              `top: -${i * ((size + 30) / 8)}px`;
-            gsap.set(el.querySelector("span"), {
-              top: `-${i * ((size + 30) / 8)}px`,
+          item.querySelectorAll(".letter").forEach((element) => {
+            element.querySelectorAll(".glitch").forEach((el, i) => {
+              el.style.height = `${size / 8}px`;
+              el.querySelector("span").dataset.top = `-${i * (size / 8)}`;
+              el.querySelector("span").dataset.style =
+                `top: -${i * (size / 8)}px`;
+              gsap.set(el.querySelector("span"), {
+                top: `-${i * (size / 8)}px`,
+              });
             });
-            // el.querySelector("span").style.top =
-            //   `top: -${i * ((size + 30) / 8)}px`;
           });
-        });
-      };
-      setSize();
-
-      window.addEventListener("resize", function () {
-        text.innerHTML = split(text.dataset.text, text);
+        };
         setSize();
-      });
+      } else {
+        const size =
+          window.innerWidth <= 1024 && window.innerWidth > 768
+            ? data[1]
+            : window.innerWidth <= 768
+              ? data[2]
+              : item.querySelector(".letter").offsetHeight + 30;
+
+        text.innerHTML = split(text.innerHTML, text, size);
+      }
     });
   }
 };
