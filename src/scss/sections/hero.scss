@@ -60,13 +60,25 @@
 
     ._zoom-mob &,
     &:not(._zoom &) {
-      @media (max-width: 48em) {
+      left: -2rem;
+
+      width: calc(100% + 9rem);
+      @media (max-width: 48em) and (min-height: 500px) {
+        height: 76%;
+      }
+      @media (max-width: 48em) and (min-width: 400px) {
         left: -10rem;
 
         width: calc(100% + 32rem);
       }
-      @media (max-width: 48em) and (min-height: 500px) {
-        height: 76%;
+      @media (max-width: 48em) {
+        transform: none;
+      }
+      @media (max-width: 48em) and (max-height: 800px) {
+        left: 0;
+        bottom: -11%;
+
+        height: 90%;
       }
     }
   }

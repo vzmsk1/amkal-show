@@ -30,6 +30,36 @@
     padding-top: 113px;
   }
 
+  &__video {
+    position: relative;
+
+    margin-bottom: 63px;
+
+    iframe {
+      max-height: 818px;
+      min-height: 550px;
+      height: 83.3vh;
+    }
+
+    @media (max-width: 64.05em) and (min-width: 48em) {
+      margin-bottom: 100px;
+      margin-top: 42px;
+
+      iframe {
+        height: 565px;
+      }
+    }
+
+    @media (max-width: 48em) {
+      margin-bottom: 32px;
+      margin-top: 25px;
+
+      iframe {
+        height: 273px;
+      }
+    }
+  }
+
   &__gallery {
     &.gallery {
       position: relative;

@@ -158,6 +158,11 @@ module.exports = {
       "src/js/pages",
       "feed-chapter-new.js",
     ),
+    "feed-chapter-video": path.resolve(
+      __dirname,
+      "src/js/pages",
+      "feed-chapter.js",
+    ),
     checkout: path.resolve(__dirname, "src/js/pages", "checkout.js"),
     contacts: path.resolve(__dirname, "src/js/pages", "contacts.js"),
     "contacts-success": path.resolve(__dirname, "src/js/pages", "contacts.js"),

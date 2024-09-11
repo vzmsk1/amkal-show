@@ -19,7 +19,7 @@ export const feedTl = gsap.timeline({
   ease: "power4.out",
   paused: true,
   onStart: () => {
-    gsap.set("body", { backgroundColor: "#171717" });
+    gsap.set("body", { backgroundColor: "#000000" });
   },
   onComplete: () => {
     document.documentElement.classList.remove("_is-animating");
